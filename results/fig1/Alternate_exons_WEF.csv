@@ -1,0 +1,11 @@
+Inclusion_Range,Type,Total,Frequency
+0-0.2,AltOnly,2381,0.35
+0.201-0.4,AltOnly,1634,0.24
+0.401-0.6,AltOnly,2132,0.313
+0.601-0.8,AltOnly,571,0.084
+0.801-1.001,AltOnly,85,0.012
+0-0.2,AltWithSS,65,0.055
+0.201-0.4,AltWithSS,247,0.21
+0.401-0.6,AltWithSS,229,0.194
+0.601-0.8,AltWithSS,220,0.187
+0.801-1.001,AltWithSS,417,0.354

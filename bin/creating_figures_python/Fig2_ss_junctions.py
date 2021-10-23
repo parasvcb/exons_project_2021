@@ -1,6 +1,6 @@
 import cPickle as pickle
-import modules_common as cm
-import modules_analysis as am
+import common.general_modules as gm
+import figPanels.modules_analysis as am
 import sys
 if len(sys.argv)!=4:
         print ("Please give 1 object 2 conditionFile 3 results dir")
@@ -10,9 +10,9 @@ prog,source_gene_object,gene_conFile,results_dir_csv = sys.argv
 fileswriter=open(results_dir_csv+"ss.log","w")
 window=3
 
-humanGeneObject=cm.readPickle(source_gene_object)
+humanGeneObject=gm.readPickle(source_gene_object)
 
-CONDITION_GENES=cm.readPickle(gene_conFile)
+CONDITION_GENES=gm.readPickle(gene_conFile)
 '''
 1. for the PI, get the exon types and the junctions and just calculate the basic types like before
 2. Screen all the isoforms for pairiwse junctions poulation, and keep adding the junctions, 
@@ -48,7 +48,7 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
 
             PI_representative=[]
             for i in range(0,len(PI.exons)-1):
-                if PI.exons[i].length>9 and PI.exons[i+1].length>9:
+                if (PI.exons[i].length>9 and PI.exons[i+1].length>9) and (PI.exons[i].ID[0]!='T' and PI.exons[i+1].ID[0]=='T'):
                     PI_representative+=[(PI.exons[i],PI.exons[i+1])]
                 else:
                     irrelavant+=1
@@ -57,7 +57,7 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
                 for i in PI_representative:
                     i1seq=i[0].out_secondseq(PI.ID)
                     i2seq=i[1].out_secondseq(PI.ID)
-                    if i[0].ID[0]!='R' and i[1].ID[0]!='R':# and i1seq != False and i2seq != False:
+                    if 1:#i1seq != False and i2seq != False:
                         c_af1=i[0].ID.split(".")[2]
                         c_af2=i[1].ID.split(".")[2]
                         valueJunction=am.ss_junctionWindow(i1seq, i2seq, window)
@@ -91,11 +91,11 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
                         backgroud[valueJunction]=0
                     backgroud[valueJunction]+=1
     #print irrelavant
-    cm.csv_writer(backgroud, filename+"background_window%s.csv" % window,fout)
-    cm.csv_writer(all_junct, filename+"alljunct_window%s.csv" % window,fout)
-    cm.csv_writer(cons_cons, filename+"ConsCons_window%s.csv" % window,fout)
-    cm.csv_writer(alt_alt, filename+"AltAlt_window%s.csv" % window,fout)
-    cm.csv_writer(cons_alt, filename+"ConsAlt_window%s.csv" % window,fout)
+    am.csv_writer(backgroud, filename+"background_window%s.csv" % window,fout)
+    am.csv_writer(all_junct, filename+"alljunct_window%s.csv" % window,fout)
+    am.csv_writer(cons_cons, filename+"ConsCons_window%s.csv" % window,fout)
+    am.csv_writer(alt_alt, filename+"AltAlt_window%s.csv" % window,fout)
+    am.csv_writer(cons_alt, filename+"ConsAlt_window%s.csv" % window,fout)
     
 def sstype_ends_coservation(gene_source,condition, filename, window, fout):
     total_junctions={}
@@ -171,8 +171,8 @@ def sstype_ends_coservation(gene_source,condition, filename, window, fout):
                         has_exon_categories_combined[flagPairKey][gene,exonSequencePair,WEF]=(representative[exonSequencePair],reprSS,reprSS_count,reprSS_Freq, temphas)
     am.sorting_screening_junctions(has_exon_categories_combined,filename+'WEF_and_exonsJunction.csv',filename+'WEF_and_majorSS_exonsJunction_conservation.csv')
         
-sstype_ends_coservation(humanGeneObject, CONDITION_GENES, results_dir_csv +'ExonsJunction', window,fileswriter)
-sstype_ends_indi(humanGeneObject, CONDITION_GENES, results_dir_csv +'Individual_', window,fileswriter)
+sstype_ends_coservation(humanGeneObject, CONDITION_GENES, results_dir_csv +'F2_ExonsJunction', window,fileswriter)
+sstype_ends_indi(humanGeneObject, CONDITION_GENES, results_dir_csv +'F2_Individual_', window,fileswriter)
 
 
 

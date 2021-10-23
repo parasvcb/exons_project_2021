@@ -1,0 +1,84 @@
+Helix junction freq	Gene	Exon_pair	Gene
+
+results/Condition_3000Pilength_2Isf_2ExCount/F2_Individual_background_window3.csv
+SSType	Total	Freq
+CC	3876432	0.489
+CE	82629	0.01
+CH	69148	0.009
+CX	305931	0.039
+EC	86378	0.011
+EE	539704	0.068
+EH	142	0.0
+EX	170416	0.021
+HC	70893	0.009
+HE	809	0.0
+HH	1884917	0.238
+HX	157110	0.02
+XC	318151	0.04
+XE	169290	0.021
+XH	148199	0.019
+XX	46782	0.006
+results/Condition_3000Pilength_2Isf_2ExCount/F2_Individual_alljunct_window3.csv
+SSType	Total	Freq
+CC	2132	0.444
+CE	50	0.01
+CH	59	0.012
+CX	202	0.042
+EC	39	0.008
+EE	342	0.071
+EX	100	0.021
+HC	58	0.012
+HH	1241	0.258
+HX	124	0.026
+XC	202	0.042
+XE	103	0.021
+XH	117	0.024
+XX	37	0.008
+results/Condition_3000Pilength_2Isf_2ExCount/F2_Individual_ConsCons_window3.csv
+SSType	Total	Freq
+CC	861	0.424
+CE	21	0.01
+CH	24	0.012
+CX	94	0.046
+EC	15	0.007
+EE	144	0.071
+EX	43	0.021
+HC	24	0.012
+HH	540	0.266
+HX	50	0.025
+XC	88	0.043
+XE	48	0.024
+XH	60	0.03
+XX	18	0.009
+results/Condition_3000Pilength_2Isf_2ExCount/F2_Individual_AltAlt_window3.csv
+SSType	Total	Freq
+CC	595	0.454
+CE	13	0.01
+CH	20	0.015
+CX	49	0.037
+EC	10	0.008
+EE	112	0.085
+EX	24	0.018
+HC	12	0.009
+HH	331	0.252
+HX	30	0.023
+XC	59	0.045
+XE	25	0.019
+XH	23	0.018
+XX	9	0.007
+results/Condition_3000Pilength_2Isf_2ExCount/F2_Individual_ConsAlt_window3.csv
+SSType	Total	Freq
+CC	676	0.462
+CE	16	0.011
+CH	15	0.01
+CX	59	0.04
+EC	14	0.01
+EE	86	0.059
+EX	33	0.023
+HC	22	0.015
+HH	370	0.253
+HX	44	0.03
+XC	55	0.038
+XE	30	0.02
+XH	34	0.023
+XX	10	0.007

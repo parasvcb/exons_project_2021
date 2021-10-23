@@ -2,7 +2,6 @@
 Before creation of object Builder type 2, the object needs pre filtering for the crrect depiction of the panels having keywords as AGF in exon nomenclature 
 '''
 
-
 import sys
 import re, scipy, os
 import numpy as np
@@ -16,6 +15,8 @@ import figPanels.subpanels_fig1.subpanel_B as panelB
 import figPanels.subpanels_fig1.subpanel_C as panelC
 import figPanels.subpanels_fig1.subpanel_D as panelD
 import figPanels.subpanels_fig1.subpanel_E as panelE
+import figPanels.subpanels_fig1.subpanel_F as panelF
+
 from constructing_data import Classes_exons
 
 if len(sys.argv)!=3:
@@ -35,6 +36,8 @@ def runnerWithGeneCondition(secDir,lengthThreshold=3000, UniqueTransCount=2,Uniq
     panelC.exon_counting(humanGeneObject,secDir,CONDITION_GENES,filewriter)
     panelD.alternate_WEF(humanGeneObject,CONDITION_GENES,secDir,filewriter)
     panelE.exon_length(humanGeneObject,secDir, CONDITION_GENES,filewriter)
+    panelF.change_in_length(humanGeneObject,secDir,CONDITION_GENES,filewriter)
+
     return CONDITION_GENES,filewriter
 
 secDir2_2=os.path.join(results_dir_csv,'F1_Condition_%sPilength_%sIsf_%sExCount'%(3000,2,2))

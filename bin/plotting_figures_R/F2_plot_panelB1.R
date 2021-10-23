@@ -1,16 +1,17 @@
 args = commandArgs(trailingOnly=TRUE)
 if (length(args)<2) {
-  stop("Please supply two arguements 1. inpPanelsString and 2.outputFile", call.=FALSE)
+  stop("Please supply two arguements 1.inpdirHavingpanels 2.inpPanelsString", call.=FALSE)
 } else if (length(args)==2) {
   # default output file
   systemFile=args[1]
-  out=args[2]
+  string_panels=args[2]
+  out=basename(systemFile)
 }
 #ExonsJunction_BuriedExposedWin1WEF_and_exonsJunction.csv
-
+print (out)
 library('ggplot2')
 
-df3<-read.csv(paste0("results/ExonsJunction",systemFile,"_and_exonsJunction.csv"),sep='\t')
+df3<-read.csv(file.path(systemFile,paste0("F2_ExonsJunction",string_panels,"_and_exonsJunction.csv")),sep='\t')
 df3$wrap <- paste(df3$ExonType,df3$WEFRange)
 print (head (df3))
 print (unique(df3$wrap))
@@ -44,6 +45,7 @@ gg <- gg + guides(fill=FALSE)+  geom_text(aes(label=Freq), vjust=-0.3, color="bl
 gg <- gg + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 6)) 
 gg <- gg + labs(y="SS Type", x="Freq") 
 
-ggsave(filename = paste0('results/Fig2_WEF_andSS',systemFile,'.pdf'), width=10, height= 10)
+print (file.path(systemFile,paste0('Fig2_WEF_andSS',string_panels,'.pdf')))
+ggsave(filename = file.path(systemFile,paste0('Fig2_WEF_andSS',string_panels,'.pdf')), width=10, height= 10)
 
 

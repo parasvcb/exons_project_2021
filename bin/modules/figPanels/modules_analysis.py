@@ -1,15 +1,23 @@
 import cPickle as pickle
 import numpy as np
 import scipy,os
-
-def div_fact(num,denom):
-        try:
-                return round(float(num)/denom,3)
-        except:
-                return 0
-
+import common.general_modules as gm
 
 #genes
+
+def csv_writer(has, filename,fout):
+    key = has.keys()
+    total = sum(has.values())
+    key.sort()
+    fout.write("\n%s"%filename)
+    with open(filename, "w") as fin:
+        fin.write("SSType,Total,Freq\n")
+        fout.write("\nSSType\tTotal\tFreq")
+        for i in key:
+            fin.write("%s,%s,%s\n" % (i, has[i], gm.div_fact(has[i],total)))
+            fout.write("\n%s\t%s\t%s" % (i, has[i], gm.div_fact(has[i],total)))
+            
+
 def givemeresnoofpdb(pdb):
     with open (pdb) as fin:
         dat=fin.read().split('\n')
@@ -63,15 +71,6 @@ def rsaToSeqFile(proteinPDB_seq,PI,naccessLink):
             seqrange+=exonspan
             ss_seq+=surfacestring
     return surfaceExposeddata,exonspanhas,ss_seq
-
-def stats(lis):
-    lis=[i for i in lis if i>0]
-    if len(lis):
-        string="\t".join(map(str,[len(lis),sum(lis),np.max(lis),np.min(lis),round(np.mean(lis),3),round(np.median(lis),3),scipy.stats.mode(lis)[0][0],scipy.stats.mode(lis)[1][0],round(np.std(lis),3)]))
-    else:
-        string="\t".join(map(str,[len(lis),sum(lis),0,0,0,0,0,0,0]))
-    return string
-
 
 #transcripts
 def fastareturn(string):
@@ -219,16 +218,16 @@ def sorting_screening_junctions(has,fname_junctions,fname_junc_conservations, de
             total_junctions=sum([WEFRangeHas[WEFrange][junc][0] for junc in WEFRangeHas[WEFrange]])
             for junctions in WEFRangeHas[WEFrange]:
                 count=WEFRangeHas[WEFrange][junctions][0]
-                f1.write('%s\t%s\t%s\t%s\t%s\n'%(exonType,"_".join(map(str,list(WEFrange))),junctions,count,div_fact(count,total_junctions)))
+                f1.write('%s\t%s\t%s\t%s\t%s\n'%(exonType,"_".join(map(str,list(WEFrange))),junctions,count,gm.div_fact(count,total_junctions)))
     #seg 1 done
     #seg 2, now lets do the second aspect of calculating the fraction
     f2=open(fname_junc_conservations,'w')
     f2.write('ExonType\tWEFRange\tJunction\tOccurenceRange\tOccureneceTotal\tOccureneceFreq\tcumulativeCount\tcumulativeFreq\n')
     a=conservation_has.keys()
-    for key in a:
-        print (key,conservation_has[key].keys())
+    # for key in a:
+    #     print (key,conservation_has[key].keys())
     
-    print (conservation_has)
+    #print (conservation_has)
     for exonType in conservation_has:
         for WEFRangeJunction in conservation_has[exonType]:
             wefrangestr="_".join(map(str,list(WEFRangeJunction)))
@@ -243,8 +242,8 @@ def sorting_screening_junctions(has,fname_junctions,fname_junc_conservations, de
                     cumulative_count=previousValue+count_occrange
                     previousValue+=count_occrange
                     #print (1,exonType,WEFRangeJunction)
-                    #print (2,exonType,wefrangestr,junction,occrangestr,count_occrange,div_fact(count_occrange,totalOcc), cumulative_count,div_fact(cumulative_count,totalOcc))
-                    f2.write('%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n'%(exonType,wefrangestr,junction,occrangestr,count_occrange,div_fact(count_occrange,totalOcc), cumulative_count,div_fact(cumulative_count,totalOcc)))
+                    #print (2,exonType,wefrangestr,junction,occrangestr,count_occrange,gm.div_fact(count_occrange,totalOcc), cumulative_count,gm.div_fact(cumulative_count,totalOcc))
+                    f2.write('%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n'%(exonType,wefrangestr,junction,occrangestr,count_occrange,gm.div_fact(count_occrange,totalOcc), cumulative_count,gm.div_fact(cumulative_count,totalOcc)))
 
 
 
@@ -270,7 +269,8 @@ def junctions_from_different_isoforms_poulator(repr_has, trans,PI, window,normal
             else:
                 i1seq=texo[i].out_strideseqAF(trans.ID)
                 i2seq=texo[i+1].out_strideseqAF(trans.ID)
-            if texo[i].ID[0]!='R' and texo[i+1].ID[0]!='R':# and i1seq != False and i2seq != False:
+            if texo[i].ID[0]=='T' and texo[i+1].ID[0]=='T':# and i1seq != False and i2seq != False:
+                #changed !=R tp ==T
                 part1=int(texo[i].ID.split(".")[3])
                 part2=int(texo[i+1].ID.split(".")[3])
                 #print (repr_has.keys())
@@ -322,7 +322,8 @@ def junctions_from_different_isoforms_poulatorSURFACEEXPOSED(repr_has, trans,PI,
 
     coding_exons_count=len([i for i in texo if i.length>0])
     for i in range (0, len(texo)-1):
-            if texo[i].length>9 and texo[i+1].length>9 and texo[i].ID[0]!='R' and texo[i+1].ID[0]!='R':
+            if texo[i].length>9 and texo[i+1].length>9 and texo[i].ID[0]=='T' and texo[i+1].ID[0]=='T':
+                #changed !=R tp ==T
                 #print ('*************no\n\n')
                 i1seq=subsetsurfaceexposedExonWise(srfaceData,exonspanhas[texo[i]]) if flag else False
                 i2seq=subsetsurfaceexposedExonWise(srfaceData,exonspanhas[texo[i+1]]) if flag else False

@@ -265,6 +265,15 @@ Length Comparison of constituive and alternate exons
 	majorly_exons(meanAlready)	8465	760113	2383	1	89.795	49.0	42	162	133.036
 CSV_File:results/F1_Condition_3000Pilength_2Isf_2ExCountlength_distribution_exons.csv
 
+=============>
+Change in transcript length from principal isoform
+
+	Category	Var_count	Sum	Max	Min	Mean	Median	Mode	Mode_count	Stddev
+	ChangeinNP	16284	2821.914	0.961	-38.53	0.173	0.116	0.002	213	0.391
+	ChangeinXP	40868	4106.501	0.961	-38.081	0.1	0.07	0.001	354	0.395
+	Changeinall	57152	6928.415	0.961	-38.53	0.121	0.085	0.001	523	0.396
+CSV_File:results/F1_Condition_3000Pilength_2Isf_2ExCountchange_in_isoform_length.csv
+
 In the selected dataset follwing are the types of genes 
 {'Mem': 1141, 'Glob': 6627, 'Inter': 5084}
 

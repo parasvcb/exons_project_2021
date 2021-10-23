@@ -2,12 +2,6 @@ import cPickle as pickle
 import numpy as np
 import scipy,os
 
-def div_fact(num,denom):
-        try:
-                return round(float(num)/denom,3)
-        except:
-                return 0
-
 
 #genes
 def givemeresnoofpdb(pdb):
@@ -64,13 +58,7 @@ def rsaToSeqFile(proteinPDB_seq,PI,naccessLink):
             ss_seq+=surfacestring
     return surfaceExposeddata,exonspanhas,ss_seq
 
-def stats(lis):
-    lis=[i for i in lis if i>0]
-    if len(lis):
-        string="\t".join(map(str,[len(lis),sum(lis),np.max(lis),np.min(lis),round(np.mean(lis),3),round(np.median(lis),3),scipy.stats.mode(lis)[0][0],scipy.stats.mode(lis)[1][0],round(np.std(lis),3)]))
-    else:
-        string="\t".join(map(str,[len(lis),sum(lis),0,0,0,0,0,0,0]))
-    return string
+
 
 
 #transcripts
@@ -270,7 +258,8 @@ def junctions_from_different_isoforms_poulator(repr_has, trans,PI, window,normal
             else:
                 i1seq=texo[i].out_strideseqAF(trans.ID)
                 i2seq=texo[i+1].out_strideseqAF(trans.ID)
-            if texo[i].ID[0]!='R' and texo[i+1].ID[0]!='R':# and i1seq != False and i2seq != False:
+            if texo[i].ID[0]=='T' and texo[i+1].ID[0]=='T':# and i1seq != False and i2seq != False:
+                #changed !=R tp ==T
                 part1=int(texo[i].ID.split(".")[3])
                 part2=int(texo[i+1].ID.split(".")[3])
                 #print (repr_has.keys())
@@ -322,7 +311,7 @@ def junctions_from_different_isoforms_poulatorSURFACEEXPOSED(repr_has, trans,PI,
 
     coding_exons_count=len([i for i in texo if i.length>0])
     for i in range (0, len(texo)-1):
-            if texo[i].length>9 and texo[i+1].length>9 and texo[i].ID[0]!='R' and texo[i+1].ID[0]!='R':
+            if texo[i].length>9 and texo[i+1].length>9 and texo[i].ID[0]=='T' and texo[i+1].ID[0]=='T':
                 #print ('*************no\n\n')
                 i1seq=subsetsurfaceexposedExonWise(srfaceData,exonspanhas[texo[i]]) if flag else False
                 i2seq=subsetsurfaceexposedExonWise(srfaceData,exonspanhas[texo[i+1]]) if flag else False

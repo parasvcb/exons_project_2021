@@ -1,11 +1,15 @@
 import figPanels.modules_common as cm
-
+import numpy as np,os,scipy
+import figPanels.modules_common as cm
+import figPanels.modules_analysis as ca
 def stats_new(lis):
     #print "1",len(lis),sum(lis),np.max(lis),np.min(lis),round(np.mean(lis),3),round(np.median(lis),3),scipy.stats.mode(lis)[0][0],scipy.stats.mode(lis)[1][0],round(np.std(lis),3)
   try:
     return "\t".join(map(str,[len(lis),sum(lis),np.max(lis),np.min(lis),round(np.mean(lis),3),round(np.median(lis),3),scipy.stats.mode(lis)[0][0],scipy.stats.mode(lis)[1][0],round(np.std(lis),3)]))
   except Exception as E:
+    print (E)
     return 'False'
+
 def change_in_length(has,res_dir,genes_cond,output_stats):
     change_XP=[]
     change_NP=[]
@@ -22,7 +26,7 @@ def change_in_length(has,res_dir,genes_cond,output_stats):
                 seq="".join([j.seq for j in transcripts.exons])
                 if seq not in has_seq:
                     has_seq[seq]=0
-                    val = div_fact((pi_len - len(seq)),pi_len)
+                    val = cm.div_fact((pi_len - len(seq)),pi_len)
                     if val>90:
                         pass
                         '''
@@ -36,7 +40,7 @@ def change_in_length(has,res_dir,genes_cond,output_stats):
                         change_XP += [val]
                     else:
                         change_NP += [val]
-    with open (res_dir+"csv/general/change_in_isoform_length.csv","w") as fin:
+    with open (os.path.join(res_dir,"change_in_isoform_length.csv"),"w") as fin:
         fin.write("ChangeinLength,Type")
         for i in change_NP:
             fin.write("%s,NP\n"%i)
@@ -52,5 +56,4 @@ def change_in_length(has,res_dir,genes_cond,output_stats):
     output_stats.write("\n\tChangeinXP\t%s"%stats_new(change_XP))
     output_stats.write("\n\tChangeinall\t%s"%stats_new(change_all))
     output_stats.write("\nCSV_File:%s"%res_dir+"change_in_isoform_length.csv")
-    output_stats.close()
-change_in_length(has,results_dir_csv,genes_cond,filewriter)
+    

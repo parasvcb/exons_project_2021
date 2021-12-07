@@ -4,6 +4,30 @@ import scipy,os
 import common.general_modules as gm
 
 #genes
+def exonScreenerBetweenTConstitutive(geneExons,inclusive=True):
+    acceptableNumericFlagList=[]
+    for ex in geneExons:
+        codNonCodFlag=ex.ID.split(".")[0]
+        if codNonCodFlag=='T':    
+            constAltFlag=ex.ID.split(".")[2]
+            if constAltFlag=='G':
+                numericFlag=int(ex.ID.split(".")[3])
+                acceptableNumericFlagList+=[numericFlag]
+    acceptableNumericFlagList.sort()
+    if not inclusive:
+        acceptableNumericFlagList=acceptableNumericFlagList[1:-1]
+    return acceptableNumericFlagList
+
+def exonPasser(e1,e2, consecCoding=[]):
+    baseCondition=e1.length>9 and e2.length>9 and e1.ID[0]=='T' and e2.ID[0]=='T'
+    if consecCoding:
+        choosenExonCondition=int(e1.ID.split(".")[3]) in consecCoding and int(e2.ID.split(".")[3]) in consecCoding
+        return True if (baseCondition and choosenExonCondition) else False
+    else:
+        if baseCondition:
+            return True
+        else:
+            return False
 
 def csv_writer(has, filename,fout):
     key = has.keys()
@@ -247,7 +271,7 @@ def sorting_screening_junctions(has,fname_junctions,fname_junc_conservations, de
 
 
 
-def junctions_from_different_isoforms_poulator(repr_has, trans,PI, window,normalorStide='normal'):
+def junctions_from_different_isoforms_poulator(repr_has, trans,PI, window,geneExonsShortlisted =False, normalorStide='normal'):
     '''
     for a trancript:
         iterate its exons in pairs, 
@@ -262,26 +286,24 @@ def junctions_from_different_isoforms_poulator(repr_has, trans,PI, window,normal
     texo=trans.exons[:]
     coding_exons_count=len([i for i in texo if i.length>0])
     for i in range (0, len(texo)-1):
-        if texo[i].length>9 and texo[i+1].length>9:
+        if exonPasser(texo[i],texo[i+1], consecCoding=geneExonsShortlisted):
             if normalorStide=='normal':    
                 i1seq=texo[i].out_secondseq(trans.ID)
                 i2seq=texo[i+1].out_secondseq(trans.ID)
             else:
                 i1seq=texo[i].out_strideseqAF(trans.ID)
                 i2seq=texo[i+1].out_strideseqAF(trans.ID)
-            if texo[i].ID[0]=='T' and texo[i+1].ID[0]=='T':# and i1seq != False and i2seq != False:
-                #changed !=R tp ==T
-                part1=int(texo[i].ID.split(".")[3])
-                part2=int(texo[i+1].ID.split(".")[3])
-                #print (repr_has.keys())
-                #print (part1,part2,texo[i].ID,texo[i+1].ID)
-                #exon_sequence=key_searcher(repr_has.keys(),(part1,part2))
-                #print (exon_sequence)
-                exon_sequence=(part1,part2)
-                SS_junction=ss_junctionWindow(i1seq,i2seq,window)
-                if exon_sequence not in repr_has:
-                    repr_has[exon_sequence]=[]
-                repr_has[exon_sequence]+=[[PI,coding_exons_count,texo[i].ID,texo[i+1].ID,SS_junction]]
+            part1=int(texo[i].ID.split(".")[3])
+            part2=int(texo[i+1].ID.split(".")[3])
+            #print (repr_has.keys())
+            #print (part1,part2,texo[i].ID,texo[i+1].ID)
+            #exon_sequence=key_searcher(repr_has.keys(),(part1,part2))
+            #print (exon_sequence)
+            exon_sequence=(part1,part2)
+            SS_junction=ss_junctionWindow(i1seq,i2seq,window)
+            if exon_sequence not in repr_has:
+                repr_has[exon_sequence]=[]
+            repr_has[exon_sequence]+=[[PI,coding_exons_count,texo[i].ID,texo[i+1].ID,SS_junction]]
     return repr_has
 
 def junctions_from_different_isoforms_poulatorSURFACEEXPOSED(repr_has, trans,PI, window, pdb_dir,naccess_dir):
@@ -322,7 +344,7 @@ def junctions_from_different_isoforms_poulatorSURFACEEXPOSED(repr_has, trans,PI,
 
     coding_exons_count=len([i for i in texo if i.length>0])
     for i in range (0, len(texo)-1):
-            if texo[i].length>9 and texo[i+1].length>9 and texo[i].ID[0]=='T' and texo[i+1].ID[0]=='T':
+            if exonPasser(texo[i], texo[i+1],consecCoding=False):
                 #changed !=R tp ==T
                 #print ('*************no\n\n')
                 i1seq=subsetsurfaceexposedExonWise(srfaceData,exonspanhas[texo[i]]) if flag else False

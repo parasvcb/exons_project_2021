@@ -28,6 +28,7 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
     irrelavant=0
     tupleWritten=0
     desiredlistofgenes=[i for i in gene_source if i in condition]
+    #desiredlistofgenes=[103]
     for gene in desiredlistofgenes:
         PI=[i for i in gene_source[gene].transcripts if i.PI][0]
         if PI:
@@ -48,11 +49,14 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
 
             PI_representative=[]
             for i in range(0,len(PI.exons)-1):
-                if (PI.exons[i].length>9 and PI.exons[i+1].length>9) and (PI.exons[i].ID[0]!='T' and PI.exons[i+1].ID[0]=='T'):
+                #print (PI.exons[i].ID, PI.exons[i].length, PI.exons[i+1].ID, PI.exons[i+1].length)
+                if (PI.exons[i].length>9 and PI.exons[i+1].length>9) and (PI.exons[i].ID[0]=='T' and PI.exons[i+1].ID[0]=='T'):
                     PI_representative+=[(PI.exons[i],PI.exons[i+1])]
                 else:
                     irrelavant+=1
 
+            #print (PI_representative)
+            #print (irrelavant)
             if PI_representative:
                 for i in PI_representative:
                     i1seq=i[0].out_secondseq(PI.ID)
@@ -78,7 +82,8 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
                                 cons_alt[valueJunction]=0
                             cons_alt[valueJunction]+=1
                             
-                        
+            #print (cons_cons)
+            #sys.exit()            
             if tuples:
                 tupleWritten+=1
                 #crearing background if the length matches with PI, full isoform
@@ -170,9 +175,9 @@ def sstype_ends_coservation(gene_source,condition, filename, window, fout):
                         #print (gene,exonSequencePair,interestType,flagExonType1,flagExonType2,flagPairKey,len(representative[exonSequencePair]),len(gene_source[gene].transcripts),WEF,reprSS,reprSS_count,reprSS_Freq)
                         has_exon_categories_combined[flagPairKey][gene,exonSequencePair,WEF]=(representative[exonSequencePair],reprSS,reprSS_count,reprSS_Freq, temphas)
     am.sorting_screening_junctions(has_exon_categories_combined,filename+'WEF_and_exonsJunction.csv',filename+'WEF_and_majorSS_exonsJunction_conservation.csv')
-        
-sstype_ends_coservation(humanGeneObject, CONDITION_GENES, results_dir_csv +'F2_ExonsJunction', window,fileswriter)
+
 sstype_ends_indi(humanGeneObject, CONDITION_GENES, results_dir_csv +'F2_Individual_', window,fileswriter)
+sstype_ends_coservation(humanGeneObject, CONDITION_GENES, results_dir_csv +'F2_ExonsJunction', window,fileswriter)
 
 
 

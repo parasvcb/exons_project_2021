@@ -4,6 +4,24 @@ import scipy,os
 import common.general_modules as gm
 
 #genes
+
+# def exonScreenerBetweenTConstitutiveTransWise(gene,inclusive=True):
+#     acceptableNumericFlagList=[]
+#     for trans in gene.transcripts:
+#         if trans.ID[0]=='N':    
+#             for ex in trans.exons:
+#                 codNonCodFlag=ex.ID.split(".")[0]
+#                 if codNonCodFlag=='T':    
+#                     constAltFlag=ex.ID.split(".")[2]
+#                     if constAltFlag=='G':
+#                         numericFlag=int(ex.ID.split(".")[3])
+#                         acceptableNumericFlagList+=[numericFlag]
+#     acceptableNumericFlagList.sort()
+#     if not inclusive:
+#         acceptableNumericFlagList=acceptableNumericFlagList[1:-1]
+#     return acceptableNumericFlagList
+
+
 def exonScreenerBetweenTConstitutive(geneExons,inclusive=True):
     acceptableNumericFlagList=[]
     for ex in geneExons:
@@ -18,10 +36,18 @@ def exonScreenerBetweenTConstitutive(geneExons,inclusive=True):
         acceptableNumericFlagList=acceptableNumericFlagList[1:-1]
     return acceptableNumericFlagList
 
-def exonPasser(e1,e2, consecCoding=[]):
+def exonPasser(e1, e2, ATIFlag, consecCoding=[]):
     baseCondition=e1.length>9 and e2.length>9 and e1.ID[0]=='T' and e2.ID[0]=='T'
     if consecCoding:
-        choosenExonCondition=int(e1.ID.split(".")[3]) in consecCoding and int(e2.ID.split(".")[3]) in consecCoding
+        #ATITrue=0, ATIFalse=1, reagrdless=-1
+        #conditionATIATT=True if ATIFlag ==-1 else numericFlag in tExonList if ATIFlag==1 else numericFlag not in tExonList if ATIFlag==0 else False
+        if ATIFlag==-1:
+            choosenExonCondition=True
+        elif ATIFlag==1:
+            choosenExonCondition=int(e1.ID.split(".")[3]) in consecCoding and int(e2.ID.split(".")[3]) in consecCoding
+        else:
+            #ATIFlag==0
+            choosenExonCondition=int(e1.ID.split(".")[3]) not in consecCoding and int(e2.ID.split(".")[3]) not in consecCoding
         return True if (baseCondition and choosenExonCondition) else False
     else:
         if baseCondition:
@@ -40,7 +66,15 @@ def csv_writer(has, filename,fout):
         for i in key:
             fin.write("%s,%s,%s\n" % (i, has[i], gm.div_fact(has[i],total)))
             fout.write("\n%s\t%s\t%s" % (i, has[i], gm.div_fact(has[i],total)))
-            
+
+def has_range_adder(has,val):
+    val=round(val,2)
+    for rangeV in has:
+        if rangeV[0]<=val<=rangeV[1]:
+            has[rangeV]+=1
+            break
+    return has
+
 
 def givemeresnoofpdb(pdb):
     with open (pdb) as fin:
@@ -271,7 +305,7 @@ def sorting_screening_junctions(has,fname_junctions,fname_junc_conservations, de
 
 
 
-def junctions_from_different_isoforms_poulator(repr_has, trans,PI, window,geneExonsShortlisted =False, normalorStide='normal'):
+def junctions_from_different_isoforms_poulator(repr_has, trans,PI, window,ATIFlag, geneExonsShortlisted =False, normalorStide='normal'):
     '''
     for a trancript:
         iterate its exons in pairs, 
@@ -286,7 +320,7 @@ def junctions_from_different_isoforms_poulator(repr_has, trans,PI, window,geneEx
     texo=trans.exons[:]
     coding_exons_count=len([i for i in texo if i.length>0])
     for i in range (0, len(texo)-1):
-        if exonPasser(texo[i],texo[i+1], consecCoding=geneExonsShortlisted):
+        if exonPasser(texo[i],texo[i+1], ATIFlag, consecCoding=geneExonsShortlisted):
             if normalorStide=='normal':    
                 i1seq=texo[i].out_secondseq(trans.ID)
                 i2seq=texo[i+1].out_secondseq(trans.ID)

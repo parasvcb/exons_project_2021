@@ -1,15 +1,16 @@
 args = commandArgs(trailingOnly=TRUE)
-if (length(args)<2) {
-  stop("Please supply two arguements 1. inpDirHavingPanels and 2.outputFile", call.=FALSE)
-} else if (length(args)==2) {
+if (length(args)<3) {
+  stop("Please supply two arguements 1. inpDirHavingPanels and 2.outputFile 3. tagAtit", call.=FALSE)
+} else if (length(args)==3) {
   # default output file
   systemFile=args[1]
   string_panels=args[2]
+  tagAtit=args[3]
   out=basename(systemFile)
 }
 
 library('ggplot2')
-df3<-read.csv(file.path(systemFile,paste0("F2_ExonsJunction",string_panels,"_and_majorSS_exonsJunction_conservation.csv")),sep='\t')
+df3<-read.csv(file.path(systemFile,paste0("F2_ExonsJunction",string_panels,"_and_majorSS_exonsJunction_conservation.csv", tagAtit)),sep='\t')
 
 #df3<-read.csv("results/fig2/ExonsJunctionWEF_and_majorSS_exonsJunction_conservation.csv",sep='\t')
 df3$wrap <- paste(df3$ExonType,df3$WEFRange)
@@ -52,5 +53,5 @@ for (i in unique(df3$ExonType)) {
     gg <- gg + guides(fill=FALSE)+  geom_text(aes(label=cumulativeFreq), vjust=-0.3, color="black", size=1.6) 
     gg <- gg + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 6)) 
     gg <- gg + labs(y="OccurenceRange", x="Freq") 
-    ggsave(filename = file.path(systemFile,paste0('Fig2_occurenceRange','_',i,'.pdf')))
+    ggsave(filename = file.path(systemFile,paste0('Fig2_occurenceRange','_',i,'_',tagAtit,'.pdf')))
     }

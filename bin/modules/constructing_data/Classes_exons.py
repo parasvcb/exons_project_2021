@@ -46,23 +46,24 @@ class Gene:
         # print "doone"
 
     def description(self):
-        print "GeneName: %s, Id: %s, Txid: %s, Ensemble: %s, Localization: %s, Go are: %s" % (
+        print ("GeneName: %s, Id: %s, Txid: %s, Ensemble: %s, Localization: %s, Go are: %s") % (
             self.detail, self.ID, self.txid, self.ensembleId, self.localization, self.go)
-        print "It has follwing transcripts: (Total: %s)" % (
+        print ("It has follwing transcripts: (Total: %s)") % (
             len(self.transcripts))
-        print[i.description() for i in self.transcripts]
-        print[i.description() for i in self.exons]
+        print ([i.description() for i in self.transcripts])
+        print ([i.description() for i in self.exons])
 
     def connst_togetherness_coding(self):
-        transcripts_interest = [
+        transcripts_exons_matrix = [
             j.exons for j in self.transcripts]
         # going for a transcript if it doesnt ave rrtained intron in it
-        if len(transcripts_interest) <= 1:
+        if len(transcripts_exons_matrix) <= 1:
             return False
         mat = []
         cons_pairs_total = []
-        # print transcripts_interest
-        for var in transcripts_interest:
+        # print (len(transcripts_exons_matrix),'lenmat')
+        # print transcripts_exons_matrix
+        for var in transcripts_exons_matrix:
             cons_exon_id = []
             cons_exon_no = []
             for ind, val in enumerate(var):

@@ -237,17 +237,235 @@ Rscript bin/plotting_figures_R/F2_1_density_plot.R results/Condition_3000Pilengt
 
 
 
+# fig4
+
+
+
+python bin/creating_figures_python/Fig3_domains_analyse.py results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_exonsWise_atit.pickle results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_domain_annotation_atit.pickle output/genetoPDB.pickle results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/
 
 
 
 
-# fig 2, onlt T inside
-python bin/creating_figures_python/Fig2_ss_junctions_TempTjunctions.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/
 
-Rscript bin/plotting_figures_R/F2_plot_panelB0.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ _
-#secondary strucutre default
 
-Rscript bin/plotting_figures_R/F2_plot_panelB1.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ WEF
-#secondary structure and WEF of junctions
 
-Rscript bin/plotting_figures_R/F2_plot_panelB2.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ WEF
+
+# fig 2, all cases
+(py27) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ python bin/creating_figures_python/Fig2_ss_junctions_TempTjunctions.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ -1
+(py27) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ python bin/creating_figures_python/Fig2_ss_junctions_TempTjunctions.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ 1
+(py27) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ python bin/creating_figures_python/Fig2_ss_junctions_TempTjunctions.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ 0
+
+Rscript bin/plotting_figures_R/F2_plot_panelB0.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ _ atit
+Rscript bin/plotting_figures_R/F2_plot_panelB0.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ _ both
+Rscript bin/plotting_figures_R/F2_plot_panelB0.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ _ core
+
+
+Rscript bin/plotting_figures_R/F2_plot_panelB1.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ WEF atit
+Rscript bin/plotting_figures_R/F2_plot_panelB1.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ WEF both
+Rscript bin/plotting_figures_R/F2_plot_panelB1.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ WEF core
+
+Rscript bin/plotting_figures_R/F2_plot_panelB2.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ WEF atit
+Rscript bin/plotting_figures_R/F2_plot_panelB2.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ WEF both
+Rscript bin/plotting_figures_R/F2_plot_panelB2.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ WEF core
+
+# atiCore
+python bin/creating_figures_python/fraction_protein_atitcore.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/
+
+Rscript bin/plotting_figures_R/F0_dataGeneral.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/ATICoreExonsProteinFraction.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/
+
+
+
+
+
+exondomain contribution;
+
+its importnat to know that i ma iterating firs the domains then the exons, 
+
+so its wise to question the impcat of the domain fraction per exon, as its primarily looped, 
+    so for every dfomain in question we have the reposnse here, 
+
+so query the exon fraction per domain, we need to be sure if we want o calculate that per domain wise or the whole domain wise lets do it also
+
+
+The fraction of domains when undergo split will only be considered when domain full domain is atleast 95% covered in tersn of residues, [will affect only the interafce domains of the ATI and ATT region]
+
+
+iterate the genes [condition 4 isoforms and 4 exons]:
+    compute pergeneDomainFraction [histogram], totalgeneDomainFraction [number]
+    if domains and exonslis:
+        iterate the domains:
+            ietarte the exons:
+                check interesection and divide it bydomainspan to getdoain span,
+                if95> this domain is contained
+                repeat for middle region also
+
+                chcek containedDomains
+                write the exons and domain fractions into the system, 
+
+                if domain is 95% coevered record the instance, 
+
+        use the has above and see if you can gain the 
+        to get exons fraction out, [it will be goodf to use the domain if the fraction of whole is conatined for 95%, it will help aining proxy and middle will also be the 100pcnt, now the contratry exon fraction will be tricky and lets do it]
+
+
+
+no  domain, isoform for gene 56
+6
+output/derived_data/results
+['NP_064493.1', 'NP_064492.1', 'NP_064454.1', 'NP_001603.1']
+
+gene 98 is also inetesrting
+('XP_016860902.1', ['U.-2.A.1.n.1', 'T.1.A.2.0.0', 'T.1.A.3.0.0', 'T.1.A.5.0.0', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.2.G.10.0.0', 'T.1.A.13.0.0', 'D.-2.A.15.c.1'])
+('XP_016860901.1', ['U.-2.A.1.n.1', 'T.1.A.2.0.0', 'T.1.A.3.0.0', 'T.1.A.5.0.0', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.A.14.0.0', 'D.-2.A.15.c.1'])
+('XP_016860900.1', ['U.-2.A.1.n.1', 'T.1.A.2.0.0', 'T.1.A.3.0.0', 'T.1.A.5.0.0', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'D.1.A.15.c.1'])
+('XP_016860895.1', ['U.-2.A.1.n.1', 'T.1.A.2.0.0', 'T.1.A.3.0.0', 'T.1.A.5.0.0', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.A.11.0.0'])
+('XP_016860896.1', ['U.-2.A.1.n.1', 'T.1.A.2.0.0', 'T.1.A.5.0.0', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.A.11.0.0'])
+('XP_016860898.1', ['U.-2.A.1.n.1', 'T.2.A.2.0.0', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.A.11.0.0'])
+('NP_001307515.1', ['U.-2.A.1.0.0', 'T.1.A.2.0.0', 'T.1.A.5.0.0', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'D.1.A.15.0.0'])
+('NP_001307516.1', ['U.-2.A.1.0.0', 'T.2.A.2.0.0', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'D.1.A.15.0.0'])
+('XP_016860897.1', ['U.-2.A.4.0.0', 'T.1.A.5.c.1', 'T.1.A.6.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.A.11.0.0'])
+('NP_001307518.1', ['T.1.A.7.n.1', 'T.2.G.9.0.0', 'T.1.G.10.0.0', 'T.1.A.14.0.0', 'D.-2.A.15.0.0'])
+('NP_612457.1', ['T.1.A.7.n.1', 'T.2.G.9.0.0', 'T.1.G.10.0.0', 'D.1.A.15.0.0'])
+('NP_001307519.1', ['T.1.A.7.n.1', 'T.2.G.9.0.0', 'T.1.G.10.0.0', 'T.1.A.12.0.0'])
+('XP_016860899.1', ['T.1.A.7.0.0', 'T.2.G.9.0.0', 'T.1.G.10.0.0', 'T.1.A.11.0.0'])
+('NP_001307517.1', ['U.-2.A.8.0.0', 'T.3.G.9.0.0', 'T.1.G.10.0.0', 'D.1.A.15.0.0'])
+
+
+5328
+another interesting case:
+('XP_011538168.1', ['U.-2.A.1.0.0', 'D.1.F.3.0.0', 'T.1.A.4.0.0', 'D.1.G.5.0.0', 'T.1.G.6.0.0', 'T.2.G.7.0.0', 'T.1.G.8.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.G.11.0.0', 'T.1.F.12.c.1'])
+('NP_001138503.1', ['U.-2.A.2.0.0', 'T.1.F.3.c.1', 'D.3.G.5.0.0', 'T.1.G.6.0.0', 'T.1.G.7.0.0', 'T.1.G.8.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.G.11.0.0', 'T.1.F.12.0.0'])
+('NP_002649.1', ['U.-2.A.2.0.0', 'D.1.F.3.0.0', 'T.1.A.4.0.0', 'D.1.G.5.0.0', 'T.1.G.6.0.0', 'T.1.G.7.0.0', 'T.1.G.8.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.G.11.0.0', 'T.1.F.12.0.0'])
+('NP_001306120.1', ['U.-2.A.2.0.0', 'D.-2.F.3.0.0', 'D.-2.G.5.0.0', 'T.2.G.6.0.0', 'T.1.G.7.0.0', 'T.1.G.8.0.0', 'T.1.G.9.0.0', 'T.1.G.10.0.0', 'T.1.G.11.0.0', 'T.1.F.12.0.0'])
+('NP_002649.1', 'U.-2.A.2.0.0', 0)
+A
+('NP_002649.1', 'D.1.F.3.0.0', 19)
+G
+('NP_002649.1', 'T.1.A.4.0.0', 9)
+A
+('NP_002649.1', 'D.1.G.5.0.0', 36)
+G
+('NP_002649.1', 'T.1.G.6.0.0', 59)
+G
+('NP_002649.1', 'T.1.G.7.0.0', 30)
+G
+('NP_002649.1', 'T.1.G.8.0.0', 74)
+G
+('NP_002649.1', 'T.1.G.9.0.0', 49)
+G
+('NP_002649.1', 'T.1.G.10.0.0', 47)
+G
+('NP_002649.1', 'T.1.G.11.0.0', 50)
+G
+('NP_002649.1', 'T.1.F.12.0.0', 58)
+G
+[[19, 'G', 'D.1.F.3.0.0', 1, 0], [9, 'A', 'T.1.A.4.0.0', 1, 0], [36, 'G', 'D.1.G.5.0.0', 1, 0], [59, 'G', 'T.1.G.6.0.0', 1, 0], [30, 'G', 'T.1.G.7.0.0', 1, 0], [74, 'G', 'T.1.G.8.0.0', 1, 0], [49, 'G', 'T.1.G.9.0.0', 1, 0], [47, 'G', 'T.1.G.10.0.0', 1, 0], [50, 'G', 'T.1.G.11.0.0', 1, 0], [58, 'G', 'T.1.F.12.0.0', 1, 0]]
+[((70, 151), 'PF00051.18', 1.04, 'Kringle', 'Domain'), ((179, 419), 'PF00089.26', 1.09, 'Trypsin', 'Domain')]
+
+
+(py27) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ python bin/creating_figures_python/Fig3_domains_section.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam 0
+6
+output/derived_data/results
+Total_genes=6988, included cases=6482, total_aa=2603823, total_aa_dom=1074657, total_aa_dom_middle=303717, fracCoveerd_wdom=0.413, fraccoveerd_m_dom=0.117
+atit
+
+(py27) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ python bin/creating_figures_python/Fig3_domains_section.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam 1
+6
+output/derived_data/results
+Total_genes=6988, included cases=6482, total_aa=2063668, total_aa_dom=1020783, total_aa_dom_middle=325941, fracCoveerd_wdom=0.495, fraccoveerd_m_dom=0.158
+core
+
+
+python bin/creating_figures_python/Fig3_domains_section.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam -1
+6
+output/derived_data/results
+Total_genes=6988, included cases=6482, total_aa=4667491, total_aa_dom=2095440, total_aa_dom_middle=629658, fracCoveerd_wdom=0.449, fraccoveerd_m_dom=0.135
+both
+
+
+Execution halted
+(base) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_atit.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_atit.pdf
+Saving 7 x 7 in image
+(base) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_both.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_both.pdf
+Saving 7 x 7 in image
+(base) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_core.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_core.pdf
+
+		dType	ATI/ATT			BOTH			CORE
+Total	W		9025			12342			8418
+Normal	W	AA	5073 (0.562)	2956 (0.24)
+Normal	W	GG	1550 (0.172)	4913 (0.398)	8418
+Normal	W	AG	2402 (0.266)	4473 (0.362)
+
+Total	M		5087			8318			5315
+Normal	M	AA	3440 (0.676)	2293 (0.276)
+Normal	M	GG	994 (0.195)		4236 (0.509)	5315
+Normal	M	AG	653 (0.128) 	1789 (0.215)	
+
+Total	W		9025			9337			5413
+ConCod	W	AA	5073 (0.562) 	2956 (0.317)	
+ConCod	W	GG	1550 (0.172)	1982 (0.212		5413
+ConCod	W	AG	2402 (0.266)	4399 (0.471)
+
+Total	M		5087			5492			2489
+ConCod	M	AA	3440 (0.676)	2293 (0.418)	
+ConCod	M	GG	994 (0.195)		1438 (0.262
+ConCod	M	AG	653 (0.128)		1761 (0.321) 	2489
+
+
+THe M frac is changing is ATI/ATT, and CORE, 
+6966 vs 5087, (3627 Vs 2489), (6453 vs 5413)
+
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_ConsecCoding_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_ConsecCoding_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_ConsecCoding_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_ConsecCoding_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_normal_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_normal_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_normal_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_normal_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_exonsPerspective_ConsecCoding_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_exonsPerspective_ConsecCoding_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_exonsPerspective_ConsecCoding_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_exonsPerspective_ConsecCoding_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_exonsPerspective_normal_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_exonsPerspective_normal_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_exonsPerspective_normal_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_exonsPerspective_normal_W.pdf
+
+
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_domainsPerspective_ConsecCoding_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_domainsPerspective_ConsecCoding_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_domainsPerspective_ConsecCoding_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_domainsPerspective_ConsecCoding_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_domainsPerspective_normal_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_domainsPerspective_normal_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_domainsPerspective_normal_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_domainsPerspective_normal_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_exonsPerspective_ConsecCoding_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_exonsPerspective_ConsecCoding_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_exonsPerspective_ConsecCoding_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_exonsPerspective_ConsecCoding_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_exonsPerspective_normal_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_exonsPerspective_normal_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_exonsPerspective_normal_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_core_perFractionDomains_exonsPerspective_normal_W.pdf
+
+
+
+
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_domainsPerspective_ConsecCoding_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_domainsPerspective_ConsecCoding_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_domainsPerspective_ConsecCoding_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_domainsPerspective_ConsecCoding_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_domainsPerspective_normal_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_domainsPerspective_normal_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_domainsPerspective_normal_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_domainsPerspective_normal_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_ConsecCoding_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_ConsecCoding_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_ConsecCoding_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_ConsecCoding_W.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_normal_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_normal_M.pdf
+
+Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_normal_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_normal_W.pdf

@@ -2,11 +2,14 @@ import cPickle as pickle
 import common.general_modules as gm
 import figPanels.modules_analysis as am
 import sys
-if len(sys.argv)!=4:
-        print ("Please give 1 object 2 conditionFile 3 results dir")
+if len(sys.argv)!=5:
+        print ("Please give 1 object 2 conditionFile 3 results dir 4 ATIFlag  ATITrue=0, ATIFalse=1, reagrdless=-1")
         sys.exit()
-prog,source_gene_object,gene_conFile,results_dir_csv = sys.argv
+prog,source_gene_object,gene_conFile,results_dir_csv, ATIFlag = sys.argv
 
+
+ATIFlag=int(ATIFlag)
+fnameappend='both' if ATIFlag ==-1 else 'core' if ATIFlag==1 else 'atit' if ATIFlag==0 else 'False'
 fileswriter=open(results_dir_csv+"ss.log","w")
 window=3
 
@@ -36,7 +39,7 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
     tupleWritten=0
     
     desiredlistofgenes=[i for i in gene_source if i in condition]
-    desiredlistofgenes=[103]
+    #desiredlistofgenes=[103]
     for gene in desiredlistofgenes:
         PI=[i for i in gene_source[gene].transcripts if i.PI][0]
         if PI:
@@ -59,16 +62,16 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
 
             PI_representative=[]
             for i in range(0,len(PI.exons)-1):
-                print (PI.exons[i].ID, PI.exons[i].length, PI.exons[i+1].ID, PI.exons[i+1].length)
-                if am.exonPasser(PI.exons[i], PI.exons[i+1], consecCoding=tExonList):
+                #print (PI.exons[i].ID, PI.exons[i].length, PI.exons[i+1].ID, PI.exons[i+1].length)
+                if am.exonPasser(PI.exons[i], PI.exons[i+1], ATIFlag, consecCoding=tExonList):
                     PI_representative+=[(PI.exons[i],PI.exons[i+1])]
-                    print ('[passed]')
+                    #print ('[passed]')
                 else:
-                    print ('failed')
+                    #print ('failed')
                     irrelavant+=1
 
-            print (PI_representative)
-            print (irrelavant)
+            #print (PI_representative)
+            #print (irrelavant)
             if PI_representative:
                 for i in PI_representative:
                     i1seq=i[0].out_secondseq(PI.ID)
@@ -84,8 +87,8 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
                             alt_alt=updateHas_increment(alt_alt,valueJunction)
                         else:
                             cons_alt=updateHas_increment(cons_alt,valueJunction)
-            print (cons_cons)
-            sys.exit()
+            #print (cons_cons)
+            #sys.exit()
             if tuples:
                 tupleWritten+=1
                 #crearing background if the length matches with PI, full isoform
@@ -96,11 +99,11 @@ def sstype_ends_indi(gene_source,condition, filename, window,fout):
                     valueJunction=am.ss_junctionWindow(temp1,temp2, window)
                     backgroud=updateHas_increment(backgroud,valueJunction)
     #print irrelavant
-    am.csv_writer(backgroud, filename+"background_window%s.csv" % window,fout)
-    am.csv_writer(all_junct, filename+"alljunct_window%s.csv" % window,fout)
-    am.csv_writer(cons_cons, filename+"ConsCons_window%s.csv" % window,fout)
-    am.csv_writer(alt_alt, filename+"AltAlt_window%s.csv" % window,fout)
-    am.csv_writer(cons_alt, filename+"ConsAlt_window%s.csv" % window,fout)
+    am.csv_writer(backgroud, filename+"background_window%s.csv"%window+fnameappend, fout)
+    am.csv_writer(all_junct, filename+"alljunct_window%s.csv"%window+fnameappend, fout)
+    am.csv_writer(cons_cons, filename+"ConsCons_window%s.csv"%window+fnameappend, fout)
+    am.csv_writer(alt_alt, filename+"AltAlt_window%s.csv"%window+fnameappend, fout)
+    am.csv_writer(cons_alt, filename+"ConsAlt_window%s.csv"%window+fnameappend, fout)
     
 def sstype_ends_coservation(gene_source,condition, filename, window, fout):
     total_junctions={}
@@ -135,7 +138,7 @@ def sstype_ends_coservation(gene_source,condition, filename, window, fout):
             tExonsBtweenFirstConstitutiveToLast=am.exonScreenerBetweenTConstitutive(gene_source[gene].exons)
             representative={}
             for trans in gene_source[gene].transcripts:
-                representative= am.junctions_from_different_isoforms_poulator(representative, trans, trans.PI, window, tExonsBtweenFirstConstitutiveToLast)
+                representative= am.junctions_from_different_isoforms_poulator(representative, trans, trans.PI, window, ATIFlag, tExonsBtweenFirstConstitutiveToLast)
 
             #get their WEF's also listed
             for exonSequencePair in representative:
@@ -175,9 +178,9 @@ def sstype_ends_coservation(gene_source,condition, filename, window, fout):
                         
                         #print (gene,exonSequencePair,interestType,flagExonType1,flagExonType2,flagPairKey,len(representative[exonSequencePair]),len(gene_source[gene].transcripts),WEF,reprSS,reprSS_count,reprSS_Freq)
                         has_exon_categories_combined[flagPairKey][gene,exonSequencePair,WEF]=(representative[exonSequencePair],reprSS,reprSS_count,reprSS_Freq, temphas)
-    am.sorting_screening_junctions(has_exon_categories_combined,filename+'WEF_and_exonsJunction.csv',filename+'WEF_and_majorSS_exonsJunction_conservation.csv')
+    am.sorting_screening_junctions(has_exon_categories_combined,filename+'WEF_and_exonsJunction.csv'+fnameappend,filename+'WEF_and_majorSS_exonsJunction_conservation.csv'+fnameappend)
         
-#sstype_ends_coservation(humanGeneObject, CONDITION_GENES, results_dir_csv +'F2_ExonsJunction', window,fileswriter)
+sstype_ends_coservation(humanGeneObject, CONDITION_GENES, results_dir_csv +'F2_ExonsJunction', window,fileswriter)
 sstype_ends_indi(humanGeneObject, CONDITION_GENES, results_dir_csv +'F2_Individual_', window,fileswriter)
 
 

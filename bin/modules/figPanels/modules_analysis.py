@@ -25,12 +25,14 @@ import common.general_modules as gm
 def exonScreenerBetweenTConstitutive(geneExons,inclusive=True):
     acceptableNumericFlagList=[]
     for ex in geneExons:
+        #print (ex.ID)
         codNonCodFlag=ex.ID.split(".")[0]
         if codNonCodFlag=='T':    
             constAltFlag=ex.ID.split(".")[2]
             if constAltFlag=='G':
                 numericFlag=int(ex.ID.split(".")[3])
                 acceptableNumericFlagList+=[numericFlag]
+    #print (acceptableNumericFlagList)
     acceptableNumericFlagList.sort()
     if not inclusive:
         acceptableNumericFlagList=acceptableNumericFlagList[1:-1]

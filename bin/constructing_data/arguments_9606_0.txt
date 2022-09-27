@@ -1,0 +1,2 @@
+OrganismFolder:/home/paras/project/protein_splicing/projectDir/output/9606_2/	OrganismID:9606	PDB_source_dir:'' Common_files:/home/paras/project/protein_splicing/projectDir/output/common_files/
+Cores:36	startafresh:0	analyse:yes	analysis_scripts_dir:''

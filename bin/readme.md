@@ -1,5 +1,41 @@
+v: 27.09.22
+
+Two new programs has been added,
+prep.bash (which takes into account making preparations and standardizing directory structure)
+    improvements needed:
+    A) taking stockpiling for the current genome and the tax-ids, on broader level , it should ask for the modes, NCBI/ENSEMBL and the list of tax-Ids instead of working for the one, 
+    B) every set should be given the separate directories, with record stamp of the date on the parent folder.
+    C) all prelim file structure should not be created here but in the python program, as storing those addresses again will have the complications.
+    D) use it to keep record of scripts used to derived data, PFAM, I-tasser (PSIPRED), PDB sift file, cross reference files, alphafold databases, colabold DB's
+
+object builder
+the most recent file is the object_builder_latest.py
+changes:
+    structure information is made optional, the current DB isn't harboring any of those releases.
+    the nomenclature file has been changes (IR event nomenclature are recorded in middle for start of IR event from former exon but not from the last one [yes it was for last one])
+    F event cases has been improved and I think in future releases I will remove the usage of the redefine F cases module
+    Extensive documentation has been done for the many inside modules but still a detailed chart out is pending
+    after some releases, the structure and cath information modules should be discarded.
+    
+
+STATUS:
+F CASES DONE, IR EVENT CASE IMPROVED, EVENTS ARE BIT LIGHT ON COMPUTATION, DISORDER IS BEING MEASURED.
+
+PENDING
+FOREVER IMPROVEMENTS
+Documentation of every module there and here is a must, 
+ENSEMBL ready build
+
+checkup of the latest to build colabfold files
+
+
+
+
+
 # Data generation
 By and large the whole dataset and process was written mainly in python's 2.7 version, i would be constantly updating and revisiting such that this process can be made resuable
+(the biggest hurdle is pickling objects)
+
 
 # The figures and data
 ###### This panel overall will talk about the the components of the figure, which modules were mused form which file and othe overall layout of the system
@@ -244,6 +280,8 @@ Rscript bin/plotting_figures_R/F2_1_density_plot.R results/Condition_3000Pilengt
 python bin/creating_figures_python/Fig3_domains_analyse.py results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_exonsWise_atit.pickle results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_domain_annotation_atit.pickle output/genetoPDB.pickle results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/
 
 
+Total_genes=6988, included cases=6482, total_aa=4667491, total_aa_dom=2095440, total_aa_dom_middle=629658, fracCoveerd_wdom=0.449, fraccoveerd_m_dom=0.135
+
 
 
 
@@ -363,57 +401,41 @@ G
 [((70, 151), 'PF00051.18', 1.04, 'Kringle', 'Domain'), ((179, 419), 'PF00089.26', 1.09, 'Trypsin', 'Domain')]
 
 
-(py27) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ python bin/creating_figures_python/Fig3_domains_section.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam 0
-6
+python bin/creating_figures_python/Fig3_domains_section.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam 0
 output/derived_data/results
-Total_genes=6988, included cases=6482, total_aa=2603823, total_aa_dom=1074657, total_aa_dom_middle=303717, fracCoveerd_wdom=0.413, fraccoveerd_m_dom=0.117
+Total_genes=6988, included cases=6482, total_aa=2374186, total_aa_dom=981563, total_aa_dom_middle=272600, fracCoveerd_wdom=0.413, fraccoveerd_m_dom=0.115
 atit
 
-(py27) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ python bin/creating_figures_python/Fig3_domains_section.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam 1
-6
+python bin/creating_figures_python/Fig3_domains_section.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam 1
+#core
 output/derived_data/results
-Total_genes=6988, included cases=6482, total_aa=2063668, total_aa_dom=1020783, total_aa_dom_middle=325941, fracCoveerd_wdom=0.495, fraccoveerd_m_dom=0.158
-core
-
+Total_genes=6988, included cases=6482, total_aa=2293305, total_aa_dom=1113877, total_aa_dom_middle=357058, fracCoveerd_wdom=0.486, fraccoveerd_m_dom=0.156
 
 python bin/creating_figures_python/Fig3_domains_section.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam -1
-6
-output/derived_data/results
 Total_genes=6988, included cases=6482, total_aa=4667491, total_aa_dom=2095440, total_aa_dom_middle=629658, fracCoveerd_wdom=0.449, fraccoveerd_m_dom=0.135
-both
+
+<!-- output/derived_data/results
+Total_genes=6988, included cases=6482, total_aa=2603823, total_aa_dom=1074657, total_aa_dom_middle=303717, fracCoveerd_wdom=0.413, fraccoveerd_m_dom=0.117
+atit -->
+<!-- output/derived_data/results
+Total_genes=6988, included cases=6482, total_aa=2063668, total_aa_dom=1020783, total_aa_dom_middle=325941, fracCoveerd_wdom=0.495, fraccoveerd_m_dom=0.158
+core -->
+<!-- output/derived_data/results
+Total_genes=6988, included cases=6482, total_aa=4667491, total_aa_dom=2095440, total_aa_dom_middle=629658, fracCoveerd_wdom=0.449, fraccoveerd_m_dom=0.135
+both -->
+
+python bin/creating_figures_python/Fig3_domains_analyse.py results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_domain_exon_annotation_atit.pickle results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_
+
+python bin/creating_figures_python/Fig3_domains_analyse.py results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_domain_exon_annotation_both.pickle results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_
+
+python bin/creating_figures_python/Fig3_domains_analyse.py results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_domain_exon_annotation_core.pickle results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_
 
 
-Execution halted
-(base) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_atit.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_atit.pdf
-Saving 7 x 7 in image
-(base) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_both.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_both.pdf
-Saving 7 x 7 in image
-(base) paras@menten:~/exonsdrive/paras/project/protein_splicing/projectDir$ Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_core.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_core.pdf
+Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_atit.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_atit.pdf
 
-		dType	ATI/ATT			BOTH			CORE
-Total	W		9025			12342			8418
-Normal	W	AA	5073 (0.562)	2956 (0.24)
-Normal	W	GG	1550 (0.172)	4913 (0.398)	8418
-Normal	W	AG	2402 (0.266)	4473 (0.362)
+Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_both.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_both.pdf
 
-Total	M		5087			8318			5315
-Normal	M	AA	3440 (0.676)	2293 (0.276)
-Normal	M	GG	994 (0.195)		4236 (0.509)	5315
-Normal	M	AG	653 (0.128) 	1789 (0.215)	
-
-Total	W		9025			9337			5413
-ConCod	W	AA	5073 (0.562) 	2956 (0.317)	
-ConCod	W	GG	1550 (0.172)	1982 (0.212		5413
-ConCod	W	AG	2402 (0.266)	4399 (0.471)
-
-Total	M		5087			5492			2489
-ConCod	M	AA	3440 (0.676)	2293 (0.418)	
-ConCod	M	GG	994 (0.195)		1438 (0.262
-ConCod	M	AG	653 (0.128)		1761 (0.321) 	2489
-
-
-THe M frac is changing is ATI/ATT, and CORE, 
-6966 vs 5087, (3627 Vs 2489), (6453 vs 5413)
+Rscript bin/plotting_figures_R/F3_consecutiveFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_core.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_F3_exonsChangeFractionOnMerge_core.pdf
 
 
 Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_ConsecCoding_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_atit_perFractionDomains_domainsPerspective_ConsecCoding_M.pdf
@@ -469,3 +491,18 @@ Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength
 Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_normal_M.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_normal_M.pdf
 
 Rscript bin/plotting_figures_R/F3_domExFraction.R results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_normal_W.csv results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_both_perFractionDomains_exonsPerspective_normal_W.pdf
+
+
+
+
+# jan102022
+python bin/creating_figures_python/Fig3_domains_section_withIntSp.py output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount/condition_genes.pick  results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_ pfam
+
+
+
+~/miniconda3/envs/py27/bin/python bin/creating_figures_python/Fig3_domains_analyse_withIntSp_csvwriter.py results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_domain_exon_annotation_super.pickle output/derived_data/results/objectsave_9606_0.6.pick results/Condition_3000Pilength_4Isf_4ExCount_onlyBetweenTfirstGexonsAndInside/Fig3D_
+
+<!-- 625, 'containedDomain')
+(3355, 'splitDomain')
+(295, 'purecontain')
+(3025, 'pureSplit') -->

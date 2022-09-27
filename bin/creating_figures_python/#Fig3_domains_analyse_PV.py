@@ -67,52 +67,97 @@ def addvaltoHaslis(has,key,val):
         has[key]+=[val]
     return has
 
+
+def summarise(ob):
+    domKeys=['domains','domains_conseCoding']
+    for keys in domKeys:
+        print ('key:',keys)
+        for domains in ob[keys]:
+            print ('\n',domains,ob[keys][domains][:3])
+            for exons in ob[keys][domains][4]:
+                print (exons,ob[keys][domains][4][exons])
+        print ('\n')
 def l1(has, fout):
     total={'normal':{},'ConsecCoding':{}}
-    contained={'normal':{'W':{},'M':{}},'ConsecCoding':{'W':{},'M':{}}}
+    contained={'normal':{'W':{'A':{},'G':{}, 'both':{}},'M':{'A':{},'G':{}, 'both':{}}},'ConsecCoding':{'W':{'A':{},'G':{}, 'both':{}},'M':{'A':{},'G':{}, 'both':{}}}}
     split={'normal':{'W':{},'M':{}},'ConsecCoding':{'W':{},'M':{}}}
     category={'domains_conseCoding':'ConsecCoding', 'domains':'normal'}
 
     for gene in has:
+      #if gene==405:
         for exonsCateg in category:
             for domain in has[gene][exonsCateg]:
                 W_contri,M_contri,contained40, contained100 ,domainContrib=has[gene][exonsCateg][domain]
                 #[(keyw, key1contrib_W, key2contrib_W),(keym, key1contrib_M, key2contrib_M) ,contained40, contained100 ,domainContrib]
-
+                # print (domain, exonsCateg)
+                # print (W_contri,M_contri,contained40, contained100)
+                # print (domainContrib)
                 localCateg=category[exonsCateg]
+                
+                
                 total[localCateg]=addvaltoHaslis(total[localCateg],gene,domain)
                 if contained100:
-                    contained[localCateg]['W']=addvaltoHaslis(contained[localCateg]['W'],gene,domain)
+                    #localKeyW=W_contri[0][0]
+                    localKeyW=contained100
+                    contained[localCateg]['W']['both']=addvaltoHaslis(contained[localCateg]['W']['both'],gene,domain)
+                    contained[localCateg]['W'][localKeyW]=addvaltoHaslis(contained[localCateg]['W'][localKeyW],gene,domain)
                 else:
                     split[localCateg]['W']=addvaltoHaslis(split[localCateg]['W'],gene,domain)
                 if contained40:
-                    contained[localCateg]['M']=addvaltoHaslis(contained[localCateg]['M'],gene,domain)
+                    #localKeyM=M_contri[0][0]
+                    localKeyM=contained40
+                    contained[localCateg]['M']['both']=addvaltoHaslis(contained[localCateg]['M']['both'],gene,domain)
+                    contained[localCateg]['M'][localKeyM]=addvaltoHaslis(contained[localCateg]['M'][localKeyM],gene,domain)
                 else:
                     split[localCateg]['M']=addvaltoHaslis(split[localCateg]['M'],gene,domain)
+                # print (contained100,contained40,W_contri[0][0],M_contri[0][0])
+                # print (contained[localCateg]['W'])
+                # print ('\n')
     
+    #print (contained)
     localCateg=category.values()
+    
+    #BROADCAT\tContained\tSplit
+    #Scope\tnormal\ConsecCoding
+    #domINt\tWhole\tMiddle
+    #exScope\tA\tG
+    #summarise(has[7173])
+    
+    # for gene in contained['normal']['W']['A']:
+    #     domains=len(contained['normal']['W']['A'][gene])
+    #     domainsCon=len(contained['ConsecCoding']['W']['A'][gene])
+    #     if domains!=domainsCon:
+    #         print ('*************',gene,domains,domainsCon)
+    #         break
+    # this was to check some errors
+
+
+
+
     fout.write('*Total domain stats and contained cases summary\n')
+    fout.write('Broadcat\tMergeScope\tDomInt\texScope\tTotalDomain\tUniqueDom\tGenes\n')
     for cat in total:
         genes=total[cat].keys()
         domains=[i for j in total[cat].values() for i in j]
         uniqueDom=set(domains)
-        fout.write('\tTotal Domains for categ %s is %s (%s unique), gene count is %s\n  '%(cat,len(domains), len(uniqueDom), len(genes)))
+        fout.write('Total\t.\t.\t.\t%s\t%s\t%s\n'%(len(domains), len(uniqueDom), len(genes)))
     
-    fout.write('\n* For contained cases')
-    for cat in contained:
-        for localGlobalScope in contained[cat]:
-            genes=contained[cat][localGlobalScope].keys()
-            domains=[i for j in contained[cat][localGlobalScope].values() for i in j]
+    for scope in contained:
+        for domInteg in contained[scope]:
+            for exScope in contained[scope][domInteg]:
+                genes=contained[scope][domInteg][exScope].keys()
+                domains=[i for j in contained[scope][domInteg][exScope].values() for i in j]
+                uniqueDom=set(domains)
+                fout.write('Contained\t%s\t%s\t%s\t%s\t%s\t%s\n'%(scope, domInteg, exScope, len(domains), len(uniqueDom), len(genes)))
+                
+    #fout.write('\n* For split cases')
+    for scope in split:
+        for domInteg in split[scope]:
+            genes=split[scope][domInteg].keys()
+            domains=[i for j in split[scope][domInteg].values() for i in j]
             uniqueDom=set(domains)
-            fout.write('\tContained Domains for categ %s and scope %s is %s (%s unique), gene count is %s\n  '%(cat,localGlobalScope,len(domains), len(uniqueDom), len(genes)))
-
-    fout.write('\n* For split cases')
-    for cat in split:
-        for localGlobalScope in split[cat]:
-            genes=split[cat][localGlobalScope].keys()
-            domains=[i for j in split[cat][localGlobalScope].values() for i in j]
-            uniqueDom=set(domains)
-            fout.write('\tsplit Domains for categ %s and scope %s is %s (%s unique), gene count is %s\n  '%(cat,localGlobalScope,len(domains), len(uniqueDom), len(genes)))
+            #print (scope, domInteg, len(domains), len(uniqueDom), len(genes))
+            fout.write('Split\t%s\t%s\t.\t%s\t%s\t%s\n'%(scope, domInteg, len(domains), len(uniqueDom), len(genes)))
     return fout
 
 
@@ -277,15 +322,19 @@ def l3(has,fnames, foutLog):
                 
 
     junc=['AA','AG','GG']
-    foutLog.write('\n**section about split cases and totality of them ')
-    for h in genFrac:
-        foutLog.write('\nfor the %s exonmerger\n'%(h))
-        for WM in genFrac[h]:
-            totalDom=sum(genFrac[h][WM].values())
-            foutLog.write('\tthe %s domainType, total split cases are %s\n'%(WM,totalDom))
-            for ju in junc:
-                count=genFrac[h][WM][ju]
-                foutLog.write('\t\tfor junctype %s total are %s (%s) \n'%(ju,count, div_fact(count,totalDom)))
+    foutLog.write('\n**section about split cases and totality of them\n')
+    foutLog.write('localGlobalScope\tdomIntegrity\texonJunction\tcount\tfreq\n')
+    
+    for localGlobalScope in genFrac:
+        #foutLog.write('\nfor the %s exonmerger\n'%(localGlobalScope))
+        for domIntegrity in genFrac[localGlobalScope]:
+            totalDom=sum(genFrac[localGlobalScope][domIntegrity].values())
+            #foutLog.write('\tthe %s domainType, total split cases are %s\n'%(domIntegrity,totalDom))
+            for exJunc in junc:
+                count=genFrac[localGlobalScope][domIntegrity][exJunc]
+                #foutLog.write('\t\tfor junctype %s total are %s (%s) \n'%(exJunc,count, div_fact(count,totalDom)))
+                foutLog.write('%s\t%s\t%s\t%s\t%s\n'%(localGlobalScope,domIntegrity,exJunc,count,div_fact(count,totalDom)))
+    
     
     
     for exonsCateg in AGFrac:
@@ -308,4 +357,3 @@ l1(geneEx,logf)
 l2(geneEx,outdir+'perFractionDomains_')
 l3(geneEx,outdir+'FractionAG_', logf )
 logf.close()
-#python bin_analysis/analyse_domains.py results/exonsWise.pickle results/domain_annotation.pickle results/

@@ -4,7 +4,6 @@ from Bio import Entrez
 import datetime
 import re
 import gzip
-import tqdm
 from progress.bar import Bar
 from Bio.PDB import PDBList
 print ("---> In Retriever Module")
@@ -26,62 +25,96 @@ def description():
     ''')
 
 
-def hidden_retriever1(element, dbtype, fmt,ext,address):
-    
-    if not(os.path.isfile(os.path.join(address,"%s" % element+ext))):
+def hidden_retriever1(lis, dbtype, address, has):
+    if dbtype == "gene":
+        fmt = "gene_table"
+        ext = ".txt"
+    else:
+        fmt = "fasta"
+        ext = ".faa"
+    for j in lis:
+        if not(os.path.isfile(os.path.join(address,"%s" % j+ext))):
             try:
                 Entrez.email = "parasvcb@gmail.com"
                 handle = Entrez.efetch(db=dbtype, id=str(
-                    element), api_key="d13f309e2f3022c4a996b71b453258233907", rettype=fmt, retmode="text")
+                    j), api_key="d13f309e2f3022c4a996b71b453258233907", rettype=fmt, retmode="text")
                 b = handle.read()
                 b = b.encode("ascii")
-                with open(os.path.join(address,(element+ext)), "w") as fout:
+                with open(address+"%s" % j+ext, "w") as fout:
                     fout.write("%s" % b)
             except Exception as E:
-                print (element, E)
+                has[j] = E
+
+
+def hidden_retriever2(lis, dbtype, address, has):
+    if dbtype == "gene":
+        fmt = "gene_table"
+        ext = ".txt"
+    else:
+        fmt = "fasta"
+        ext = ".faa"
+
+    for j in lis:
+        if not(os.path.isfile(os.path.join(address,"%s" % j+ext))):
+            try:
+                Entrez.email = "paras.verma@live.com"
+                handle = Entrez.efetch(db=dbtype, id=str(
+                    j), api_key="bce08d2b16ea6ff6cf78dcbb16b9ef683a09", rettype=fmt, retmode="text")
+                b = handle.read()
+                b = b.encode("ascii")
+                with open(address+"%s" % (j)+ext, "w") as fout:
+                    fout.write("%s" % b)
+            except Exception as E:
+                has[j] = E
+
 
 def chunks(l, n):
     """Yield successive n-sized chunks from l."""
     for i in range(0, len(l), n):
         yield l[i:i + n]
 
-def updatepbar(a):
-    global pbar
-    pbar.update()
 
-pbar=''
 def entrez_retriever(lis, nature, directory, fname=False):
-    def mini_pool(lis,nature,fmt,ext,directory):
-        lis=[i for i in lis if not os.path.isfile(os.path.join(directory,(i+ext)))]
-        cpus = 7
-        pool = multiprocessing.Pool(cpus)
-        global pbar
-        pbar = tqdm.tqdm(total=len(lis))
-        for element in lis:
-            pool.apply_async(hidden_retriever1, args=(element, nature, fmt,ext, directory,), callback=updatepbar)
-        pool.close()
-        pool.join()
-        pbar.close()
-        return
-    
-
     if fname:
         with open (fname) as fin:
             lis=[i for i in fin.read().split('\n')]
     if nature not in ["protein", "mRNA", "gene"]:
         return "Exiting: please add second arguemnet as either 'gene','protein' or 'mRNA' only"
-    if nature == "gene":
-        fmt = "gene_table"
-        ext = ".txt"
-    else:
-        fmt = "fasta"
-        ext = ".faa"
-    #repeat again
-    mini_pool(lis,nature,fmt,ext,directory)
-    print ("1 done")
-    mini_pool(lis,nature,fmt,ext,directory)
-    print ("2 done")
-    
+    manager = multiprocessing.Manager()
+    has = manager.dict()
+    cpus = 10
+    sublists = list(chunks(lis, cpus))
+    processes = []
+    for i in range(0, cpus):
+        if i < 5:
+            # send processes to one api_key
+            p = multiprocessing.Process(target=hidden_retriever1, args=(
+                sublists[i], nature, directory, has,))
+            processes.append(p)
+            p.start()
+        else:
+            p = multiprocessing.Process(target=hidden_retriever2, args=(
+                sublists[i], nature, directory, has,))
+            processes.append(p)
+            p.start()
+    for proc in processes:
+        proc.join()
+    # retrying missed
+    has = manager.dict()
+    p = multiprocessing.Process(target=hidden_retriever1, args=(lis, nature, directory, has,))
+    p.start()
+    p.join()
+    print ("data_successfully_retrived\n******************")
+    if has:
+        addr = "/".join(directory.split("/")[:-2])+"/"
+        print ("untreieved logs are present in %s" % addr)
+        dat_t = str(datetime.datetime.now())
+        dat_t = re.sub(r'\:\d+\.\d+$', '', dat_t)
+        dat_t = re.sub(r':', '_', dat_t)
+        filname = "unretrieved_log_%s_%s.log" % (nature, dat_t)
+        with open(addr+"%s" % filname, "w") as fout1:
+            for i in has:
+                fout1.write("%s:\t%s\n" % i, has[i])
 
 def id_extractorGT(gene_add, nature):
     if nature not in ["protein", "mRNA"]:

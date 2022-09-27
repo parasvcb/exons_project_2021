@@ -50,10 +50,7 @@ def hidden_copy_file(src, dest):
         fin.write(dat)
 
 
-def assigner(done_dir, fastadir_done, pool_of_left, dir_to_write, where_to_write_rep_of_unassigned):
-    # done_dir -> dir where sequences are predicted
-    # fastadir_done -> fasta files for sequqnces
-    #
+def assigner(done_dir, fastadir_done, pool_of_left, dir_to_write, org_id, where_to_write_rep_of_unassigned):
     '''
     read PID of done, strip .dat.ss from end
     for the read ID's read the fasta sequence and save it in the ncbi_hashes_in_memory
@@ -64,14 +61,7 @@ def assigner(done_dir, fastadir_done, pool_of_left, dir_to_write, where_to_write
         then write and count,
         else store, yet to be retrieved
     '''
-    '''
-    done_dir_id = screens predictionDone ssp files in done_dir and store their idnetifiers in hash
-    done_hash = stores sequences in memory, which have predicted ss, value is identifier, key is aaseq
 
-    thereafter it goes to poolofleft sequences acnd check the aaseq if already predicted, if yes, copies it, otherwise add it to unknown list
-
-    give some statss and wroite sequqnces less than 3K to the where_to_write_rep_of_unassigned
-    '''
     unknown = {}
     copy_done = 0
     done_dir_id = {re.sub(r'.dat.ss', '', i): 0 for i in os.listdir(
@@ -81,11 +71,12 @@ def assigner(done_dir, fastadir_done, pool_of_left, dir_to_write, where_to_write
     done_hash = {}
     for i in done_dir_id:
         bar1.next()
-        seq = os.path.join(fastadir_done, "%s" % i)
+        seq = os.path.join(fastadir_done,"%s" % i)
         try:
             key = hidden_fasta_seq(seq)
         except:
             continue
+        # print i, key
         done_hash[key] = i
     bar1.finish()
 
@@ -97,29 +88,27 @@ def assigner(done_dir, fastadir_done, pool_of_left, dir_to_write, where_to_write
         bar2.next()
         # pool of left is a dir yet to be Predicted
         if i not in done_dir_id:
-            seq = os.path.join(pool_of_left, "%s" % i)
+            seq = os.path.join(pool_of_left,"%s" % i)
             key = hidden_fasta_seq(seq)
             if key not in done_hash:
                 unknown[key] = i
             else:
                 copy_done += 1
-                hidden_copy_file(os.path.join(done_dir, "%s.dat.ss" %
-                                              done_hash[key]), os.path.join(dir_to_write, "%s.dat.ss" % i))
+                hidden_copy_file(os.path.join(done_dir,"%s.dat.ss" %
+                                 done_hash[key]), os.path.join(dir_to_write,"%s.dat.ss" % i))
     bar2.finish()
     temsum = 0
     for temi in unknown:
         if len(temi) > 3000:
             temsum += 1
     print "-> Newly predicted sequences are: %s" % copy_done
-    print "-> Unassigned sequences are: %s, (%s are greter than 3000)" % (
-        len(unknown), temsum)
+    print "-> Unassigned sequences are: %s, (%s are greter than 3000)" % (len(unknown), temsum)
     if os.path.isdir(where_to_write_rep_of_unassigned):
         rmtree(where_to_write_rep_of_unassigned)
         os.makedirs(where_to_write_rep_of_unassigned)
     for i in unknown:
         if len(i) <= 3000:
-            hidden_copy_file(os.path.join(
-                pool_of_left, unknown[i]), where_to_write_rep_of_unassigned+"%s" % unknown[i])
+            hidden_copy_file(os.path.join(pool_of_left,unknown[i]), where_to_write_rep_of_unassigned+"%s" % unknown[i])
     print "-> written pending sequences in %s" % where_to_write_rep_of_unassigned
     return unknown
 
@@ -127,7 +116,7 @@ def assigner(done_dir, fastadir_done, pool_of_left, dir_to_write, where_to_write
 def hidden_ret_array_fromss(ss_file, path_ssp_dir_raw, conf=None):
     arr = []
     try:
-        with open(os.path.join(path_ssp_dir_raw, "%s" % ss_file)) as fin:
+        with open(os.path.join(path_ssp_dir_raw,"%s" % ss_file)) as fin:
 
             data = fin.read().split("\n")
             del data[0]
@@ -149,17 +138,15 @@ def hidden_ret_array_fromss(ss_file, path_ssp_dir_raw, conf=None):
         print E
         return 0
 
-
 def hidden_ret_array_fromdis(dis_file, path_dis_dir_raw):
     arr = []
     try:
-        with open(os.path.join(path_dis_dir_raw, "%s" % dis_file)) as fin:
+        with open(os.path.join(path_dis_dir_raw,"%s" % dis_file)) as fin:
 
-            data = [i for i in fin.read().split("\n") if len(i)
-                    > 0 and i[0] != '#']
+            data = [i for i in fin.read().split("\n") if len(i)>0 and i[0]!='#']
             for i in data:
                 a = i.split()
-                if round(float(a[2]), 4) > 0.5000:
+                if round(float(a[2]),4) > 0.5000:
                     arr += "D"
                 else:
                     arr += "S"
@@ -169,11 +156,10 @@ def hidden_ret_array_fromdis(dis_file, path_dis_dir_raw):
         print E
         return 0
 
-
 def hidden_align(lis1, pid1, path_pid_raw):
     try:
         mat_c = []
-        seqfile = os.path.join(path_pid_raw, "%s" % pid1)
+        seqfile = os.path.join(path_pid_raw,"%s" % pid1)
         fas1 = hidden_fasta_seq(seqfile)
         a = 0
         b = 0
@@ -310,7 +296,7 @@ def aaseq(has_gene_cood, aaseq_fasta_dir, aaseq_dir):
                     # print "\n%s\n" % mat_c
                     if mat_c:
                         # print mat_c
-                        with open(os.path.join(aaseq_dir, "%s" % var), "w") as outter:
+                        with open(os.path.join(aaseq_dir,"%s" % var), "w") as outter:
                             pickle.dump(mat_c, outter,
                                         protocol=pickle.HIGHEST_PROTOCOL)
                         # break
@@ -326,25 +312,19 @@ def aaseq(has_gene_cood, aaseq_fasta_dir, aaseq_dir):
     print "Out of total %s variants, %s were already written, use freshStart mode 2 for rewrite all" % (
         total_var, var_inside)
 
-'''
-many ofthe statements are redundant here, it all should have been in the object oreinted paraddigm for the ease of the text saving, 
-alas, the whole plan wasnt build on paper but modules were added as per curiosity, hence this haphazard observed. [Paras 22 sep 2022]
-'''
 
 def ss_to_exons(has_gene_cood, ssrawdir, ssExonsWriteDir, threshold):
+    # count_left1 = []
+    # count_left2 = 0
+    # print ssrawdir
+    # print ssExonsWriteDir
+    # return
     bar = Bar('Processing ssseq into exons, gene_wise:',
               max=len(has_gene_cood))
     ssseq_dir_hash = {i: 0 for i in os.listdir(ssExonsWriteDir)}
     print len(ssseq_dir_hash), "files in pickle"
     print len([i for i in (os.listdir(ssrawdir))
                if ".dat.ss" in i]), "raw _set"
-    # gene is key, value are list of transcriprts, and second hash layer (hash of hash has their exonic coordinates)
-    
-    '''
-    screen genes in the has_gene_cood, and their transcripts, if they dont have sspred written in exons, then go ahead,
-    make sure the file is also presnet in the sspred dir (hard coded below)
-
-    '''
     for gene in has_gene_cood:
         bar.next()
         try:
@@ -352,10 +332,11 @@ def ss_to_exons(has_gene_cood, ssrawdir, ssExonsWriteDir, threshold):
             # get pid variants of gene ids
             for var in pid:
                 if var not in ssseq_dir_hash:
-                    # if sspred is not written in matrix form pickle
+                    # count_left1 += [var]
                     ss_file = var+".dat.ss"
-                    if os.path.isfile(os.path.join(ssrawdir, "%s" % ss_file)):
-                        ############# transcript Block ######################
+                    if os.path.isfile(os.path.join(ssrawdir,"%s" % ss_file)):
+                        # print "in"
+                        # count_left2 += 1
                         exon1temp = []
                         k1_keys = has_gene_cood[gene][var]
                         # k1keys will have exon seq no,, its coods, then coding sattasitus
@@ -371,15 +352,14 @@ def ss_to_exons(has_gene_cood, ssrawdir, ssExonsWriteDir, threshold):
                         mat_ss = hidden_ss_aligner(array_ss_type, exon1mod)
                         if mat_ss:
                             # print "in2"
-                            with open(os.path.join(ssExonsWriteDir, "%s" % var), "w") as outter:
+                            with open(os.path.join(ssExonsWriteDir,"%s" % var), "w") as outter:
                                 pickle.dump(mat_ss, outter,
                                             protocol=pickle.HIGHEST_PROTOCOL)
-                        ############ transcript Block ######################
+
         except Exception as e:
             print e, gene, "sseq_writer"
         # break
     bar.finish()
-
 
 def disorder_to_exons(has_gene_cood, disrawdir, disExonsWriteDir):
     bar = Bar('Processing disorder into exons, gene_wise:',
@@ -396,7 +376,7 @@ def disorder_to_exons(has_gene_cood, disrawdir, disExonsWriteDir):
                 if var not in disseq_dir_hash:
                     # count_left1 += [var]
                     dis_file = var
-                    if os.path.isfile(os.path.join(disrawdir, "%s" % dis_file)):
+                    if os.path.isfile(os.path.join(disrawdir,"%s" % dis_file)):
                         exon1temp = []
                         k1_keys = has_gene_cood[gene][var]
                         # k1keys will have exon seq no,, its coods, then coding sattasitus
@@ -413,7 +393,7 @@ def disorder_to_exons(has_gene_cood, disrawdir, disExonsWriteDir):
                         mat_dis = hidden_ss_aligner(array_dis_type, exon1mod)
                         if mat_dis:
                             # print "in2"
-                            with open(os.path.join(disExonsWriteDir, "%s" % var), "w") as outter:
+                            with open(os.path.join(disExonsWriteDir,"%s" % var), "w") as outter:
                                 pickle.dump(mat_dis, outter,
                                             protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -431,7 +411,7 @@ def principal_isoform(has_gene_var, aaseq_dump):
             alli = []
             for var in has_gene_var[gene]:
                 # print gene, var
-                with open(os.path.join(aaseq_dump, "%s" % var), "rb") as fin:
+                with open(os.path.join(aaseq_dump,"%s" % var), "rb") as fin:
                     # print var
                     # print pickle.load(fin)
                     dat = []
@@ -457,7 +437,7 @@ def principal_isoform(has_gene_var, aaseq_dump):
 
 
 def hidden_modify_output_stride_pss_form(res, pid, pid_add, stride_dir):
-    p_seq = hidden_fasta_seq(os.path.join(pid_add, pid))
+    p_seq = hidden_fasta_seq(os.path.join(pid_add,pid))
     store_seq_original = {}
     core = res.split(
         "REM  |---Residue---|    |--Structure--|   |-Phi-|   |-Psi-|  |-Area-|      ~~~~")[-1]
@@ -475,7 +455,7 @@ def hidden_matcherandedit(sto_seq, prot_seq, pid, stride_dir):
     try:
         ss_trans = {"H": "H", "G": "H", "I": "H", "B": "E",
                     "T": "C", "S": "C", "C": "C", "E": "E", "b": "E"}
-        with open(os.path.join(stride_dir, "%s.ss_3" % pid), "w") as fout_3:
+        with open(os.path.join(stride_dir,"%s.ss_3" % pid), "w") as fout_3:
             for i in range(0, len(prot_seq)):
                 if i in sto_seq:
                     fout_3.write("%5s %s %s 0 0 0\n" %
@@ -496,24 +476,26 @@ def prerequisite_stride(stride_location, has_gene_var, save_structure_dir, strid
     file_list_string_hash = {
         "_".join(i.split("_")[:2]): i for i in os.listdir(save_structure_dir)}
     for gene in has_gene_var:
-        flag = 0
+        flag=0
         for var in has_gene_var[gene]:
             if var in file_list_string_hash:
                 # means pdb for that file exists
                 # check iof stride output for that exists
                 # else run stride on them
-                if not os.path.isfile(os.path.join(stride_reformat_dir, var+".ss")):
+                if not os.path.isfile(os.path.join(stride_reformat_dir,var+".ss")):
                     try:
                         #print ([stride_location, os.path.join(save_structure_dir,file_list_string_hash[var])])
                         #print (gene,var,)
                         result_stride = subprocess.check_output(
-                            [stride_location, os.path.join(save_structure_dir, file_list_string_hash[var])])
+                            [stride_location, os.path.join(save_structure_dir,file_list_string_hash[var])])
                         hidden_modify_output_stride_pss_form(
                             result_stride, var, pid_dir, stride_reformat_dir)
                     except Exception as E:
                         print "Raising Exception******* in prediction_assignment_ss module, () is prerequisite_stride,\n"
                         print "during running stride: %s" % E,
                         print gene, var
+
+        
 
 
 def stride_assigner(has_gene_cood, stride_dir_ssformat, ssExonsWriteDir):
@@ -527,7 +509,7 @@ def stride_assigner(has_gene_cood, stride_dir_ssformat, ssExonsWriteDir):
         bar.next()
         try:
             for var in has_gene_cood[gene]:
-                if os.path.isfile(os.path.join(stride_dir_ssformat, "%s.ss_3" % var)) and var not in stride_seq_dir_hash:
+                if os.path.isfile(os.path.join(stride_dir_ssformat,"%s.ss_3" % var)) and var not in stride_seq_dir_hash:
                     exon1temp = []
                     k1_keys = has_gene_cood[gene][var]
                     k1_keys.sort()
@@ -540,7 +522,7 @@ def stride_assigner(has_gene_cood, stride_dir_ssformat, ssExonsWriteDir):
                         ss_file1, stride_dir_ssformat)
                     mat_ss1 = hidden_ss_aligner(array_ss_type1, exon1mod)
                     if mat_ss1:
-                        with open(os.path.join(ssExonsWriteDir, "%s" % var), "w") as outter:
+                        with open(os.path.join(ssExonsWriteDir,"%s" % var), "w") as outter:
                             pickle.dump(mat_ss1, outter,
                                         protocol=pickle.HIGHEST_PROTOCOL)
         except Exception as EE:

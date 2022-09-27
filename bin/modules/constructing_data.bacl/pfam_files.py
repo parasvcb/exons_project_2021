@@ -46,9 +46,8 @@ def preparation(src_dir, common_data, pickle_add, has_gene, pfam_dir):
                         r'^[XNY]P.*$', dat, flags=re.MULTILINE)
                     if res_temp:
                         for j in res_temp:
-                            # individual domain recrd 
                             ele = j.split()
-                            if float(ele[-3]) <= 0.01:  # evalue
+                            if float(ele[-3]) <= 0.01:
                                 start = ele[3]
                                 end = ele[4]
                                 lenpfam = (int(end)-int(start))+1
@@ -67,6 +66,7 @@ def preparation(src_dir, common_data, pickle_add, has_gene, pfam_dir):
                                 if var not in pfam_all[gene]:
                                     pfam_all[gene][var] = []
                                 pfam_all[gene][var] += [(pfam_id, coods, cov, hmmtype, dtype)]
+                                
 
         with open(os.path.join(pickle_add,"pfam_domains_hash.pick"), "w") as fin:
             pickle.dump(pfam_all, fin, protocol=pickle.HIGHEST_PROTOCOL)
@@ -101,6 +101,7 @@ def overlapper(has):
                     domsori.sort()
                     longest=tuple(domsori[-1])
                     doms = domsori[:]
+                    
                     '''
                     for every domain in the doms
                         compare it with setlist (which initially  contains only the l;argest domain)

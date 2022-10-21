@@ -1,0 +1,57 @@
+const data = [
+	{
+		"category": "molecule PROCESSING",
+		"description": "C80",
+		"end": "770",
+		"ftId": "PRO_0000384574",
+		"molecule": "",
+		"protvistaFeatureId": "18704fcb-2e6d-11ed-9663-1b650ebf9e0c",
+		"start": "691",
+		"tooltipContent": "\n      <h5>description</h5><p>C80</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000384574</p>\n      \n      \n      \n      \n      \n        ",
+		"type": "CHAIN",
+	},
+	{	
+		"category": "molecule_PROCESSING",
+		"description": "Gamma-secretase C-terminal fragment 59",
+		"end": "770",
+		"ftId": "PRO_0000000097",
+		"molecule": "",
+		"protvistaFeatureId": "18704fcc-2e6d-11ed-9663-1b650ebf9e0c",
+		"start": "712",
+		"tooltipContent": "\n      <h5>description</h5><p>Gamma-secretase C-terminal fragment 59</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000097</p>\n      \n      \n      \n      \n      \n",
+		"type": "CHAIN",
+	​​},
+	{
+		"category": "molecule_PROCESSING",
+		"description": "Gamma-secretase C-terminal fragment 57",
+		"end": "770",
+		"ftId": "PRO_0000000098",
+		"molecule": "",
+		"protvistaFeatureId": "18704fcd-2e6d-11ed-9663-1b650ebf9e0c",
+		"start": "714",
+		"tooltipContent": "\n      <h5>description</h5><p>Gamma-secretase C-terminal fragment 57</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000098</p>\n      \n      \n      \n      \n      \n",
+		"type": "CHAIN"
+	},
+	{
+		"category": "molecule_PROCESSING",
+		"description": "P3(40)",
+		"end": "711",
+		"ftId": "PRO_0000000096",
+		"molecule": "",
+		"protvistaFeatureId": "18704fca-2e6d-11ed-9663-1b650ebf9e0c",
+		"start": "688",
+		"tooltipContent": "\n      <h5>description</h5><p>P3(40)</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000096</p>\n      \n      \n      \n      \n      \n        ",
+		"type": "PEPTIDE"
+	},
+	{
+		"category": "molecule_PROCESSING",
+		"description": "P3(42)",
+		"end": "713",
+		"ftId": "PRO_0000000095",
+		"molecule": "",
+		"protvistaFeatureId": "18704fc9-2e6d-11ed-9663-1b650ebf9e0c",
+		"start": "688",
+		"tooltipContent": "\n      <h5>description</h5><p>P3(42)</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000095</p>\n      \n      \n      \n      \n      \n        ",
+		"type": "PEPTIDE",
+	}
+]

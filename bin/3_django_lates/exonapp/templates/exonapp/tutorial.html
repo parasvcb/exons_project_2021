@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+<div class="tablecontainer2">
+<table class="TFtable">
+
+<tr><td> <div class="headerText" style="width:auto;text-align:center; color:#336699"> Tutorial NEXTRaP database</div></td></tr>
+<tr><td> <h2> Tutorial:</h2>
+<p>
+ From Home page, gene can be queried using either the Gene ID (Entrez NCBI) or using its name<p>
+<p>After selecting the Gene from the listed drop down list, following information will be rendered</p>
+
+  <ul>
+    <li>
+        The result page will be headed by the <b>Gene name</b> and <b>organism</b>.
+        Information about the transcripts is given in the 'TRANSCRIPT TABLE'.
+        Exons are also segregated into five different categories of
+         UTMRD and three of AGF in that table for every transcript.<br>
+        <img class="one" src = "/static/pic_1.png" alt="Transcript Table" align= "middle" style='height: 100%; width: 100%; object-fit: contain'/><br>
+    </li>
+    <li>
+        'EXON TABLE' contains the detailed description of every exon in all the transcripts along with their 
+        descriptive nomenclature (Exon Id), Raw and Coding genomic 
+        coordinates (RGSC,RGEC - Raw Genomic start/end coordinates; 
+        CGSC,CGEC- Coding genomic start/end coordinates), length in 
+        amino acids and weighted exon frequency (WEF). <br>
+        <img src = "/static/pic_2.png" alt="Exon Table" align= "middle" style='height:100%; width: 100%; object-fit: contain'/><br>
+
+      </li>
+    <li>
+        The color coded Pfam annotated domains can be seen in the 
+        'DOMAIN TABLE'. After this table, all the transcripts are listed 
+        and their details can be seen by clicking on 'SHOW' button.<br>
+        <img src = "/static/pic_3.png" alt="Domain Table" align= "middle" style='height: 100%; width: 100%; object-fit: contain'/><br>
+    </li>
+    <li>
+        After clicking on 'SHOW' button against the transcript, 
+        exon details can be seen. For non-coding exons, 
+        content is displayed by #, whereas for coding exons
+         it is single letter aa code.<br>
+        <img src = "/static/pic_4.png" alt="Aa content" align= "middle" style='height: 100%; width: 100%; object-fit: contain'/><br>
+    </li>
+    <li>
+        The secondary structure of the exons can be highlighted on the exons by clicking on 'Show SS', 
+        yellow is 'Beta sheet region' and purple is 'Alpha helix region', and '-' are unordered secondary structure type.
+        <br><img src = "/static/pic_5.png" alt="Ss content" align= "middle" style='height: 100%; width: 100%; object-fit: contain'/><br>
+    </li>
+    <li>
+        The Pfam domains of the exons can be visualised by clicking on 'Show Dom', region not colored or in '-' is not coding any domains.
+        <br><img src = "/static/pic_6.png" alt="Domain content" align= "middle" style='height: 100%; width: 100%; object-fit: contain'/><br>
+
+    </li>
+
+</p></td></tr>
+
+</table>
+</div>
+</div>
+{%endblock%}
+

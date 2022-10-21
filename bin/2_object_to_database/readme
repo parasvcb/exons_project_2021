@@ -1,0 +1,414 @@
+This project will write to django sqlite3, 
+
+tasks:
+divide the former into usable modules and components 
+change color scheme to websafecolors
+
+Shall I keep mysql or sqlite 3 ? check the compatabilities
+
+one done, render the response to latest of django
+
+once that laso is done, 
+
+generate all modules, finalize the dataset completely and 
+
+check the incoreect dopmains spans introduced, 
+correct disorder regions, (dont show structred but disorederd region only)
+
+
+
+
+
+
+
+
+3 october 2022:
+disorder, domain, mysql, complete 4 into 1 component
+
+make a separate chapter of changes needed to incorporate ensembl
+
+
+
+
+
+
+
+
+
+
+## mysql installation has been taken care of
+thats installed in two systems
+
+menton:
+1076  sudo apt install mariadb-client-core-10.3
+ 1077  mysql
+ 1078  sudo apt install mariadb-client-core-10.3
+ 1079  sudo apt update
+ 1080  dpkg -l | grep -i docker
+ 1081  sudo apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli docker-compose-plugin
+ 1082  sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce docker-compose-plugin
+ 1083  sudo rm -rf /var/lib/docker /etc/docker
+ 1084  sudo rm /etc/apparmor.d/docker
+ 1085  sudo groupdel docker
+ 1086  sudo rm -rf /var/run/docker.sock
+ 1087  sudo apt update
+ 1088  sudo apt-get purge docker-ce docker-ce-cli containerd.io
+ 1089  sudo rm /etc/apt/sources.list.d/docker.list
+ 1090  sudo apt update
+ 1091  sudo vi /etc/apt/sources.list
+ 1092  sudo apt update
+ 1093  sudo apt upgrade
+ 1094  sudo apt autoremove
+ 1095  sudo systemctl status mysql
+ 1096  sudo systemctl status mariadb
+ 1097  sudo apt install mysql-server
+ 1098  sudo systemctl status mysql
+ 1099  sudo mysql_secure_installation
+ 1100  sudo mysql
+ 1101  sudo mysql_secure_installation\
+ 1102  sudo mysql_secure_installation
+ 1103  history | tail -100
+ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'cbg_2022';
+
+
+centos: x64arm?_cbg_2022_X67
+ 1004  mariadb
+ 1005  mysql
+ 1006  sudo yum install mariadb-server
+ 1007  mysql
+ 1008  sudo systemctl start mariadb.service
+ 1009  mysql
+ 1010  sudo mysql
+ 1011  sudo mysql_secure_installation
+ 1012  mysql
+ 1013  sudo mysql
+ 1014  history | tail -100
+
+sudo mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 8.0.30-0ubuntu0.20.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database enactdb;
+Query OK, 1 row affected (0.22 sec)
+
+mysql> 
+
+
+
+
+geneObcreator(geneob, genepk):
+    get name, and replace single comma with double repeated comma (single * 2, not double quoes)
+    get geneid
+    taxid, taxanamd, then add into the sql header and return the sql to b executed
+
+transcriptObcreator(genePrimaryKey, trancriptObPrimaryKey, transOb, numberOfDomains, numberOfUniqueDomainEntries, hashOfExonIdandTheirprimarykeys):
+    get PI bool
+    get tId
+    exoncount
+    swissportID
+    exonsIds comma separated string
+        replace that with their primary keys, using hashOfExonIdandTheirprimarykeys
+    
+    iterate the trans.exons:
+        if aa:
+            get disorder, ssp, # -> commnet mae in code
+
+        quantify UTMRGD events, 
+        
+
+
+
+ conda install -c anaconda mysql-python 
+
+module identification:
+
+iterate the genes:
+    iterate the gene exons and assign them the primary key
+    iterate the transcripts and assign them the primary key
+
+    call geneObCreator
+
+    disorder seq is improved now it will only show the disordered region (not structred one).
+
+
+
+
+
+
+
+## 7 oct 2022
+
+remove mariabd on oracle linux 9, as connector isnt supported
+
+
+[paras@newJensen ~]$ sudo rm -rf /var/lib/mysql
+[sudo] password for paras: 
+[paras@newJensen ~]$ sudo rm -rf /var/lib/mysql
+[paras@newJensen ~]$ ls /var/lib/mysql
+ls: cannot access '/var/lib/mysql': No such file or directory
+[paras@newJensen ~]$ sudo yum autoremove
+Last metadata expiration check: 0:30:36 ago on Fri 07 Oct 2022 12:48:21 PM IST.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[paras@newJensen ~]$ sudo yum autoclean
+No such command: autoclean. Please use /bin/yum --help
+[paras@newJensen ~]$ sudo yum install ~/Downloads/tform-and-version-specific-package-name.rpm
+code-1.69.2-1658162074.el7.x86_64.rpm       node-v18.7.0-linux-x64/
+mysql80-community-release-el9-1.noarch.rpm  
+[paras@newJensen ~]$ sudo yum install ~/Downloads/tform-and-version-specific-package-name.rpm
+code-1.69.2-1658162074.el7.x86_64.rpm       node-v18.7.0-linux-x64/
+mysql80-community-release-el9-1.noarch.rpm  
+[paras@newJensen ~]$ sudo yum install ~/Downloads/mysql80-community-release-el9-1.noarch.rpm\
+> ^C
+[paras@newJensen ~]$ sudo yum install ~/Downloads/mysql80-community-release-el9-1.noarch.rpm
+[sudo] password for paras: 
+Last metadata expiration check: 0:41:03 ago on Fri 07 Oct 2022 12:48:21 PM IST.
+Package mysql80-community-release-el9-1.noarch is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[paras@newJensen ~]$ yum repolist enabled | grep "mysql.*-community.*"
+Failed to store expired repos cache: [Errno 13] Permission denied: '/var/cache/yum/expired_repos.json'
+mysql-connectors-community MySQL Connectors Community
+mysql-tools-community      MySQL Tools Community
+mysql80-community          MySQL 8.0 Community Server
+[paras@newJensen ~]$  yum repolist all | grep mysql
+Failed to store expired repos cache: [Errno 13] Permission denied: '/var/cache/yum/expired_repos.json'
+mysql-cluster-8.0-community              MySQL Cluster 8.0 Community    disabled
+mysql-cluster-8.0-community-debuginfo    MySQL Cluster 8.0 Community -  disabled
+mysql-cluster-8.0-community-source       MySQL Cluster 8.0 Community -  disabled
+mysql-connectors-community               MySQL Connectors Community     enabled
+mysql-connectors-community-debuginfo     MySQL Connectors Community - D disabled
+mysql-connectors-community-source        MySQL Connectors Community - S disabled
+mysql-tools-community                    MySQL Tools Community          enabled
+mysql-tools-community-debuginfo          MySQL Tools Community - Debugi disabled
+mysql-tools-community-source             MySQL Tools Community - Source disabled
+mysql80-community                        MySQL 8.0 Community Server     enabled
+mysql80-community-debuginfo              MySQL 8.0 Community Server - D disabled
+mysql80-community-source                 MySQL 8.0 Community Server - S disabled
+[paras@newJensen ~]$ sudo yum install mysql-community-server
+Last metadata expiration check: 0:43:03 ago on Fri 07 Oct 2022 12:48:21 PM IST.
+Dependencies resolved.
+==================================================================================================================
+ Package                                 Architecture    Version                 Repository                  Size
+==================================================================================================================
+Installing:
+ mysql-community-server                  x86_64          8.0.30-1.el9            mysql80-community           48 M
+Installing dependencies:
+ mysql-community-client                  x86_64          8.0.30-1.el9            mysql80-community          3.7 M
+ mysql-community-client-plugins          x86_64          8.0.30-1.el9            mysql80-community          1.4 M
+ mysql-community-common                  x86_64          8.0.30-1.el9            mysql80-community          534 k
+ mysql-community-icu-data-files          x86_64          8.0.30-1.el9            mysql80-community          2.2 M
+ mysql-community-libs                    x86_64          8.0.30-1.el9            mysql80-community          1.5 M
+
+Transaction Summary
+==================================================================================================================
+Install  6 Packages
+
+Total download size: 57 M
+Installed size: 331 M
+Is this ok [y/N]: y
+Downloading Packages:
+(1/6): mysql-community-common-8.0.30-1.el9.x86_64.rpm                             9.1 MB/s | 534 kB     00:00    
+(2/6): mysql-community-client-plugins-8.0.30-1.el9.x86_64.rpm                      13 MB/s | 1.4 MB     00:00    
+(3/6): mysql-community-client-8.0.30-1.el9.x86_64.rpm                              20 MB/s | 3.7 MB     00:00    
+(4/6): mysql-community-icu-data-files-8.0.30-1.el9.x86_64.rpm                      13 MB/s | 2.2 MB     00:00    
+(5/6): mysql-community-libs-8.0.30-1.el9.x86_64.rpm                               9.7 MB/s | 1.5 MB     00:00    
+(6/6): mysql-community-server-8.0.30-1.el9.x86_64.rpm                              31 MB/s |  48 MB     00:01    
+------------------------------------------------------------------------------------------------------------------
+Total                                                                              33 MB/s |  57 MB     00:01     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                          1/1 
+  Installing       : mysql-community-common-8.0.30-1.el9.x86_64                                               1/6 
+  Installing       : mysql-community-client-plugins-8.0.30-1.el9.x86_64                                       2/6 
+  Installing       : mysql-community-libs-8.0.30-1.el9.x86_64                                                 3/6 
+  Running scriptlet: mysql-community-libs-8.0.30-1.el9.x86_64                                                 3/6 
+  Installing       : mysql-community-client-8.0.30-1.el9.x86_64                                               4/6 
+  Installing       : mysql-community-icu-data-files-8.0.30-1.el9.x86_64                                       5/6 
+  Running scriptlet: mysql-community-server-8.0.30-1.el9.x86_64                                               6/6 
+  Installing       : mysql-community-server-8.0.30-1.el9.x86_64                                               6/6 
+  Running scriptlet: mysql-community-server-8.0.30-1.el9.x86_64                                               6/6 
+  Verifying        : mysql-community-client-8.0.30-1.el9.x86_64                                               1/6 
+  Verifying        : mysql-community-client-plugins-8.0.30-1.el9.x86_64                                       2/6 
+  Verifying        : mysql-community-common-8.0.30-1.el9.x86_64                                               3/6 
+  Verifying        : mysql-community-icu-data-files-8.0.30-1.el9.x86_64                                       4/6 
+  Verifying        : mysql-community-libs-8.0.30-1.el9.x86_64                                                 5/6 
+  Verifying        : mysql-community-server-8.0.30-1.el9.x86_64                                               6/6 
+
+Installed:
+  mysql-community-client-8.0.30-1.el9.x86_64          mysql-community-client-plugins-8.0.30-1.el9.x86_64         
+  mysql-community-common-8.0.30-1.el9.x86_64          mysql-community-icu-data-files-8.0.30-1.el9.x86_64         
+  mysql-community-libs-8.0.30-1.el9.x86_64            mysql-community-server-8.0.30-1.el9.x86_64                 
+
+Complete!
+[paras@newJensen ~]$ ls /var/lib/
+AccountsService/       fprint/                mysql-files/           samba/
+alsa/                  fwupd/                 mysql-keyring/         selinux/
+alternatives/          games/                 net-snmp/              setroubleshoot/
+authselect/            gdm/                   NetworkManager/        smartmontools/
+bluetooth/             geoclue/               os-prober/             sss/
+chrony/                httpd/                 PackageKit/            supportinfo
+cni/                   hyperv/                plymouth/              systemd/
+color/                 initramfs/             polkit-1/              tpm2-tss/
+colord/                iscsi/                 power-profiles-daemon/ udisks2/
+containers/            kdump/                 private/               up2date/
+dbus/                  logrotate/             rasdaemon/             upower/
+dnf/                   misc/                  rpm/                   xfsdump/
+dnsmasq/               mlocate/               rpm-state/             xkb/
+flatpak/               mysql/                 rsyslog/               
+[paras@newJensen ~]$ ls /var/lib/
+AccountsService/       fprint/                mysql-files/           samba/
+alsa/                  fwupd/                 mysql-keyring/         selinux/
+alternatives/          games/                 net-snmp/              setroubleshoot/
+authselect/            gdm/                   NetworkManager/        smartmontools/
+bluetooth/             geoclue/               os-prober/             sss/
+chrony/                httpd/                 PackageKit/            supportinfo
+cni/                   hyperv/                plymouth/              systemd/
+color/                 initramfs/             polkit-1/              tpm2-tss/
+colord/                iscsi/                 power-profiles-daemon/ udisks2/
+containers/            kdump/                 private/               up2date/
+dbus/                  logrotate/             rasdaemon/             upower/
+dnf/                   misc/                  rpm/                   xfsdump/
+dnsmasq/               mlocate/               rpm-state/             xkb/
+flatpak/               mysql/                 rsyslog/               
+[paras@newJensen ~]$ ls /var/lib/mysql
+mysql/         mysql-files/   mysql-keyring/ 
+[paras@newJensen ~]$ ls /var/lib/mysql
+mysql/         mysql-files/   mysql-keyring/ 
+[paras@newJensen ~]$ ls /var/lib/mysql
+mysql/         mysql-files/   mysql-keyring/ 
+[paras@newJensen ~]$ ls /var/lib/mysql* -lath
+ls: cannot open directory '/var/lib/mysql': Permission denied
+ls: cannot open directory '/var/lib/mysql-files': Permission denied
+ls: cannot open directory '/var/lib/mysql-keyring': Permission denied
+[paras@newJensen ~]$ sudo ls /var/lib/mysql* -lath
+/var/lib/mysql:
+total 4.0K
+drwxr-xr-x. 56 root  root  4.0K Oct  7 13:31 ..
+drwxr-x--x.  2 mysql mysql    6 Jul  7 04:34 .
+
+/var/lib/mysql-files:
+total 4.0K
+drwxr-xr-x. 56 root  root  4.0K Oct  7 13:31 ..
+drwxr-x---.  2 mysql mysql    6 Jul  7 04:34 .
+
+/var/lib/mysql-keyring:
+total 4.0K
+drwxr-xr-x. 56 root  root  4.0K Oct  7 13:31 ..
+drwxr-x---.  2 mysql mysql    6 Jul  7 04:34 .
+[paras@newJensen ~]$ systemctl status mysqld
+○ mysqld.service - MySQL Server
+     Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+     Active: inactive (dead)
+       Docs: man:mysqld(8)
+             http://dev.mysql.com/doc/refman/en/using-systemd.html
+[paras@newJensen ~]$ systemctl start mysqld
+
+[paras@newJensen ~]$ 
+[paras@newJensen ~]$ systemctl status mysqld
+● mysqld.service - MySQL Server
+     Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+     Active: active (running) since Fri 2022-10-07 13:33:46 IST; 2s ago
+       Docs: man:mysqld(8)
+             http://dev.mysql.com/doc/refman/en/using-systemd.html
+    Process: 6628 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+   Main PID: 6755 (mysqld)
+     Status: "Server is operational"
+      Tasks: 39 (limit: 96968)
+     Memory: 483.4M
+        CPU: 2.561s
+     CGroup: /system.slice/mysqld.service
+             └─6755 /usr/sbin/mysqld
+
+Oct 07 13:32:47 newJensen systemd[1]: Starting MySQL Server...
+Oct 07 13:33:46 newJensen systemd[1]: Started MySQL Server.
+[paras@newJensen ~]$ 
+
+ref: https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/linux-installation-yum-repo.html#yum-install-components
+
+### removed the mysql installation and make sure to remove /var/lib/mysql otherwise it wont get installed
+
+
+this is soo frustrating and depressing, gcc command is gertting failed on installation of mysql client, 
+why they dont ship it together with mysql installation, :((
+
+okay fine, updaing (actually installing gcc), heled 
+
+sudo yum install python-devel mysql-devel
+gcc -v
+sudo yum install python3-dev #this will fail
+sudo https_proxy=http://172.16.2.251:3128 pip install mysqlclient
+python 
+
+
+
+setting root passwd when you dont know it 
+
+[paras@newJensen ~]$ sudo systemctl stop mysqld
+[paras@newJensen ~]$ sudo systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
+[paras@newJensen ~]$ mysql -u root
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+[paras@newJensen ~]$ sudo systemctl start mysqld
+[paras@newJensen ~]$ mysql -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'cbg_2022'
+    -> ;
+ERROR 1290 (HY000): The MySQL server is running with the --skip-grant-tables option so it cannot execute this statement
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'cbg_2022';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'CBGcbg_2022';
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> exit
+Bye
+[paras@newJensen ~]$ sudo systemctl stop mysqld
+[paras@newJensen ~]$ sudo systemctl unset-environment MYSQLD_OPTS
+[paras@newJensen ~]$ sudo systemctl start mysqld
+[paras@newJensen ~]$ mysql -u root -p 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> exit
+Bye
+
+#import
+mysql -u root -p enactdb  < enactd.sql

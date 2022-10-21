@@ -1,0 +1,39 @@
+
+ChooseTranscripts -> "./TransExonsAlltranscripts/ChooseTranscripts";
+RenderExonsFull -> "./TransExonsAlltranscripts/RenderExonsFull";
+RenderExonsAln -> "./TransExonsAlltranscripts/RenderExonsAln";
+class
+    state: arraylis[], exonfull(t), exonaln, scrollable, alert, exoninf(t)
+    render()
+
+        ChooseTranscripts
+            trans={transcripttObjectList}
+            handleUpdate(oncClick will change state)
+            transAdded={this.state.arraylis}
+            // last one will be used to pop transcripts and render them to us
+        
+        if arraylis is flled with transcripts
+            list two buttons "exonDetails" and "ExonsAln"
+            if state exonFull activate former, if exonsAln, activate latter
+            exonFull
+                A button with state of "showing nomenclaurte or hiding"
+                iterate arraylis and for every of its element 
+                    call RenderExonsFull and trabnsfer props
+                        transwhole={tr1}
+                        domset={this.props.domset}
+                        handleUpdateInfRend={this.showInf}
+                        addAlert={this.addAlert}
+                        removeAlert={this.removeAlert}
+                        exOn={this.props.exOn}
+                        exonAlerts={this.props.exonAlerts}
+                another div to right 
+                    showing nomenclature and scrollable div
+            
+            if exonsAln
+                render exonsAln
+                    arraylis={this.state.arraylis}
+                    total={this.props.finalExon}
+                    exOn={this.props.exOn}
+                    exonCodes={this.props.exonCodes}
+
+

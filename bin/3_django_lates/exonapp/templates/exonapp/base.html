@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+<head>
+<title>NexTRap</title>
+	<link rel="stylesheet" href="{% static "main.css" %}">
+	<link rel="stylesheet" href="{% static "menu.css" %}">
+<!--	<link rel="stylesheet" href="{% static "try.css" %}"> -->
+	<link rel="stylesheet" href="{% static "jquery-ui.css" %}">
+	<link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon.png"/>
+	<script type="text/javascript" src="{% static "menu.js" %}"></script>
+</head>
+<body>
+&nbsp;
+<div id = "topbar">
+</div>
+
+<div id="body-wrap">
+  <div id ="inside">
+   <div id ="header">
+    <img src="/static/nextrap.png" width=980px alt="nextrap" />
+   </div>
+    <!--<div id="main-content">	-->
+	{% include "menu.html" %}
+
+
+	{% block content %} {% endblock %}
+    <!--</div>-->
+   <div style="clear: both;"></div>
+ <div id="footer"> Server developed and maintained by: Paras Verma 
+		<br>
+		&copy;Department of Biological Sciences, IISER Mohali, Sector 81, SAS Nagar, 140306, Punjab, India
+	</div>
+</div>
+
+</body>
+
+</html>
+

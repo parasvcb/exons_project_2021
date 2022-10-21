@@ -1,0 +1,120 @@
+call RenderExonsFull and trabnsfer props
+transwhole={tr1}
+domset={this.props.domset} //gene.domainCod
+handleUpdateInfRend={this.showInf}
+addAlert={this.addAlert}
+removeAlert={this.removeAlert}
+exOn={this.props.exOn}
+exonAlerts={this.props.exonAlerts}
+
+transwhole={
+    "tId":"NP_001020278.1",
+    "id":27528,
+    "swissprot":"False",
+    "length":931,
+    "pi":false,
+    "structured_count_disp":"74.22",
+    "structured_count_ssp":"37.06",
+    "exonsIds":"127533,127534,127551,127540,127531,127541,127546,127554,127532,127536,127535,127559,127542,127558,127530",
+    "exonscount":15,
+    "unique_domC":3,
+    "total_domC":5,
+    "exonscountUTMRD":"U:0, D:0, T:14, M:0, R:1",
+    "exonscountAG":"G:10, A:5, F:0"}
+
+domainCod:[
+        {
+           "color":"black",
+           "code":"C",
+           "name":"PF02137.18",
+           "dId":"A_deamin"
+        },
+        {
+           "color":"aqua",
+           "code":"A",
+           "name":"PF02295.17",
+           "dId":"z-alpha"
+        },
+        {
+           "color":"lawngreen",
+           "code":"B",
+           "name":"PF00035.26",
+           "dId":"dsrm"
+        }
+exOn={
+    '127556': {
+        "exId":"T.1.A.4.0.0",
+        "length":5,
+        "parent":"False",
+        "aaseq":"MNPRQ",
+        "wef":0.231,
+        "id":127556,
+         "exonsDom":[
+            {
+               "list_trans_fk":"27528,27532,27535",
+               "domseq":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA------------------------------------------------------------------------------------------------------------------------------------------------BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+            }
+         ],
+         "exonsDis":[
+            {
+               "list_trans_fk":"27528,27532,27535",
+               "disseq":"SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS--S----------------------------------------SSS-SS----SSSS-S---------------------------------------SSS--SSSS-----SS-S----------SSS--SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-------SSS-S-"
+            }
+         ],
+         "exonsSS":[
+            {
+               "list_trans_fk":"27535",
+               "ssseq":"----HHHHHHHHHHHHHHHHHHHHHH--------------EEEEEEHHHHHHHH--------------HHHHHHHHHHHHHHHHHHHH------------------------EEEEEE-------------------------------------------------------------------------------------------------------------------------"
+            },
+            {
+               "list_trans_fk":"27528,27532",
+               "ssseq":"----HHHHHHHHHHHHHHHHHHHHHH--------------EEEEEEHHHHHHHH--------------HHHHHHHHHHHHHHHHHHHH----HHHHHH--------------EEEEEE------HHHHHHHH-----------------------------------------------------------------------------------------------------------"
+            }
+         ],
+        "codst":20011,
+        "codend":20025,
+        "rawst":19769,
+        "rawend":20025,
+        "sstype":1
+     },
+     {
+        "exId":"U.-2.A.6.c.1",
+        "length":0,
+        "parent":"T.1.A.6.0.0",
+        "aaseq":"",
+        "wef":0.308,
+        "id":127557,
+        "exonsDom":[
+           
+        ],
+        "exonsDis":[
+           
+        ],
+        "exonsSS":[
+           
+        ],
+        "codst":0,
+        "codend":0,
+        "rawst":25391,
+        "rawend":25632,
+        "sstype":1
+     },
+     
+}
+
+
+render()
+fragment empty
+    TID mentioned as badge info ][very light but does exist]
+    div with col class, flex is row and overflow is scroll
+      d flex class here [monospace family, and wordWrap of break-word]
+      {" "}
+      if is fasta, then call  renderFasta
+      else
+         get exonIds of current isoform (comma sepeated mysql internal IDS)
+            get div, giv key as transID + exId
+               span, with on mpuse and off mouse alert,
+                  call this.decidetext(transID,domset,exonHash[ParseInt(ex)])
+                  
+
+

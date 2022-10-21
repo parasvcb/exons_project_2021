@@ -1,0 +1,157 @@
+python -m pip install django-cors-headers
+4th april 2022
+
+Layout of the project as of now
+runserver will first call the urls.py of project v1
+There I had included the urls of the server.
+
+Moreover, trhis will redirect control to urls.py of server and the the next course of action
+
+urls.py (v1) -> urls.py (server) -> views.py (server)
+
+path ('about/','server.views.about',name='about'),
+path ('tutorial/','server.views.tutorial',name='tutorial'),
+path ('gene/<int:pk/',views.DetailGene.as_view(), name = 'Gene-detail'),
+Now error pops in about section of urls.py of server app
+
+modifying the above to below
+
+path ('about/',views.about,name='about'),
+path ('tutorial/',views.tutorial,name='tutorial'),
+path ('gene/<int:pk/',views.DetailGene.as_view(), name = 'Gene-detail'),
+
+runs the webserver app, but render function error() which is listed in home section of views.py
+ssh -v -L 9000:localhost:8000 tyroneR
+
+kill -9 $(lsof -t -i:8000)
+
+create app using 'python manage.py startapp nameofapp'
+add that app name to main project's setiings.py
+
+sqlite3 exon.db
+.tables
+
+exonapp_domaininfgene
+exonapp_exongenes  
+exonapp_exonsdisorder  
+exonapp_exonsdomseq  
+exonapp_exonssprediction  
+exonapp_gene  
+exonapp_transcripts
+
+CREATE TABLE `exonapp_domaininfgene` (
+`id` integer NOT NULL
+, `color` varchar(30) NOT NULL
+, `code` varchar(1) DEFAULT NULL
+, `name` varchar(100) DEFAULT NULL
+, `dId` varchar(100) DEFAULT NULL
+, `gene_id` integer DEFAULT NULL
+, PRIMARY KEY (`id`)
+, CONSTRAINT `exonapp_domaininfgene_ibfk_1` FOREIGN KEY (`gene_id`) REFERENCES `exonapp_gene` (`id`)
+);
+CREATE INDEX "idx_exonapp_domaininfgene_gene_id" ON "exonapp_domaininfgene" (`gene_id`);
+
+sqlite> .schema exonapp_exongenes
+CREATE TABLE `exonapp_exongenes` (
+`id` integer NOT NULL
+, `parent` varchar(50) DEFAULT NULL
+, `wef` float NOT NULL
+, `exId` varchar(50) DEFAULT NULL
+, `length` integer DEFAULT NULL
+, `codst` integer DEFAULT NULL
+, `aaseq` text
+, `codend` integer DEFAULT NULL
+, `rawst` integer DEFAULT NULL
+, `rawend` integer DEFAULT NULL
+, `sstype` integer DEFAULT NULL
+, `gene_id` integer DEFAULT NULL
+, PRIMARY KEY (`id`)
+, CONSTRAINT `exonapp_exongenes_ibfk_1` FOREIGN KEY (`gene_id`) REFERENCES `exonapp_gene` (`id`)
+);
+CREATE INDEX "idx_exonapp_exongenes_gene_id" ON "exonapp_exongenes" (`gene_id`);
+
+CREATE TABLE `exonapp_exonsdisorder` (
+`id` integer NOT NULL
+, `exon_id` integer NOT NULL
+, `list_trans_fk` text NOT NULL
+, `disseq` text
+, PRIMARY KEY (`id`)
+, CONSTRAINT `exonapp_exonsdisorder_ibfk_1` FOREIGN KEY (`exon_id`) REFERENCES `exonapp_exongenes` (`id`)
+);
+CREATE INDEX "idx_exonapp_exonsdisorder_exon_id" ON "exonapp_exonsdisorder" (`exon_id`);
+
+CREATE TABLE `exonapp_exonsdisorder` (
+`id` integer NOT NULL
+, `exon_id` integer NOT NULL
+, `list_trans_fk` text NOT NULL
+, `disseq` text
+, PRIMARY KEY (`id`)
+, CONSTRAINT `exonapp_exonsdisorder_ibfk_1` FOREIGN KEY (`exon_id`) REFERENCES `exonapp_exongenes` (`id`)
+);
+CREATE INDEX "idx_exonapp_exonsdisorder_exon_id" ON "exonapp_exonsdisorder" (`exon_id`);
+sqlite> .schema exonapp_exonsdomseq
+CREATE TABLE `exonapp_exonsdomseq` (
+`id` integer NOT NULL
+, `exon_id` integer NOT NULL
+, `list_trans_fk` text NOT NULL
+, `domseq` text
+, PRIMARY KEY (`id`)
+, CONSTRAINT `exonapp_exonsdomseq_ibfk_1` FOREIGN KEY (`exon_id`) REFERENCES `exonapp_exongenes` (`id`)
+);
+CREATE INDEX "idx_exonapp_exonsdomseq_exon_id" ON "exonapp_exonsdomseq" (`exon_id`);
+
+.schema exonapp_exonssprediction
+CREATE TABLE `exonapp_exonssprediction` (
+`id` integer NOT NULL
+, `exon_id` integer NOT NULL
+, `list_trans_fk` text NOT NULL
+, `ssseq` text
+, PRIMARY KEY (`id`)
+, CONSTRAINT `exonapp_exonssprediction_ibfk_1` FOREIGN KEY (`exon_id`) REFERENCES `exonapp_exongenes` (`id`)
+);
+CREATE INDEX "idx_exonapp_exonssprediction_exon_id" ON "exonapp_exonssprediction" (`exon_id`);
+
+CREATE TABLE `exonapp_gene` (
+`id` integer NOT NULL
+, `name` varchar(200) NOT NULL
+, `entrezid` integer NOT NULL
+, `organism` varchar(50) DEFAULT NULL
+, `txid` varchar(50) DEFAULT NULL
+, PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `exonapp_transcripts` (
+`id` integer NOT NULL
+, `tId` varchar(20) NOT NULL
+, `swissprot` varchar(200) DEFAULT NULL
+, `length` integer DEFAULT NULL
+, `pi` integer DEFAULT NULL
+, `exonscount` integer DEFAULT NULL
+, `exonsIds` text
+, `unique_domC` integer DEFAULT NULL
+, `total_domC` integer DEFAULT NULL
+, `structured_count_ssp` varchar(7) DEFAULT NULL
+, `structured_count_disp` varchar(7) DEFAULT NULL
+, `exonscountUTMRD` varchar(100) DEFAULT NULL
+, `exonscountAG` varchar(50) DEFAULT NULL
+, `geneRef_id` integer DEFAULT NULL
+, PRIMARY KEY (`id`)
+, CONSTRAINT `exonapp_transcripts_ibfk_1` FOREIGN KEY (`geneRef_id`) REFERENCES `exonapp_gene` (`id`)
+);
+CREATE INDEX "idx_exonapp_transcripts_geneRef_id" ON "exonapp_transcripts" (`geneRef_id`);
+'''
+
+
+24April 2022
+schema wasnt working before, sitting at 2 pm on sunday to fix this... lets do this
+
+
+sqlite> PRAGMA table_info(exonapp_domaininfgene);
+0|id|integer|1||1
+1|color|varchar(30)|1||0
+2|code|varchar(1)|0|NULL|0
+3|name|varchar(100)|0|NULL|0
+4|dId|varchar(100)|0|NULL|0
+5|gene_id|integer|0|NULL|0
+sqlite> 
+

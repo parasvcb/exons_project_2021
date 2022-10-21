@@ -29,8 +29,28 @@ ENSEMBL ready build
 checkup of the latest to build colabfold files
 
 
+v: 27.09.22
+along with constructing data, 
+1. objects to sqlite
+1. keep three dirs, latest of the djangoDir,
+2. latest of the frontEnd, omit the node_modules
+
+rename the constucting data to 1. 
+PUSH: constructing data is complete, 
+mysql is working good, objects of oldsets are created, no problem in domain length 
 
 
+
+next push:
+DJANGO stuff is kept closer, mysql has been generated along with that 
+
+
+
+
+
+# currently running commands
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ python bin/2_object_to_database/T1_mysql.py outdir/oldSet_human19_orgs_18/objectsToDB/ ./
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ python bin/1_constructing_data/object_builder_latest.py outdir/oldSet_human19_orgs_18/10090_args_ss0.6.txt 
 
 # Data generation
 By and large the whole dataset and process was written mainly in python's 2.7 version, i would be constantly updating and revisiting such that this process can be made resuable

@@ -24,6 +24,7 @@ class Gene:
 
     def exons(self, exonlist):
         self.exons = exonlist
+        # print ("ROUTINE classes exons")
         # print [i.ID for i in exonlist]
         id_ex_has = {
             ".".join(i.ID.split(".")[3:]): i for i in exonlist if i.ID[0] != 'R'}

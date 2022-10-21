@@ -1,0 +1,21 @@
+This verison of 'src/' will have the importnat components used to render different things, I will pay attention to the tonight verison to add importnat comments and makinig nightingale ocmpnent truely working. 
+
+version: 3.1
+This has the nightingale imported components and working undertsanding of the nightingale implementaion along with the ExonsAln and ExonsDetail. Datatable rendering along and that of the overalp between the secondarys trcutres (espexcilly beta sheet and helix sharing 1 resid in sample.json) is a concern overall. 
+
+
+
+Additions:
+1. Nightingale imported componenets
+2. Manager is working with ExonsAln and ExonsDetail
+3. Scratch working can be still used and strcure can be implemedted i think
+
+Pending:
+1. Structure thinking and implementation design 
+2. Adding Datatable to manager and deciding the boundary of the div. 
+3. Adding exonTrack
+4. Removing un-necessary files out
+5. Detailed interconnectedness of the components (schema type design ppt and text here)
+6. complxities and calculation load in the components (sheet)
+7. Sheet showing general synatx of basic componenets in react
+8. detailed frontEnd design......

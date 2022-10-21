@@ -1,0 +1,58 @@
+const dataTable = [
+	{
+		begin: "691",
+		category: "molecule PROCESSING",
+		description: "C80",
+		end: "770",
+		ftId: "PRO_0000384574",
+		molecule: "",
+		start: "691",
+		tooltipContent: "\n      <h5>description</h5><p>C80</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000384574</p>\n      \n      \n      \n      \n      \n        ",
+		type: "CHAIN",
+	},
+	{	
+		begin: "712",
+		category: "molecule_PROCESSING",
+		description: "Gamma-secretase C-terminal fragment 59",
+		end: "770",
+		ftId: "PRO_0000000097",
+		molecule: "",
+		start: "712",
+		tooltipContent: <div><h5>description</h5><p>Gamma-secretase C-terminal fragment 59</p><h5>Feature ID</h5><p>PRO_0000000097</p></div>,
+		type: "CHAIN",
+    },
+    {
+		"begin": "714",
+		"category": "molecule_PROCESSING",
+		"description": "Gamma-secretase C-terminal fragment 57",
+		"end": "770",
+		"ftId": "PRO_0000000098",
+		"molecule": "",
+		"start": "714",
+		"tooltipContent": "\n      <h5>description</h5><p>Gamma-secretase C-terminal fragment 57</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000098</p>\n      \n      \n      \n      \n      \n",
+		"type": "CHAIN"
+	},
+	{
+		"begin": "688",
+		"category": "molecule_PROCESSING",
+		"description": "P3(40)",
+		"end": "711",
+		"ftId": "PRO_0000000096",
+		"molecule": "",
+		"start": "688",
+		"tooltipContent": "\n      <h5>description</h5><p>P3(40)</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000096</p>\n      \n      \n      \n      \n      \n        ",
+		"type": "PEPTIDE"
+	},
+	{
+		"begin": "688",
+		"category": "molecule_PROCESSING",
+		"description": "P3(42)",
+		"end": "713",
+		"ftId": "PRO_0000000095",
+		"molecule": "",
+		"start": "688",
+		"tooltipContent": "\n      <h5>description</h5><p>P3(42)</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000095</p>\n      \n      \n      \n      \n      \n        ",
+		"type": "PEPTIDE",
+	},
+];
+export {dataTable};

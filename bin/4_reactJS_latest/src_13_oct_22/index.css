@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Chango:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Monoton:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Audiowide:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Days+One:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Inline:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Rubik+Moonrocks:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Baloo2:regular,bold,italic&subset=latin,latin-ext');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.scroll {
+  max-height: 150px;
+  overflow-x: auto;
+}
+
+#message {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+}
+#inner-message {
+  margin: 0 auto;
+}
+
+#body-wrap {
+  background: white;
+  min-width: 780px;
+  max-width: 1260px;
+  margin: 10px auto;
+  -moz-box-shadow: 0 2px 20px 0px #000;
+  -webkit-box-shadow: 0 2px 20px 0px #000;
+  box-shadow: 0px 2px 20px 0px #000;
+  /* min-height: 520px;
+  max-height: 840px; */
+  aspect-ratio: 16 / 9;
+  /*position: relative;
+  
+  overflow: auto;*/
+  
+  height: auto;
+  /* height: 780px; */
+
+  border-width: 1px;
+  border-style: dotted;
+  border-color: black;
+}
+#header {
+  background: #ccff99;
+  text-align: center;
+}
+#body-wrap #inside {
+  margin: 0px;
+  padding-bottom: 10px;
+}
+
+#footer {
+  background: #ccff99;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: black;
+  font: 1em Arial, Tahoma, sans-serif;
+  overflow: auto;
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "accession": "chain_A",
+    "locations": [
+      {
+        "fragments": [
+          {
+            "start": 45,
+            "end": 100,
+            "shape": "helix",
+            "fill": "transparent",
+            "color": "#f06"
+          },
+          {
+            "start": 110,
+            "end": 200,
+            "shape": "helix",
+            "fill": "transparent",
+            "color": "#f06"
+          },
+          {
+            "start": 5,
+            "end": 15,
+            "shape": "helix",
+            "fill": "transparent",
+            "color":"#99CCFF",
+            "height":"9"
+          },
+          {
+            "start": 40,
+            "end": 43,
+            "shape": "strand",
+            "color": "#fc0"
+          },
+          {
+            "start": 1,
+            "end": 2,
+            "shape": "Rectangle",
+            "color": "#111111"
+          },
+          {
+            "start": 3,
+            "end": 5,
+            "shape": "Rectangle",
+            "height":100,
+            "color": "#999999"
+          }
+
+        ]
+      }
+    ]
+  }
+  ]

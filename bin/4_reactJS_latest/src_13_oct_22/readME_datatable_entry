@@ -1,0 +1,150 @@
+data 
+Array(16) [ {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, … ]
+​
+0: Object { type: "SIGNAL", category: "MOLECULE_PROCESSING", begin: "1", … }
+​​
+begin: "1"
+​​
+category: "MOLECULE_PROCESSING"
+​​
+description: ""
+​​
+end: "17"
+​​
+evidences: Array(3) [ {…}, {…}, {…} ]
+​​
+molecule: ""
+​​
+protvistaFeatureId: "ef086340-2d3e-11ed-b5a8-315eb1c87d14"
+​​
+start: "1"
+​​
+tooltipContent: "\n      \n      \n      \n      \n      <h5>Evidence</h5>\n      <ul><li title='Manual assertion based on experiment' style=\"padding: .25rem 0\">Publication:&nbsp;12665801&nbsp;(<a href='http://www.ncbi.nlm.nih.gov/pubmed/12665801' style=\"color:#FFF\" target='_blank'>PubMed</a>&nbsp;<a href='https://europepmc.org/abstract/MED/12665801' style=\"color:#FFF\" target='_blank'>EuropePMC</a>)</li><li title='Manual assertion based on experiment' style=\"padding: .25rem 0\">Publication:&nbsp;2900137&nbsp;(<a href='http://www.ncbi.nlm.nih.gov/pubmed/2900137' style=\"color:#FFF\" target='_blank'>PubMed</a>&nbsp;<a href='https://europepmc.org/abstract/MED/2900137' style=\"color:#FFF\" target='_blank'>EuropePMC</a>)</li><li title='Manual assertion based on experiment' style=\"padding: .25rem 0\">Publication:&nbsp;3597385&nbsp;(<a href='http://www.ncbi.nlm.nih.gov/pubmed/3597385' style=\"color:#FFF\" target='_blank'>PubMed</a>&nbsp;<a href='https://europepmc.org/abstract/MED/3597385' style=\"color:#FFF\" target='_blank'>EuropePMC</a>)</li></ul>\n    \n      \n      \n      \n        "
+​​
+type: "SIGNAL"
+​​
+<prototype>: Object { … }
+​
+1: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000088", … }
+​​
+begin: "18"
+​​
+category: "MOLECULE_PROCESSING"
+​​
+description: "Amyloid-beta precursor protein"
+​​
+end: "770"
+​​
+ftId: "PRO_0000000088"
+​​
+molecule: ""
+​​
+protvistaFeatureId: "ef086341-2d3e-11ed-b5a8-315eb1c87d14"
+​​
+start: "18"
+​​
+tooltipContent: "\n      <h5>Description</h5><p>Amyloid-beta precursor protein</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000088</p>\n      \n      \n      \n      \n      \n        "
+​​
+type: "CHAIN"
+​​
+<prototype>: Object { … }
+​
+2: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000089", … }
+​​
+begin: "18"
+​​
+category: "MOLECULE_PROCESSING"
+​​
+description: "Soluble APP-alpha"
+​​
+end: "687"
+​​
+ftId: "PRO_0000000089"
+​​
+molecule: ""
+​​
+protvistaFeatureId: "ef086342-2d3e-11ed-b5a8-315eb1c87d14"
+​​
+start: "18"
+​​
+tooltipContent: "\n      <h5>Description</h5><p>Soluble APP-alpha</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000089</p>\n      \n      \n      \n      \n      \n        "
+​​
+type: "CHAIN"
+​​
+<prototype>: Object { … }
+​
+3: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000090", … }
+​
+4: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000381966", … }
+​
+5: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000091", … }
+​
+6: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000092", … }
+​
+7: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000093", … }
+​
+8: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000094", … }
+​
+9: Object { type: "PEPTIDE", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000095", … }
+​​
+begin: "688"
+​​
+category: "MOLECULE_PROCESSING"
+​​
+description: "P3(42)"
+​​
+end: "713"
+​​
+ftId: "PRO_0000000095"
+​​
+molecule: ""
+​​
+protvistaFeatureId: "ef086349-2d3e-11ed-b5a8-315eb1c87d14"
+​​
+start: "688"
+​​
+tooltipContent: "\n      <h5>Description</h5><p>P3(42)</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000095</p>\n      \n      \n      \n      \n      \n        "
+​​
+type: "PEPTIDE"
+​​
+<prototype>: Object { … }
+​
+10: Object { type: "PEPTIDE", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000096", … }
+​​
+begin: "688"
+​​
+category: "MOLECULE_PROCESSING"
+​​
+description: "P3(40)"
+​​
+end: "711"
+​​
+ftId: "PRO_0000000096"
+​​
+molecule: ""
+​​
+protvistaFeatureId: "ef08634a-2d3e-11ed-b5a8-315eb1c87d14"
+​​
+start: "688"
+​​
+tooltipContent: "\n      <h5>Description</h5><p>P3(40)</p>\n      \n      <h5>Feature ID</h5><p>PRO_0000000096</p>\n      \n      \n      \n      \n      \n        "
+​​
+type: "PEPTIDE"
+​​
+<prototype>: Object { … }
+​
+11: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000384574", … }
+​
+12: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000097", … }
+​
+13: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000098", … }
+​
+14: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000099", … }
+​
+15: Object { type: "CHAIN", category: "MOLECULE_PROCESSING", ftId: "PRO_0000000100", … }
+​
+length: 16
+​
+<prototype>: Array []
+ProtvistaDatatable.jsx:25
+

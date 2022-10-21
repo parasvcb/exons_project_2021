@@ -1,0 +1,60 @@
+{
+  "name": "vista",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
+    "data-loader": "^3.5.7",
+    "dataloader": "^2.1.0",
+    "diff": "^5.1.0",
+    "nightingale-linegraph-track": "^3.4.0",
+    "protvista-coloured-sequence": "^3.5.1",
+    "protvista-datatable": "^3.5.5",
+    "protvista-feature-adapter": "^3.5.1",
+    "protvista-interpro-track": "^3.4.0",
+    "protvista-manager": "^3.4.0",
+    "protvista-navigation": "^3.5.1",
+    "protvista-overlay": "^3.5.10",
+    "protvista-saver": "^3.1.2",
+    "protvista-tooltip": "^3.5.8",
+    "protvista-track": "^3.4.0",
+    "protvista-zoom-tool": "^3.2.2",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-collapsible": "^2.10.0",
+    "react-dom": "^18.2.0",
+    "react-items-carousel": "^2.8.0",
+    "react-scripts": "5.0.1",
+    "react-string-replace": "^1.1.0",
+    "serve": "^14.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+
+<ul id="nav">
+  {% if user.is_authenticated %}
+
+  <li><a href="{% url 'jacapp.views.Personaldetails' application.application_no%}"> Personal Details</a></li>
+  <li><a href="{% url 'jacapp.views.Uploadimage' application.application_no%}">My Image</a></li>
+  {%if application.channel == "KVPY" %}
+    <li><a href="{% url 'jacapp.views.Kvpyacademic' application.application_no%}">Academic Details</a></li>
+  {%endif%}
+  {%if application.channel == "JEE" %}
+    <li><a href="{% url 'jacapp.views.Jeeacademic' application.application_no%}">Academic Details</a></li>
+  {%endif%}
+  {%if application.channel == "SCB" %}
+   <li><a href="{% url 'jacapp.views.Scbacademic' application.application_no%}">Academic Details</a></li>
+  {%endif%}
+
+  <li><a href="{% url 'jacapp.views.Uploadmarksheet' application.application_no%}"> Marksheet</a></li>
+  <li><a href="{% url 'jacapp.views.Iiserchoies' application.application_no%}">IISER Choices</a></li>
+  {%if application.channel == "SCB" %}
+  <li><a href="{% url 'jacapp.views.ScbExamseatchices' application.application_no%}"> Exam Seat Choices</a></li>
+  {%endif%}
+  {%if all_submitted == True %}
+   <li><a href="{% url 'jacapp.views.UserDetails' application.application_no%}"> My Details</a></li>
+   <li><a href="{% url 'jacapp.views.UserDetails' application.application_no%}"> Go For Payment</a></li>
+  {%endif%}
+
+  {%endif%}
+</ul>
+

@@ -276,18 +276,143 @@ export const MDexoncodes = (exons) => {
 //       })});
 // }
 
-export const MDaddNightingaleReadyJSON = (ob, exonAlert, exonHash) => {
-    //shapes can be roundRectangle, discontinuosStart, discontinuos, discontinuosEnd, rectangle, line, bridge, diamond, chevron, catFace, triangle, wave, hexagon, pentagon, circle, arror, doubleBar, helix, strand
 
+function union(setA, setB) {
+  const _union = new Set(setA);
+  for (const elem of setB) {
+    _union.add(elem);
+  }
+  return _union;
+}
+
+function intersection(setA, setB) {
+  const _intersection = new Set();
+  for (const elem of setB) {
+    if (setA.has(elem)) {
+      _intersection.add(elem);
+    }
+  }
+  return _intersection;
+}
+
+
+const dictionaryHexColor = {
+  1.00  : "FF",
+  0.99  : "FC",
+  0.98  : "FA",
+  0.97  : "F7",
+  0.96  : "F5",
+  0.95  : "F2",
+  0.94  : "F0",
+  0.93  : "ED",
+  0.92  : "EB",
+  0.91  : "E8",
+  0.90  : "E6",
+  0.89  : "E3",
+  0.88  : "E0",
+  0.87  : "DE",
+  0.86  : "DB",
+  0.85  : "D9",
+  0.84  : "D6",
+  0.83  : "D4",
+  0.82  : "D1",
+  0.81  : "CF",
+  0.80  : "CC",
+  0.79  : "C9",
+  0.78  : "C7",
+  0.77  : "C4",
+  0.76  : "C2",
+  0.75  : "BF",
+  0.74  : "BD",
+  0.73  : "BA",
+  0.72  : "B8",
+  0.71  : "B5",
+  0.70  : "B3",
+  0.69  : "B0",
+  0.68  : "AD",
+  0.67  : "AB",
+  0.66  : "A8",
+  0.65  : "A6",
+  0.64  : "A3",
+  0.63  : "A1",
+  0.62  : "9E",
+  0.61  : "9C",
+  0.60  : "99",
+  0.59  : "96",
+  0.58  : "94",
+  0.57  : "91",
+  0.56  : "8F",
+  0.55  : "8C",
+  0.54  : "8A",
+  0.53  : "87",
+  0.52  : "85",
+  0.51  : "82",
+  0.50  : "80",
+  0.49  : "7D",
+  0.48  : "7A",
+  0.47  : "78",
+  0.46  : "75",
+  0.45  : "73",
+  0.44  : "70",
+  0.43  : "6E",
+  0.42  : "6B",
+  0.41  : "69",
+  0.40  : "66",
+  0.39  : "63",
+  0.38  : "61",
+  0.37  : "5E",
+  0.36  : "5C",
+  0.35  : "59",
+  0.34  : "57",
+  0.33  : "54",
+  0.32  : "52",
+  0.31  : "4F",
+  0.30  : "4D",
+  0.29  : "4A",
+  0.28  : "47",
+  0.27  : "45",
+  0.26  : "42",
+  0.25  : "40",
+  0.24  : "3D",
+  0.23  : "3B",
+  0.22  : "38",
+  0.21  : "36",
+  0.20  : "33",
+  0.19  : "30",
+  0.18  : "2E",
+  0.17  : "2B",
+  0.16  : "29",
+  0.15  : "26",
+  0.14  : "24",
+  0.13  : "21",
+  0.12  : "1F",
+  0.11  : "1C",
+  0.10  : "1A",
+  0.09  : "17",
+  0.08  : "14",
+  0.07  : "12",
+  0.06  : "0F",
+  0.05  : "0D",
+  0.04  : "0A",
+  0.03  : "08",
+  0.02  : "05",
+  0.01  : "03",
+  0.00  : "00"
+}
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+export const MDaddNightingaleReadyJSON = (ob, exonAlert, exonHash, exonWif) => {  
+    // shapes can be roundRectangle, discontinuosStart, discontinuos, discontinuosEnd, rectangle, line, bridge, diamond, chevron, catFace, triangle, wave, hexagon, pentagon, circle, arror, doubleBar, helix, strand
     ////////////////////////////////////////////////////////////////////////////////
-    // this () will take gene ob JSON, exonAlert, defined above and called from   //
-    // _main, and exonHash having id to exon Object. We need to add new JSON in   //
-    // nightingale format, and modify (add) them to indivdual transcrip objects in//
-    // ob.trans[]. We will be adding exons (interpro domains format, f:'interpro. // 
-    // js', coods aa), secondary structures and disorder (ss format,f:            //
-    // 'interpro-secondary-structure.json') format, and domains in domains format //
+    
+    /*this () will take gene ob JSON, exonAlert, defined above and called from  _main, and exonHash having id to exon Object. 
+    We need to add new JSON (for nightingale viz) in nightingale format, and modify (add) them to individual transcrip objects in ob.trans[]. We will be adding exons (interpro domains format, f:'interpro.js', coods aa), 
+    secondary structures and disorder (ss format,f:'interpro-secondary-structure.json') format, and domains in domains format 
+    */
+
     /*  logic: iterate the trans ob (list of transcript objects), define list of nightingale components and their objects (4 are defined below). 
-                    iterate then the exons list, and for every exon list, call exon ob using exon Hash. (record Sequence also)
+    
+    iterate then the exons list, and for every exon list, call exon ob using exon Hash. (record Sequence also)
 
                     iterate exons, and push them to nihtingale component (only that have aa>0 aa), other to nightingale description datatable
     */
@@ -327,9 +452,11 @@ export const MDaddNightingaleReadyJSON = (ob, exonAlert, exonHash) => {
               let dataTableNightingale=[]
               // {begin,end,type,description}
               let aaVista=''
+              let domStringNightingale = "overlapping"
+              let spanDomainSet = new Set ()
               // console.log("going In")
               trans.exonsIds.split(",").map(ex => {
-                console.log("ex",ex)
+                // console.log("ex",ex)
                 aaVista += exonHash[parseInt(ex,10)].aaseq
                })
               // console.log("going Out")
@@ -366,10 +493,16 @@ export const MDaddNightingaleReadyJSON = (ob, exonAlert, exonHash) => {
                           //only push if they arent same
                             // let colExon = (countExon %2 == 0) ? "grey" : "black" // "#CCCCCC" was default 
                             let colExon = (countExon %2 == 0) ? "#1A0315" : "#88D317" // "#deepplum, electric lime" was default 
+                            let wef = exonWif[elem[0]]
+                            let val2 = Math.round(parseFloat(wef)*1e2)/1e2;
+                            // // if you need 3 digits, replace 1e2 with 1e3 etc.
+                             
+                            // console.log (typeof(val2), elem[0], wef, val2, dictionaryHexColor[val2])
+                            colExon = colExon + dictionaryHexColor[val2]
                             let exonNight = {"accession":elem[0], "color": colExon, 'locations':[{
                                 'fragments':[{'start':start, 'end': end, 'shape':shape}]}]}
                             countExon += 1
-                            console.log("INTERNAL MOD", coods, countExon, colExon)
+                            // console.log("INTERNAL MOD", coods, countExon, colExon)
                             // interpro.js
                           exonNightingale.push(exonNight)
                           }
@@ -422,6 +555,7 @@ export const MDaddNightingaleReadyJSON = (ob, exonAlert, exonHash) => {
               
               trans.domains.split('$').map(domains => {
                         //z-alpha,PF02295.17,aqua:1,63$PF00035.26,lawngreen:207,271_318,382_432,496
+                        //NoDomainEntryPredicted,0,black:0,0_
                         let comp=domains.split(':')
                         let spans=comp[1]
                         let elem=comp[0].split(',')
@@ -432,6 +566,24 @@ export const MDaddNightingaleReadyJSON = (ob, exonAlert, exonHash) => {
                               let spanEle=span.split(',')
                               let start=parseInt(spanEle[0])
                               let end=parseInt(spanEle[1])
+
+                              if (domStringNightingale === "overlapping") {
+                                let smallset = new Set()
+                                for (let ti=start; ti <= end; ti++) {
+                                  smallset.add(ti)
+                                }
+                                const inter = intersection (smallset, spanDomainSet)
+
+                                if (inter.size >0) {
+                                  domStringNightingale = "non-overlapping"
+                                }
+                                else {
+                                  spanDomainSet = union (smallset, spanDomainSet)
+                                }
+                              }
+                              
+                              // spanDomainSet
+
                               let domNight = {
                                 "accession":pfamId, 
                                 "color": color, 
@@ -453,7 +605,20 @@ export const MDaddNightingaleReadyJSON = (ob, exonAlert, exonHash) => {
                                 'end': end, 
                                 'type':'domains', 
                                 'description':pfamId, 
-                                'tooltip':<><h2>Domain entry {pfamId}({name})</h2></>
+                                'tooltip':<>
+                                          <h5 className="text-secondary">
+                                            <span>Domain entry</span>&nbsp; 
+                                            <span>
+                                            <a className="text-decoration-none text-primary"
+                                             target="_blank" 
+                                            //  href={"http://pfam-legacy.xfam.org/family/"+pfamId}>
+                                             href={"https://www.ebi.ac.uk/interpro/entry/pfam/"+pfamId.split('.')[0]}>
+                                            {pfamId}
+                                      
+                                            </a> 
+                                            </span>&nbsp;
+                                            <span>{name}</span>
+                                          </h5></>
                               }
                               dataTableNightingale.push(domDat)
                               console.log (trans.tId)
@@ -470,9 +635,10 @@ export const MDaddNightingaleReadyJSON = (ob, exonAlert, exonHash) => {
                           trans['nightDom']=domainsNightingale
                           trans['nightExons']=exonNightingale
                           trans['nighthTable']=dataTableNightingale
+                          trans['domnightLayout'] = domStringNightingale
                           //console.log("trans--<",trans)
     })
-    console.log("Returned ??")
+    // console.log("Returned ??")
     return ob;
 };
 

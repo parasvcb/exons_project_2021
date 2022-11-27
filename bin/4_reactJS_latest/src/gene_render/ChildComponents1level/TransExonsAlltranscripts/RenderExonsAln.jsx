@@ -147,15 +147,13 @@ export class RenderExonsAln extends Component {
               </span>
             </span>
             {tran.array.map(ex => (
-            <span key={ex.exId} >
+            <span key={ex.exId}>
                 <a 
                   className="badge text-decoration-none" href="#"
                   placement="auto" title={"isf: "+tran.tid}
                   style={this.alnStyle(ex.exId, this.props.exonCodes)}
                 >
-                        {ex.exId}
-                        
-                    
+                        <span >{ex.exId}</span>
                 </a>
             </span>
               // placement="auto" title={"isf: "+tran.tid}
@@ -193,20 +191,61 @@ export class RenderExonsAln extends Component {
         marginLeft: "50px",
         marginRight: "50px",
         backgroundColor: "white",
-        border: "double 2px " + "#00303f",
+        border: "double 0.02rem " + "#00303f",
         color: "#00303f",
       };
     } else {
       let color = "white";
       let background='';
       let testval = "";
+      let borderStyle = "none none none none"; // top right bottom left
       if (exid[0] === "R") {
+        
+
         let ex = exid.split(":");
         let st = parseInt(ex[2].split(".")[3]);
         let ed = parseInt(ex[4].split(".")[3]);
+        let sts = ex[2].split(".")[4]
+        let eds = ex[4].split(".")[4]
+
+        if (sts === "n" || sts ==="b") {
+          borderStyle = "none none none solid"
+          if (eds === "c" || eds === "b" ) {
+            borderStyle = "none solid none solid"
+          } 
+        }
+
+        else if (sts === "c" && eds === "b") {
+          borderStyle = "none solid none none"
+        }
+
+        else if (sts === "b") {
+          borderStyle = "none none none solid"
+          if (eds === "c"){
+            borderStyle = "none solid none solid"
+          }
+        }
+
+        else if (sts ==="0" && ( eds === "c" || eds === "b")) {
+          borderStyle = "none right none none"
+        }
+        
         // wid = ((ed - st + 2) * 100).toString() + "px";
         wid = (((ed - st + 1)+(ed-st)) * 100).toString() + "px";
         testval = exid.split(":")[1];
+      }
+      else {
+        let ex = exid.split(".");
+        // T.1.a.3.0.0 
+        if (ex[4] ==="n"){
+          borderStyle = "none none none solid"
+        }
+        if (ex[4] ==="b"){
+          borderStyle = "none solid none solid"
+        }
+        if (ex[4] ==="c"){
+          borderStyle = "none solid none none"
+        }
       }
       if (testval.length === 0) {
         testval = exid.split(".")[1];
@@ -271,7 +310,10 @@ export class RenderExonsAln extends Component {
         marginLeft: "50px",
         marginRight: "50px",
         backgroundColor: background,
-        color: color
+        color: color,
+        // border: "double 0 2px 0 0" + "#00303f",
+        border: "0.15rem " + "#00303f",
+        borderStyle: borderStyle
       };
     }
   }

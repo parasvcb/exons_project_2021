@@ -1,0 +1,28 @@
+changes:
+1. component 1 has been ensmebl ready with commnets where to change, actual canges are pending
+2. analysis of the figures (creating_figures_python/Fig1_general_stats.py) and its subpanels has been exon polymorph independednt and fxed on 1 rep from achior position, (avg if many)
+3. T1 mysql .py in comp 2 has been updated to  modoify the psans listed from ss and siordered regions
+4. comp3 have two builds, local and production and instructions to move to production and steps
+5. comp 4 has been uypadted to correct the domain overlaps and non overlap based nightingale cajnges, opacity based coloring of exons in nightingale, alignment with bioundary borders based on ncb cases
+
+6. db ananlysis section has been made and commands are also updated ion 2 aor 1st componenst's readme
+
+
+from "/home/paras/exonsdrive/project/protein_splicing/projectDir/bin"
+
+rsync -av paras@172.16.46.73:/var/www/html/enactdb/ 3_django_lates/global/ --exclude=*.sql --exclude=*.sqlite3 --exclude=*.db
+
+rsync -av paras@172.16.46.73:/home/paras/projects/django_react_project/django4_react0/comp_3_django/ 3_django_lates/local/ --exclude=*.sql --exclude=*.sqlite3 --exclude=*.db
+
+rsync -av paras@172.16.46.73:/home/paras/projects/django_react_project/vista/ 4_reactJS_latest/ --exclude=node_modules/
+
+pending:
+
+1. component 1 ensembl ready
+2. component 1 auto updation with the ncbi and ensmbl construction
+3. component 1 ready with 3 modules, basic nomenclature, db configuration params, structre modules, all 3 from left to right will eb additive
+4. django 1 module for basic stats
+5. reactJS tutorial and nomenclature, and tracks info, carousal also needs to be added
+6. basic layout could have been netter
+7. renove console logs and develpoment in django
+8. update the analysis codes for rest of the figures section

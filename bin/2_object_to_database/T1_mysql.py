@@ -2,15 +2,16 @@ import os
 import sys
 import cPickle as pickle
 import MySQLdb
-#from MySQLdb import _mysql
 import re
 from progress.bar import Bar
-
 import db_modules
+
 if len(sys.argv)!=3:
     print ("Please provide 1. dir which has the objects to be read, 2. database config")
     sys.exit()
+
 from db_modules import colcode 
+
 organismdict = {
     '9606': "Homo sapiens", '7227': "Drosophila melanogaster", '10090': "Mus musculus", '7955': "Danio rerio", '6239': "Caenorhabditis elegans"}
 
@@ -19,7 +20,7 @@ def domIndentificationSql(genepk, dompk, i, hasi):
     dId = i[1]
     color = hasi[1]
     code = hasi[0]
-    sql_iter = "INSERT INTO exonapp_domaininfgene  (id, color, code, name, dId, gene_id)                 VALUES ('%d', '%s', '%s', '%s', '%s','%s')" % (
+    sql_iter = "INSERT INTO exonapp_domaininfgene  (id, color, code, name, dId, gene_id) VALUES ('%d', '%s', '%s', '%s', '%s','%s')" % (
         dompk, color, code, name, dId, genepk)
     return sql_iter
 
@@ -28,19 +29,18 @@ db = MySQLdb.connect(host="localhost", user="root", passwd="cbg_2022", db="enact
 
 #db = _mysql.connect(host="localhost", user="root", passwd="cbg_2022", db="enactdb", unix_socket="/var/run/mysqld/mysqld.sock")
 # if cant identify correct socket, 
-# in mysql window type follwing "show variables like 'socket';"
+# in mysql window type following "show variables like 'socket';"
 cursor = db.cursor()
 cursor.execute("SET FOREIGN_KEY_CHECKS=0;")
 #######################################################################################################################
-listtoexecute = db_modules.default_reset()
-
-for cmd in listtoexecute:
+list_to_execute = db_modules.default_reset()
+# create tables and drops them
+for cmd in list_to_execute:
     cursor.execute(cmd)
 
 cursor.execute("SET FOREIGN_KEY_CHECKS=1;")
 db.commit()
 
-# db.close()
 genePK = 1
 transPK = 1
 exongenePK = 1
@@ -63,43 +63,44 @@ def gene_ob_populator(data, txid, organism,  genePK, transPK, exongenePK, domain
         "INSERT INTO exonapp_gene (id, name, entrezid, organism, txid)"
         2. generate the domainseq for exons has, and 
         ITERATE THE TRANSCRIPTS
-
-            generate two hashes, one having spans as keys and pfamId, name as value, and other the opposite, id,name as key, will be used to give colors
-            call to trancriptob sqls, will be used to generate 3 new vars, exons region, having information of their shapes,
-            call to domseq WONT add SQL queries but update transcript sequqnces to domain alphabetas nad atore than in domseqHAS with follwing format
+            generate two hashes, one having spans as keys and pfamId, name as value, and other the opposite, (id, name) as key, will be used to give colors
+            call to transcript ob sql's, will be used to generate 3 new vars, exons region, having information of their shapes,
+            call to domseq WONT add SQL queries but update transcript sequences to domain alphabets and store than in domseqHAS with following format
                 domainhash[exIdt][dom_seq] += ",%s" % str(transfk)
-
-
         3. domseqHAS will continue to update
         ITERATE the EXONS
-
     '''
     gene_c = 0
     bar = Bar('Processing genes:', max=len(data))
     for gene in data:
         ###################### !1 ###########################
-    #   if gene == 319701:
+    #   if gene == 108115:
+        temptrans = [[i.PI, i] for i in  data[gene].transcripts]
+        temptrans.sort(reverse=True)
+        piFirstTransList= [i[1] for i in temptrans]
+        # just keeping PI in the first position, 
+
         exons_pk_temp = {}
         trans_pk_temp = {}
         for i in data[gene].exons:
             exons_pk_temp[i.ID] = exongenePK
             exongenePK += 1
-        for i in data[gene].transcripts:
+        for i in piFirstTransList:
             trans_pk_temp[i.ID] = transPK
             transPK += 1
         ###################### !1/> ###########################
-
         queriestoexecute = []
         queriestoexecute += [db_modules.geneObcreator(data[gene], genePK, txid, organism)]
-
         ###################### * 2 ############################
         handleColorUpdator = 0
         codcol = colcode
         has_color_storage = {}
         exons_domainseq = {}
-        for transcript in data[gene].transcripts:
+        for transcript in piFirstTransList:
+            # print (transcript.ID)
             dom_trans = {}
             dom_trans_spans = {}
+            # print (transcript.pfam_list)
             if transcript.pfam_list:
                 for domiter in transcript.pfam_list:
                     keypair = (domiter[1], domiter[3])
@@ -120,10 +121,10 @@ def gene_ob_populator(data, txid, organism,  genePK, transPK, exongenePK, domain
                         # means that same domain if repeated wont be given new color
                         # -> alphabets can be limitations after some time, do gave it a thought
 
-            queriestoexecute += [db_modules.transcriptObcreator(genePK, trans_pk_temp[transcript.ID], transcript, sum(
+            queriestoexecute += [db_modules.transcriptObcreator(gene, genePK, trans_pk_temp[transcript.ID], transcript, sum(
                 dom_trans.values()), len(dom_trans.keys()), exons_pk_temp, dom_trans_spans, has_color_storage)]
 
-            exons_domainseq = db_modules.domseqiterator(
+            exons_domainseq = db_modules.domseqiterator(gene, 
                 transcript, trans_pk_temp[transcript.ID], dom_trans_spans, has_color_storage, exons_domainseq)
             # transcriptOb, transPrimID, spans as Key:(pfamidName) as value, pfamidName as key: (alphbet and colname) as value, 
             # exons_domainseq will be updated
@@ -133,14 +134,14 @@ def gene_ob_populator(data, txid, organism,  genePK, transPK, exongenePK, domain
                 and then the components, 
                 disorder types and transcripts emclosed
             '''
+        # print (dom_trans_spans)
         # print exons_domainseq
         ##############################*2/###########################################
-        
         ##############################!3 ###########################################
         # for i in data[gene].exons:
         #     print (i.ID, i.seq)
 
-        # for transcript in data[gene].transcripts:
+        # for transcript in piFirstTransList:
         #     print (transcript.ID)
         #     for i in transcript.exons:
         #         print (i.ID, i.seq,'\n')

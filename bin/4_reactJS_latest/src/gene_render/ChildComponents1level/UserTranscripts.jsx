@@ -30,7 +30,7 @@ export class UserTranscripts extends Component {
 
   handleSubmit(event) {
     let sequformatted = "";
-    console.log("event", event.value);
+    // console.log("event", event.value);
     event.preventDefault();
     this.setState({ proceed: true });
     sequformatted = this.seqFormat(this.state.value);

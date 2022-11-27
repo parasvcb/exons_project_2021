@@ -22,6 +22,56 @@ import common.general_modules as gm
 #     return acceptableNumericFlagList
 
 
+def positionalExonMatrix_forExCharacterization(gene):
+    exonMatrix={}
+    for trans in gene.transcripts:
+        for exon in trans.exons:
+            if exon.ID[0]!='R':
+                utmrdtag, localcod, consalt, placeholder, ncb0, ncb0occ = exon.ID.split('.')
+                # if 'U' in exon.ID and 'G' in exon.ID:
+                #     print (gene)
+                #     sys.exit()
+                placeholder=int(placeholder)
+                ncb0occ=int(ncb0occ)
+                localcod=int(localcod)
+                if placeholder not in exonMatrix:
+                    exonMatrix[placeholder]=['','',[0,0,0], 0,0,0, 0 ]
+                                            #0, 1, 2      ,3,4,5, 6
+                    # 0th ele, UTMRD tag, 
+                    # 1st ele, AGF tag, 
+                    # 2nd records children order of ncb, and 
+                    # 3rd occurrences of the aa change on this position, (should not be evaluated if values of the ncb counterparts is true
+                    # 4th coding intron retention events starting from this
+                    # 5th non coding intron retention events starting from this
+                    # 6th whether aa has been ever removed from this sequence (yes consider all the ncb variation also but not retention)
+                if localcod == -1:
+                    exonMatrix[placeholder][6]=1
+                if ncb0=='0':
+                    if exonMatrix[placeholder][0]:
+                        if exonMatrix[placeholder][0] != utmrdtag or exonMatrix[placeholder][1] != consalt:
+                            print ("! raise, for gene %s, placeholder %s, utmrdTag:%s or consalt %s flag mismatches with previous %s %s") 
+                            print ("geneExons",[i.ID for i in gene.exons])
+                            sys.exit()
+                            
+                    exonMatrix[placeholder][0]=utmrdtag
+                    exonMatrix[placeholder][1]=consalt
+                    if localcod>1 and localcod>exonMatrix[placeholder][3]:
+                        exonMatrix[placeholder][3]=localcod
+                else:
+                    index = 0 if ncb0 =='n' else 1 if ncb0 =='c' else 2
+                    if ncb0occ>exonMatrix[placeholder][2][index]:
+                        exonMatrix[placeholder][2][index]=ncb0occ
+    for exons in gene.exons:
+        if exons.ID[0]=='R':
+            #	R:1:U.-2.A.2.0.0:0:T.1.A.3.0.0
+            tag,  localcod, former, eventStartingFromFormer, latter = exons.ID.split(':')
+            posAffected = int(former.split('.')[3])
+            if int(localcod)>=1:
+                exonMatrix[posAffected][4]=1
+            else:
+                exonMatrix[posAffected][5]=1
+    return exonMatrix
+
 def exonScreenerBetweenTConstitutive(geneExons,inclusive=True):
     acceptableNumericFlagList=[]
     for ex in geneExons:
@@ -164,25 +214,38 @@ def split_cases(exonslist,out='default'):
     '''
     gets ids extracted from the list fo exons 
     the list recieved will be either U or T or D cases but not their intermix
-    will screen from the first two letters, if their varitaions do exist (will append their n,c,b,0 case as key value)
+    will screen seq position of them if their varitaions do exist (will append their n,c,b,0 case as key value)
     '''
     idlistHas={}
     idlistHasRef={}
     #idlist=[i.ID for i in exonslist]
     for ex in exonslist:
-        tag=ex.ID.split('.')
-        key=".".join(tag[:2])
-        value=tag[4]
-        if key not in idlistHas:
-            idlistHas[key]=set()
-            idlistHasRef[key]=[]
-        idlistHas[key]|=set([value])
-        idlistHasRef[key]+=[ex]
-    pureAlternate=[idlistHasRef[key][0] for key in idlistHas if len(idlistHas[key])==1]
-    alternateWithSS=[idlistHasRef[key][0] for key in idlistHas if len(idlistHas[key])>1]
+        tag=ex.ID.split('.') #D.1.A.1.0.0
+        seqpos=tag[3]
+        ncb0Val=tag[4]
+        if seqpos not in idlistHas:
+            idlistHas[seqpos]=[]
+            idlistHasRef[seqpos]=[]
+        idlistHas[seqpos]+=[ncb0Val]
+        idlistHasRef[seqpos]+=[ex]
+    '''
+    iterate exons list (D.1.G.12.0.0)
+        make pair of first two ele, D.1
+        is this is not present in idListHas, add twop to it and add 4th position in set as its value, 
+        in addhasref key also add exon to it (list)
+
+    key is U-2, U1, D0 like that, value is [ncb0], 
+    in a set, n1, n2 n3 will be counted only 1, if set has length of 1, that means 0th form is only form present
+    '''
+
+    pureAlternate=[idlistHasRef[key][0] for key in idlistHas if len(set(idlistHas[key]))==1]
+    # if len ==1, it will always be form 0, if greatear than 1, then it will be some polymorph other than 0 [ncb]
+    alternateWithSS=[idlistHasRef[key] for key in idlistHas if len(set(idlistHas[key]))>1]
+    if alternateWithSS:
+        alternateWithSS=[i for j in alternateWithSS for i in j]
     if out =='default':
         return len(pureAlternate),len(alternateWithSS)
-    return pureAlternate,[idlistHasRef[key] for key in idlistHas if len(idlistHas[key])>1]
+    return pureAlternate, alternateWithSS
     #sending ouytput in 1st var as list of alternate xons with no change in splice site and n dsceond case as the total possible exons in all teh trancripts (redundant)
 
 #exons
@@ -397,45 +460,45 @@ def junctions_from_different_isoforms_poulatorSURFACEEXPOSED(repr_has, trans,PI,
 
 
 
-def refineFcategory(has):
-    #print (has.keys()[:5])
-    #print (dir(has[103]))
-    for gene in has:
-       #if gene ==103:
-        exhas={}
-        #print (gene,has[gene].transcripts)
-        Tcount=len(has[gene].transcripts)
-        for transcripts in has[gene].transcripts:
-            for exons in transcripts.exons:
-                exID=exons.ID
-                if exID[0]!='R':
-                    ele=exID.split('.')
-                    seqNumber=ele[3]
-                    flag=ele[2]
-                    if flag!='G':    
-                        if seqNumber not in exhas:
-                            exhas[seqNumber]=[]
-                        exhas[seqNumber]+=[transcripts.ID]
-        changeNeeded={i:0 for i in exhas if len(set(exhas[i]))==Tcount}
-        # print {i:len(set(exhas[i])) for i in exhas} ,Tcount
-        # print changeNeeded
-        if changeNeeded:
-            for transcripts in has[gene].transcripts:
-                for exons in transcripts.exons:
-                    exID=exons.ID
-                    if exID[0]!='R':
-                        ele=exID.split('.')
-                        if ele[3] in changeNeeded and ele[2]!='G':
-                            ele[2]='F'
-                            exons.ID=".".join(ele)
-            for exons in has[gene].exons:
-                exID=exons.ID
-                if exID[0]!='R':
-                    ele=exID.split('.')
-                    if ele[3] in changeNeeded and ele[2]!='G':
-                        ele[2]='F'
-                        exons.ID=".".join(ele)
-        # for i in has[103].exons:
-        #      print (i.ID)
-    #one more leg of refinment needed to change such ids in the IR retention cases
-    return has
+# def refineFcategory(has):
+#     #print (has.keys()[:5])
+#     #print (dir(has[103]))
+#     for gene in has:
+#        #if gene ==103:
+#         exhas={}
+#         #print (gene,has[gene].transcripts)
+#         Tcount=len(has[gene].transcripts)
+#         for transcripts in has[gene].transcripts:
+#             for exons in transcripts.exons:
+#                 exID=exons.ID
+#                 if exID[0]!='R':
+#                     ele=exID.split('.')
+#                     seqNumber=ele[3]
+#                     flag=ele[2]
+#                     if flag!='G':    
+#                         if seqNumber not in exhas:
+#                             exhas[seqNumber]=[]
+#                         exhas[seqNumber]+=[transcripts.ID]
+#         changeNeeded={i:0 for i in exhas if len(set(exhas[i]))==Tcount}
+#         # print {i:len(set(exhas[i])) for i in exhas} ,Tcount
+#         # print changeNeeded
+#         if changeNeeded:
+#             for transcripts in has[gene].transcripts:
+#                 for exons in transcripts.exons:
+#                     exID=exons.ID
+#                     if exID[0]!='R':
+#                         ele=exID.split('.')
+#                         if ele[3] in changeNeeded and ele[2]!='G':
+#                             ele[2]='F'
+#                             exons.ID=".".join(ele)
+#             for exons in has[gene].exons:
+#                 exID=exons.ID
+#                 if exID[0]!='R':
+#                     ele=exID.split('.')
+#                     if ele[3] in changeNeeded and ele[2]!='G':
+#                         ele[2]='F'
+#                         exons.ID=".".join(ele)
+#         # for i in has[103].exons:
+#         #      print (i.ID)
+#     #one more leg of refinment needed to change such ids in the IR retention cases
+#     return has

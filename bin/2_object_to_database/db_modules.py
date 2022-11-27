@@ -1,5 +1,13 @@
 import re,sys
 
+
+'''
+next build is db_modules_26Nov_22_duplictaedDomainreciord
+This build have the updtaed domoain tracks where two domain who overallped are likely to have twp spearate tracks to be viewed. 
+As of now, i have thought to keep this runnimng, as i have made changes in react to keep overalling, non overallping on the vaiss of the information
+
+colors have been changes, ss jhave been updated and diosrder tracks were also updated in this build
+'''
 def default_reset():
     cmdtoexecute = []
     sql_table_header_gene = """CREATE TABLE exonapp_gene(
@@ -15,7 +23,7 @@ def default_reset():
     sql_table_header_trans = """CREATE TABLE exonapp_transcripts(
             id INT NOT NULL,
             tId VARCHAR(20) NOT NULL,
-            swissprot VARCHAR(200),
+            swissprot VARCHAR(400),
             length INT,
             pi TINYINT(1),
             exonscount INT,  
@@ -87,7 +95,6 @@ def default_reset():
             FOREIGN KEY(exon_id) REFERENCES exonapp_exongenes(id));
             """
     
-
     drop_geneTab = "DROP TABLE IF EXISTS exonapp_gene"
     drop_transTab = "DROP TABLE IF EXISTS exonapp_transcripts"
     drop_exonsTab = "DROP TABLE IF EXISTS exonapp_exongenes"
@@ -113,40 +120,46 @@ def default_reset():
     return cmdtoexecute
 
 colorcode = {
-    0: "aqua",
-    1: "lawngreen",
-    2: "black",
-    3: "blueviolet",
-    4: "brown",
-    5: "hotpink",
-    6: "cadetblue",
-    7: "crimson",
-    8: "darkcyan",
-    9: "darkgreen",
-    10: "darkkhaki",
-    11: "darkolivegreen",
-    12: "gold",
-    13: "slategrey",
-    14: "burlywood",
-    15: "indianred",
-    16: "bisque",
-    23: "lightgreen",
-    17: "mediumorchid",
-    18: "mediumseagreen",
-    19: "slateblue",
-    20: "goldenrod",
-    21: "springgreen",
-    22: "tan",
-    24: "teal",
-    25: "salmon",
-    26: "sandybrown",
-    27: "turquoise",
-    28: "yellowgreen",
-    29: "tomato",
-    30: "thistle",
-    31: "turquoise",
-    32: "wheat",
-    33: "blanchedalmond"
+    0: "#4d86a5",
+    1: "#cf0bf1",
+    2: "#12e2f1",
+    3: "#3e517a",
+    4: "#98da1f",
+    5: "#fc9f5b",
+    6: "#d60b2d",
+    7: "#c3c4e9",
+    8: "#9cc76d",
+    9: "#2dffdf",
+    10: "#d00000",
+    11: "#ffba08",
+    12: "#cbff8c",
+    13: "#8fe388",
+    14: "#1b998b",
+    15: "#3185fc",
+    16: "#5d2e8c",
+    23: "#46237a",
+    17: "#ff7b9c",
+    18: "#ff9b85",
+    19: "#669900",
+    20: "#99cc33",
+    21: "#ccee66",
+    22: "#006699",
+    24: "#3399cc",
+    25: "#990066",
+    26: "#cc3399",
+    27: "#ff6600",
+    28: "#ff9900",
+    29: "#ffcc00",
+    30: "#033270",
+    31: "#1368aa",
+    32: "#4091c9",
+    33: "#9dcee2",
+    34: "#fedfd4",
+    35: "#f29479",
+    36: "#f26a4f",
+    37: "#ef3c2d",
+    38: "#cb1b16",
+    39: "#65010c"
 }
 alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
          'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -165,7 +178,7 @@ def geneObcreator(genob, genepk, txid, organism):
     return sql_iter
 
 
-def transcriptObcreator(genefk, transpk, trans, totc, uc, exons_fk_has, dom_trans_spans, col_cood_hash):
+def transcriptObcreator(genencbid, genefk, transpk, trans, totc, uc, exons_fk_has, dom_trans_spans, col_cood_hash):
     # transcriptObcreator(genePK, trans_pk_temp[transcript.ID], transcript, sum(dom_trans.values()), len(dom_trans.keys()), exons_pk_temp)
     # dom_trans_spans[domiter[0]] = keypair
                     # this Will have span as key and pair of id and name as values
@@ -229,6 +242,8 @@ def transcriptObcreator(genefk, transpk, trans, totc, uc, exons_fk_has, dom_tran
 
             modExo += '%s,%s,%s_'%(factor_length, factor_length+len(i.seq)-1,smoothDis)
             factor_length += len(i.seq)
+            # if exon has length 10 in beginning , give exon coods, 1, 1+10-1(10), 
+            # next from 10,20, will have, 10, 10+10-1, 10,19
         else:
             smoothDis = 4
             modExo+='%s,%s,%s,%s,%s_'%(factor_length,factor_length,smoothDis, i.nc_span[0], i.nc_span[1])
@@ -249,12 +264,18 @@ def transcriptObcreator(genefk, transpk, trans, totc, uc, exons_fk_has, dom_tran
         region = re.finditer(needmatch, string)
         for i in region:    
             sp=i.span()
-            prestring += '%s,%s_'%(sp[0]+1,sp[1]+1)
+            prestring += '%s,%s_'%(sp[0]+1,sp[1]) #from +1 deducted 1 in right coods, 
+        #H:10,20_50,40_  otherwise H:
         return prestring
 
     strh = spansGiver('H:', 'H{1,}', ssp_region)
-    stre = spansGiver('H:', 'E{1,}', ssp_region)
+    stre = spansGiver('E:', 'E{1,}', ssp_region)
     strdis = spansGiver('D:', 'D{1,}', disordered_region)
+    if strh=="H:" and stre=="E:":
+        strh="H:0,0_"
+        stre="E:"
+        print ("no ss", genencbid)
+    # if no ss
 
     secondaryStructure = strh[:-1]+'-'+stre[:-1]+'-'+strdis[:-1]
     #last element is skpped because of trailing undersocre used above
@@ -278,11 +299,17 @@ def transcriptObcreator(genefk, transpk, trans, totc, uc, exons_fk_has, dom_tran
         alphabet, color = col_cood_hash[idName]
         domstr = '%s,%s,%s:'%(domname,pfam, color)
         for spans in spansList:
-            domstr+='%s,%s_'%(spans[0]-1,spans[1]-1)
-            # -> reveist if they represent correct values, 
-        listDomString+=[domstr[:-1]]
-    domains='$'.join(listDomString)
-  
+            # domstr+='%s,%s_'%(spans[0]-1,spans[1]-1)
+            domstr+='%s,%s_'%(spans[0],spans[1])
+            # -> reviist if they represent correct values, 
+        listDomString += [domstr[:-1]]
+    if listDomString:
+        domains='$'.join(listDomString)
+    else:
+        print ("no domains",genencbid)
+        listDomString=["NoDomainEntryPredicted,0,white:0,0"]
+        domains='$'.join(listDomString)
+
     order1 = ["U", "D", "T", "M", "R"]
     order2 = ["G", "A", "F"]
     str1 = ''
@@ -294,13 +321,11 @@ def transcriptObcreator(genefk, transpk, trans, totc, uc, exons_fk_has, dom_tran
     str1 = str1[:-2]
     str2 = str2[:-2]
     if ssp_region:
-        structred_regionss = round(float(ssp_region.count(
-            "H")+ssp_region.count("E"))/factor_length*100, 2)
+        structred_regionss = round((float(ssp_region.count("H")+ssp_region.count("E"))/trans.seqlen) *100, 2)
     else:
         structred_regionss = "NULL"
     if disordered_region:
-        disordered_region = round(
-            float(disordered_region.count("D"))/factor_length*100, 2)
+        disordered_region = round((float(disordered_region.count("D"))/trans.seqlen)*100, 2)
     else:
         disordered_region = "NULL"
     exonscountUTMRD = str1
@@ -320,7 +345,7 @@ def transcriptObcreator(genefk, transpk, trans, totc, uc, exons_fk_has, dom_tran
     # -> need to add secondaryStructure, exonsRegion, domains aspect to it
     return sql_iter
 
-def domseqiterator(trans, transfk, transdoms, genecodes, domainhash):
+def domseqiterator(genencbid, trans, transfk, transdoms, genecodes, domainhash):
     # transcript, trans_pk_temp[transcript.ID], dom_trans_spans,has_dom, exons_domainseq)
     # transcriptOb, transPrimID, spans as Key:(pfamidName) as value, pfamidName as key: (alphbet and colname) as value, 
     # domainHas will be updated
@@ -341,12 +366,18 @@ def domseqiterator(trans, transfk, transdoms, genecodes, domainhash):
             # however partial domain assignemnt can still be done and i Ill be douing for segment covered, if start exceeds the seqlen, then I wont proceed, 
             # but if end exceeds, and start doesnt then i will modify the end
             domcode = genecodes[transdoms[i]][0]
+            overlap=0
+            length=end-start+1
             for j in range (start,end):
                 if strdom[j]=='-':
                     strdom[j]=domcode
                 else:
-                    pass
+                    overlap+=1
+                    # pass
                     # print ("Raise Flag, %s, has double dom assignment prob at index=%s"%(trans.ID, j))
+            # only for case log reporting, can be hashed
+            if overlap:
+                print ("overlap, %s, %s, %s"%(genencbid, trans.ID, round(float(overlap)/length,2)))
     strdom = "".join(strdom)        
     lengt = 0
     for exons in trans.exons:

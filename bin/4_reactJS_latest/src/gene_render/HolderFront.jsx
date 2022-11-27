@@ -2,7 +2,8 @@ import React, { Component } from "react";
 //import { Spring } from "react-spring/renderprops";
 import UserTranscripts from "./ChildComponents1level/UserTranscripts";
 import AllTranscripts from "./ChildComponents1level/AllTranscripts";
-import { MDexonalerts, MDlastexon, MDgeneCard, MDexoncodes, MDaddNightingaleReadyJSON } from "./ModuleHF";
+import { MDexonalerts, MDlastexon, MDgeneCard, MDexoncodes, MDaddNightingaleReadyJSON } from "./ModuleHF.jsx";
+
 export class HolderFront extends Component {
   constructor(props) {
     super(props);
@@ -23,21 +24,23 @@ export class HolderFront extends Component {
       showUserTrans: true
     });
   render() {
-    // let gene = require("../oldSet/sample.json");
-    
+
+    // let gene = require("../oldSet/sample.json");    
     let gene= this.props.gene;
     // console.log('JSON',gene)
     let exonHash = {};
+    let exonWif = {}
     let exonalertscodes = MDexonalerts(gene.exonsGenes);
     // console.log("before this1");
     gene.exonsGenes.map(ex => (exonHash[ex.id] = ex));
+    gene.exonsGenes.map(ex => (exonWif[ex.exId] = ex.wef));
     // console.log(exonHash)
     // console.log("there it is0")
-    gene=MDaddNightingaleReadyJSON(gene,exonalertscodes,exonHash)
+    gene=MDaddNightingaleReadyJSON(gene,exonalertscodes,exonHash, exonWif)
     // console.log("there it is1")
 
-    //console.log("in holderfront");
-    //console.log("gene", gene);
+    // console.log("in holderfront");
+    // console.log("gene", gene);
     // console.log("transcriptsall", this.state.showTrans);
     // console.log("transcriptUser", this.state.showUserTrans);
 
@@ -55,7 +58,7 @@ export class HolderFront extends Component {
     let showusertransclass = this.state.showUserTrans
       ? "nav-link active text-primary"
       : "nav-link text-secondary";
-    console.log("before this2");
+    // console.log("before this2");
     let exoncod = MDexoncodes(gene.exonsGenes);
     let pi=''
     gene.trans.forEach(tr => {

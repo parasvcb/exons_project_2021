@@ -1,0 +1,52 @@
+installation dir = /var/www/html/enactdb/
+sudo bash ~/bin/movingReact.sh /home/paras/projects/django_react_project/vista /var/www/html/enactdb/
+
+
+root installation was different 
+pip --proxy http://172.16.2.251:3128  install Django==4.1.3
+pip --proxy http://172.16.2.251:3128  install djangorestframework
+pip --proxy http://172.16.2.251:3128  install django-cors-headers
+pip --proxy http://172.16.2.251:3128  install whitenoise
+
+make sure firewall connection is on
+
+
+systemctl restart httpd
+
+
+create file "/etc/httpd/conf.d/enactdb.conf" (will be called from httpd/cond/httpd.conf file"
+with follwing contents
+"""
+WSGIScriptAlias /enactdb /var/www/html/enactdb/v1/wsgi.py
+WSGIPythonPath /var/www/html/enactdb
+
+Alias /robots.txt /var/www/html/enactdb/frontend/build/robots.txt
+Alias /favicon.ico /var/www/html/enactdb/frontend/build/root/favicon.ico
+
+Alias /static /var/www/html/enactdb/frontend/build/static
+
+<Directory /var/www/html/enactdb/frontend/build/static>
+Require all granted
+Order allow,deny
+Allow from all
+</Directory>
+
+
+<Directory /var/www/html/enactdb/v1>
+<Files wsgi.py>
+Require all granted
+Order allow,deny
+Allow from all
+</Files>
+</Directory>
+"""
+
+
+cd /var/www/html/enactdb/
+[root@newJensen enactdb]# ls
+db.sqlite3  exonapp  frontend  manage.py  readme  readme.md  static  v1'
+
+# take backup of the root installation and the conf files apache
+
+
+

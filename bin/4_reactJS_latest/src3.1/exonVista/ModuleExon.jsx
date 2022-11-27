@@ -90,7 +90,7 @@ class ModuleExon extends Component {
         //length = ?? can be added
           //attributes="variantfilters"
           //attributes="paras" 
-          displaystart= "-50" displayend="100" length ="870" //id="example"
+          displaystart= "1" displayend="400" length ="870" //id="example"
           //displaystart="-10"
           // displaystart="10"
           // displayend="100"
@@ -115,7 +115,7 @@ class ModuleExon extends Component {
 
           <div id="just-tracks">
             <protvista-sequence
-              length="870" displaystart="50" displayend="770"
+              length="870" displaystart="0" displayend="770"
               id="sequence-track"
               highlight-event="onmouseover"
               use-ctrl-to-zoom
@@ -150,6 +150,7 @@ class ModuleExon extends Component {
               id="interpro-track"
               length="870"
               shape="roundRectangle"
+              layout="non-overlapping"
               highlight-event="onmouseover"
               expanded
               use-ctrl-to-zoom

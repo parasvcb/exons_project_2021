@@ -1,7 +1,6 @@
 import cPickle as pickle
 import numpy as np
 import gzip,sys
-
 import scipy,os
 import constructing_data.Classes_exons as Classes_exons
 sys.modules['Classes_exons'] = Classes_exons

@@ -30,11 +30,11 @@ class NightingaleExonsVista extends Component {
       exons: this.props.nighthTable,
   }}
   componentDidMount() {
-     console.log("cdm1",this.props.transwhole)
-     console.log("cdm2",this.props.transwhole.nightDom)
-     //this["interpro-track"].innerHTML = this.props.transwhole.nightDom;
+    //  console.log("cdm1",this.props.transwhole)
+    //  console.log("cdm2",this.props.transwhole.nightDom)
+     //this["interpro-track"].innerHTML = this.props. transwhole.nightDom;
      let seqTrack="#sequence-track" + this.props.variable
-     console.log(seqTrack)
+    //  console.log(seqTrack)
      document.querySelector("#sequence-track"+this.props.variable).data = this.props.transwhole.sequence;
      document.querySelector("#domain-track"+this.props.variable).data = this.props.transwhole.nightDom;
      document.querySelector("#exon-track"+this.props.variable).data = this.props.transwhole.nightExons;
@@ -54,10 +54,10 @@ class NightingaleExonsVista extends Component {
     loadWebComponent("protvista-overlay", ProtvistaOverlay);
     loadWebComponent("protvista-zoom-tool", ProtvistaZoomTool);
     loadWebComponent("protvista-datatable", ProtvistaDatatable);
-    console.log("render",this.props.nightDom)
-    console.log("render2",this.props)
-    console.log("STATE",this.state)
-    console.log("TABLE", this.props.transwhole.nightExons)
+    // console.log("render",this.props.nightDom)
+    console.log("render2",this.props.transwhole.domnightLayout)
+    // console.log("STATE",this.state)
+    // console.log("TABLE", this.props.transwhole.nightExons)
     const lengthSeq=this.props.transwhole.sequence.length
     return (
       <div className="row px-2 mx-2 my-2 py-1" style = {{borderStyle:"double",  borderWidth: "0 0 5px 0" /* top right bottom left */ }}>
@@ -130,9 +130,13 @@ class NightingaleExonsVista extends Component {
                           layout="non-overlapping"
                           use-ctrl-to-zoom
                         />
-                        <protvista-interpro-track
+
+                        <protvista-track
+                        //protvista-interpro-track could laos be used, but that gives very close spacing
                           id={"domain-track" + this.props.variable}
                           length={lengthSeq}
+                          // layout="non-overlapping"
+                          layout={this.props.transwhole.domnightLayout}
                           highlight-event="onmouseover"
                           expanded
                           use-ctrl-to-zoom
@@ -156,6 +160,7 @@ class NightingaleExonsVista extends Component {
                           <th data-filter="ft_key">Feature key </th>
                           <th>Description </th>
                           <th>Positions </th>
+                          <th>Length </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -163,7 +168,7 @@ class NightingaleExonsVista extends Component {
                         {this.props.transwhole.nighthTable?.map((row, i) => (
                           //i is row index, starting from 0
                           <Fragment key={i}>
-                            {console.log("da*",row,i)}
+                            {/* {console.log("da*",row,i)} */}
                             <tr
                               data-id={`${row.start}-${row.end}`}
                               data-start={row.start}
@@ -178,6 +183,10 @@ class NightingaleExonsVista extends Component {
                               <td>
                                 {row.start} - {row.end}
                               </td>
+                              <td>
+                                {(row.end - row.start) + 1}
+                              </td>
+                              
                             </tr>
                             <tr data-group-for={`${row.start}-${row.end}`}>
                               <td>{row.tooltip}</td>

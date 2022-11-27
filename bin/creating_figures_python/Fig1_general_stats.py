@@ -8,7 +8,7 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
-import figPanels.modules_common as cm
+import common.general_modules as cm
 
 import figPanels.subpanels_fig1.subpanel_A as panelA
 import figPanels.subpanels_fig1.subpanel_B as panelB
@@ -45,9 +45,9 @@ secDir4_4=os.path.join(results_dir_csv,'F1_Condition_%sPilength_%sIsf_%sExCount'
 CONDITION_GENES_2_2, filewriter_2_2=runnerWithGeneCondition(secDir2_2,lengthThreshold=3000, UniqueTransCount=2,UniqueCodingExonCount=2)
 CONDITION_GENES_4_4, filewriter_4_4=runnerWithGeneCondition(secDir4_4,lengthThreshold=3000, UniqueTransCount=4,UniqueCodingExonCount=4)
 
-if not os.path.isfile(os.path.join(secDir2_2,"condition_genes.pick")):
+if not os.path.isfile(os.path.join(secDir2_2,"condition_genes.pick")) or 1:
     cm.writePickle(os.path.join(secDir2_2,"condition_genes.pick"),CONDITION_GENES_2_2)
-if not os.path.isfile(os.path.join(secDir4_4,"condition_genes.pick")):
+if not os.path.isfile(os.path.join(secDir4_4,"condition_genes.pick")) or 1:
     cm.writePickle(os.path.join(secDir4_4,"condition_genes.pick"),CONDITION_GENES_4_4)
 
 def glob_mem(has,cond,fout):

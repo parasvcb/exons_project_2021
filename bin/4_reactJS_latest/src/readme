@@ -1,0 +1,319 @@
+#### running and deploying
+this app will be build and then used with the django, 
+
+
+##
+tutoruakls reactjs
+
+
+testob = this.state.gene.filter(mg => {
+          return mg.entrezid === this.state.genestate;
+        });
+// above will give you a object from list of objects which will have matched entrez attribute to yours
+
+
+if (isNaN(this.state.jobs[0].name)) {
+        // It will return true if not a number else false, means inside if its a string
+        // console.log("insidestring funct", this.state.jobs[0], isNaN(this.state.jobs[0]));
+
+
+// to check if index is prenwst or case is met
+["D-1", "D-2", "D0", "T-1", "T-2", "T0"].indexOf(id[0] + id[1]) > -1
+
+// have switch rpm below
+
+
+### iterating forEach with lst of exons
+let finalob = {};
+    exons.forEach(element => {
+      if (element.exId[0] !== "R" && element.exId.split(".")[4] === "0") {
+        finalob[parseInt(element.exId.split(".")[3])] = element.exId[0];
+      }
+    });
+    return finalob
+
+
+let finalob = {};
+    exons.forEach(element => {
+      if (element.exId[0] !== "R" && element.exId.split(".")[4] === "0") {
+        finalob[parseInt(element.exId.split(".")[3])] = element.exId[0];
+      }
+    });
+
+
+### adding to object has 
+
+    transobs.forEach(position => {
+      let dummyseq = "";
+      position.exonsIds.split(",").forEach(exon => {
+        dummyseq += exonhash[parseInt(exon)].aaseq;
+      });
+      dummyseq = dummyseq.trim();
+      //console.log("position tid", position);
+      if (hasStru.hasOwnProperty(dummyseq)) {
+        hasStru[dummyseq].push(position.tId);
+      } else {
+        hasStru[dummyseq] = [position.tId];
+      }
+    });
+
+
+### dictionary of dictioonary 
+transprops.forEach(exons => {
+      if (exons.length > 0) {
+        let aaseq = "";
+        let position = "";
+        let exid = exons.exId;
+        if (exons.exId[0] === "R") {
+          position = exons.exId.split(":")[2].split(".")[3];
+        } else {
+          position = exons.exId.split(".")[3];
+        }
+        aaseq = exons.aaseq;
+
+        if (allaa.hasOwnProperty(position)) {
+          //console.log("yes in if", position, allaa);
+          if (!allaa[position].hasOwnProperty(exid)) {
+            allaa[position][exid] = aaseq;
+            //console.log("yes in if2", position, allaa);
+          }
+        } else {
+          //console.log("yes in else", position, allaa);
+          allaa[position] = {};
+          allaa[position][exid] = aaseq;
+          //console.log("yes in if2", position, allaa);
+        }
+      }
+    });
+    
+
+
+
+export const MDexonalerts = (exons) =>{
+    let ob = {};
+    exons.forEach(element => {
+      let messageComp1 = "";
+      if (element.exId[0] !== "R") {
+        const id = element.exId.split(".");
+        let message1h = id[0] + "." + id[1];
+        let message1 = "";
+        switch (id[0]) {
+          case "U":
+            message1 +=
+              "This exon is always part of UTR in all the isoforms(ISFs) and always non-coding ";
+            break;
+          case "T":
+            message1 +=
+              "This exon is always part of CDS in all the isoforms(ISFs) ";
+            break;
+          case "M":
+            message1 +=
+              "This exon is always part of CDS in all the isoforms(ISFs) but has only 1nt contribution and hence no Amino acid ";
+            break;
+          case "D":
+            message1 +=
+              "This exon is either part of CDS or UTR in different isoforms(ISFs) of this gene ";
+            break;
+          default:
+            message1 += " ";
+        }
+        if (
+          ["D-1", "D-2", "D0", "T-1", "T-2", "T0"].indexOf(id[0] + id[1]) > -1
+        ) {
+          switch (id[0] + id[1]) {
+            case "D-1":
+              message1 +=
+                "and it is non-coding due to PTC in upstream region for this ISF;";
+              break;
+            case "D-2":
+              message1 += "and it is non-coding in this ISF;";
+              break;
+            case "D0":
+              message1 += "and it has only 1nt share to CDS in this ISF;";
+              break;
+            case "T-1":
+              message1 +=
+                "but is not coding for aa in this ISF due PTC in upstream region;";
+              break;
+            case "T0":
+              message1 += "but it has only 1nt share to CDS for this ISF;";
+              break;
+          }
+        } else {
+          switch (id[1]) {
+            case "-2":
+              message1 += "";
+              break;
+            case "-1":
+              message1 += "";
+              break;
+            case "0":
+              message1 += "";
+              break;
+            case "1":
+              message1 += " and is coding amino acids (Reference) in this ISF,";
+              break;
+            default:
+              message1 +=
+                " and is coding amino acids different than that of reference exon (Variant:" +
+                id[1] +
+                ") in this ISF,";
+          }
+        }
+
+        let message2h = id[2] + "." + id[3];
+        let message2 = " further this exon is ranked ";
+
+        if (id[3].length > 1 && id[3][id[3].length - 2] === "1") {
+          message2 += id[3] + "th";
+        } else {
+          switch (id[3].slice(-1)) {
+            case "1":
+              message2 += id[3] + "st";
+              break;
+            case "2":
+              message2 += id[3] + "nd";
+              break;
+            case "1":
+              message2 += id[3] + "rd";
+              break;
+            default:
+              message2 += id[3] + "th";
+              break;
+          }
+        }
+
+        message2 += " in gene sequence and ";
+        switch (id[2]) {
+          case "G":
+            message2 += " is constitutively present in all the ISFs,";
+            break;
+          case "A":
+            message2 +=
+              " is alternatively present in ISFs with WEF:" + element.wef + ",";
+            break;
+          case "F":
+            message2 +=
+              " is present in all the ISFs with certain alternative splice site variations,";
+            break;
+          default:
+            message2 += "";
+        }
+
+        let message3h = id[4] + "." + id[5];
+        let message3 = "";
+        switch (id[4]) {
+          case "0":
+            message3 +=
+              " no alternative splice site is choosen for this exon in this ISF";
+            break;
+          case "n":
+            message3 +=
+              " alternative 5' splice site has been choosen for this exon different from reference exon ";
+            break;
+          case "c":
+            message3 +=
+              " alternative 3' splice site has been choosen for this exon different from reference exon ";
+            break;
+          case "b":
+            message3 +=
+              " alternative 5' splice site and alternative 3' splice site has been choosen which are different from reference exon ";
+            break;
+          default:
+            message3 += "";
+        }
+        if (["n", "c", "b"].indexOf(id[4]) > -1) {
+          message3 += element.parent;
+          message3 += " and that is " + id[5] + "such occurence";
+        }
+        messageComp1 = (
+          <div>
+            <p style={{ display: "inline", fontWeight: "bold" }}>
+              <span style={{ color: "crimson" }}>{id[0] + "." + id[1]}.</span>
+              <span style={{ color: "DarkGreen" }}>{id[2] + "." + id[3]}.</span>
+              <span style={{ color: "DarkOrange" }}>
+                {id[4] + "." + id[5]}.
+              </span>
+            </p>
+            <p style={{ fontSize: 15 }}>
+              <span style={{ color: "crimson", fontWeight: "bold" }}>
+                ({message1h}){" "}
+              </span>
+              <span>{message1}</span>
+              <span style={{ color: "DarkGreen", fontWeight: "bold" }}>
+                ({message2h}){" "}
+              </span>
+              <span>{message2}</span>
+
+              <span style={{ color: "DarkOrange", fontWeight: "bold" }}>
+                ({message3h}){" "}
+              </span>
+              <span>{message3}</span>
+            </p>
+          </div>
+        );
+      } else {
+        let id = element.exId.split(":");
+        let message1h = id[0] + ":" + id[1];
+        let message2h = id[2];
+        let message3h = id[3];
+        let message4h = id[4];
+        let message1 = "This is a intron retention case which";
+        switch (id[1]) {
+          case "-2":
+            message1 += " is non-coding in this transcript";
+            break;
+          case "1":
+            message1 += " is coding in this transcript ";
+            break;
+          case "0":
+            message1 += " has only 1nt contribution and hence no amino acid ";
+            break;
+          case "-1":
+            message1 +=
+              " is not coding for aa in this transcript due PTC in upstream region ";
+            break;
+          default:
+            message1 += " ";
+        }
+        let message2 = " and spans from exon ";
+        let message3 = " and is the ";
+        let message4 = " and ending at exon ";
+        messageComp1 = (
+          <div>
+            <strong>
+              <p style={{ display: "inline", fontWeight: "bold" }}>
+                <span style={{ color: "crimson" }}>{id[0] + ":" + id[1]}:</span>
+                <span style={{ color: "DarkGreen" }}>{id[2]}:</span>
+                <span style={{ color: "DarkOrange" }}>{id[3]}:</span>
+                <span style={{ color: "SteelBlue" }}>{id[4]}</span>
+              </p>
+            </strong>
+            <p>
+              <span style={{ color: "crimson", fontWeight: "bold" }}>
+                {message1h}{" "}
+              </span>
+              <span>{message1}</span>
+              <span>{message2}</span>
+              <span style={{ color: "DarkGreen", fontWeight: "bold" }}>
+                {id[2]}
+              </span>
+              <span>{message3}</span>
+              <span style={{ color: "DarkOrange", fontWeight: "bold" }}>
+                {id[3]}
+              </span>
+              <span> instance starting from this exon</span>
+              <span>{message4}</span>
+              <span style={{ color: "SteelBlue", fontWeight: "bold" }}>
+                {id[4]}
+              </span>
+            </p>{" "}
+          </div>
+        );
+      }
+      ob[element.exId] = messageComp1;
+    });
+    return ob;
+}
+
+exon defintion and cases it can harbor

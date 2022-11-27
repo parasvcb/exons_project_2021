@@ -1,0 +1,33 @@
+HolderFront
+    class
+        state: scrollable, showTrans(T), showUserTrans
+        toggle()...
+        render()
+            <div Fluidcontainer>
+                this.genecard(gene)
+                    flex and then card (75%)
+                        gene name, gene id and txid will be rebederd in larger posrtion
+                        (all but last will be hyperlink to ncbi geneid)
+                    card 25%
+                        will show numer of coding transcripts
+                two buttons in list, navlink will be active on basis of state, [show suer trans willbe active by deault, and enter protein seq will be inactive]
+
+                if showTrans 
+                    call module 'AllTranscripts' and pass props, ./ChildComponents1level/AllTranscripts
+                        transSet={gene.trans}
+                        domset={gene.domainCod}
+                        exOn={exonHash}
+                        finalExon={this.lastexon(gene.exonsGenes)}
+                        exonCodes={exoncod}
+                        exonAlerts={exonalertscodes}
+                if showUserTrans
+                    call module 'UserTranscripts' ./ChildComponents1level/UserTranscripts
+                        transet={gene.trans}
+                        exOn={gene.exonsGenes}
+                        exonCodes={exonHash}
+                        exonAlerts={exonalertscodes}
+
+
+        exonalerts(exons) {
+            parse and shows me the code
+        }

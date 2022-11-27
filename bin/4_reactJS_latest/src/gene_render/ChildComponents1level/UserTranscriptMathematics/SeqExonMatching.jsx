@@ -23,8 +23,25 @@ export class SeqExonMatching extends Component {
 
   transcriptOrderedArray(transprops) {
     //transprops here is the exongenes
+    /*
+    iterate the exons of genes and get seq anchor val, if such piostion doesnt exist in allaa has, 
+    update the anchor, 
+    for every anhcor store the exid next, as scondary key
+      if no exid in anchor, add exid and then add value as aaseq, 
+    
+
+    generate a list* []
+      ietaret dict of dic, 
+        generate a ob of form for partciular seq anchor
+        {
+            exonslist: [{exonid: "T.1.A.3.0.0", aaseq: "mmmm"}]
+            exIndex: [ can be 1, 2,3,4,.. n]
+        }
+        pish such seq anhors in list*
+    sort list* ina scending order and returns it
+    */
     let allaa = {};
-    console.log("transpropsin()", transprops);
+    // console.log("transpropsin()", transprops);
     transprops.forEach(exons => {
       if (exons.length > 0) {
         let aaseq = "";
@@ -53,6 +70,7 @@ export class SeqExonMatching extends Component {
     });
     let arr = [];
     for (let key in allaa) {
+      // key is anchor pos
       let testob = {};
       testob.exonslist = [];
       testob.exindex = parseInt(key);
@@ -70,19 +88,6 @@ export class SeqExonMatching extends Component {
       return a.exindex - b.exindex;
       //sorted in ascending order
     });
-    /*
-    arr is the array having objects sorted in the asceding order of exon ids
-    each object
-    {
-      exonslist:[],
-      exindex:int(0)
-    } 
-    has exonslist which further has object_level2 with atributes 
-    {
-      exonid:str,
-      aaseq:str,
-    }
-    */
     return arr;
   }
 
@@ -294,6 +299,14 @@ export class SeqExonMatching extends Component {
   }
 
   transSeq(transobs, fasta, exonhash) {
+    /*
+    itertate transcripts,
+      get their exons splitted and ioterate them ion fasiona nd join them for aaseq (in dummyseq)
+      check if that is presnet in has, if no create ob, otheriwse push trand id in that list
+
+      check if inout sequqnce matches any key of above has, if yes eturn the tid of that 
+    */
+
     fasta = fasta.trim();
     let hasStru = {};
     //console.log("exonhas", exonhash);
@@ -311,8 +324,8 @@ export class SeqExonMatching extends Component {
       }
     });
     //console.log("hasstructure", hasStru);
-    console.log("fasta", fasta);
-    console.log("check", hasStru[fasta]);
+    // console.log("fasta", fasta);
+    // console.log("check", hasStru[fasta]);
     if (hasStru.hasOwnProperty(fasta)) {
       return hasStru[fasta];
     } else {
@@ -321,14 +334,14 @@ export class SeqExonMatching extends Component {
   }
 
   render() {
-    console.log("thispropstranscripts", this.props);
+    // console.log("thispropstranscripts", this.props);
     //scan and fix the pre transcript ssequnece matches
     let transcripts_seq = this.transSeq(
       this.props.transcripts,
       this.props.fasta,
       this.props.exoncodes
     );
-    console.log("transcriptsseq", transcripts_seq, typeof transcripts_seq);
+    // console.log("transcriptsseq", transcripts_seq, typeof transcripts_seq);
     if (typeof transcripts_seq === "object") {
       let val = transcripts_seq.length > 1 ? "transcripts" : "transript";
       return (
@@ -350,6 +363,15 @@ export class SeqExonMatching extends Component {
       );
     } else {
       let requiredtrans = this.transcriptOrderedArray(this.props.exOn);
+    //   generate a list* []
+    //   ietaret dict of dic, 
+    //     generate a ob of form for partciular seq anchor
+    //     {
+    //         exonslist: [{exonid: "T.1.A.3.0.0", aaseq: "mmmm"}]
+    //         exIndex: [ can be 1, 2,3,4,.. n]
+    //     }
+    //     pish such seq anhors in list*
+    // sort list* ina scending order and returns it
       let matrix = this.firstpassArrfunc(requiredtrans, this.props.fasta);
       console.log("maths", this.props);
       console.log("required", requiredtrans);

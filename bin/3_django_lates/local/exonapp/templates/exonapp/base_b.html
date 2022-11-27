@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+<head>
+<title>NexTRap</title>
+<link rel="stylesheet" href="{% static "main.css" %}">
+<link rel="stylesheet" href="{% static "try.css" %}">
+<link rel="stylesheet" href="{% static "jquery-ui.css" %}">
+<link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon.png"/>
+<script type="text/javascript" src="{% static "menu.js" %}"></script>
+</head>
+<body>
+
+<div class="bodytag">
+<img src="/static/nextrap.png" width=920px alt="nextrap" />
+
+{% include "menu.html" %}
+
+
+{% block content %} {% endblock %}
+
+
+</div>
+</body>
+<div class="footer">
+</div>
+</html>
+

@@ -27,7 +27,8 @@ class ChooseTranscripts extends Component {
     )
     trans.forEach(tr => {
       let excount = (tr.exonsIds.match(/,/g) || []).length + 1;
-      let disorder = Math.round(100 - parseFloat(tr.structured_count_disp));
+      // let disorder = Math.round(100 - parseFloat(tr.structured_count_disp));
+      let disorder = Math.round(parseFloat(tr.structured_count_disp));
       let structure = Math.round(parseFloat(tr.structured_count_ssp));
       let presence = this.props.transadded.indexOf(tr) > -1 ? true : false;
       let piflag = tr.pi===true ? true : false;

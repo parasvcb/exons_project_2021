@@ -1,17 +1,26 @@
-import figPanels.modules_common as cm
+# import figPanels.modules_common as cm
+'''
+doc: 
+05-11-2022 This module gives us the PI length disribution in the choosen histograms and in raw distribution forms, change: added one more categ 40000 to infinte
+
+'''
+import common.general_modules as cm
 import os
 def panel1_protein_length(has,res_dir):
     all_tup=[]
-    has_bins={(0,100):0,(101,250):0,(251,500):0,(501,750):0,(751,1000):0,(1001,3000):0,(3001,7000):0,(7001,15000):0,(15001,37000):0}
+    has_bins={(0,100):0,(101,250):0,(251,500):0,(501,750):0,(751,1000):0,(1001,3000):0,(3001,7000):0,(7001,15000):0,(15001,40000):0, (40001,'+'):0}
     for i in has:
-        #print (i,'key')
-        
         j=has[i].PI
         all_tup+=[(has[i].ID,j.seqlen)]
         for key in has_bins:
-            if key[0] <= j.seqlen <= key[1]:
-                has_bins[key] += 1
-                break
+            if type(key[1]) != str:
+                if key[0] <= j.seqlen <= key[1]:
+                    has_bins[key] += 1
+                    break
+            else:
+                if key[0] <= j.seqlen:
+                    has_bins[key] += 1
+                    break
     values = has_bins.values()
     su = sum(values)
     keys = has_bins.keys()

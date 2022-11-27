@@ -101,25 +101,10 @@ export class RenderExonsFull extends Component {
     const domset = this.props.domset;
     let aaVista=''
     trans.exonsIds.split(",").map(ex => (aaVista += exonHash[parseInt(ex)].aaseq));
-    //console.log("aa",aaVista)
-
-    // let domseqVista=''
-    // trans.exonsIds.split(",").map(ex => (domseqVista += propConcate(trans.id,domset,exonHash[parseInt(ex)],"domseq")))
 
     let sseqVista=''
     trans.exonsIds.split(",").map(ex => (sseqVista += propConcate(trans.id,domset,exonHash[parseInt(ex)],"ssseq")))
-    
-    // let disseqVista=''
-    // trans.exonsIds.split(",").map(ex => (disseqVista += propConcate(trans.id,domset,exonHash[parseInt(ex)],"disseq")))
-    // console.log("domseq",domseqVista)
 
-    //console.log("ssseq",sseqVista)
-    // console.log("disseq",disseqVista)
-    // trans.exonsIds.split(",").map(ex => (domseqVista += exonHash[parseInt(ex)].exonsDom[0].domseq));
-    // trans.exonsIds.split(",").map(ex => (domseqVista += exonHash[parseInt(ex)].exonsDom[0].domseq));
-    
-    //
-    //console.log("TID",trans.tId)
     return (
       <div className="overflow-hidden" style= {{border: "double 1px lightgray", padding:"10px 5px 5px 10px"}}>
         <div className="h5">

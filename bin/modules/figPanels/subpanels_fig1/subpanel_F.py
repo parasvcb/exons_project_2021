@@ -1,6 +1,6 @@
-import figPanels.modules_common as cm
 import numpy as np,os,scipy
-import figPanels.modules_common as cm
+# import figPanels.modules_common as cm
+import common.general_modules as cm
 import figPanels.modules_analysis as ca
 def stats_new(lis):
     #print "1",len(lis),sum(lis),np.max(lis),np.min(lis),round(np.mean(lis),3),round(np.median(lis),3),scipy.stats.mode(lis)[0][0],scipy.stats.mode(lis)[1][0],round(np.std(lis),3)

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import PlaceHolder from "./placeholder";
+// import PlaceHolder from "./placeholder";
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import Track from "./exonVista/Track"
+// import Track from "./exonVista/Track"
 import ModuleExon from "./exonVista/ModuleExon";
   class App extends Component {
   
@@ -15,12 +15,12 @@ import ModuleExon from "./exonVista/ModuleExon";
   }
     //console.log(reg.exec(helixStr).indices[0]);
     //console.log('*',indices)
-     {return <PlaceHolder />; }
-    // { return (
-    //   <> 
-    //     { <ModuleExon/>  }
-    //   </>)
-    //  }
+    //  {return <PlaceHolder />; }
+    { return (
+      <> 
+        { <ModuleExon/>  }
+      </>)
+     }
     //return <h2>"hello"</h2>
 }
 }

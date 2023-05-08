@@ -4,29 +4,31 @@
 # [GCC 7.3.0]
 # Embedded file name: /media/paras/254266be-73cf-476c-b872-c471c9a9dba0/paras/project/protein_splicing/projectDir/bin/subpanels_fig1/subpanel_D.py
 # Compiled at: 2021-08-30 15:58:04
-import re, os
+import re, os, sys
 # import figPanels.modules_common as cm
 import common.general_modules as cm
-
+from progress.bar import Bar
 import figPanels.modules_analysis as ca
 
-def constitutive_alternate_with_freq(gene):
-    exonMatrix = ca.positionalExonMatrix_forExCharacterization(gene)
+def constitutive_alternate_with_freq(geneob, gene):
+    exonMatrix = ca.positionalExonMatrix_forExCharacterization(geneob)
             #{1: ['U', 'F', [2, 0, 2], 0, 1, 0, 0], 2: ['U', 'A', [0, 0, 0], 0, 1, 0, 0], 3: ['T', 'A', [0, 0, 0], 0, 0, 0, 0], 4: ['T', 'F', [0, 1, 0], 0, 0, 0, 0]}
 
-    pos_CodingStrict=[i for i in exonMatrix if exonMatrix[i][0]=='T']
-    pos_CodingMajorlyConstitutive=[i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='F']   
-    pos_CodingAlternate=[i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2]) ==0]
-    pos_CodingAlternateWithSS=[i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2])>0]  
-    pos_CodingConstitutive=[i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='G']
-    pos_CodingConstitutiveWaachange=[i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='G' and exonMatrix[i][3]>0]
+    temp1, temp2, temp3, temp4, temp5 = ca.giveExonSelectionBasic(exonMatrix,"T")
+    pos_CodingStrict = temp1
+    pos_CodingMajorlyConstitutive = temp2
+    pos_CodingAlternate = temp3
+    pos_CodingAlternateWithSS = temp4
+    pos_CodingConstitutive = temp5
 
+    
     exSpliceSiteChange = []
     exCommon = []
 
+    
     for pos in pos_CodingAlternate:
         tlis = []
-        for i in gene.exons:
+        for i in geneob.exons:
             if i.ID[0]!='R' and i.ID[0] == 'T' and int(i.ID.split('.')[3])  == pos and i.length >0:
                 tlis+=[i.WEF]
         if tlis:
@@ -37,7 +39,7 @@ def constitutive_alternate_with_freq(gene):
     
     for pos in pos_CodingAlternateWithSS:
         tlis = []
-        for i in gene.exons:
+        for i in geneob.exons:
             if i.ID[0]!='R' and i.ID[0] == 'T' and int(i.ID.split('.')[3])  == pos and i.length >0:
                 tlis+=[i.WEF]
 
@@ -62,12 +64,14 @@ def alternate_WEF(has, condition, res_dir, fout):
     has_bins_AltWithSS = {(0, 0.2): 0, (0.201, 0.4): 0, (0.401, 0.6): 0, (0.601, 0.8): 0, (0.801, 1.001): 0}
     valsAltOnly = []
     ValsAltWithSSChange = []
+    bar = Bar('Processing genes D:', max=len(condition))
     for gene in has:
         if gene in condition:
-            commonvals, valscumulativefromSSchanges = constitutive_alternate_with_freq(has[gene])
+            commonvals, valscumulativefromSSchanges = constitutive_alternate_with_freq(has[gene],gene)
             valsAltOnly += commonvals
             ValsAltWithSSChange += valscumulativefromSSchanges
-
+            bar.next()
+    bar.finish()
     print valsAltOnly[:5]
     print ValsAltWithSSChange[:5]
     for wef in valsAltOnly:

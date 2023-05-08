@@ -1,0 +1,3423 @@
+org	Gene	PILength	Isoforms	exonsCount	geneName
+7227	32768	152	4	10	Srxn Sulfiredoxin
+7227	32771	908	5	13	mnb minibrain
+7227	32775	562	7	16	Gss1 Glutathione synthetase 1
+7227	32780	616	17	42	Sh Shaker
+7227	32784	1133	2	13	CG15373 
+7227	32788	157	2	6	Swt1 Swt1 RNA endoribonuclease
+7227	32789	126	2	5	scu scully
+7227	32790	493	5	10	RhoGAP16F Rho GTPase activating protein at 16F
+7227	32794	208	13	22	wupA wings up A
+7227	32803	455	4	13	CG33639 
+7227	32814	177	2	6	CG6023 
+7227	32817	281	10	19	CrebB Cyclic-AMP response element binding protein B
+7227	32822	581	6	15	Nt5b 5' nucleotidase B
+7227	32825	151	2	5	CG42323 
+7227	32826	354	2	3	CG32548 
+7227	32831	637	3	10	Hayan 
+7227	32841	554	4	9	HisRS Histidyl-tRNA synthetase
+7227	32846	383	5	11	Bx Beadex
+7227	32849	267	2	8	wgn wengen
+7227	32850	409	5	12	Rip11 Rab11 interacting protein
+7227	32854	757	2	9	CG6659 
+7227	32865	146	3	5	CG6891 
+7227	32874	1244	2	13	CG42450 
+7227	32876	300	3	9	Pvf1 PDGF- and VEGF-related factor 1
+7227	32877	1864	2	6	htk hat-trick
+7227	32886	1139	3	9	Flacc Fl(2)d-associated complex component
+7227	32888	226	3	10	CG7378 
+7227	32889	735	4	11	CG43759 
+7227	32898	752	5	15	RhoGAP18B Rho GTPase activating protein at 18B
+7227	32908	334	2	5	CG14194 
+7227	32909	54	3	12	CG7990 
+7227	32914	935	2	5	CG7884 
+7227	32919	1936	3	15	rictor rapamycin-insensitive companion of Tor
+7227	32920	793	4	13	Vav Vav guanine nucleotide exchange factor
+7227	32923	486	2	7	CG8028 
+7227	32924	582	2	6	CG8034 
+7227	32928	560	4	20	nAChRalpha7 nicotinic Acetylcholine Receptor alpha7
+7227	32935	1612	2	13	pcm pacman
+7227	32938	536	13	14	Pfrx 6-phosphofructo-2-kinase
+7227	32940	354	3	8	Idh3a Isocitrate dehydrogenase 3a
+7227	32943	354	3	11	CG32532 
+7227	32946	819	6	10	Grip84 Gamma-tubulin ring protein 84
+7227	32947	617	3	5	car carnation
+7227	32949	219	2	4	CG14218 
+7227	32955	183	4	8	CG14207 
+7227	32961	542	2	8	CG14221 
+7227	32962	175	4	10	Naa20A N(alpha)-acetyltransferase 20 A
+7227	32965	2006	5	20	e(y)3 enhancer of yellow 3
+7227	32966	301	3	9	Rcd-1 Required for cell differentiation 1
+7227	32973	194	3	5	Ssu72 Ssu72 CTD phosphatase
+7227	32974	502	3	7	Zw Zwischenferment
+7227	32975	643	2	5	et eye transformer
+7227	32986	811	2	14	CG12531 
+7227	32988	389	3	7	CG14234 
+7227	32991	261	2	5	Alr Augmenter of liver regeneration
+7227	32992	665	4	12	Abcd3 ATP binding cassette subfamily D member 3
+7227	33000	2529	8	19	Hers Histone gene-specific Epigenetic Repressor in late S phase
+7227	33001	137	2	13	THADA 
+7227	33003	1034	4	9	pico 
+7227	33007	897	6	16	Dop2R Dopamine 2-like receptor
+7227	33014	201	4	9	Rab35 
+7227	33019	320	2	5	AnxB10 Annexin B10
+7227	33023	157	3	7	Peritrophin-A Peritrophin A
+7227	33026	417	3	6	CG17065 
+7227	33044	513	3	10	CG11710 
+7227	33047	228	3	8	GstT3 Glutathione S transferase T3
+7227	33048	2109	5	21	RhoGAP19D Rho GTPase activating protein at 19D
+7227	33057	120	2	5	CG1835 
+7227	33058	302	8	11	hydra 
+7227	33059	510	3	6	run runt
+7227	33062	377	8	30	shakB shaking B
+7227	33071	753	3	6	CG11227 
+7227	33077	512	3	5	CG1529 
+7227	33078	130	4	12	Ntf-2 Nuclear transport factor-2
+7227	33083	414	4	10	bves 
+7227	33085	436	4	8	CG32512 
+7227	33088	370	3	8	CG15446 
+7227	33098	388	9	12	Mnr Membrane-bound Notch regulator
+7227	33103	1692	3	19	Abca3 ATP binding cassette subfamily A member 3
+7227	33107	240	3	5	Dd Dullard
+7227	33109	966	6	16	tty tweety
+7227	33117	669	14	23	slgA sluggish A
+7227	33125	534	5	13	DIP-beta Dpr-interacting protein beta
+7227	33128	373	4	11	CG14621 
+7227	33132	565	9	23	Usp2 Ubiquitin specific protease 2
+7227	33135	369	4	7	CG12576 
+7227	33136	666	8	20	Cp110 Centriolar coiled coil protein 110kDa
+7227	33137	1696	10	27	l(1)G0196 lethal (1) G0196
+7227	33141	600	4	13	CG17600 
+7227	33156	1112	11	20	l(2)gl lethal (2) giant larvae
+7227	33158	1790	8	26	Cda5 Chitin deacetylase-like 5
+7227	33162	401	5	11	galectin 
+7227	33166	311	2	4	CG11377 
+7227	33170	677	9	28	CG4822 
+7227	33171	699	4	11	CG3164 
+7227	33174	413	3	6	CG31974 
+7227	33176	1653	2	10	CG42399 
+7227	33179	101	10	12	ND-15 NADH dehydrogenase (ubiquinone) 15 kDa subunit
+7227	33195	610	4	7	CG17078 
+7227	33198	247	4	8	CG3625 
+7227	33204	1311	6	25	Plc21C Phospholipase C at 21C
+7227	19988923	366	2	6	ARY Aldehyde reductase Y
+7227	33221	583	3	10	CG4133 
+7227	33225	1198	5	15	ush u-shaped
+7227	33229	475	4	8	Ets21C Ets at 21C
+7227	33230	1458	2	7	rempA reduced mechanoreceptor potential A
+7227	33238	192	3	5	Ptth Prothoracicotropic hormone
+7227	33240	107	3	6	Gsc Goosecoid
+7227	33241	114	2	4	CG13689 
+7227	33247	563	3	10	Eaat2 Excitatory amino acid transporter 2
+7227	33248	1305	7	23	GABA-B-R3 metabotropic GABA-B receptor subtype 3
+7227	33255	714	2	6	Saf6 SAGA factor-like TAF6
+7227	33260	319	4	8	CG3662 
+7227	33262	410	4	10	dock dreadlocks
+7227	33263	517	5	11	drongo 
+7227	33268	778	3	10	aru arouser
+7227	33270	1135	4	9	PNUTS Phosphatase 1 nuclear targeting subunit
+7227	33276	908	2	11	CG4341 
+7227	33277	1306	3	16	IA-2 IA-2 protein tyrosine phosphatase
+7227	33283	410	2	6	Atg4a Autophagy-related 4a
+7227	33288	171	3	8	Pino Pinocchio
+7227	33291	445	2	6	CG4577 
+7227	33305	262	5	25	CG4896 
+7227	33308	350	4	10	CG5001 
+7227	33314	1342	2	14	robo3 roundabout 3
+7227	33324	224	3	9	NLaz Neural Lazarillo
+7227	33331	401	6	9	CG18131 
+7227	33332	378	2	6	CG7420 
+7227	33339	981	8	20	haf hattifattener
+7227	33343	604	6	15	chinmo Chronologically inappropriate morphogenesis
+7227	33349	946	3	10	frtz fritz
+7227	33350	272	3	12	Rim2 Replication in mitochondria 2
+7227	33351	500	6	12	Eno Enolase
+7227	33359	605	2	7	CG31664 
+7227	33361	1155	3	15	wry weary
+7227	2768995	1326	2	9	CG43980 
+7227	33367	1508	8	30	Wdr62 WD repeat domain 62
+7227	33373	424	2	6	Got2 Glutamate oxaloacetate transaminase 2
+7227	33377	968	7	15	CG4238 
+7227	33384	313	2	4	CG12674 
+7227	33390	738	3	10	AIF Apoptosis inducing factor
+7227	33394	218	4	6	CG10874 
+7227	33397	224	3	6	Uch Ubiquitin carboxy-terminal hydrolase
+7227	33398	278	2	3	daed daedalus
+7227	33408	142	2	4	CG4270 
+7227	33409	1193	3	9	Sec24CD Secretory 24CD
+7227	33420	335	2	5	CG3597 
+7227	33426	259	3	4	CG3557 
+7227	33453	370	2	4	Gr23a Gustatory receptor 23a
+7227	33458	760	3	8	Hrs Hepatocyte growth factor regulated tyrosine kinase substrate
+7227	33459	102	2	5	CG9961 
+7227	33466	320	2	7	Snx21 Sorting nexin 21
+7227	33471	150	3	5	HINT1 histidine triad nucleotide binding protein 1
+7227	33473	472	8	25	Syt1 Synaptotagmin 1
+7227	33479	184	2	5	CG3119 
+7227	33487	81	5	10	RpS21 Ribosomal protein S21
+7227	33495	271	5	11	NTPase 
+7227	33496	1673	9	23	lilli lilliputian
+7227	33498	444	9	18	Rbp9 RNA-binding protein 9
+7227	33500	706	2	6	Rrp1 Recombination repair protein 1
+7227	33505	1881	3	11	Chd1 Chromodomain-helicase-DNA-binding protein 1
+7227	33516	343	4	8	GABPI beta4GalNAcTB pilot
+7227	33517	873	3	8	CG17258 
+7227	33521	362	3	6	CG17221 
+7227	33524	2438	2	8	FASN1 Fatty acid synthase 1
+7227	33526	892	10	24	toc toucan
+7227	33529	455	2	7	Mad Mothers against dpp
+7227	33532	398	3	9	Hydr2 alpha/beta hydrolase2
+7227	33539	629	4	8	OtopLb Otopetrin-like b
+7227	33540	609	4	14	CG9664 
+7227	33552	1206	6	18	GramD1B GRAM domain containing 1B
+7227	33553	486	2	7	CG15412 
+7227	33560	456	2	6	Snx1 Sorting nexin 1
+7227	33571	1398	10	30	tim timeless
+7227	33575	644	2	4	CG8851 
+7227	33597	521	2	7	CG2818 
+7227	33599	598	5	16	Shaw Shaker cognate w
+7227	33601	1981	7	35	CG43707 
+7227	33609	982	3	10	TTLL4B Tubulin tyrosine ligase-like 4B
+7227	33610	306	2	9	Cep97 Centrosomal protein 97kDa
+7227	33611	932	9	22	capu cappuccino
+7227	33613	1323	3	15	fred friend of echinoid
+7227	33619	1332	3	12	ed echinoid
+7227	33626	550	9	25	Naprt Nicotinate phosphoribosyltransferase
+7227	33636	832	4	11	Atet ABC transporter expressed in trachea
+7227	33637	111	2	5	CG15429 
+7227	33638	486	2	4	Traf4 TNF-receptor-associated factor 4
+7227	33644	1434	3	11	l(2)k05819 lethal (2) k05819
+7227	33653	231	2	7	Gs1l GS1-like
+7227	33659	943	5	16	ine inebriated
+7227	33667	216	2	5	CG3355 
+7227	33668	918	2	4	CG11929 
+7227	33675	573	2	4	CG15631 
+7227	33677	314	2	9	CG3294 
+7227	33683	934	4	14	Ir25a Ionotropic receptor 25a
+7227	33685	485	3	9	CG12194 
+7227	33686	653	7	16	mxt mextli
+7227	33690	894	5	22	smog 
+7227	33692	482	6	10	Cf2 Chorion factor 2
+7227	33704	395	2	6	betaggt-I beta subunit of type I geranylgeranyl transferase
+7227	33705	313	2	3	jet jetlag
+7227	33721	234	11	22	Rtnl1 Reticulon-like1
+7227	33732	513	4	8	CG9121 
+7227	33739	721	12	16	qtc quick-to-court
+7227	33743	323	3	9	CG4230 
+7227	33750	509	4	10	CG7742 
+7227	33752	143	3	6	TpnC25D Troponin C at 25D
+7227	33753	563	4	9	tkv thickveins
+7227	33757	1071	7	12	Nin Ninein
+7227	33759	610	5	9	vri vrille
+7227	33761	2266	3	9	Ncoa6 Nuclear receptor coactivator 6
+7227	33768	1755	5	23	nompC no mechanoreceptor potential C
+7227	33769	659	2	9	H15 
+7227	33781	424	4	14	Hel25E Helicase at 25E
+7227	33783	266	8	16	Oscillin 
+7227	33798	421	4	8	CG7236 
+7227	33800	475	5	7	CG11149 
+7227	33806	242	2	3	obst-E obstructor-E
+7227	33808	315	2	5	CG14005 
+7227	33810	751	3	12	CG11034 
+7227	33812	659	4	12	TrissinR Trissin receptor
+7227	33815	116	2	3	CG9029 
+7227	33824	353	6	13	Gpdh1 Glycerol-3-phosphate dehydrogenase 1
+7227	33825	1295	2	11	CG9044 
+7227	33836	102	2	4	ifc infertile crescent
+7227	33838	275	3	6	Tsp26A Tetraspanin 26A
+7227	33839	670	2	7	Gal beta galactosidase
+7227	33840	753	3	16	CG9098 
+7227	33844	535	2	8	CG9109 
+7227	33861	791	2	6	Kr-h1 Kruppel homolog 1
+7227	33863	302	5	14	stai stathmin
+7227	33865	504	2	5	WDR79 WD repeat domain 79
+7227	33881	1573	4	12	PDZ-GEF PDZ domain-containing guanine nucleotide exchange factor
+7227	33883	679	4	10	Cpr Cytochrome P450 reductase
+7227	33898	703	4	13	Acox3 Acyl-CoA oxidase 3
+7227	33899	659	3	8	retm real-time
+7227	33903	483	3	7	mmy mummy
+7227	33910	514	2	10	CG31638 
+7227	33916	760	3	8	eya eyes absent
+7227	33923	935	3	19	Dpp10 Dipeptidyl peptidase 10
+7227	33928	1786	8	17	CG31635 
+7227	33930	1430	3	9	Tango1 Transport and Golgi organization 1
+7227	33933	184	2	5	CG13771 
+7227	33939	696	6	24	Nhe3 Na
+7227	33942	443	4	12	AkhR Adipokinetic hormone receptor
+7227	33944	394	6	14	homer 
+7227	33950	2851	9	24	LUBEL Linear Ubiquitin E3 ligase
+7227	33951	561	3	10	CG17378 
+7227	33953	323	6	14	nrv2 nervana 2
+7227	33954	108	4	10	CG17377 
+7227	33955	338	2	5	Daao2 D-amino acid oxidase 2
+7227	33956	242	3	6	CG17375 
+7227	33961	708	2	9	Nha1 Na
+7227	33967	257	2	4	x16 x16 splicing factor
+7227	33969	1813	4	19	CG18304 
+7227	33975	611	3	6	CG13775 
+7227	33979	625	5	8	sip2 septin interacting protein 2
+7227	33986	1353	3	9	Gart GART trifunctional enzyme
+7227	33989	22	7	22	Caper 
+7227	33991	763	3	9	Mnn1 Menin 1
+7227	33995	638	4	9	Pvf3 PDGF- and VEGF-related factor 3
+7227	33999	524	2	10	MICU1 Mitochondrial calcium uptake 1
+7227	34005	1134	10	26	Ndae1 Na
+7227	34012	1135	4	22	ninaC neither inactivation nor afterpotential C
+7227	34016	273	5	12	CG5171 
+7227	34021	512	6	13	muc midline uncoordinated
+7227	34029	493	2	5	CG6441 
+7227	34030	2269	9	21	Ziz Zizimin
+7227	34032	933	5	10	RapGAP1 Rap GTPase activating protein 1
+7227	34037	589	2	9	CG6739 
+7227	34038	1191	11	30	Slob Slowpoke binding protein
+7227	34044	1399	5	13	Tep2 Thioester-containing protein 2
+7227	34046	542	2	11	Ntl Neurotransmitter transporter-like
+7227	34058	277	2	6	CG7191 
+7227	34063	415	3	12	CG7149 
+7227	34067	1052	5	12	cdc14 cell division cycle 14
+7227	34069	469	5	11	CG7115 
+7227	34070	318	4	7	Rack1 Receptor of activated protein kinase C 1
+7227	34086	300	4	10	CG7231 
+7227	34087	555	6	11	pes peste
+7227	34092	272	2	7	CG12560 
+7227	34093	768	2	5	Tg Transglutaminase
+7227	34094	358	3	9	CG7367 
+7227	34096	730	7	14	Cka Connector of kinase to AP-1
+7227	34099	2753	2	6	Megf8 Multiple EGF like domains 8
+7227	34109	2015	4	14	PAPLA1 Phosphatidic Acid Phospholipase A1
+7227	34112	2571	11	40	Piezo 
+7227	34114	1093	3	17	CG8475 
+7227	34126	449	2	8	Snx6 Sorting nexin 6
+7227	34127	1528	13	30	Pvr PDGF- and VEGF-receptor related
+7227	34131	1568	12	20	CG8086 
+7227	34132	786	8	30	Btk Bruton tyrosine kinase
+7227	34135	443	3	6	Scgalpha Sarcoglycan alpha
+7227	34141	604	2	7	mtsh mitoshell
+7227	34160	483	11	17	CG13384 
+7227	34170	837	7	12	Akap200 A kinase anchor protein 200
+7227	33002	2090	2	12	Nup205 Nucleoporin 205kD
+7227	34175	1012	3	10	Aasdh Aminoadipate-semialdehyde dehydrogenase
+7227	34179	1244	2	10	d dachs
+7227	34181	116	2	6	Dh31 Diuretic hormone 31
+7227	34191	423	6	10	CG17834 
+7227	34192	905	7	34	Sema1a Semaphorin 1a
+7227	34220	646	2	11	CG9541 
+7227	34231	512	3	12	DIP-zeta Dpr-interacting protein zeta
+7227	34237	730	7	18	CG32982 
+7227	33013	404	3	8	aspr asperous
+7227	34241	208	2	4	CG9586 
+7227	34242	2047	6	20	tai taiman
+7227	34245	315	2	4	borr borealin-related
+7227	34249	608	4	13	CG17005 
+7227	34260	444	3	6	FucTB alpha1,3-fucosyltransferase B
+7227	34263	515	3	9	numb 
+7227	34268	1197	4	13	Oatp30B Organic anion transporting polypeptide 30B
+7227	34274	1054	6	16	jp junctophilin
+7227	34276	744	2	8	Mtpalpha Mitochondrial trifunctional protein alpha subunit
+7227	34282	327	3	9	GlcAT-S Glucuronyltransferase S
+7227	34300	318	2	6	IP3K1 Inositol 1,4,5-triphosphate kinase 1
+7227	34303	270	3	7	CG13123 
+7227	34304	494	7	19	nAChRalpha6 nicotinic Acetylcholine Receptor alpha6
+7227	34310	469	9	18	CG13124 
+7227	34319	706	2	9	CG42366 
+7227	34320	284	2	6	CG31712 
+7227	34325	526	5	9	CG4658 
+7227	34327	491	7	14	CG5850 
+7227	34330	696	2	6	bib big brain
+7227	34358	1287	7	19	Npc1a Niemann-Pick type C-1a
+7227	34363	229	2	3	eEF1delta eukaryotic translation elongation factor 1 delta
+7227	34364	428	2	7	me31B maternal expression at 31B
+7227	38496	442	2	7	CG1299 
+7227	34371	94	4	9	REPTOR-BP REPTOR-binding partner
+7227	34377	939	5	22	Utx Utx histone demethylase
+7227	34380	639	3	15	CYLD Cylindromatosis
+7227	34389	686	4	11	CG5381 
+7227	34390	399	4	9	CG4995 
+7227	34393	616	2	9	Schip1 Schwannomin interacting protein 1
+7227	34422	1047	4	15	Klp31E Kinesin-like protein at 31E
+7227	34435	879	3	14	loh lonely heart
+7227	34437	1080	2	11	LManII Lysosomal alpha-mannosidase II
+7227	34438	378	4	19	RluA-1 RluA pseudouridine synthase 1
+7227	34440	543	4	19	RluA-2 RluA pseudouridine synthase 2
+7227	34450	432	3	9	Lip4 Lipase 4
+7227	34453	729	2	11	Trim9 Tripartite motif containing 9
+7227	34455	408	2	3	w-cup world cup
+7227	34476	346	2	8	CG6431 
+7227	34488	418	2	5	CG6724 
+7227	34490	777	3	14	CG31869 
+7227	34495	756	3	27	Nos Nitric oxide synthase
+7227	34502	507	3	8	SmydA-3 SET and MYND domain containing, arthropod-specific, member 3
+7227	34514	677	7	16	CG33129 
+7227	34519	647	6	14	SCAR 
+7227	34524	795	2	10	aub aubergine
+7227	34530	968	4	9	Samuel SAM-motif ubiquitously expressed punctatedly localized protein
+7227	34537	121	2	5	AstC Allatostatin C
+7227	34538	254	2	5	AstCC Allatostatin double C
+7227	34539	705	3	4	CG16854 
+7227	34542	878	2	7	Reps RALBP1 associated Eps domain containing
+7227	34543	816	2	7	l(2)gd1 lethal (2) giant discs 1
+7227	34553	1154	3	32	Gyc32E Guanylyl cyclase at 32E
+7227	34557	733	9	26	Ca-beta Ca2+-channel-protein-beta-subunit
+7227	34560	894	5	16	ab abrupt
+7227	34569	1355	2	6	salm spalt major
+7227	34573	1497	4	23	Dlg5 Discs large 5
+7227	34578	359	3	5	Mst33A 
+7227	34583	1058	3	12	CG6614 
+7227	34588	220	2	5	CG14931 
+7227	34589	202	2	6	CG14932 
+7227	34592	686	9	20	crol crooked legs
+7227	34594	834	9	21	Pde1c Phosphodiesterase 1c
+7227	34598	564	3	8	Mal-B2 Maltase B2
+7227	34608	964	3	14	CG6686 
+7227	34626	1340	2	9	Rab3-GAP Rab3 GTPase activating protein
+7227	34629	590	2	4	prd paired
+7227	34634	589	3	4	Patsas 
+7227	34640	166	2	6	rho-6 rhomboid-6
+7227	34642	875	3	18	CG31760 
+7227	34648	573	11	35	bru1 bruno 1
+7227	34655	86	3	4	CG5446 
+7227	34658	619	4	11	eRF3 eukaryotic translation release factor 3
+7227	34665	1097	10	24	bun bunched
+7227	34673	893	4	9	pdm2 POU domain protein 2
+7227	34677	504	5	9	PICK1 Protein interacting with C kinase 1
+7227	34681	385	2	3	spict spichthyin
+7227	34685	335	2	8	Pih1D1 PIH1 domain containing 1
+7227	34686	1492	18	25	MRP Multidrug-Resistance like Protein 1
+7227	34689	436	2	19	ACXC Adenylyl cyclase X C
+7227	34701	2167	4	11	CG9932 
+7227	34707	389	3	6	DnaJ-H DnaJ homolog
+7227	34709	868	4	12	Sfmbt Scm-related gene containing four mbt domains
+7227	34714	792	2	9	Edem2 ER degradation enhancer, mannosidase alpha-like 2
+7227	34716	381	4	10	Pect Phosphoethanolamine cytidylyltransferase
+7227	34732	902	13	30	CG44085 
+7227	34735	695	2	8	Uvrag UV-resistance associated gene
+7227	34736	994	4	11	CG31729 
+7227	34738	451	4	10	hbt headbutt
+7227	34748	690	2	5	Bdp1 B double prime 1
+7227	34751	383	6	9	loqs loquacious
+7227	34752	271	2	6	Ing5 Inhibitor of growth family member 5
+7227	34772	1090	5	19	kuz kuzbanian
+7227	34775	499	5	12	CG18507 
+7227	34776	148	2	3	Gpo3 Glycerophosphate oxidase 3
+7227	34779	297	3	9	CG9008 
+7227	34781	248	3	5	CG16890 
+7227	34783	451	2	18	Eato Engulfment ABC Transporter in the ovary
+7227	34784	555	2	4	CG16863 
+7227	34791	575	3	5	b black
+7227	34803	927	3	12	CenG1A Centaurin gamma 1A
+7227	34809	373	2	5	Vajk1 
+7227	34813	402	2	6	NimB1 Nimrod B1
+7227	34816	620	3	4	NimC1 Nimrod C1
+7227	34818	701	3	7	NimC2 Nimrod C2
+7227	34823	548	3	6	CG18095 
+7227	34826	808	4	20	nAChRalpha5 nicotinic Acetylcholine Receptor alpha5
+7227	34831	722	7	19	Dyrk2 Dual-specificity tyrosine phosphorylation-regulated kinase 2
+7227	34835	923	4	12	CG33090 
+7227	34840	215	3	9	Rab14 
+7227	38575	293	2	3	CG12493 
+7227	34844	552	2	4	elB elbow B
+7227	34848	281	4	6	CG4218 
+7227	34850	1377	4	14	osp outspread
+7227	34859	89	2	7	CG4650 
+7227	34863	633	3	9	CG15279 
+7227	34865	192	3	7	CG15278 
+7227	34872	474	5	12	mol moladietz
+7227	34886	1281	6	20	CG15270 
+7227	34888	1099	4	7	stc shuttle craft
+7227	34890	440	2	9	ZnT35C Zinc transporter 35C
+7227	38583	100	3	6	CG13707 
+7227	34896	773	4	15	Cul3 Cullin 3
+7227	34921	1260	8	27	stol stolid
+7227	34924	709	6	12	CycE Cyclin E
+7227	34928	337	2	6	CG3793 
+7227	34943	371	3	7	CG18063 
+7227	34946	905	3	14	BicC Bicaudal C
+7227	34947	427	2	9	beat-Ia beaten path Ia
+7227	34950	2059	10	47	Ca-alpha1D Ca
+7227	34959	204	2	4	CG13258 
+7227	34962	382	2	3	CG17328 
+7227	34969	500	5	12	cact cactus
+7227	34974	576	4	6	chif chiffon
+7227	34979	368	3	7	Idgf2 Imaginal disc growth factor 2
+7227	34982	1063	6	16	dac dachshund
+7227	34984	508	5	10	Tpr2 Tetratricopeptide repeat protein 2
+7227	34985	701	4	6	CG5953 
+7227	34987	2064	4	14	mtgo miles to go
+7227	34991	1128	3	22	Trpgamma Transient receptor potential cation channel gamma
+7227	34993	512	5	12	grp grapes
+7227	34997	468	4	10	VhaSFD Vacuolar H
+7227	35004	562	7	14	BuGZ Bub3 interacting GLEBS and Zinc finger domain protein
+7227	35007	1936	21	38	Mhc Myosin heavy chain
+7227	5740235	1402	6	23	RhoGAP1A Rho GTPase activating protein at 1A
+7227	35015	419	2	7	CG13280 
+7227	35021	325	5	12	CG13284 
+7227	35031	217	2	10	beat-IIIb beaten path IIIb
+7227	35037	383	2	8	beat-IIIc beaten path IIIc
+7227	35041	809	3	9	Lrch Leucine-rich-repeats and calponin homology domain protein
+7227	35042	1689	15	30	CLIP-190 Cytoplasmic linker protein 190
+7227	35045	667	4	10	Dif Dorsal-related immunity factor
+7227	35047	677	6	14	dl dorsal
+7227	35051	782	4	12	BicD Bicaudal D
+7227	35058	887	3	10	qua quail
+7227	35068	494	4	10	Sytalpha Synaptotagmin alpha
+7227	35072	152	4	5	CG5674 
+7227	35077	741	2	16	rdo reduced ocelli
+7227	35078	364	3	7	Arr1 Arrestin 1
+7227	35084	689	2	10	kel kelch
+7227	35085	633	3	6	Socs36E Suppressor of cytokine signaling at 36E
+7227	35087	257	2	5	CG15155 
+7227	35090	1067	2	18	CG42750 
+7227	35097	475	7	15	Fas3 Fasciclin 3
+7227	35102	746	4	15	CG10283 
+7227	35107	1117	6	27	Pde11 Phosphodiesterase 11
+7227	35109	822	3	11	CG15160 
+7227	35116	281	4	5	MESR3 Misexpression suppressor of ras 3
+7227	35117	826	2	6	CG43338 
+7227	35131	442	3	7	Irk3 Inwardly rectifying potassium channel 3
+7227	35135	990	5	15	ham hamlet
+7227	35142	1376	3	12	CG10600 
+7227	35146	613	3	9	CG10602 
+7227	35147	465	3	11	tup tailup
+7227	35149	1730	2	14	ssp3 short spindle 3
+7227	35154	1488	4	12	Nak Numb-associated kinase
+7227	35160	560	2	4	CG15170 
+7227	35184	520	7	15	Lim3 
+7227	35188	510	2	4	amd alpha methyl dopa-resistant
+7227	35190	475	3	6	Ddc Dopa decarboxylase
+7227	35196	116	3	4	Polr1D RNA polymerase I and III subunit D
+7227	35197	1037	5	11	brat brain tumor
+7227	35200	910	2	10	pigeon 
+7227	35206	331	2	6	CG10750 
+7227	35208	182	3	4	CG13086 
+7227	35211	565	4	8	fon fondue
+7227	35212	262	5	9	CG17549 
+7227	35215	581	9	22	Pax Paxillin
+7227	35222	301	5	13	CG10237 
+7227	35223	588	3	8	RanGAP Ran GTPase activating protein
+7227	35226	290	4	11	CG10026 
+7227	35235	1063	4	9	swm second mitotic wave missing
+7227	35237	1309	3	6	cyst cysts
+7227	35238	1676	5	21	Hasp Hig-anchoring scaffold protein
+7227	35248	1478	4	10	Tep4 Thioester-containing protein 4
+7227	35252	226	2	4	CG13077 
+7227	35256	464	4	6	Hakai 
+7227	35259	1941	7	33	Lar Leukocyte-antigen-related-like
+7227	35260	811	6	12	CG10462 
+7227	35265	322	4	7	fbp fructose-1,6-bisphosphatase
+7227	35267	1843	4	13	CdGAPr Cd GTPase activating protein-related
+7227	35277	2192	12	34	sick sickie
+7227	35284	470	4	9	CG43861 
+7227	35288	459	4	14	lok loki
+7227	35306	687	8	18	RtGEF Rho-type guanine nucleotide exchange factor
+7227	35312	101	2	5	CG15130 
+7227	35314	193	5	10	CG31688 
+7227	35326	669	2	9	CG2614 
+7227	35327	1252	3	9	CG31678 
+7227	35332	836	2	8	Hr38 Hormone receptor-like in 38
+7227	35340	1091	5	10	dia diaphanous
+7227	35341	427	3	4	cad caudal
+7227	35343	615	5	16	vari varicose
+7227	35344	143	2	6	CG9328 
+7227	35347	326	12	17	CG9331 
+7227	35348	325	2	6	CG31673 
+7227	35355	115	2	5	CG9336 
+7227	35358	146	3	7	CG14401 
+7227	35359	568	12	22	sky skywalker
+7227	35370	685	2	10	tadr torn and diminished rhabdomeres
+7227	35376	1257	12	37	Nhe2 Na
+7227	35378	1005	6	16	Dap160 Dynamin associated protein 160
+7227	35380	981	3	5	del deadlock
+7227	35383	310	2	5	Coq3 Coenzyme Q3
+7227	35394	704	2	16	clumsy 
+7227	35398	808	4	12	Hr39 Hormone receptor-like in 39
+7227	35400	1039	7	18	CG8671 
+7227	35402	1119	11	24	Mondo 
+7227	35408	311	4	14	nrv3 nervana 3
+7227	35414	840	2	12	nompB no mechanoreceptor potential B
+7227	35417	554	6	15	CG2201 
+7227	35419	341	2	24	Ac3 Adenylate cyclase 3
+7227	35421	1100	7	18	CG2225 
+7227	35424	1208	7	25	nolo no long nerve cord
+7227	35425	727	4	18	step steppke
+7227	33211	940	2	11	AP-2alpha Adaptor Protein complex 2, alpha subunit
+7227	35435	727	2	6	CG2528 
+7227	35439	386	2	3	CG6675 
+7227	35440	715	3	9	CG3651 
+7227	35442	1717	11	27	CG42748 
+7227	35445	561	2	9	Clamp Chromatin-linked adaptor for MSL proteins
+7227	35447	301	2	4	CG3635 
+7227	35449	223	3	11	Ir40a Ionotropic receptor 40a
+7227	35452	293	3	5	CG3262 
+7227	5740313	65	2	4	CG34423 
+7227	35480	739	3	7	Atf6 
+7227	35485	339	4	10	d4 
+7227	35494	784	5	14	stw straw
+7227	35507	431	2	7	Cndp2 Cytosolic non-specific dipeptidase 2
+7227	35509	246	4	16	ap apterous
+7227	35523	936	2	9	mle maleless
+7227	35524	517	4	14	Src42A Src oncogene at 42A
+7227	35535	501	3	10	CCHa2-R CCHamide-2 receptor
+7227	35539	935	6	19	Ars2 Arsenic resistance protein 2
+7227	35540	878	6	17	EcR Ecdysone receptor
+7227	35541	224	3	6	CG14589 
+7227	35546	1169	5	14	Ptr Patched-related
+7227	5740325	1732	9	44	SLO2 slowpoke 2
+7227	35554	1278	6	16	Pld Phospholipase D
+7227	35555	1471	4	13	jing 
+7227	35568	242	3	7	CG9410 
+7227	35569	612	2	4	Hsepi Heparan sulfate C5-epimerase
+7227	35570	326	2	5	PGAP3 Post-GPI attachment to proteins 3
+7227	35576	223	2	5	Mob4 MOB kinase activator 4
+7227	35584	291	6	15	Eb1 
+7227	35588	861	4	26	Epac Exchange protein directly activated by cAMP
+7227	35594	965	6	12	koi klaroid
+7227	35596	528	7	15	coro Coronin
+7227	35602	386	2	6	Spn42De Serpin 42De
+7227	35609	634	2	5	vimar visceral mesodermal armadillo-repeats
+7227	35610	417	3	6	CG17002 
+7227	35649	754	3	9	Incenp Inner centromere protein
+7227	35652	2016	75	125	Dscam1 Down syndrome cell adhesion molecule 1
+7227	35655	449	3	11	Gr43a Gustatory receptor 43a
+7227	35660	504	4	13	Eaf ELL-associated factor
+7227	35663	148	2	4	CG11145 
+7227	35665	186	3	5	sPLA2 secretory Phospholipase A2
+7227	35678	586	3	6	CG1620 
+7227	35680	1792	3	25	didum dilute class unconventional myosin
+7227	35687	381	4	8	Drat Death resistor Adh domain containing target
+7227	35688	123	2	3	Cyt-b5 Cytochrome b5
+7227	35694	644	3	7	blow blown fuse
+7227	35696	1239	3	15	scra scraps
+7227	35698	1020	15	32	M7BP Myosin-7a binding protein
+7227	35715	492	6	29	LRR Leucine-rich repeat
+7227	35717	918	2	15	tor torso
+7227	35727	87	2	6	CG12824 
+7227	35731	570	3	10	sax saxophone
+7227	35735	535	2	4	phr photorepair
+7227	35737	412	2	5	CG12822 
+7227	35738	1139	7	27	Dgk Diacyl glycerol kinase
+7227	35741	202	2	4	CG12159 
+7227	35744	489	2	5	Kdm4A Lysine demethylase 4A
+7227	35745	449	3	7	MFS12 Major Facilitator Superfamily Transporter 12
+7227	35746	314	2	5	rnh1 ribonuclease H1
+7227	35749	437	3	6	CG14764 
+7227	35753	364	2	7	CG2906 
+7227	35757	189	4	8	CG14763 
+7227	35758	563	3	12	CG8726 
+7227	35761	2323	6	19	ACC Acetyl-CoA carboxylase
+7227	35763	170	2	4	Dic3 Dicarboxylate carrier 3
+7227	35768	498	2	11	CG14762 
+7227	35770	702	3	8	CG12769 
+7227	35771	1332	12	29	lig lingerer
+7227	35783	1127	3	15	Asap ArfGAP with SH3 domain, ankyrin repeat and PH domain
+7227	35785	633	2	6	coil coilin
+7227	35790	1035	11	22	Lpin Lipin
+7227	35792	444	3	6	CG8708 
+7227	35796	663	2	4	Mlh1 
+7227	35813	1291	4	15	pdm3 pou domain motif 3
+7227	35814	522	2	8	CG2121 
+7227	35828	534	3	9	Mal-A5 Maltase A5
+7227	35832	1095	5	22	mtt mangetout
+7227	35838	952	2	14	CG42326 
+7227	35843	856	2	7	rgr regular
+7227	35846	1694	8	30	Cirl Calcium-independent receptor for alpha-latrotoxin
+7227	35857	508	2	9	CG12376 
+7227	35858	482	3	13	CG14744 
+7227	35864	568	2	6	gcl germ cell-less
+7227	35865	820	6	12	stmA stambha A
+7227	35866	1257	5	13	CG8740 
+7227	38746	579	3	8	ple pale
+7227	35875	689	2	4	CG8272 
+7227	35877	1259	4	13	Sec31 Secretory 31
+7227	35878	419	2	3	ana2 anastral spindle 2
+7227	35888	226	2	3	CG8248 
+7227	35893	1240	2	17	PAN2 Poly(A)-binding protein-dependent poly(A) ribonuclease 2
+7227	35894	246	2	5	CG13749 
+7227	35898	335	2	4	CG8229 
+7227	35900	601	3	11	babo baboon
+7227	35902	1674	3	14	flz filzig
+7227	35905	371	4	12	CG8172 
+7227	35908	778	2	11	CG8170 
+7227	35909	514	2	9	Ance-4 
+7227	35911	258	3	15	CG13743 
+7227	35913	390	3	8	ana anachronism
+7227	35914	603	3	10	CNT2 Concentrative nucleoside transporter 2
+7227	35916	716	4	15	CG13742 
+7227	35918	408	5	14	CG8080 
+7227	35922	581	2	3	Vang Van Gogh
+7227	35926	357	2	6	Phax Phosphorylated adaptor for RNA export
+7227	35927	584	14	19	Su(var)2-10 Suppressor of variegation 2-10
+7227	35929	435	7	18	CG18659 
+7227	35930	438	5	8	Hydr1 alpha/beta hydrolase 1
+7227	35931	220	2	4	alc alicorn
+7227	35935	439	2	11	CG8008 
+7227	35936	388	2	12	CG8046 
+7227	35939	2407	2	23	Rme-8 Receptor mediated endocytosis 8
+7227	35940	222	7	12	Rab32 
+7227	35941	304	3	9	CG8026 
+7227	35949	933	4	10	hig hikaru genki
+7227	35950	1190	16	25	Pkn Protein kinase N
+7227	35953	333	2	5	Cog6 Component of oligomeric golgi complex 6
+7227	35955	482	4	8	Drep2 DNA fragmentation factor-related protein 2
+7227	35966	300	3	9	wun wunen
+7227	35970	415	4	9	Pdk Pyruvate dehydrogenase kinase
+7227	35971	517	5	12	ced-6 
+7227	35974	2005	7	30	Camta Calmodulin-binding transcription activator
+7227	35975	325	2	7	Wnt2 Wnt oncogene analog 2
+7227	35977	2238	14	33	brp bruchpilot
+7227	35984	462	3	11	Nt5c 5' nucleotidase C
+7227	35987	112	2	4	CG12929 
+7227	35997	606	3	10	Mmp2 Matrix metalloproteinase 2
+7227	35998	1008	2	5	Uba1 Ubiquitin activating enzyme 1
+7227	36002	888	3	11	sqa spaghetti-squash activator
+7227	36009	230	3	6	CG1648 
+7227	36010	1134	3	11	dila dilatory
+7227	36020	1181	10	13	PCB Pyruvate carboxylase
+7227	36025	1184	3	13	Sec24AB Secretory 24AB
+7227	36027	1691	4	16	tea telomere ends associated
+7227	36028	469	3	18	CG1513 
+7227	36032	501	11	23	Mef2 Myocyte enhancer factor 2
+7227	36033	541	3	10	Pal1 Peptidyl-alpha-hydroxyglycine-alpha-amidating lyase 1
+7227	36038	410	3	5	CG12134 
+7227	36040	801	4	10	TER94 Transitional endoplasmic reticulum 94
+7227	36041	377	4	15	Pka-R2 Protein kinase, cAMP-dependent, regulatory subunit type 2
+7227	36042	250	2	5	CG12128 
+7227	36045	722	4	10	oys oysgedart
+7227	36048	613	4	14	magu 
+7227	36054	409	2	8	egr eiger
+7227	36056	783	4	9	CG2269 
+7227	36059	248	12	16	14-3-3zeta 
+7227	36060	922	5	17	Pfk Phosphofructokinase
+7227	36064	919	4	16	gem gemini
+7227	36071	774	9	27	KCNQ KCNQ potassium channel
+7227	36073	487	6	17	Hr3 Hormone receptor 3
+7227	36076	847	4	13	Hdc Histidine decarboxylase
+7227	36078	250	3	9	CG12914 
+7227	36080	129	5	9	Syb Synaptobrevin
+7227	36081	361	6	10	CG12911 
+7227	36082	464	3	6	CG12910 
+7227	36099	72	3	8	CG11825 
+7227	36102	960	6	21	RanBPM Ran-binding protein M
+7227	36104	354	10	23	Galphao G protein alpha o subunit
+7227	36105	589	4	17	Cyp49a1 Cytochrome P450 49a1
+7227	36109	780	4	11	whd withered
+7227	36118	1123	15	28	psq pipsqueak
+7227	36121	713	4	16	CG11883 
+7227	36129	154	6	13	CG7220 
+7227	36145	445	4	12	CG12344 
+7227	36147	1462	7	15	CG30015 
+7227	36154	297	3	6	CG18004 
+7227	36156	1270	2	15	CG30020 
+7227	36161	100	2	12	polyph polyphemus
+7227	36162	160	2	3	Obp47a Odorant-binding protein 47a
+7227	36167	457	2	11	BBS4 Bardet-Biedl syndrome 4
+7227	36172	145	4	10	CG9084 
+7227	36174	509	2	4	CG7737 
+7227	3771732	175	3	7	CG30461 
+7227	36194	601	2	17	Cpr47Ef Cuticular protein 47Ef
+7227	36199	668	2	12	CG9062 
+7227	36208	524	3	14	CG7741 
+7227	36213	1626	3	14	sha shavenoid
+7227	36227	504	2	5	CG13204 
+7227	36229	325	2	4	CG13203 
+7227	36232	217	5	10	Sod3 Superoxide dismutase 3
+7227	36236	233	7	14	Drip 
+7227	36237	268	4	10	Prip 
+7227	36238	2033	5	18	E(Pc) Enhancer of Polycomb
+7227	36243	1297	4	12	CG9005 
+7227	36244	437	7	17	CG9003 
+7227	38809	1145	3	9	mus312 mutagen-sensitive 312
+7227	36248	489	2	9	Tret1-1 Trehalose transporter 1-1
+7227	36258	737	2	7	ths thisbe
+7227	36272	981	4	11	MCPH1 Microcephalin
+7227	36276	1025	2	12	exp expansion
+7227	36278	1199	3	8	ADD1 ADD domain-containing protein 1
+7227	36279	466	2	4	GalT1 beta1,3-galactosyltransferase 1
+7227	36283	1019	2	8	otk off-track
+7227	36285	355	4	7	Mppe Metallophosphoesterase
+7227	36287	107	2	6	CG8321 
+7227	36290	297	2	5	Drep1 DNA fragmentation factor-related protein 1
+7227	36307	230	3	7	Oda Ornithine decarboxylase antizyme
+7227	36321	154	2	7	RpS11 Ribosomal protein S11
+7227	36330	370	8	17	CG42700 
+7227	36331	616	2	9	CG8850 
+7227	36332	589	4	16	salto 
+7227	36335	232	3	4	mIF3 mitochondrial translation initiation factor 3
+7227	36337	1741	3	12	garz gartenzwerg
+7227	5740457	273	7	10	CG17162 
+7227	36348	315	6	11	Cpr49Ac Cuticular protein 49Ac
+7227	36368	476	2	14	Dh44-R2 Diuretic hormone 44 receptor 2
+7227	36372	424	2	12	vis vismay
+7227	36373	426	3	11	achi achintya
+7227	36377	1517	3	12	fra frazzled
+7227	3771934	1409	3	15	cana CENP-ana
+7227	36384	353	7	21	Galphaq G protein alpha q subunit
+7227	36386	853	3	15	muskelin 
+7227	36393	655	2	9	ZnT49B Zinc transporter 49B
+7227	36396	706	10	15	GLS Glutaminase
+7227	36397	1866	2	10	Nup188 Nucleoporin 188kDa
+7227	36403	661	3	10	CG42663 
+7227	36415	156	13	19	CG17574 
+7227	36418	239	4	9	Lfg Lifeguard
+7227	36419	313	9	12	Nmda1 N-methyl-D-aspartate receptor-associated protein
+7227	36424	322	2	4	sug sugarbabe
+7227	36428	1101	2	10	Mdr49 Multi drug resistance 49
+7227	36440	1299	2	6	Cap-G Chromosome associated protein G
+7227	36442	1337	4	11	Ack-like Activated Cdc42 kinase-like
+7227	36444	1354	4	17	TppII Tripeptidyl-peptidase II
+7227	5740475	205	4	8	CG41378 
+7227	36456	266	2	6	AQP aquaporin
+7227	36458	563	2	11	CG4630 
+7227	36461	417	3	14	Dp DP transcription factor
+7227	3772015	194	5	10	nw narrow
+7227	36468	184	2	5	Mp20 Muscle protein 20
+7227	36469	674	2	5	CG4712 
+7227	36473	251	6	14	CG42319 
+7227	36475	443	3	13	Dh31-R Diuretic hormone 31 Receptor
+7227	36488	1150	14	29	ATP8A ATPase 8A
+7227	36491	1320	12	22	cnn centrosomin
+7227	36492	603	3	8	cbs centrosomin's beautiful sister
+7227	36496	417	4	9	bbc bb in a boxcar
+7227	36499	950	2	6	mip120 Myb-interacting protein 120
+7227	36507	450	5	9	CG33156 
+7227	36513	717	3	12	CG6191 
+7227	36526	1218	3	27	stj straightjacket
+7227	36527	412	4	9	fl(2)d female lethal d
+7227	36544	984	4	15	AGO1 Argonaute-1
+7227	36545	389	6	7	Rpn13 Regulatory particle non-ATPase 13
+7227	36546	341	4	9	Cp1 Cysteine proteinase-1
+7227	3772100	173	4	11	Pmi 
+7227	36554	485	5	13	RN-tre Related to the N terminus of tre oncogene
+7227	36555	1594	4	14	mam mastermind
+7227	3772109	975	2	9	Meltrin 
+7227	36559	157	2	4	CG42288 
+7227	36560	1001	8	15	Rcd1 Reduction in Cnn dots 1
+7227	36568	199	2	4	CG18324 
+7227	36569	178	4	7	ReepB Receptor expression enhancing protein B
+7227	36571	825	11	27	cg combgap
+7227	36578	930	5	22	Opa1 Optic atrophy 1
+7227	36592	1576	4	13	Shrm Shroom
+7227	3346162	1212	10	28	Gfrl Glial cell line-derived neurotrophic family receptor-like
+7227	3772159	555	3	27	CG33934 
+7227	36609	1228	2	7	L Lobe
+7227	36612	1538	4	19	Asx Additional sex combs
+7227	3772165	897	2	6	Pex6 Peroxin 6
+7227	36615	621	2	6	LamC Lamin C
+7227	36616	685	4	8	CG12869 
+7227	36619	264	7	14	tra2 transformer 2
+7227	36626	210	2	5	CG10139 
+7227	3772180	364	25	45	Sxl Sex lethal
+7227	36630	357	4	14	Targ Tarag
+7227	3772183	451	4	11	CG10096 
+7227	3346206	1064	3	22	side-II sidestep II
+7227	36642	293	2	4	CG12857 
+7227	36643	404	3	9	Spred Sprouty-related protein with EVH-1 domain
+7227	36645	282	3	4	BEAF-32 Boundary element-associated factor of 32kD
+7227	36650	224	2	4	CG10205 
+7227	36658	1839	7	18	Pcf11 Pcf11 cleavage and polyadenylation factor subunit
+7227	36662	367	2	3	Cyp6a19 Cytochrome P450 6a19
+7227	3346235	251	3	22	scaf6 SR-related CTD associated factor 6
+7227	36668	1294	9	25	Kank 
+7227	3346238	1644	2	12	form3 formin 3
+7227	36673	924	5	9	ckn caskin
+7227	36676	340	2	4	CG10265 
+7227	36678	1214	9	15	chn charlatan
+7227	36681	122	3	8	igl igloo
+7227	36685	1281	3	8	row relative of woc
+7227	36689	501	5	20	CG8079 
+7227	36692	1115	2	9	scb scab
+7227	36694	1939	11	47	Trpm Transient receptor potential cation channel, subfamily M
+7227	36697	1293	3	9	Xpc Xeroderma pigmentosum, complementation group C
+7227	36706	764	5	10	SRPK SR Protein Kinase
+7227	36713	577	3	7	CG8180 
+7227	36717	601	3	6	Pgant1 Polypeptide N-Acetylgalactosaminyltransferase 1
+7227	36718	1908	5	25	Khc-73 Kinesin heavy chain 73
+7227	36724	169	13	26	CG12963 
+7227	36726	426	2	8	Flo1 Flotillin 1
+7227	36736	733	2	9	CG30089 
+7227	36746	1480	6	26	sli slit
+7227	36750	349	8	17	Mlf Myelodysplasia/myeloid leukemia factor
+7227	36760	1112	4	13	ATPCL ATP citrate lyase
+7227	36768	647	2	9	CG8399 
+7227	36769	690	3	16	casp caspar
+7227	36778	575	8	26	Asph Aspartyl beta-hydroxylase
+7227	36782	416	2	6	Got1 Glutamate oxaloacetate transaminase 1
+7227	36793	1289	2	9	clu clueless
+7227	36797	259	8	16	mrj 
+7227	36806	665	2	10	CngA Cyclic nucleotide-gated ion channel subunit A
+7227	36809	605	2	7	csul capsuleen
+7227	36811	1630	3	5	CG33017 
+7227	36826	836	5	16	Vha44 Vacuolar H
+7227	3772382	2594	12	22	Plp Pericentrin-like protein
+7227	36833	867	3	8	CG6262 
+7227	36846	697	4	20	Sema2a Semaphorin 2a
+7227	36848	514	4	15	Syn2 Syntrophin-like 2
+7227	36849	631	2	9	DAT Dopamine transporter
+7227	36850	577	4	13	CG4945 
+7227	36851	147	2	6	RpS15 Ribosomal protein S15
+7227	36862	323	6	17	gprs 
+7227	36864	535	3	8	Nach 
+7227	36876	1670	8	33	unc-104 uncoordinated-104
+7227	36877	235	2	12	CG5348 
+7227	36881	665	6	12	RalGPS Ral GEF with PH domain and SH3 binding motif
+7227	36889	716	5	12	Psi P-element somatic inhibitor
+7227	38917	76	2	3	Dhps Deoxyhypusine synthase
+7227	3772453	309	3	7	CG9133 
+7227	36913	559	4	9	CG8963 
+7227	36914	531	2	16	Dark Death-associated APAF1-related killer
+7227	36915	2557	5	27	RhoGEF2 Rho guanine nucleotide exchange factor 2
+7227	36918	448	2	8	CG9646 
+7227	36924	1711	9	20	CG30460 
+7227	36927	249	4	13	GstS1 Glutathione S transferase S1
+7227	36929	592	2	9	CG46491 
+7227	36930	464	2	7	CG15611 
+7227	36945	391	18	26	mbl muscleblind
+7227	36948	450	2	5	Camp Cathelicidin-like antimicrobial protein
+7227	36953	626	4	11	l(2)k01209 lethal (2) k01209
+7227	36955	289	3	5	Mtap Methylthioadenosine phosphorylase
+7227	36966	428	4	16	qkr54B quaking related 54B
+7227	36973	390	4	7	CG4847 
+7227	36974	709	3	8	CG4853 
+7227	36978	1439	13	34	Patronin 
+7227	36993	1721	2	10	Dcr-2 Dicer-2
+7227	37009	834	2	8	HPS4 Hermansky-Pudlak Syndrome 4
+7227	38937	605	2	7	Cpsf6 Cleavage and polyadenylation specific factor 6
+7227	37037	271	2	10	Dhit Double hit
+7227	37038	1032	8	28	grh grainy head
+7227	37040	351	5	10	Orai 
+7227	37043	261	4	13	Mapmodulin 
+7227	37047	1283	2	20	Elk Eag-like K
+7227	3772600	175	2	4	CG33725 
+7227	37063	1238	4	11	CG5098 
+7227	37064	742	2	6	CG5756 
+7227	37065	914	3	10	stau staufen
+7227	37066	1091	2	14	Sema5c Semaphorin 5c
+7227	37068	691	4	11	Hsf Heat shock factor
+7227	37083	434	2	9	nopo no poles
+7227	3772638	353	2	15	Gr64d Gustatory receptor 64d
+7227	37096	126	2	5	CG18539 
+7227	37117	202	10	15	CG5174 
+7227	37119	471	3	13	Ttd14 TRPL translocation defect 14
+7227	37126	1698	4	24	CG30116 
+7227	37129	721	2	12	CG43066 
+7227	37130	563	2	4	Pepck2 Phosphoenolpyruvate carboxykinase 2
+7227	37132	740	2	10	Rgk2 Rad, Gem/Kir family member 2
+7227	37134	878	3	12	GEFmeso Guanine nucleotide exchange factor in mesoderm
+7227	37141	510	2	10	Atg7 Autophagy-related 7
+7227	37146	1271	3	12	CG30122 
+7227	37147	310	4	10	Ntan1 N-terminal amidohydrolase 1
+7227	37152	1471	6	18	Sik3 Salt-inducible kinase 3
+7227	37155	551	2	5	CG15073 
+7227	37157	387	2	11	List Lithium-inducible SLC6 transporter
+7227	37164	406	8	18	Jabba 
+7227	37165	893	6	18	Mctp Multiple C2 domain and transmembrane region protein
+7227	37168	443	2	5	MFS15 Major Facilitator Superfamily Transporter 15
+7227	37170	475	2	6	CG15096 
+7227	37172	617	4	10	CG15097 
+7227	37176	2599	2	13	CG15099 
+7227	37185	778	6	11	sano serrano
+7227	37190	1248	6	21	tn thin
+7227	37191	562	3	12	5-HT1B 5-hydroxytryptamine (serotonin) receptor 1B
+7227	37195	378	3	6	CG15109 
+7227	37196	834	2	13	5-HT1A 5-hydroxytryptamine (serotonin) receptor 1A
+7227	37197	656	6	17	CG15117 
+7227	37199	637	4	11	CG15118 
+7227	37200	393	2	7	CG15111 
+7227	37201	664	7	22	ena enabled
+7227	37202	870	17	39	CG10737 
+7227	37203	1218	5	19	hppy happyhour
+7227	37205	703	6	21	cora coracle
+7227	37216	831	3	8	Tab2 TAK1-associated binding protein 2
+7227	37218	378	4	8	EndoB Endophilin B
+7227	38971	681	3	9	CG6765 
+7227	37220	511	2	9	fest wurstfest
+7227	37221	867	3	13	CG11961 
+7227	37224	862	3	14	CG10062 
+7227	37225	873	2	12	CG10073 
+7227	37226	873	2	12	CG10081 
+7227	37230	718	16	27	hts hu li tai shao
+7227	37232	828	4	18	CalpA Calpain-A
+7227	37233	1200	6	21	Fak Focal adhesion kinase
+7227	37236	201	2	5	Arl6 ADP ribosylation factor-like 6
+7227	37238	447	2	3	betaTub56D beta-Tubulin at 56D
+7227	37254	508	21	36	sm smooth
+7227	37257	242	2	5	CG15905 
+7227	37258	253	2	5	CG15125 
+7227	37261	557	3	8	Kpc2 Kip1 ubiquitination-promoting complex subunit 2
+7227	37267	131	2	3	Obp56e Odorant-binding protein 56e
+7227	37270	131	2	3	Obp56g Odorant-binding protein 56g
+7227	37288	477	4	10	Ate1 Arginyltransferase 1
+7227	37304	965	4	12	tapas 
+7227	37306	607	4	10	CG8929 
+7227	37308	558	2	6	CG13870 
+7227	37310	1194	4	23	side-VIII sidestep VIII
+7227	37317	89	2	5	CG13428 
+7227	37330	726	2	4	CG11180 
+7227	37336	132	2	3	maf-S 
+7227	37342	808	2	7	Lrt Leucine-rich tendon-specific protein
+7227	37344	702	2	8	Fem-1 
+7227	37360	715	4	15	Ipk1 Inositol phosphate kinase 1
+7227	37364	367	9	12	otp orthopedia
+7227	37374	739	3	9	CG9313 
+7227	37376	1096	2	11	CG3216 
+7227	37379	1635	5	12	CG10543 
+7227	5740630	49	2	3	CG34204 
+7227	37384	481	19	25	RIC-3 RIC3 acetylcholine receptor chaperone
+7227	37398	975	2	6	CG34396 
+7227	37400	460	2	7	ktub king tubby
+7227	37410	980	5	16	CG30389 
+7227	37411	1212	4	15	CG4266 
+7227	37415	308	3	7	Pu Punch
+7227	37417	2512	2	10	tud tudor
+7227	37419	334	6	12	Gyg Glycogenin
+7227	37422	1046	3	11	ASPP Ankyrin-repeat, SH3-domain, and Proline-rich-region containing Protein
+7227	37427	528	4	11	MFS16 Major Facilitator Superfamily Transporter 16
+7227	37433	1642	16	20	CG42672 
+7227	37435	1542	6	13	CG9485 
+7227	37443	178	2	3	bisc biscotti
+7227	37447	322	9	22	Sdc Syndecan
+7227	37449	216	5	9	Fkbp14 FK506-binding protein 14
+7227	37451	468	9	17	MESK2 Misexpression suppressor of KSR 2
+7227	37453	444	2	7	CG10494 
+7227	37455	1377	2	7	Egfr Epidermal growth factor receptor
+7227	37456	338	2	9	twz tiwaz
+7227	37458	127	3	6	CG10433 
+7227	37465	672	2	10	Ip6k Inositol hexakisphosphate kinase
+7227	37473	1870	3	12	stum stumble
+7227	37479	987	2	7	CngB Cyclic nucleotide-gated ion channel subunit B
+7227	37482	716	3	5	LBR Lamin B receptor
+7227	37496	198	3	4	CG13488 
+7227	37498	591	2	12	ppk9 pickpocket 9
+7227	37510	393	2	7	CG13501 
+7227	37511	223	4	7	Snp Snipper
+7227	37518	267	2	3	CG13502 
+7227	37519	808	5	8	flap flapper
+7227	37521	809	12	19	Vrp1 Verprolin 1
+7227	37528	681	11	26	Fmr1 
+7227	37536	803	2	10	Vps35 Vacuolar protein sorting 35
+7227	37546	780	2	8	dve defective proventriculus
+7227	37549	1051	6	13	Gp150 
+7227	37552	1023	5	18	Liprin-gamma 
+7227	37561	379	3	8	qkr58E-1 quaking related 58E-1
+7227	37564	1318	2	10	rad50 
+7227	37565	278	2	4	CG10344 
+7227	37573	1926	6	22	px plexus
+7227	37575	676	2	5	dnr1 defense repressor 1
+7227	37578	98	3	4	CG4269 
+7227	37579	1331	2	9	CG4294 
+7227	37583	502	4	13	CG33143 
+7227	37599	121	2	4	CG4250 
+7227	37614	974	4	17	CG42260 
+7227	37615	290	2	5	CG13527 
+7227	37618	528	4	8	CycB Cyclin B
+7227	37621	405	2	12	CG42284 
+7227	37629	674	2	10	inaD inactivation no afterpotential D
+7227	5740672	226	2	7	dcma decima
+7227	37636	739	3	13	YME1L YME1 like ATPase
+7227	37637	257	2	5	asrij 
+7227	37641	1148	3	14	nahoda 
+7227	37648	433	2	5	CG3831 
+7227	37657	714	3	8	Fatp2 Fatty acid transport protein 2
+7227	37661	388	9	14	l(2)k09913 lethal (2) k09913
+7227	37679	1140	2	15	side-V sidestep V
+7227	37688	256	2	6	CG3124 
+7227	37706	576	4	8	eIF2Bdelta eukaryotic translation initiation factor 2B subunit delta
+7227	37707	689	3	14	Mtmr6 Myotubularin related protein 6
+7227	37709	245	3	8	CG9812 
+7227	37710	208	4	8	CG9815 
+7227	37730	623	2	4	pita 
+7227	37734	483	6	12	apt apontic
+7227	37737	265	2	4	Eglp2 Entomoglyceroporin 2
+7227	37739	249	6	9	Eglp4 Entomoglyceroporin 4
+7227	37743	331	3	11	St3 Sulfotransferase 3
+7227	37751	188	3	6	sigmar salivary glands marred
+7227	37755	497	4	14	Sesn Sestrin
+7227	37762	1102	5	21	sona sol narae
+7227	37769	48	2	4	Nxt1 NTF2-related export protein 1
+7227	37775	323	2	5	CG5554 
+7227	37781	531	6	14	TBPH TAR DNA-binding protein-43 homolog
+7227	37786	61	3	11	TM4SF Transmembrane 4 superfamily
+7227	37797	314	2	6	CG13562 
+7227	37800	1074	7	29	kcc kazachoc
+7227	5740700	552	2	4	natalisin 
+7227	37805	382	5	12	Galphas G protein alpha s subunit
+7227	37806	127	3	6	Orcokinin 
+7227	49992	117	2	4	CG15219 
+7227	37825	455	2	10	CG3860 
+7227	37837	577	2	4	Chi Chip
+7227	37839	227	3	6	Not11 CCR4-NOT transcription complex subunit 11
+7227	37844	351	5	20	ppk29 pickpocket 29
+7227	37850	116	3	7	Rap2l Ras-associated protein 2-like
+7227	37851	395	4	9	yki yorkie
+7227	37852	380	4	9	Gpat4 Glycerol-3-phosphate acyltransferase 4
+7227	37853	486	4	13	Mlp60A Muscle LIM protein at 60A
+7227	37857	494	2	11	snama something that sticks like glue
+7227	37866	783	2	7	Naa35 N(alpha)-acetyltransferase 35
+7227	37867	275	3	8	speck 
+7227	37871	1423	4	13	CG3328 
+7227	37873	508	5	16	Nop60B Nucleolar protein at 60B
+7227	37877	326	4	9	CG11406 
+7227	37884	708	4	11	CG3376 
+7227	37886	743	4	9	nvy nervy
+7227	37887	661	2	7	Fatp3 Fatty acid transport protein 3
+7227	37888	453	2	5	betaTub60D beta-Tubulin at 60D
+7227	37890	449	3	6	bs blistered
+7227	37892	788	2	7	mAChR-A muscarinic Acetylcholine Receptor, A-type
+7227	37893	1703	6	22	Slik Sterile20-like kinase
+7227	37894	338	3	5	Rpn8 Regulatory particle non-ATPase 8
+7227	37895	622	3	10	SerT Serotonin transporter
+7227	37905	650	2	10	CG13579 
+7227	37921	119	5	10	ITP Ion transport peptide
+7227	37922	290	3	8	Nurf-38 Nucleosome remodeling factor - 38kD
+7227	37927	545	4	17	Start1 
+7227	37929	462	4	13	pio piopio
+7227	37949	528	10	13	Mmp1 Matrix metalloproteinase 1
+7227	37950	474	2	9	SiaT Sialyltransferase
+7227	37954	1244	3	8	Usp15-31 Ubiquitin specific protease 15/31
+7227	37961	1106	4	14	Eps-15 Epidermal growth factor receptor pathway substrate clone 15
+7227	37967	387	2	7	key kenny
+7227	37968	182	2	5	Reg-5 Rhythmically expressed gene 5
+7227	37973	347	3	9	Dll Distal-less
+7227	37979	559	7	16	NKAIN Na,K-ATPase Interacting
+7227	37981	2806	10	65	NaCP60E Na channel protein 60E
+7227	37985	629	3	7	pain painless
+7227	37986	499	7	22	CG30427 
+7227	37987	265	4	9	CG3760 
+7227	37988	157	3	5	CG2811 
+7227	37989	84	2	4	Tina-1 Troponin C-akin-1
+7227	37993	1081	3	11	CG12851 
+7227	37996	263	3	7	CG3776 
+7227	37999	520	5	16	emp epithelial membrane protein
+7227	38001	2011	9	22	zip zipper
+7227	38003	380	3	8	Nplp1 Neuropeptide-like precursor 1
+7227	38006	461	4	13	gol goliath
+7227	38007	1046	5	10	lov jim lovell
+7227	38011	850	4	15	CG9380 
+7227	38017	836	9	20	Pdk1 Phosphoinositide-dependent kinase 1
+7227	38019	334	3	12	CG6845 
+7227	38020	684	2	9	Dic61B Dynein intermediate chain at 61B
+7227	38021	793	5	10	p130CAS 
+7227	38028	438	3	7	mri mrityu
+7227	38032	907	5	13	Prp4k Pre-mRNA processing factor 4 kinase
+7227	38033	287	2	4	thoc7 
+7227	38034	1032	2	6	Dis3l2 Dis3 like 3'-5' exoribonuclease 2
+7227	38036	107	2	4	CG13877 
+7227	38037	538	2	12	pyx pyrexia
+7227	38044	163	3	5	wac wee Augmin
+7227	38055	583	4	12	Atac3 Ada2a-containing complex component 3
+7227	38057	575	7	15	mthl10 methuselah-like 10
+7227	38058	514	3	12	mth methuselah
+7227	38063	941	2	5	CG1233 
+7227	38065	966	7	16	trh trachealess
+7227	38070	1340	4	16	Hipk Homeodomain interacting protein kinase
+7227	38073	1553	2	10	MED14 Mediator complex subunit 14
+7227	38084	213	2	3	RabX6 
+7227	38087	499	2	4	CG13895 
+7227	38088	387	3	11	CkIIalpha-i3 CKII-alpha subunit interactor-3
+7227	38090	302	2	3	hng3 hinge3
+7227	38093	469	2	15	Sf3b3 Splicing factor 3b subunit 3
+7227	38096	228	4	6	CG13887 
+7227	38097	394	2	3	JMJD5 Jumonji domain containing 5
+7227	38098	436	3	15	Gr61a Gustatory receptor 61a
+7227	38102	644	4	10	CG12502 
+7227	38103	1517	3	14	Usp10 Ubiquitin specific protease 10
+7227	38109	571	20	50	Glut1 Glucose transporter 1
+7227	38116	970	4	6	bab1 bric a brac 1
+7227	38131	1068	3	12	mwh multiple wing hairs
+7227	38141	188	3	8	tfc triforce
+7227	38142	1489	3	14	CG32333 
+7227	38151	1058	3	15	Herc4 HECT and RLD domain containing E3 ubiquitin ligase 4
+7227	38152	242	2	4	CG9184 
+7227	38153	1026	4	11	Myo61F Myosin 61F
+7227	38154	152	3	7	ND-ACP NADH dehydrogenase (ubiquinone) acyl carrier protein
+7227	38159	724	3	5	CG2199 
+7227	38160	530	5	16	Ptp61F Protein tyrosine phosphatase 61F
+7227	38169	330	2	9	stet stem cell tumor
+7227	38173	545	10	18	hfp half pint
+7227	38175	866	8	14	Psa Puromycin sensitive aminopeptidase
+7227	38176	1471	5	24	Iml1 Increased minichromosome loss 1
+7227	38178	817	3	25	pns pinstripe
+7227	38185	486	4	11	Tmep Transmembrane endosomal protein
+7227	38193	709	2	8	ABCB7 ATP binding cassette subfamily B member 7
+7227	38196	135	8	20	nSyb neuronal Synaptobrevin
+7227	38197	302	2	3	Mettl2 Methyltransferase like 2
+7227	38205	191	3	8	CG7970 
+7227	38206	1107	10	33	Srrm234 Serine-arginine repetitive matrix 2/3/4
+7227	38214	608	2	8	CG7991 
+7227	39137	183	5	6	vsg visgun
+7227	38218	594	6	17	drpr draper
+7227	38222	872	6	9	CG13921 
+7227	38224	743	4	8	CG8001 
+7227	38231	2415	4	10	alpha-Spec alpha Spectrin
+7227	38238	180	2	6	GV1 
+7227	38242	193	3	7	CNMa CNMamide
+7227	38243	277	3	4	CG12024 
+7227	38247	481	2	3	CG13924 
+7227	38248	1083	2	9	dre4 
+7227	38249	363	6	13	CG13937 
+7227	38257	1259	3	14	mu2 mutator 2
+7227	38261	502	3	7	SCOT Succinyl-CoA:3-ketoacid CoA transferase
+7227	38262	210	2	4	CG1927 
+7227	38273	1060	4	14	CG15822 
+7227	38283	341	2	5	CG9018 
+7227	38284	506	2	19	ACXD Adenylyl cyclase X D
+7227	38285	1050	3	18	CG32301 
+7227	38286	243	4	9	CG1275 
+7227	38296	488	3	6	MsR2 Myosuppressin receptor 2
+7227	38298	478	2	6	MsR1 Myosuppressin receptor 1
+7227	38315	329	6	7	CG16758 
+7227	38321	798	2	10	dos daughter of sevenless
+7227	38324	694	3	6	CG12182 
+7227	38326	1527	5	14	Pxn Peroxidasin
+7227	38331	123	2	7	ProRS-m Prolyl-tRNA synthetase, mitochondrial
+7227	38337	969	4	23	Fife 
+7227	38338	1495	3	10	Mrtf Myocardin-related transcription factor
+7227	38347	2860	6	17	Tet Ten-Eleven Translocation (TET) family protein
+7227	38352	1602	10	24	Shab Shaker cognate b
+7227	38354	191	2	16	Or63a Odorant receptor 63a
+7227	38356	179	2	3	CG2113 
+7227	38360	535	3	15	CG2162 
+7227	38364	384	4	11	CG1271 
+7227	38369	788	16	31	PAN3 Poly(A) specific ribonuclease subunit PAN3
+7227	38372	993	7	21	promL prominin-like
+7227	38373	705	7	20	CG11537 
+7227	38376	747	8	17	BtbVII BTB-protein-VII
+7227	38379	512	2	3	CG15812 
+7227	38385	1380	5	13	Girdin 
+7227	38399	1521	3	13	Larp4B La-related protein 4B
+7227	38401	236	2	4	CG12078 
+7227	38404	522	4	11	CG12017 
+7227	38405	864	2	5	CG12009 
+7227	38407	449	7	14	ZnT63C Zinc transporter 63C
+7227	38410	286	2	3	PIG-C Phosphatidylinositol glycan anchor biosynthesis class C
+7227	38412	882	3	8	Strip Striatin interacting protein
+7227	38413	198	3	6	PHGPx 
+7227	38420	710	2	6	Ythdc1 YTH domain containing 1
+7227	38427	1188	3	11	armi armitage
+7227	38428	261	2	5	CycJ Cyclin J
+7227	38430	1035	6	11	CG42324 
+7227	38433	509	14	23	Eip63E Ecdysone-induced protein 63E
+7227	38434	459	2	6	CG10359 
+7227	38438	822	9	25	CG32264 
+7227	38446	561	2	7	PIG-B Phosphatidylinositol glycan anchor biosynthesis class B
+7227	38451	275	4	11	Awh Arrowhead
+7227	38454	120	2	3	Lamtor4 Late endosomal/lysosomal adaptor, MAPK and MTOR activator 4
+7227	38459	52	3	7	mge maggie
+7227	38468	619	5	9	CG12605 
+7227	38470	190	2	5	CG14985 
+7227	5740115	54	2	3	CG34250 
+7227	38487	411	7	23	CG14995 
+7227	38490	175	2	4	Chd64 
+7227	38491	898	12	21	ens ensconsin
+7227	5740131	1308	10	37	kmr kramer
+7227	38502	309	2	9	Teh2 tipE homolog 2
+7227	38505	2554	4	31	CG43367 
+7227	38513	263	4	7	ImpL2 Ecdysone-inducible gene L2
+7227	38523	686	2	10	Ctl1 Choline transporter-like 1
+7227	38527	249	2	6	TfIIEbeta Transcription factor IIEbeta
+7227	38528	606	4	8	Hexo1 Hexosaminidase 1
+7227	38534	602	11	19	Cip4 Cdc42-interacting protein 4
+7227	38541	301	2	4	Syx17 Syntaxin 17
+7227	38543	387	8	14	DOR Diabetes and obesity regulated
+7227	38545	64	2	8	nAChRbeta1 nicotinic Acetylcholine Receptor beta1
+7227	38550	169	3	4	CG15023 
+7227	5740185	35	5	10	UQCR-11 Ubiquinol-cytochrome c reductase 11 kDa subunit
+7227	38558	1042	7	11	NT1 Neurotrophin 1
+7227	38562	398	9	19	CG42540 
+7227	38589	460	4	12	Rh50 
+7227	38596	423	2	4	Fitm Fat storage inducing transmembrane protein
+7227	38597	327	3	7	Gdap1 
+7227	38605	499	8	30	shep alan shepard
+7227	38613	103	3	9	Uev1A Ubiquitin-conjugating enzyme variant 1A
+7227	5740252	2503	6	19	Not1 
+7227	38623	198	2	5	CG13285 
+7227	38624	752	10	25	frm farmer
+7227	38629	605	4	9	Msr-110 
+7227	38638	1203	6	10	Blimp-1 
+7227	38644	1556	3	15	Usp47 Ubiquitin specific protease 47
+7227	38648	976	7	12	scny scrawny
+7227	38655	261	3	6	kri krishah
+7227	38657	618	2	8	vn vein
+7227	38659	536	2	5	CG18586 
+7227	5740294	627	4	12	CG41520 
+7227	38664	327	2	6	CG10486 
+7227	38666	606	2	6	CG10483 
+7227	38668	285	6	17	CG33523 
+7227	38674	378	2	4	CG10479 
+7227	5740310	1340	4	17	Nox NADPH oxidase
+7227	5740318	1166	18	40	Stacl Stac-like
+7227	38695	594	4	15	CG13293 
+7227	38700	490	5	16	Ets65A Ets at 65A
+7227	38701	402	3	9	l(3)mbn lethal (3) malignant blood neoplasm
+7227	5740334	87	2	7	CG34300 
+7227	38714	991	4	17	fmt fiery mountain
+7227	5740349	1685	4	18	CG34357 
+7227	5740362	1918	6	21	CG34384 
+7227	38741	537	5	10	axed axundead
+7227	38745	151	2	6	CG8519 
+7227	38748	1833	4	12	velo veloren
+7227	38750	379	6	7	Ist1 
+7227	38751	411	2	5	Rsph3 Radial spoke head protein 3
+7227	38753	470	2	5	Prat2 Phosphoribosylamidotransferase 2
+7227	38755	446	5	13	tow target of wingless
+7227	38756	818	3	8	CG10077 
+7227	38769	1022	16	39	Mp Multiplexin
+7227	38772	129	3	7	CG14823 
+7227	5740407	86	2	3	CG34163 
+7227	5740408	989	2	12	CG17707 
+7227	38785	992	3	13	melt melted
+7227	38786	1101	4	12	corn cornetto
+7227	38788	1967	15	36	Dscam2 Down syndrome cell adhesion molecule 2
+7227	5740430	96	2	4	CG34299 
+7227	38806	600	2	5	RhoGEF4 Rho guanine nucleotide exchange factor 4
+7227	5740441	125	3	7	CG34161 
+7227	5740442	834	4	25	bma black match
+7227	5740446	449	4	13	Rgk3 Rad, Gem/Kir family member 3
+7227	38816	338	3	10	qm quemao
+7227	38818	682	3	9	pst pastrel
+7227	38820	216	5	11	Sh3beta 
+7227	38824	910	5	14	smid smallminded
+7227	38825	504	2	5	CG8564 
+7227	5740462	1784	10	23	CG34398 
+7227	5740472	738	3	9	Fili Fish-lips
+7227	5740474	176	2	5	CG34171 
+7227	38844	1332	8	17	CG7546 
+7227	38846	784	12	21	lqf liquid facets
+7227	38850	1618	5	13	frac faulty attraction
+7227	38868	510	3	10	Snmp2 Sensory neuron membrane protein 2
+7227	38871	178	4	11	Hn Henna
+7227	38872	895	5	16	Clk Clock
+7227	38879	853	6	16	pbl pebble
+7227	5740513	801	3	7	CG44837 
+7227	38890	430	8	15	nmo nemo
+7227	38891	327	2	6	bip1 
+7227	38895	1704	9	29	Sarm Sterile alpha and Armadillo motif
+7227	5740528	431	4	14	CG34354 
+7227	38897	653	3	8	Nulp1 Nuclear localized protein 1
+7227	5740536	74	4	11	CG34310 
+7227	38906	883	2	11	CG13676 
+7227	38907	151	2	6	CG13675 
+7227	38912	484	2	5	ERR estrogen-related receptor
+7227	38913	377	7	14	Atg18a Autophagy-related 18a
+7227	38928	601	3	11	cert ceramide transfer protein
+7227	38936	237	2	6	BI-1 Bax Inhibitor-1
+7227	38945	1005	2	11	GAPcenA GTPase activating protein and centrosome-associated
+7227	38946	740	4	12	Culd CUB and LDLa domain
+7227	38954	686	4	7	CG7120 
+7227	5740590	566	3	14	CG34353 
+7227	38961	448	2	7	Cbl Cbl proto-oncogene
+7227	38963	1032	5	18	Unr Upstream of N-ras
+7227	5740605	99	2	4	CG34279 
+7227	38978	2836	8	33	rhea 
+7227	5740612	253	4	9	CG34451 
+7227	38981	2509	13	25	CG43078 
+7227	38984	425	3	6	CG5989 
+7227	38985	316	4	10	CG6282 
+7227	38988	406	12	18	Zasp66 Z band alternatively spliced PDZ-motif protein 66
+7227	39015	1195	5	19	TrpA1 Transient receptor potential cation channel A1
+7227	39016	1398	7	43	mfr misfire
+7227	39018	704	7	15	orb2 
+7227	39025	220	4	8	CG5021 
+7227	39034	999	5	13	smg smaug
+7227	39035	1077	2	8	CG5087 
+7227	39037	296	2	4	CG5194 
+7227	39039	356	2	7	Doc1 Dorsocross1
+7227	39041	356	7	13	Argk1 Arginine kinase 1
+7227	39043	450	3	7	CG4911 
+7227	39048	2792	4	21	teq Tequila
+7227	39052	1068	10	23	nwk nervous wreck
+7227	39054	606	6	19	Rdl Resistant to dieldrin
+7227	5740691	807	2	9	l(2)41Ab lethal (2) 41Ab
+7227	39062	173	5	17	PGRP-LA Peptidoglycan recognition protein LA
+7227	39063	500	10	18	PGRP-LC Peptidoglycan recognition protein LC
+7227	39065	518	4	12	UGP UDP-glucose pyrophosphorylase
+7227	39068	814	3	8	Klp67A Kinesin-like protein at 67A
+7227	39069	156	2	8	CG4452 
+7227	39083	203	2	7	Cpsf5 Cleavage and polyadenylation specific factor 5
+7227	39086	461	6	13	Atat alpha-tubulin acetylase
+7227	39089	1006	7	16	MTF-1 Metal response element-binding Transcription Factor-1
+7227	39093	526	3	7	CG3529 
+7227	39099	783	6	13	CG44838 
+7227	39106	471	3	9	path pathetic
+7227	39107	327	2	5	CG3408 
+7227	39108	195	4	8	RpS9 Ribosomal protein S9
+7227	39132	350	9	13	Prps Phosphoribosyl pyrophosphate synthetase
+7227	39135	1253	2	3	CG16711 
+7227	39142	276	3	8	Naa60 N(alpha)-acetyltransferase 60
+7227	39145	1493	9	23	CG42268 
+7227	39147	1201	13	28	Ae2 Anion exchanger 2
+7227	39148	725	4	13	Zasp67 Z band alternatively spliced PDZ-motif protein 67
+7227	39153	500	17	23	CG43897 
+7227	39156	205	2	7	I-2 Inhibitor-2
+7227	39158	1163	3	7	RasGAP1 Ras GTPase activating protein 1
+7227	39160	877	4	11	iPLA2-VIA calcium-independent phospholipase A2 VIA
+7227	39168	266	3	8	CG6707 
+7227	39169	328	5	11	nudE 
+7227	39174	214	2	3	CG6674 
+7227	39180	408	4	11	dpr10 defective proboscis extension response 10
+7227	5740816	469	3	14	DIP-delta Dpr-interacting protein delta
+7227	39198	858	9	26	Rbfox1 RNA-binding Fox protein 1
+7227	39203	760	3	11	E(z) Enhancer of zeste
+7227	39204	127	2	6	Cnep1r2 CTD nuclear envelope phosphatase 1 regulatory subunit 2
+7227	39207	249	2	4	CG14154 
+7227	5740840	835	2	14	Shawl Shaw-like
+7227	39212	924	5	15	simj simjang
+7227	39215	225	4	6	NijA Ninjurin A
+7227	39217	1135	4	17	tna tonalli
+7227	39231	490	7	15	CG43693 
+7227	39232	462	3	10	CG7888 
+7227	39238	385	2	6	Mocs1 Molybdenum cofactor synthesis 1
+7227	5740879	223	3	8	CG34367 
+7227	39252	745	8	18	FoxK Forkhead box K
+7227	39258	630	4	16	IRSp53 Insulin receptor substrate 53 kDa
+7227	39259	562	2	3	wls wntless
+7227	39261	241	3	12	CG14142 
+7227	39262	316	5	12	GlcAT-P Glucuronyltransferase P
+7227	39268	1233	11	20	CG42671 
+7227	39269	703	2	8	Ir68a Ionotropic receptor 68a
+7227	39271	558	3	5	Dyro Dpt-YFP repressor by overexpression
+7227	39278	355	2	4	CG7557 
+7227	39284	233	2	6	chrb charybde
+7227	39293	537	5	11	Mob2 
+7227	39294	118	4	8	CG7394 
+7227	39302	659	4	14	Duba Deubiquitinating enzyme A
+7227	39304	350	4	10	Akr1B Aldo-keto reductase 1B
+7227	39314	588	3	8	Sugb Sugar baby
+7227	39316	259	2	6	CG14135 
+7227	39318	576	2	7	Dnai2 dynein, axonemal, intermediate chain 2
+7227	39325	379	3	11	loaf lost and found
+7227	39328	734	2	5	CG14131 
+7227	39329	1876	5	20	Pi3K68D Phosphatidylinositol 3-kinase 68D
+7227	39336	316	7	11	CG5946 
+7227	39338	57	2	5	RpL10Ab Ribosomal protein L10Ab
+7227	39340	490	2	9	CycA Cyclin A
+7227	39349	599	2	8	byn brachyenteron
+7227	39359	256	2	3	CG14125 
+7227	39360	2113	3	13	CG43896 
+7227	39362	1229	2	14	CG6938 
+7227	39366	297	6	11	Pop2 
+7227	39367	579	4	8	CG6928 
+7227	39368	1798	9	14	rols rolling pebbles
+7227	39376	303	2	3	CG11560 
+7227	39377	340	2	5	yps ypsilon schachtel
+7227	39385	419	5	14	RhoGAP68F Rho GTPase activating protein at 68F
+7227	39387	1284	2	13	Nrx-IV Neurexin IV
+7227	39388	264	2	4	CG9760 
+7227	39390	253	2	6	CAH2 Carbonic anhydrase 2
+7227	39391	275	2	6	CG6910 
+7227	39396	201	2	7	Ak1 Adenylate kinase 1
+7227	39399	382	10	20	app approximated
+7227	39403	366	4	6	Sms Spermine synthase
+7227	39406	639	2	4	Lmx1a LIM homeobox transcription factor 1 alpha
+7227	39409	579	2	7	CrzR Corazonin receptor
+7227	39410	1171	6	22	Ncc69 sodium chloride cotransporter 69
+7227	39415	583	4	12	SCaMC Short Calcium-binding Mitochondrial Carrier
+7227	39417	448	2	5	ArfGAP1 ADP-ribosylation factor GTPase activating protein 1
+7227	39418	550	2	7	toe twin of eyg
+7227	39420	492	3	8	CG10616 
+7227	39422	480	4	8	CG10660 
+7227	39424	317	3	9	CG10638 
+7227	39428	386	2	4	CG10654 
+7227	39429	1854	2	8	sti sticky
+7227	39430	646	9	11	tral trailer hitch
+7227	39438	635	4	18	sowah sosondowah
+7227	39439	709	2	6	ara araucan
+7227	39441	641	3	7	mirr mirror
+7227	39443	1461	2	14	Ptp69D Protein tyrosine phosphatase 69D
+7227	39445	507	3	9	Klc Kinesin light chain
+7227	39446	640	4	8	CG10984 
+7227	39450	1087	2	11	Hip1 Huntingtin interacting protein 1
+7227	39452	271	2	5	CG17666 
+7227	39453	458	4	12	CG42709 
+7227	39454	855	2	14	Atg1 Autophagy-related 1
+7227	39455	1257	6	16	Sap130 Sin3A-associated protein 130
+7227	39457	2730	2	12	CG42588 
+7227	39458	471	3	8	nebu nebulosa
+7227	39459	437	3	11	CG10948 
+7227	39460	337	6	14	Wbp2 WW domain binding protein 2
+7227	39461	668	3	6	Ent3 Equilibrative nucleoside transporter 3
+7227	39464	235	4	6	CG43894 
+7227	39466	160	2	3	CG12520 
+7227	39479	345	3	5	Adk2 Adenosine kinase 2
+7227	39501	330	2	6	CG10171 
+7227	39502	391	2	4	Poc1 Proteome of centrioles 1
+7227	39505	604	2	9	flr flare
+7227	39513	1657	4	17	cmb combover
+7227	39516	1237	4	17	CG10738 
+7227	39517	447	6	14	CG10089 
+7227	39518	635	7	12	stv starvin
+7227	39522	1646	3	10	Spt20 
+7227	39527	416	18	37	bru3 bruno 3
+7227	39533	982	7	21	dysc dyschronic
+7227	39537	526	2	8	CG32137 
+7227	39539	571	2	4	Meics Meiotic central spindle
+7227	39542	555	3	7	Hsc70-1 Heat shock protein 70 cognate 1
+7227	39543	586	4	13	CG17364 
+7227	39557	804	8	12	Hsc70Cb 
+7227	39561	1174	4	14	Frl Formin-like
+7227	39567	388	2	4	Sox21a 
+7227	39569	571	3	9	Sox21b 
+7227	39571	833	2	10	nan nanchung
+7227	39572	529	12	24	nuf nuclear fallout
+7227	39575	354	2	6	CG7906 
+7227	39581	1037	3	5	stwl stonewall
+7227	39582	302	2	6	CG3919 
+7227	39583	1095	8	22	bbg big bang
+7227	39588	384	3	9	Gbs-70E Glycogen binding subunit 70E
+7227	39592	540	3	11	shd shade
+7227	39593	162	3	9	CG9628 
+7227	39594	468	3	9	RecQ5 RecQ5 helicase
+7227	39596	764	2	9	dlp dally-like
+7227	39601	335	2	3	CG17177 
+7227	39611	507	2	9	bmm brummer
+7227	39616	587	2	20	CG17839 
+7227	39617	1076	4	17	DCX-EMAP Doublecortin-domain-containing echinoderm-microtubule-associated protein
+7227	39624	425	2	5	CG5114 
+7227	39630	546	2	10	Sytbeta Synaptotagmin beta
+7227	39641	363	2	4	Or71a Odorant receptor 71a
+7227	39645	627	3	8	CTPsyn CTP synthase
+7227	39647	960	3	17	Cep135 Centrosomal protein 135kDa
+7227	39648	489	5	8	CG16959 
+7227	39649	922	2	5	CG13457 
+7227	44839	2113	7	21	mud mushroom body defect
+7227	39662	607	5	13	CG7255 
+7227	39675	82	6	10	MsrA Methionine sulfoxide reductase A
+7227	39677	83	3	5	mex1 midgut expression 1
+7227	39679	248	2	6	CG7945 
+7227	39683	1217	3	10	AGO2 Argonaute 2
+7227	39685	288	5	11	SCCRO Squamous cell carcinoma-related oncogene
+7227	39690	301	2	5	AIMP2 aaRS-interacting multifunctional protein 2
+7227	39691	317	4	7	CG7656 
+7227	39693	896	7	15	RhoGAP71E Rho GTPase activating protein at 71E
+7227	39695	208	2	7	CG13449 
+7227	39696	378	3	6	comm3 
+7227	39720	157	3	9	fwe flower
+7227	39722	564	4	11	DCP2 Decapping protein 2
+7227	39727	179	3	7	meru 
+7227	39730	747	17	28	pHCl-1 pH-sensitive chloride channel 1
+7227	39732	845	3	19	sff sugar-free frosting
+7227	39733	500	2	12	Pka-C3 Protein kinase, cAMP-dependent, catalytic subunit 3
+7227	39734	230	3	7	GXIVsPLA2 
+7227	39744	1634	6	11	brm brahma
+7227	39747	637	3	6	Hip14 Huntingtin-interacting protein 14
+7227	39748	329	2	8	hzg herzog
+7227	39750	1115	2	5	mib1 mind bomb 1
+7227	39752	368	2	5	CG5895 
+7227	39759	893	3	14	ClC-c Chloride channel-c
+7227	5740668	1358	4	24	CG34347 
+7227	39764	884	6	12	Zn72D Zinc-finger protein at 72D
+7227	39765	921	9	17	Taf4 TBP-associated factor 4
+7227	39766	1191	3	8	Strump Strumpellin
+7227	39770	1106	3	6	elg1 enhanced level of genomic instability 1
+7227	39774	696	2	4	l(3)72Dn lethal (3) 72Dn
+7227	39808	891	2	5	CG4998 
+7227	170882	235	2	3	Obp56c Odorant-binding protein 56c
+7227	39812	277	4	6	Pdh Photoreceptor dehydrogenase
+7227	39820	386	5	11	Agpat3 1-Acylglycerol-3-phosphate O-acyltransferase 3
+7227	39825	77	2	10	CG44836 
+7227	39826	279	6	11	fax failed axon connections
+7227	39827	465	6	13	Serinc Serine incorporator
+7227	39835	1240	2	38	CG43373 
+7227	39842	145	5	9	mbf1 multiprotein bridging factor 1
+7227	39843	841	3	10	nxf2 nuclear RNA export factor 2
+7227	39849	36	2	5	tra transformer
+7227	39862	163	3	7	zetaCOP Coat Protein (coatomer) zeta
+7227	39864	282	4	11	Lasp 
+7227	39865	250	2	4	CG9692 
+7227	39866	2200	8	15	Dab Disabled
+7227	39869	182	2	3	PGRP-SB2 Peptidoglycan recognition protein SB2
+7227	39876	525	3	5	CG9706 
+7227	39878	2114	7	29	CG9674 
+7227	39880	235	2	5	CG13024 
+7227	39886	132	2	4	CG13029 
+7227	39895	403	10	12	CG11905 
+7227	39897	497	2	8	Cpr73D Cuticular protein 73D
+7227	39899	1008	9	22	Ogdh Oxoglutarate dehydrogenase
+7227	39900	2029	5	14	Exn Ephexin
+7227	39902	1385	3	10	CG3764 
+7227	39915	82	2	4	Pop5 POP5 ribonuclease P/MRP subunit
+7227	39917	268	2	9	rogdi 
+7227	39919	259	7	26	Rbp6 RNA-binding protein 6
+7227	39922	697	2	7	Afg3l2 AFG3 like matrix AAA peptidase subunit 2
+7227	39930	536	3	7	CG6479 
+7227	39932	736	2	6	brv2 brivido-2
+7227	39934	1323	4	11	CG7692 
+7227	39939	976	5	10	blot bloated tubules
+7227	39958	1005	9	31	Nedd4 
+7227	39961	1097	4	9	CycT Cyclin T
+7227	39962	883	5	14	Eip74EF Ecdysone-induced protein 74EF
+7227	39965	949	2	16	anchor 
+7227	5740664	82	4	6	CG40228 
+7227	39990	621	2	6	CG5535 
+7227	39999	1412	7	18	Eip75B Ecdysone-induced protein 75B
+7227	40013	571	4	12	CG13700 
+7227	40019	549	4	7	AstC-R2 Allatostatin C receptor 2
+7227	40030	496	3	7	not non-stop
+7227	40032	635	4	13	MYPT-75D Myosin phosphatase targeting subunit 75D
+7227	40033	410	3	9	GNBP2 Gram-negative bacteria binding protein 2
+7227	40038	250	2	6	CG6893 
+7227	40039	302	3	8	Dic4 Dicarboxylate carrier 4
+7227	40045	803	4	14	ftz-f1 ftz transcription factor 1
+7227	40049	572	4	13	Indy I'm not dead yet
+7227	40054	456	2	7	Rad9 
+7227	40056	666	4	15	CG3961 
+7227	40068	98	2	6	CG18223 
+7227	40073	636	5	6	CG18135 
+7227	40078	387	2	3	Acp76A Accessory gland protein 76A
+7227	40081	411	4	10	Mkp3 Mitogen-activated protein kinase phosphatase 3
+7227	40083	470	2	3	MESR6 Misexpression suppressor of ras 6
+7227	40088	473	3	7	CG14082 
+7227	40104	397	11	33	pip pipe
+7227	40105	1260	2	15	CG32206 
+7227	40117	404	6	10	CG9449 
+7227	40123	1228	3	8	Cpr76Bd Cuticular protein 76Bd
+7227	40129	520	3	10	Shal Shaker cognate l
+7227	40134	605	2	5	Taf6 TBP-associated factor 6
+7227	40135	87	3	5	CG9368 
+7227	40138	1006	2	10	Lon Lon protease
+7227	40143	977	4	12	wnd wallenda
+7227	40144	448	4	8	Rnf146 Ring finger protein 146
+7227	40146	793	4	15	tey teyrha-meyrha
+7227	40147	600	3	10	CG8765 
+7227	40149	525	3	9	verm vermiform
+7227	40157	515	4	15	Ir76a Ionotropic receptor 76a
+7227	40159	119	3	7	Ccdc58 Coiled-coil domain-containing 58
+7227	40163	358	3	14	Fibp 
+7227	40164	576	5	8	Deaf1 Deformed epidermal autoregulatory factor-1
+7227	40165	459	2	7	trc tricornered
+7227	40167	630	8	13	Papss PAPS synthetase
+7227	40168	207	3	8	Rab8 
+7227	40169	1776	4	16	Usp32 Ubiquitin specific protease 32
+7227	40170	1982	4	9	Mi-2 
+7227	40172	528	2	4	Prp3 Precursor RNA processing 3
+7227	40180	1307	2	21	Ac76E Adenylyl cyclase 76E
+7227	40181	168	4	6	CG14182 
+7227	40187	186	3	9	CG7646 
+7227	40199	108	2	3	CG14187 
+7227	40201	1844	2	16	gig gigas
+7227	40205	1412	7	21	CG42674 
+7227	40214	351	5	8	CG6933 
+7227	40217	890	3	7	Su(var)3-3 Suppressor of variegation 3-3
+7227	40220	1173	8	20	CG17233 
+7227	40224	746	5	18	rdgC retinal degeneration C
+7227	40231	248	4	11	SCCRO4 Squamous cell carcinoma-related oncogene 4
+7227	40240	438	8	15	eRF1 eukaryotic translation release factor 1
+7227	40241	346	3	9	CG5618 
+7227	40243	395	2	5	CG5665 
+7227	40245	826	3	8	Toll-9 
+7227	40249	745	3	17	RhoBTB Rho-related BTB domain containing
+7227	40252	407	2	4	CG33969 
+7227	40260	527	5	14	Psn Presenilin
+7227	40262	245	2	6	CtIP CTBP-interacting protein
+7227	40263	294	2	7	Hpd 4-hydroxyphenylpyruvate dioxygenase
+7227	40270	352	2	3	isoQC iso Glutaminyl cyclase
+7227	40278	177	5	12	BNIP3 
+7227	40281	497	2	8	Pss Phosphatidylserine synthase
+7227	40284	135	2	4	CG13250 
+7227	40287	429	2	4	kni knirps
+7227	40288	273	3	11	cmpy crimpy
+7227	40292	952	5	12	Pitslre 
+7227	40299	271	3	6	tzn tenzing norgay
+7227	40300	1959	2	8	Spc105R Spc105-related
+7227	40302	925	4	8	HIPP1 HP1 and insulator partner protein 1
+7227	40305	297	18	20	Pka-R1 Protein kinase, cAMP-dependent, regulatory subunit type 1
+7227	40309	326	3	8	CG11456 
+7227	40310	1297	2	20	CG32432 
+7227	40318	276	3	5	CG10587 
+7227	40319	179	5	21	CG12983 
+7227	40321	32	2	4	CG12984 
+7227	40325	485	2	4	Polr3E RNA polymerase III subunit E
+7227	40327	1220	4	10	siz schizo
+7227	40333	1718	5	29	Ac78C Adenylyl cyclase 78C
+7227	40339	361	4	7	CG10512 
+7227	40340	153	2	6	CG33054 
+7227	40342	445	4	14	CG10508 
+7227	40345	862	4	13	Eip78C Ecdysone-induced protein 78C
+7227	40348	670	3	10	AcCoAS Acetyl Coenzyme A synthase
+7227	40350	363	4	11	CG12974 
+7227	40356	348	6	9	CG11309 
+7227	40357	312	2	3	CG7632 
+7227	40359	388	6	11	Rab26 
+7227	40361	1291	2	13	Tbc1d8-9 TBC1 domain family member 8/9
+7227	40365	226	2	4	CG12971 
+7227	40368	800	4	9	rgn regeneration
+7227	40370	308	4	9	Aef1 Adult enhancer factor 1
+7227	40371	443	2	4	CG5664 
+7227	40372	523	2	5	Alp1 Alkaline phosphatase 1
+7227	40373	226	3	10	Syx6 Syntaxin 6
+7227	40375	382	2	4	Neu2 Neuroectoderm-expressed 2
+7227	40377	151	2	4	CG7519 
+7227	40378	599	6	12	Hr78 Hormone-receptor-like in 78
+7227	40382	1103	2	7	Glg1 Golgi complex-localized glycoprotein 1
+7227	40383	297	6	9	M6 
+7227	40391	2441	4	17	Wnk Wnk kinase
+7227	40393	301	2	14	CapaR Capability receptor
+7227	40396	214	2	5	EMC10 ER membrane protein complex subunit 10
+7227	40398	465	6	11	TfAP-2 Transcription factor AP-2
+7227	40403	1141	3	6	MED1 Mediator complex subunit 1
+7227	40412	574	3	6	CG32447 
+7227	40414	522	4	9	CG11247 
+7227	40424	624	4	11	Syn1 Syntrophin-like 1
+7227	40428	373	3	5	eg eagle
+7227	40431	555	4	7	eIF2A eukaryotic translation initiation factor 2A
+7227	40433	686	4	6	Nopp140 
+7227	40436	359	12	26	mub mushroom-body expressed
+7227	40442	1392	2	11	Chs2 Chitin synthase 2
+7227	40459	249	6	11	Csp Cysteine string protein
+7227	40461	869	11	18	Srpk79D Serine-arginine protein kinase at 79D
+7227	40474	186	2	4	CG11404 
+7227	40479	144	3	11	CG14457 
+7227	40481	198	2	5	CG14456 
+7227	40486	341	2	4	CG11370 
+7227	40487	552	7	14	ArfGAP3 ADP-ribosylation factor GTPase activating protein 3
+7227	40489	459	4	9	mael maelstrom
+7227	40490	62	2	4	CG14450 
+7227	40492	518	3	6	CG11241 
+7227	40495	1034	8	15	SPoCk Secretory Pathway Calcium atpase
+7227	40514	372	2	5	Mes2 Mesoderm-expressed 2
+7227	40515	1846	6	35	nrm neuromusculin
+7227	40517	372	2	20	alpha-Cat alpha Catenin
+7227	39521	382	2	5	Tgi Tondu-domain-containing Growth Inhibitor
+7227	40521	539	6	21	nAChRalpha4 nicotinic Acetylcholine Receptor alpha4
+7227	40524	778	5	18	beta-Man beta-Mannosidase
+7227	40527	1165	4	16	aux auxilin
+7227	40532	200	3	10	CG14642 
+7227	40536	225	2	5	CG14644 
+7227	40541	399	3	6	MP1 Melanization Protease 1
+7227	40544	586	3	7	Syt14 Synaptotagmin 14
+7227	40545	699	4	20	CG9795 
+7227	40546	685	2	9	CG9776 
+7227	40551	633	4	12	CG1090 
+7227	40560	449	3	12	CG32944 
+7227	40562	1058	3	10	srl spargel
+7227	40567	365	7	16	CG31522 
+7227	40575	868	5	14	5-HT2A 5-hydroxytryptamine (serotonin) receptor 2A
+7227	40577	204	5	9	MED31 Mediator complex subunit 31
+7227	40580	562	2	5	rpk ripped pocket
+7227	40588	763	3	11	Nep2 Neprilysin 2
+7227	40589	1322	13	25	tacc transforming acidic coiled-coil protein
+7227	40590	612	4	9	CG44098 
+7227	40602	444	3	7	CG14657 
+7227	40605	609	2	4	opa odd paired
+7227	40606	753	2	4	laf labial associated factor
+7227	40607	986	2	6	Gnf1 Germ line transcription factor 1
+7227	40608	1163	4	17	Cdep Chondrocyte-derived ezrin-like domain containing protein
+7227	40612	249	4	12	CG2016 
+7227	40619	443	2	8	dpr16 defective proboscis extension response 16
+7227	40620	2051	8	34	cno canoe
+7227	40622	360	3	10	CG1116 
+7227	40628	475	3	7	CtsF Cathepsin F
+7227	40633	478	4	12	Hph HIF prolyl hydroxylase
+7227	40638	221	2	6	CG1161 
+7227	40644	271	2	3	7B2 
+7227	40652	306	4	16	CG14669 
+7227	40653	1110	3	6	PEK pancreatic eIF-2alpha kinase
+7227	40655	431	2	6	POLDIP2 Polymerase (DNA-directed), delta interacting protein 2
+7227	40659	1041	4	15	Hcs Holocarboxylase synthetase
+7227	40661	440	4	13	CG31550 
+7227	40663	995	2	11	NKCC sodium potassium chloride cotransporter
+7227	40664	2828	3	23	Itpr Inositol 1,4,5,-trisphosphate receptor
+7227	40666	1280	3	14	CG2519 
+7227	40668	203	2	6	Pcmt Protein-L-isoaspartate (D-aspartate) O-methyltransferase
+7227	40670	710	5	16	Pi4KIIalpha Phosphatidylinositol 4-kinase II alpha
+7227	40675	332	3	18	CRMP Collapsin Response Mediator Protein
+7227	40676	874	2	12	CG2926 
+7227	40681	86	3	7	SecS Sec synthetase
+7227	40683	579	3	12	Rga Regena
+7227	40687	101	2	4	RpL13A Ribosomal protein L13A
+7227	40693	853	4	17	MTA1-like Metastasis associated 1-like
+7227	40694	780	7	11	Sec23 Secretory 23
+7227	40699	777	3	14	Xe7 
+7227	40704	1518	5	13	plx pollux
+7227	40713	335	12	22	CG2082 
+7227	40715	609	8	8	kat-60L1 katanin p60-like 1
+7227	40722	383	6	10	CG42675 
+7227	40725	205	3	7	dgrn degringolade
+7227	40727	496	2	8	CG1208 
+7227	40733	604	5	9	CG2017 
+7227	40737	154	3	8	Obp83a Odorant-binding protein 83a
+7227	40739	485	12	23	Rm62 
+7227	40740	356	2	3	CG10280 
+7227	40745	235	2	6	Gasp 
+7227	40748	129	3	7	Vha14-2 Vacuolar H
+7227	40754	485	4	11	NPFR Neuropeptide F receptor
+7227	40758	393	2	6	Osi4 Osiris 4
+7227	40759	201	2	3	Osi5 Osiris 5
+7227	40774	648	4	12	Osi17 Osiris 17
+7227	40776	257	2	5	Osi19 Osiris 19
+7227	40785	1123	7	20	CG42724 
+7227	40787	638	4	9	CRAT Carnitine O-Acetyl-Transferase
+7227	40789	543	3	6	CG1024 
+7227	40792	638	5	18	Dmtn Dementin
+7227	40793	1898	5	15	gpp grappa
+7227	40794	1280	3	8	CG9727 
+7227	40797	1080	12	22	CG15186 
+7227	40807	209	3	7	glob2 globin 2
+7227	40810	217	2	4	CG15177 
+7227	40813	2129	6	18	Taf1 TBP-associated factor 1
+7227	40817	213	2	5	lab labial
+7227	40826	772	4	12	pb proboscipedia
+7227	40830	149	5	7	bcd bicoid
+7227	40831	333	3	5	Ama Amalgam
+7227	40833	508	5	8	Scr Sex combs reduced
+7227	40835	361	12	12	Antp Antennapedia
+7227	40842	176	3	18	CG1965 
+7227	40847	560	3	11	Tailor 
+7227	40850	1052	13	26	Alh Alhambra
+7227	40858	1045	3	7	gfzf GST-containing FLYWCH zinc-finger protein
+7227	40861	1693	4	15	sas stranded at second
+7227	40863	776	9	22	lap like-AP180
+7227	40866	438	2	8	CG14606 
+7227	40867	248	3	10	CG14605 
+7227	40874	175	2	6	Obp84a Odorant-binding protein 84a
+7227	40875	612	2	5	Gld Glucose dehydrogenase
+7227	40879	946	4	12	rn rotund
+7227	40896	567	3	6	alpha-Est10 alpha-Esterase-10
+7227	40897	587	2	7	alpha-Est9 alpha-Esterase-9
+7227	40905	542	2	7	alpha-Est5 alpha-Esterase-5
+7227	40907	543	4	10	alpha-Est3 alpha-Esterase-3
+7227	40919	102	2	5	CG11286 
+7227	40924	524	3	8	CG2993 
+7227	40925	237	2	5	sgll sugarlethal
+7227	40928	770	8	25	CG17816 
+7227	40931	986	4	7	wtrw water witch
+7227	40933	908	4	15	EMC1 ER membrane protein complex subunit 1
+7227	40934	447	2	5	Taf7 TBP-associated factor 7
+7227	40937	346	2	5	CG2678 
+7227	40938	945	3	8	CG10445 
+7227	40940	549	6	10	dsx doublesex
+7227	40941	565	4	13	CD98hc CD98 heavy chain
+7227	40942	153	3	5	Os-C 
+7227	40950	2106	6	12	CG2747 
+7227	40955	1019	2	7	mAChR-B muscarinic Acetylcholine Receptor, B-type
+7227	40958	369	2	6	puc puckered
+7227	40960	264	2	5	CG9667 
+7227	40962	486	3	11	grn grain
+7227	40966	418	3	7	Ada2b transcriptional Adaptor 2b
+7227	40967	295	2	7	CG9636 
+7227	40970	515	4	13	mtg mind the gap
+7227	40979	1667	4	17	CG9626 
+7227	40992	131	2	4	CG7443 
+7227	40996	723	2	5	DppIII Dipeptidyl aminopeptidase III
+7227	40997	394	2	4	CG7352 
+7227	40999	335	4	11	stck steamer duck
+7227	41014	1399	2	10	Cenp-C Centromeric protein-C
+7227	41017	904	3	9	5-HT2B 5-hydroxytryptamine (serotonin) receptor 2B
+7227	41023	159	3	6	Sys1 Sys1 golgi trafficking protein
+7227	41027	626	3	7	CG8036 
+7227	41033	222	3	5	CG8112 
+7227	41037	440	4	6	CG8136 
+7227	41057	207	3	5	CG9837 
+7227	41060	706	2	6	CG8379 
+7227	41062	1371	12	33	pyd polychaetoid
+7227	41066	468	2	5	osk oskar
+7227	41067	502	8	12	ScsbetaA Succinyl-coenzyme A synthetase beta subunit, ADP-forming
+7227	41070	61	2	6	CAHbeta Carbonic anhydrase beta
+7227	41075	716	2	8	CG31100 
+7227	41078	358	3	5	CG11980 
+7227	41085	671	5	6	neur neuralized
+7227	41087	971	4	5	Rel Relish
+7227	41094	1533	8	21	pum pumilio
+7227	41096	861	3	10	Vps15 Vacuolar protein sorting 15
+7227	41097	220	2	9	CG8420 
+7227	41103	237	2	6	Ibf1 Insulator binding factor 1
+7227	41112	465	2	8	Aduk Another Drosophila Unc-51-like kinase
+7227	41114	199	8	17	CG45050 
+7227	41117	316	2	7	Srr Serine racemase
+7227	41118	804	7	22	FER FER tyrosine kinase
+7227	41126	1108	2	6	alpha-Man-IIa alpha-Mannosidase class II a
+7227	41133	215	3	8	GstZ2 Glutathione S transferase Z2
+7227	41134	1795	5	18	CG16779 
+7227	41136	190	2	7	RhoL Rho-like
+7227	41138	214	2	7	rump rumpelstiltskin
+7227	41145	868	3	13	mura murashka
+7227	41151	339	3	4	MBD-like Methyl-CpG binding domain protein-like
+7227	41152	316	2	6	CG9393 
+7227	41154	831	2	7	CG16789 
+7227	41155	52	2	6	CG16790 
+7227	41157	120	4	9	CG9399 
+7227	41163	865	4	9	CG8312 
+7227	41164	212	2	5	CG9427 
+7227	41167	217	3	7	SpdS Spermidine Synthase
+7227	41178	760	6	17	Unc-115b Uncoordinated 115b
+7227	41181	2885	2	20	hyd hyperplastic discs
+7227	41182	442	3	10	FoxP Forkhead box P
+7227	41185	303	2	4	Pnn Pinin
+7227	41194	571	4	7	CG8478 
+7227	41195	168	2	4	Naa80 N(alpha)-acetyltransferase 80
+7227	41198	514	5	8	Whamy WHAMM and JMY related
+7227	41204	440	3	8	CG12945 
+7227	41207	737	3	4	CG9467 
+7227	41208	604	2	4	CG8526 
+7227	41215	279	2	4	Teh1 tipE homolog 1
+7227	41217	741	8	14	Glut4EF Glucose transporter 4 enhancer factor
+7227	41231	380	2	4	Fancl 
+7227	41235	695	2	4	nerfin-2 nervous fingers 2
+7227	41242	872	3	8	TAF1B TATA box-binding protein-associated factor RNA polymerase I subunit B
+7227	41246	436	4	13	CG12814 
+7227	41247	597	4	18	Syn Synapsin
+7227	41252	2928	6	18	CG42795 
+7227	41256	2556	17	24	Nuak Nuak family kinase
+7227	41262	1420	2	6	sle slender lobes
+7227	41266	911	6	15	Rfx 
+7227	41273	472	5	21	hth homothorax
+7227	41279	968	5	11	pug pugilist
+7227	41282	145	2	4	CG31278 
+7227	41286	555	2	10	TkR86C Tachykinin-like receptor at 86C
+7227	41287	373	3	17	CG14691 
+7227	41289	959	4	17	Cap-H2 Chromosome associated protein H2
+7227	41294	135	2	4	Rbp1 RNA-binding protein 1
+7227	41302	1943	5	16	Cad86C Cadherin 86C
+7227	41309	155	8	10	SelR Selenoprotein R
+7227	41310	291	3	4	Tsp86D Tetraspanin 86D
+7227	41319	868	2	8	CG6621 
+7227	41339	441	6	12	cu curled
+7227	41347	138	4	12	RpL3 Ribosomal protein L3
+7227	41354	137	3	4	CG17721 
+7227	41355	246	2	11	CG31388 
+7227	41359	95	3	6	CG17734 
+7227	41363	1835	6	17	pros prospero
+7227	41369	597	2	8	ninaG 
+7227	41371	45	2	7	Dtd D-aminoacyl-tRNA deacylase
+7227	41377	563	8	17	sals sarcomere length short
+7227	41381	298	2	7	dpr5 defective proboscis extension response 5
+7227	41391	1243	2	5	CG6791 
+7227	41392	105	7	12	Jupiter 
+7227	41396	256	3	7	CG6813 
+7227	41398	723	7	16	Csk C-terminal Src kinase
+7227	41399	1253	3	9	Elp1 Elongator complex protein 1
+7227	41406	160	4	6	Taf12 TBP-associated factor 12
+7227	41410	415	2	5	CG6908 
+7227	41417	275	2	5	CG14721 
+7227	41420	1256	4	9	CG6923 
+7227	41423	447	10	19	l(3)neo38 lethal (3) neo38
+7227	41425	1354	2	13	prd1 pruning defect 1
+7227	41426	422	4	13	HisCl1 Histamine-gated chloride channel subunit 1
+7227	41427	1993	2	12	Sbf SET domain binding factor
+7227	41428	1018	7	30	ClC-a Chloride channel-a
+7227	41431	179	4	13	glo glorund
+7227	41437	1483	2	9	CG31368 
+7227	41438	496	2	8	mthl5 methuselah-like 5
+7227	41443	893	3	12	CG31211 
+7227	41447	514	4	9	CG12213 
+7227	41449	240	2	6	GC2 Glutamate Carrier 2
+7227	41451	182	2	5	CG10005 
+7227	41455	840	16	16	mfas midline fasciclin
+7227	41456	289	2	7	Tk Tachykinin
+7227	41458	575	3	7	KLHL18 Kelch like family member 18
+7227	41466	473	4	14	CG14736 
+7227	41469	1317	7	24	ATP8B ATPase 8B
+7227	41470	664	5	13	dpr17 defective proboscis extension response 17
+7227	41472	286	4	10	CG4702 
+7227	41474	864	2	4	Cpn Calphotin
+7227	41479	854	3	8	Cog1 Component of oligomeric golgi complex 1
+7227	41491	281	5	11	svp seven up
+7227	41495	309	2	7	CG10038 
+7227	41512	222	2	5	GstD11 Glutathione S transferase D11
+7227	41513	682	3	10	Sol1 
+7227	41522	395	2	6	CG5196 
+7227	41524	2016	2	12	pps protein partner of snf
+7227	41549	536	6	14	Octbeta2R Octopamine beta2 receptor
+7227	41560	1073	8	15	CG14395 
+7227	41568	133	6	7	NijC Ninjurin C
+7227	41569	534	2	6	Past1 Putative Achaete Scute Target 1
+7227	41579	215	2	7	CG10126 
+7227	41587	558	2	8	grsm granny smith
+7227	41589	625	5	16	CG7381 
+7227	41592	823	2	11	CG31342 
+7227	41595	413	3	6	yellow-f 
+7227	41599	2360	5	19	CG7518 
+7227	41602	476	10	18	CtBP C-terminal Binding Protein
+7227	41607	435	3	8	snk snake
+7227	41608	431	2	7	CG11670 
+7227	41612	672	4	13	sim single-minded
+7227	41616	1141	4	8	2mit 
+7227	41625	636	3	14	Ace Acetylcholine esterase
+7227	41627	1248	2	7	Su(var)3-7 Suppressor of variegation 3-7
+7227	41635	885	2	8	CG8774 
+7227	41636	1025	3	11	CG32473 
+7227	41644	424	7	13	CG9813 
+7227	41656	932	4	13	yrt yurt
+7227	41665	727	2	10	CG10841 
+7227	41666	308	5	19	sqd squid
+7227	34251	492	6	16	Eaat1 Excitatory amino acid transporter 1
+7227	33011	111	2	3	CG34331 
+7227	41670	350	10	21	B52 
+7227	41671	397	4	11	Task6 TWIK-related acid-sensitive K
+7227	41675	973	3	13	flfl falafel
+7227	41677	473	9	31	f-cup flyers-cup
+7227	41688	952	5	19	CG9297 
+7227	41704	406	5	16	rdx roadkill
+7227	41709	613	5	17	foxo forkhead box, sub-group O
+7227	41714	632	3	5	CG12402 
+7227	41718	472	6	10	Abi Abelson interacting protein
+7227	41726	511	5	11	Dop1R1 Dopamine 1-like receptor 1
+7227	41738	366	7	12	red red Malpighian tubules
+7227	41744	1035	4	8	Afti Aftiphilin
+7227	41749	2351	3	18	cv-c crossveinless c
+7227	41760	1118	3	17	Pde6 Phosphodiesterase 6
+7227	41770	1211	5	14	stumps 
+7227	41772	516	3	8	put punt
+7227	41778	349	2	4	Hexim Hexamethylene bisacetamide inducible
+7227	41784	351	4	9	CG7530 
+7227	41786	303	4	6	smp-30 Senescence marker protein-30
+7227	41788	1153	7	18	jvl javelin-like
+7227	41807	180	2	4	RpS5b Ribosomal protein S5b
+7227	41817	1559	2	11	CG42788 
+7227	41823	689	4	8	GlyS Glycogen synthase
+7227	41824	313	17	29	Mf Myofilin
+7227	41825	1097	3	19	Gyc88E Guanylyl cyclase at 88E
+7227	41836	429	2	4	Caf1-55 Chromatin assembly factor 1, p55 subunit
+7227	41838	173	2	4	mRpS10 mitochondrial ribosomal protein S10
+7227	41842	105	3	10	CG42404 
+7227	41843	475	3	7	eIF2gamma eukaryotic translation initiation factor 2 subunit gamma
+7227	41850	424	2	5	MRG15 MORF-related gene 15
+7227	41853	284	6	12	Tm2 Tropomyosin 2
+7227	41854	378	2	4	CG14866 
+7227	41858	261	2	5	ea easter
+7227	41869	385	2	4	Hibch 3-hydroxyisobutyryl-CoA hydrolase
+7227	41872	187	2	4	CG6171 
+7227	41873	664	3	10	CG34404 
+7227	41880	1748	9	30	Rbp RIM-binding protein
+7227	41882	611	3	9	CG6125 
+7227	41883	1023	3	9	Atx2 Ataxin-2
+7227	41884	966	3	9	CG6118 
+7227	41887	1585	3	20	AdamTS-A ADAM metallopeptidase with thrombospondin type 1 motif A
+7227	41911	1549	12	29	nsl1 non-specific lethal 1
+7227	41930	153	6	10	glob1 globin 1
+7227	41932	721	8	21	CG45105 
+7227	41938	479	12	27	Sap47 Synapse-associated protein 47kD
+7227	41942	1145	2	9	mor moira
+7227	41944	731	7	15	srp serpent
+7227	41945	731	3	8	GATAe 
+7227	41949	259	3	6	CG10407 
+7227	41952	2074	5	18	msps mini spindles
+7227	41955	2148	8	26	Mhcl Myosin heavy chain-like
+7227	41957	530	5	11	Akt Akt kinase
+7227	41961	273	4	9	Fer2 48 related 2
+7227	41962	569	5	15	CG6006 
+7227	41963	606	2	7	CG8925 
+7227	41964	297	2	4	CG8927 
+7227	41982	179	4	7	CG14879 
+7227	41988	884	3	13	ss spineless
+7227	41990	204	2	5	CG14881 
+7227	41992	1028	3	12	ema endosomal maturation defective
+7227	42000	325	2	4	CSN5 COP9 signalosome subunit 5
+7227	42019	465	2	8	CG12783 
+7227	42025	661	7	22	Fas1 Fasciclin 1
+7227	42034	355	6	11	Ubx Ultrabithorax
+7227	42037	330	4	11	abd-A abdominal A
+7227	42043	504	2	10	AhcyL2 Adenosylhomocysteinase like 2
+7227	42050	712	2	8	CG8907 
+7227	42055	876	3	15	CG18213 
+7227	42059	568	4	11	Dad Daughters against dpp
+7227	42062	744	3	9	Keap1 
+7227	42066	919	10	29	cher cheerio
+7227	38499	1046	2	10	mas masquerade
+7227	42076	701	2	8	m-cup mann-cup
+7227	42080	2158	2	7	Mur89F Mucin related 89F
+7227	42082	404	2	10	beat-IIb beaten path IIb
+7227	42089	727	4	10	lute 
+7227	42092	211	4	8	CREG Cellular Repressor of E1A-stimulated Genes
+7227	42093	641	4	6	Sur-8 
+7227	42103	2077	4	43	Dscam3 Down syndrome cell adhesion molecule 3
+7227	42106	252	4	9	P5cr-2 Pyrroline-5-carboxylate reductase-like 2
+7227	42110	592	3	5	Hmx H6-like-homeobox
+7227	42117	151	2	3	Edg91 Ecdysone-dependent gene 91
+7227	42124	1577	4	11	CG14322 
+7227	42126	630	2	5	Mps1 Monopolar spindle 1
+7227	42127	874	8	14	alt aluminum tubes
+7227	42130	2555	6	20	osa 
+7227	42137	2448	7	25	CG43102 
+7227	42148	1513	5	15	tinc tincar
+7227	42150	1399	14	34	Rim Rab3 interacting molecule
+7227	34333	415	4	6	Trp1 Translocation protein 1
+7227	42162	1186	5	11	sr stripe
+7227	42169	656	14	25	wrd well-rounded
+7227	42172	447	2	4	CG7208 
+7227	42186	260	4	8	14-3-3epsilon 
+7227	42203	836	9	16	PKD Protein Kinase D
+7227	42206	878	2	7	CG15803 
+7227	42208	353	3	9	WRNexo WRN exonuclease
+7227	42210	604	3	7	gl glass
+7227	42211	287	5	7	CG7675 
+7227	42215	73	2	4	Vti1b Vesicle transport through interaction with t-SNAREs 1b
+7227	42220	207	2	4	CG7685 
+7227	42221	525	3	9	CG31122 
+7227	42226	688	15	25	fru fruitless
+7227	42232	942	3	11	CG14304 
+7227	42246	949	2	5	Muc91C Mucin 91C
+7227	42249	714	2	10	ChAT Choline acetyltransferase
+7227	42253	1478	2	9	Mekk1 
+7227	42256	2454	2	16	Epg5 ectopic P-granules autophagy protein 5
+7227	42258	699	3	6	Octalpha2R alpha2-adrenergic-like octopamine receptor
+7227	42267	668	7	10	Xrp1 
+7227	42269	1164	5	32	CG42613 
+7227	42271	107	2	3	euc eucalyptus
+7227	42289	942	2	12	cdi center divider
+7227	42295	313	3	7	Ppcs Phosphopantothenoylcysteine synthetase
+7227	42297	401	2	5	nos nanos
+7227	42298	428	3	7	CG11779 
+7227	42302	555	2	7	CG5555 
+7227	42306	272	3	12	vib vibrator
+7227	42310	2783	5	31	unc79 uncoordinated 79
+7227	42322	443	4	11	CG5316 
+7227	42323	379	2	8	CG11626 
+7227	42325	219	3	8	CG31221 
+7227	42340	1075	5	18	subdued 
+7227	42345	973	3	7	CG6184 
+7227	42350	349	11	24	GluClalpha 
+7227	42356	760	3	8	bnl branchless
+7227	42357	479	6	14	MICU3 Mitochondrial calcium uptake 3
+7227	42362	948	5	15	CG4562 
+7227	42366	1196	2	13	Ask1 Apoptotic signal-regulating kinase 1
+7227	42368	888	4	14	CG4733 
+7227	42369	673	3	10	ClpX Caseinolytic protease chaperone subunit
+7227	42371	740	5	10	RhoGAP92B Rho GTPase activating protein at 92B
+7227	42381	83	2	4	CG4783 
+7227	42387	836	5	10	CG4836 
+7227	42388	365	3	7	PIG-L Phosphatidylinositol glycan anchor biosynthesis class L
+7227	42396	286	2	4	CG4390 
+7227	42402	1280	5	19	Nlg4 Neuroligin 4
+7227	42412	956	9	22	Orp8 Oxysterol-binding protein-related protein 8
+7227	42413	385	2	4	CG4360 
+7227	42428	635	11	17	Stat92E Signal-transducer and activator of transcription protein at 92E
+7227	42429	364	6	13	DPCoAC Dephosphocoenzyme A carrier
+7227	42431	528	6	13	CG5191 
+7227	42433	284	2	5	TFAM mitochondrial transcription factor A
+7227	42438	360	2	5	Septin2 Septin 2
+7227	42440	410	2	6	Pus1 Pseudouridine synthase 1
+7227	42443	967	2	8	CG15923 
+7227	42445	1059	4	10	H Hairless
+7227	42447	2422	3	14	Lrrk Leucine-rich repeat kinase
+7227	42449	978	3	7	Nep4 Neprilysin 4
+7227	42455	733	6	18	CG42322 
+7227	42460	563	20	28	Syp Syncrip
+7227	42463	270	2	6	CG17271 
+7227	42467	494	3	13	Synd Syndapin
+7227	42476	822	3	15	Grik 
+7227	42477	255	2	8	CG31191 
+7227	42478	377	3	10	hdly hadley
+7227	42481	950	9	31	Calx Na/Ca-exchange protein
+7227	42484	624	2	6	Rlip Ral interacting protein
+7227	42490	596	6	20	Mvl Malvolio
+7227	42492	324	6	10	AnxB9 Annexin B9
+7227	42504	510	3	10	slmb supernumerary limbs
+7227	42509	367	2	9	Usp8 Ubiquitin specific protease 8
+7227	42515	947	16	37	SNF4Agamma SNF4/AMP-activated protein kinase gamma subunit
+7227	42520	1251	3	9	Nelf-A Negative elongation factor A
+7227	42523	461	3	7	ETHR 
+7227	42531	1046	4	20	aus argus
+7227	42541	372	3	6	lbl ladybird late
+7227	42547	659	2	5	slou slouch
+7227	42550	805	6	16	E2f1 E2F transcription factor 1
+7227	42556	449	2	9	CG5849 
+7227	42561	1220	3	15	GABA-B-R2 metabotropic GABA-B receptor subtype 2
+7227	42567	929	8	29	CASK 
+7227	42573	409	4	8	CG6569 
+7227	42574	107	2	3	Cby Chibby
+7227	42577	761	3	6	CG31465 
+7227	42587	739	3	11	Mitofilin 
+7227	42596	405	6	15	how held out wings
+7227	42600	1483	5	16	CG42390 
+7227	42601	1027	7	28	SKIP Shal K
+7227	42608	374	5	11	CG34377 
+7227	42620	512	2	6	PyK Pyruvate kinase
+7227	42624	1291	3	10	Gpdh3 Glycerol-3-phosphate dehydrogenase 3
+7227	42626	262	3	7	CG7059 
+7227	42632	649	2	7	lqfR liquid facets-Related
+7227	42636	758	2	5	CG13847 
+7227	42638	596	2	4	CG34376 
+7227	42646	1837	9	24	Nrx-1 Neurexin 1
+7227	42651	133	2	3	tHMG2 testis-enriched HMG-box-containing protein 2
+7227	42652	508	4	12	Octbeta1R Octopamine beta1 receptor
+7227	42656	444	5	12	AdipoR Adiponectin receptor
+7227	42665	1402	5	22	Efa6 Exchange factor for Arf 6
+7227	42670	565	2	13	mRRF2 mitochondrial ribosome recycling factor 2
+7227	42672	1175	5	12	loco locomotion defects
+7227	42676	1403	7	30	wake wide awake
+7227	42679	852	2	5	wfs1 wolfram syndrome 1
+7227	42684	295	2	7	CG6972 
+7227	42687	1610	4	17	wge winged eye
+7227	42691	203	5	12	CG45049 
+7227	42698	312	2	4	CG31139 
+7227	42703	1517	6	18	CG7029 
+7227	42704	475	3	4	CG7031 
+7227	42710	584	2	13	Nha2 Na
+7227	42715	567	3	7	CG34375 
+7227	42717	365	2	4	lmd lame duck
+7227	42733	629	3	13	Cow Carrier of Wingless
+7227	42735	598	2	13	CenB1A Centaurin beta 1A
+7227	42738	600	7	16	unk unkempt
+7227	42742	652	7	12	Irk1 Inwardly rectifying potassium channel 1
+7227	42743	1383	16	31	cnc cap-n-collar
+7227	42747	1088	2	15	CG4467 
+7227	42748	422	6	10	Rad60 
+7227	42749	566	2	10	EloA Elongin A
+7227	42751	233	2	5	Pex11c Peroxin 11c
+7227	42752	915	7	21	orb oo18 RNA-binding protein
+7227	42757	625	4	13	pnt pointed
+7227	42770	453	4	10	Irk2 Inwardly rectifying potassium channel 2
+7227	42773	644	5	13	CG10175 
+7227	42775	516	2	4	Ugt303B1 UDP-glycosyltransferase family 303 member B1
+7227	42778	413	2	8	beat-IV beaten path IV
+7227	42784	980	6	22	CG31145 
+7227	42793	1398	3	13	CG10254 
+7227	42799	328	2	6	nau nautilus
+7227	42804	448	2	3	RanBP3 Ran binding protein 3
+7227	42807	194	2	5	PTPMT1 Protein tyrosine phosphatase, mitochondrial 1
+7227	42810	405	4	11	Lsd-1 Lipid storage droplet-1
+7227	42812	160	2	5	CG10375 
+7227	42816	1960	3	11	Nup98-96 Nucleoporin 98-96kD
+7227	42817	1970	2	15	mbc myoblast city
+7227	42820	748	4	18	CG34355 
+7227	42824	1583	7	17	sba six-banded
+7227	42826	255	2	5	CG13601 
+7227	42832	549	4	8	Gdh Glutamate dehydrogenase
+7227	42834	996	2	7	GluProRS Glutamyl-prolyl-tRNA synthetase
+7227	42835	157	4	8	AP-1sigma Adaptor Protein complex 1, sigma subunit
+7227	42836	1055	7	28	CG31140 
+7227	42840	717	5	15	Epp Ecdysteroid phosphate phosphatase
+7227	42843	1133	5	16	KrT95D Krueppel target at 95D
+7227	42845	673	4	7	Miro Mitochondrial Rho
+7227	42846	696	6	11	spas spastin
+7227	42848	464	6	12	Rox8 
+7227	42871	1067	3	6	Apc2 Adenomatous polyposis coli 2
+7227	42873	133	4	8	CG13606 
+7227	42880	358	6	18	twin 
+7227	42881	343	4	7	cav caravaggio
+7227	19834760	619	4	11	CG45076 
+7227	42894	260	5	14	Uck Uridine-cytidine kinase
+7227	42903	454	7	14	CG5746 
+7227	42904	1569	4	14	CG6454 
+7227	42914	227	2	5	CG17780 
+7227	42915	262	3	6	CG5768 
+7227	42917	63	2	6	CG13616 
+7227	42918	567	3	12	nAChRalpha1 nicotinic Acetylcholine Receptor alpha1
+7227	42920	304	2	15	nAChRbeta2 nicotinic Acetylcholine Receptor beta2
+7227	42929	816	4	17	Esyt2 Extended synaptotagmin-like protein 2
+7227	42930	755	7	13	REPTOR Repressed by TOR
+7227	42936	220	3	11	ash2 absent, small, or homeotic discs 2
+7227	42937	715	2	10	CG6695 
+7227	42940	1200	23	45	slo slowpoke
+7227	42941	697	3	6	CG13627 
+7227	42948	1615	3	9	CG42331 
+7227	42952	640	2	8	Ets96B 
+7227	42956	527	2	10	lili lilipod
+7227	42958	270	4	15	Saf-B Scaffold attachment factor B
+7227	42964	695	4	11	Nct Nicastrin
+7227	42965	200	2	7	CAH4 Carbonic anhydrase 4
+7227	42970	329	3	5	Elal Elastin-like
+7227	42972	1102	4	14	CG3744 
+7227	42981	332	4	17	CG11168 
+7227	42986	1192	4	11	ssh slingshot
+7227	42987	297	4	8	Nmnat Nicotinamide mononucleotide adenylyltransferase
+7227	42995	700	4	15	Ythdf YTH N6-methyladenosine RNA binding protein
+7227	42999	245	3	8	CG11790 
+7227	43000	131	4	6	CG11791 
+7227	43002	1143	3	17	stac staccato
+7227	43003	246	2	5	veli 
+7227	43007	223	8	12	CG11836 
+7227	43016	412	4	8	vig2 
+7227	43028	967	3	9	CG13654 
+7227	43033	785	3	9	Cad96Cb Cadherin 96Cb
+7227	43041	2718	2	8	Nup358 Nucleoporin 358kD
+7227	43042	203	2	3	CG11857 
+7227	43080	1046	4	7	XNP 
+7227	43087	634	7	15	msi musashi
+7227	43088	173	4	14	ymp yellow-emperor
+7227	43091	624	3	10	Npl4 Nuclear protein localization 4
+7227	43095	1181	2	8	Tnks tankyrase
+7227	43099	392	3	6	CG4730 
+7227	43102	402	4	10	Idh3g Isocitrate dehydrogenase (NAD(+)) 3 non-catalytic subunit gamma
+7227	43105	1063	9	23	LpR2 Lipophorin receptor 2
+7227	43126	206	3	10	CG5890 
+7227	43127	268	3	7	Tsp96F Tetraspanin 96F
+7227	43128	422	6	13	SppL Signal peptide peptidase-like
+7227	43130	613	6	10	Lnk 
+7227	43133	269	2	4	CG5948 
+7227	43136	691	5	37	kumpel kin of rumpel
+7227	43149	2764	5	21	Nf1 Neurofibromin 1
+7227	43162	709	10	20	gro groucho
+7227	43163	671	2	8	Exo84 Exocyst 84
+7227	43174	917	3	14	dysf dysfusion
+7227	43177	264	3	8	Cipc Clock interacting protein circadian
+7227	43183	361	10	14	Ald1 Aldolase 1
+7227	43186	777	3	12	osy oskyddad
+7227	43192	151	2	6	CG5447 
+7227	43217	397	3	8	Yif1 Yip1-interacting factor 1
+7227	43222	1097	3	7	Tl Toll
+7227	43223	887	4	23	Lerp lysosomal enzyme receptor protein
+7227	43231	465	9	14	Rb97D Ribonuclear protein at 97D
+7227	43236	464	2	6	Ets97D Ets at 97D
+7227	43240	347	2	8	CG6330 
+7227	43241	228	5	9	Tsp97E Tetraspanin 97E
+7227	43242	1958	2	8	CG5521 
+7227	43243	390	6	12	CG14253 
+7227	43244	485	2	6	CG31075 
+7227	43253	464	3	12	RYa-R RYamide receptor
+7227	43256	270	8	11	spz spatzle
+7227	43257	290	2	6	CG14257 
+7227	43258	363	2	5	Cpr97Ea Cuticular protein 97Ea
+7227	43266	579	2	5	CG5815 
+7227	43271	988	3	8	CG6051 
+7227	43273	335	2	7	grass Gram-positive Specific Serine protease
+7227	43277	729	6	13	CG31064 
+7227	43284	324	3	9	TfIIA-L Transcription factor IIA L
+7227	43287	166	2	3	CG14260 
+7227	43298	1430	2	9	CG42534 
+7227	43300	929	4	23	side sidestep
+7227	43308	845	2	5	CG12885 
+7227	43310	1224	2	12	Klp98A Kinesin-like protein at 98A
+7227	43312	524	7	15	wdb widerborst
+7227	43317	1432	4	15	Tusp 
+7227	43323	155	3	8	Mlc1 Myosin alkali light chain 1
+7227	43334	504	2	7	Ets98B Ets at 98B
+7227	43350	850	4	14	mino minotaur
+7227	43351	1423	2	6	NSD Nuclear receptor binding SET domain protein
+7227	43352	1150	5	10	BOD1 Biorientation Defective 1
+7227	43355	320	2	8	CG4951 
+7227	43359	457	2	8	betaTub97EF beta-Tubulin at 97EF
+7227	43362	498	5	16	trv trivet
+7227	5740788	805	4	7	CG34382 
+7227	43374	685	3	16	Moca-cyp 
+7227	43385	364	6	10	Hrb98DE Heterogeneous nuclear ribonucleoprotein at 98DE
+7227	43391	777	6	17	snu snustorr
+7227	43393	357	3	7	AstA-R2 Allatostatin A receptor 2
+7227	43399	1009	5	15	Prp39 pre-mRNA processing factor 39
+7227	43401	1218	2	5	CG1647 
+7227	43402	527	4	10	WASp 
+7227	43404	2002	5	19	spg sponge
+7227	43414	453	3	10	CG33203 
+7227	43415	580	15	32	Doa Darkener of apricot
+7227	43428	738	4	19	Pkc98E Protein C kinase 98E
+7227	43437	273	4	9	Pdhb Pyruvate dehydrogenase E1 beta subunit
+7227	43439	1002	2	7	yem yemanuclein
+7227	43442	833	10	17	Vha100-1 Vacuolar H
+7227	43444	990	3	10	superdeath Suppressor of ER stress-induced death
+7227	43449	1020	3	6	Rpn2 Regulatory particle non-ATPase 2
+7227	43453	472	4	13	jus julius seizure
+7227	43467	397	2	4	CG14506 
+7227	43469	1241	5	28	Ptp99A Protein tyrosine phosphatase 99A
+7227	43475	511	3	10	FipoQ F-box involved in polyQ pathogenesis
+7227	43476	804	4	11	Trc8 TRC8 ring finger protein
+7227	43481	371	6	17	alph alphabet
+7227	43482	467	2	5	CG7568 
+7227	43484	537	3	8	Dop1R2 Dopamine 1-like receptor 2
+7227	43485	548	2	9	ppk21 pickpocket 21
+7227	43486	564	3	10	ppk20 pickpocket 20
+7227	43492	142	2	7	CG7582 
+7227	43494	61	2	4	Obp99c Odorant-binding protein 99c
+7227	43501	1537	3	12	Kul Kuzbanian-like
+7227	43504	215	7	13	Gnpnat Glucosamine-phosphate N-acetyltransferase
+7227	43505	776	2	9	Wdr24 WD repeat domain 24
+7227	43526	201	3	6	Prtl99C Protamine-like 99C
+7227	43529	484	3	8	dgt1 dim gamma-tubulin 1
+7227	43530	300	2	4	CG7824 
+7227	43531	302	2	3	CG15514 
+7227	43535	787	8	13	CG31038 
+7227	43539	1006	2	10	CG31036 
+7227	43542	246	2	25	trp transient receptor potential
+7227	43551	517	3	12	TkR99D Tachykinin-like receptor at 99D
+7227	43554	382	2	6	CG7903 
+7227	43558	262	2	16	Tace 
+7227	43563	488	3	12	Mgat2 Mannosyl (alpha-1,6-)-glycoprotein beta-1,2-N-acetylglucosaminyltransferase
+7227	43565	745	7	23	Axn Axin
+7227	43569	119	3	6	janA janus A
+7227	43573	134	4	8	RpL32 Ribosomal protein L32
+7227	43580	1507	4	17	sima similar
+7227	43581	742	2	6	Ppi1 Protein phosphatase 1c interacting protein 1
+7227	43582	247	3	6	Tpi Triose phosphate isomerase
+7227	43583	772	2	7	AdoR Adenosine receptor
+7227	43601	417	2	4	CG9733 
+7227	43604	650	4	9	hdc headcase
+7227	43626	485	2	8	CG31371 
+7227	43627	386	3	12	CG15539 
+7227	43630	182	3	7	jdp 
+7227	43633	439	18	31	tmod tropomodulin
+7227	43634	676	3	5	CG9702 
+7227	43637	367	16	20	CG2246 
+7227	43639	389	2	3	CG2267 
+7227	43644	353	2	6	Pka-C2 Protein kinase, cAMP-dependent, catalytic subunit 2
+7227	43646	367	2	4	CG11313 
+7227	43650	1054	3	8	zfh1 Zn finger homeodomain 1
+7227	43654	848	10	20	cindr CIN85 and CD2AP related
+7227	43660	338	4	10	CG12071 
+7227	43662	876	2	9	Sap-r Saposin-related
+7227	43664	514	3	8	Ptx1 
+7227	43670	622	3	15	CanA1 Calcineurin A1
+7227	43671	502	2	6	Alp4 Alkaline phosphatase 4
+7227	43676	295	2	5	CG11317 
+7227	43683	445	3	11	stops slow termination of phototransduction
+7227	43688	1243	5	20	mesh 
+7227	43690	1305	5	19	chp chaoptin
+7227	43694	516	4	11	CG12054 
+7227	43700	364	2	3	spn-F 
+7227	43707	505	4	12	CG1607 
+7227	43709	1589	3	12	Gcn2 
+7227	43717	883	4	9	gammaCOP Coat Protein (coatomer) gamma
+7227	43723	262	2	4	RpL6 Ribosomal protein L6
+7227	43725	771	3	11	Med Medea
+7227	43728	642	3	9	pasha partner of drosha
+7227	43729	836	2	5	kek6 kekkon 6
+7227	43730	1121	2	14	CG1815 
+7227	43739	168	3	4	awd abnormal wing discs
+7227	43741	439	3	7	CG1910 
+7227	43742	621	2	8	salt salty dog
+7227	43748	304	2	7	CG2126 
+7227	43749	2761	7	26	faf fat facets
+7227	43750	698	4	13	Mccc1 Methylcrotonoyl-CoA carboxylase 1
+7227	43757	281	3	8	FeCH Ferrochelatase
+7227	43758	1825	8	24	RhoGAP100F Rho GTPase activating protein at 100F
+7227	43761	492	3	7	CG2003 
+7227	43765	1109	3	6	Map205 Microtubule-associated protein 205
+7227	43767	1279	3	10	ci cubitus interruptus
+7227	43768	268	3	7	RpS3A Ribosomal protein S3A
+7227	43769	494	9	29	pan pangolin
+7227	43771	100	3	9	Arl4 ADP ribosylation factor-like 4
+7227	43774	1363	2	9	CG31998 
+7227	45525	248	9	14	eIF4E1 eukaryotic translation initiation factor 4E1
+7227	43780	743	10	22	CG1674 
+7227	43781	1242	4	17	RhoGAP102A Rho GTPase activating protein at 102A
+7227	43782	762	2	11	NfI Nuclear factor I
+7227	43783	327	5	19	Syt7 Synaptotagmin 7
+7227	43786	201	4	7	Zip102B Zinc/iron regulated transporter-related protein 102B
+7227	43788	1500	5	21	Hcf Host cell factor
+7227	43789	1150	4	13	dati datilografo
+7227	43792	405	5	17	CaMKI Calcium/calmodulin-dependent protein kinase I
+7227	43794	1348	9	25	Asator 
+7227	43797	274	7	17	Pur-alpha Purine-rich binding protein-alpha
+7227	43803	1080	6	21	Eph Eph receptor tyrosine kinase
+7227	43808	1382	5	15	gw gawky
+7227	43809	627	3	7	Slip1 SLo interacting protein 1
+7227	43812	624	4	15	ey eyeless
+7227	43822	910	3	17	CG11155 
+7227	43824	978	4	16	Cals Calsyntenin
+7227	43825	680	7	18	sv shaven
+7227	43828	482	12	25	CaMKII Calcium/calmodulin-dependent protein kinase II
+7227	43829	505	3	7	ATPsynbeta ATP synthase, beta subunit
+7227	43832	1928	4	18	PlexA Plexin A
+7227	43833	526	3	13	toy twin of eyeless
+7227	43835	770	3	11	fuss fussel
+7227	43836	1010	4	13	4E-T eIF4E-Transporter
+7227	43838	976	4	18	mGluR metabotropic Glutamate Receptor
+7227	43839	1666	3	18	eIF4G1 eukaryotic translation initiation factor 4G1
+7227	43841	2871	7	41	unc-13 
+7227	43842	1567	4	13	Gyf Gigyf
+7227	43844	580	4	9	Sox102F 
+7227	43852	1329	4	13	a arc
+7227	43862	493	6	20	HnRNP-K Heterogeneous nuclear ribonucleoprotein K
+7227	43867	613	3	6	Atf3 Activating transcription factor 3
+7227	43872	2174	4	19	Ppn Papilin
+7227	43873	537	5	10	ras raspberry
+7227	19835749	440	2	4	CG44245 
+7227	43892	2081	14	58	sif still life
+7227	43905	1214	11	23	syd sunday driver
+7227	43906	2618	4	20	skd skuld
+7227	43912	323	3	9	SF1 Splicing factor 1
+7227	43913	474	2	6	Gk1 Glycerol kinase 1
+7227	43916	1374	4	16	Rok Rho kinase
+7227	43923	2047	7	26	axo axotactin
+7227	43924	820	7	16	jim 
+7227	43928	811	3	10	chm chameau
+7227	43935	578	2	9	NtR 
+7227	43936	617	3	10	Men-b Malic enzyme b
+7227	43944	536	3	14	sbr small bristles
+7227	43974	2263	7	24	trio 
+7227	43980	377	2	8	Lip2 Lipase 2
+7227	43981	309	8	14	DIP1 DISCO Interacting Protein 1
+7227	43982	645	6	11	Oamb Octopamine receptor in mushroom bodies
+7227	43984	517	2	8	Sdic1 Sperm-specific dynein intermediate chain 1
+7227	43991	514	7	19	Pten Phosphatase and tensin homolog
+7227	43997	2839	10	27	jbug jitterbug
+7227	44011	1363	2	15	pwn pawn
+7227	44014	1593	4	18	sol small optic lobes
+7227	44018	793	2	6	cas castor
+7227	44021	369	3	5	nmd no mitochondrial derivative
+7227	44027	2312	7	21	sbb scribbler
+7227	44039	704	9	15	Pak p21-activated kinase
+7227	44046	57	2	5	sun stunted
+7227	44095	891	8	21	fus fusilli
+7227	44096	903	2	7	wit wishful thinking
+7227	44097	1492	3	22	sns sticks and stones
+7227	44108	487	3	8	Optix 
+7227	44110	151	3	4	Mgstl Microsomal glutathione S-transferase-like
+7227	44111	1148	4	12	slpr slipper
+7227	44115	774	5	12	Rgl Ral guanine nucleotide dissociation stimulator-like
+7227	44129	1228	3	14	hbs hibris
+7227	44135	581	5	12	ect ectodermal
+7227	45587	1306	5	23	nompA no mechanoreceptor potential A
+7227	19836034	286	2	3	CG44250 
+7227	34669	601	3	9	nub nubbin
+7227	44226	307	2	5	Xbp1 X box binding protein-1
+7227	44233	552	8	13	fray frayed
+7227	44235	1133	6	16	bon bonus
+7227	44250	1420	2	7	Cpsf160 Cleavage and polyadenylation specificity factor 160
+7227	44254	1066	2	6	bab2 bric a brac 2
+7227	44258	572	18	25	ps pasilla
+7227	44259	816	2	6	nbs 
+7227	44261	1108	5	12	eIF5B eukaryotic translation initiation factor 5B
+7227	44268	439	2	7	sut3 sugar transporter 3
+7227	44289	330	4	9	flw flapwing
+7227	44291	416	9	11	Idh Isocitrate dehydrogenase
+7227	44297	923	4	14	ome omega
+7227	19836175	70	2	3	CG44242 
+7227	44030	1213	8	28	msn misshapen
+7227	44355	610	2	5	drl derailed
+7227	44359	1083	6	15	CG46339 
+7227	38485	246	4	8	CG14989 
+7227	44448	2585	18	48	scrib scribble
+7227	44451	931	3	5	ear ENL/AF9-related
+7227	44484	1095	4	20	GluRIB Glutamate receptor IB
+7227	44505	724	16	28	br broad
+7227	44522	1463	2	15	robo2 roundabout 2
+7227	44529	1234	6	11	CG2841 
+7227	44540	2174	3	14	ct cut
+7227	44544	704	5	14	Hnf4 Hepatocyte nuclear factor 4
+7227	44548	891	25	34	lola longitudinals lacking
+7227	14462537	196	2	8	CG44102 
+7227	44642	1503	3	6	Apc APC-like
+7227	44643	605	4	13	Cnx99A Calnexin 99A
+7227	44669	621	3	7	cwo clockwork orange
+7227	44672	1090	2	8	Lk6 Lk6 kinase
+7227	14462605	514	3	20	Rgk1 Rad, Gem/Kir family member 1
+7227	44787	279	5	10	miple2 midkine and pleiotrophin 2
+7227	44811	2139	9	29	E(bx) Enhancer of bithorax
+7227	44817	1088	13	23	for foraging
+7227	44819	1033	3	20	g garnet
+7227	44830	534	2	9	kto kohtalo
+7227	44843	553	3	7	nkd naked cuticle
+7227	44849	488	4	9	pnr pannier
+7227	44851	805	5	14	raw 
+7227	44861	1901	14	36	sdt stardust
+7227	44885	846	4	11	mys myospheroid
+7227	44889	1359	2	7	ph-d polyhomeotic distal
+7227	14462845	1221	5	15	CG43783 
+7227	44936	1188	3	12	Eip93F Ecdysone-induced protein 93F
+7227	44965	227	5	10	Fer2LCH Ferritin 2 light chain homologue
+7227	14462901	77	2	3	CG43702 
+7227	5740847	571	3	7	CG17636 
+7227	45233	424	3	10	capt capulet
+7227	45234	72	8	13	Ggamma30A G protein subunit gamma at 30A
+7227	45248	847	5	15	Nckx30C 
+7227	45250	531	2	9	deltaCOP Coat Protein (coatomer) delta
+7227	45278	841	4	17	csw corkscrew
+7227	3354861	141	5	12	MFS17 Major Facilitator Superfamily Transporter 17
+7227	45307	581	2	6	fz frizzled
+7227	45318	556	5	20	kn knot
+7227	3354888	376	7	20	rl rolled
+7227	3354896	633	2	11	vtd verthandi
+7227	45338	2224	2	19	na narrow abdomen
+7227	45343	963	3	9	pk prickle
+7227	3354919	354	5	21	Dbp80 Dead box protein 80
+7227	3354921	685	9	20	Gfat1 Glutamine:fructose-6-phosphate aminotransferase 1
+7227	3354930	378	5	12	CG40191 
+7227	45368	560	7	17	Treh Trehalase
+7227	45374	1674	5	18	fwd four wheel drive
+7227	45380	605	5	16	spin spinster
+7227	45398	563	12	29	Aldh-III Aldehyde dehydrogenase type III
+7227	3354988	123	2	5	CG17163 
+7227	3354990	368	2	7	CG12061 
+7227	3354991	409	4	12	CG17167 
+7227	3354992	463	7	20	zyd zydeco
+7227	3354994	733	3	13	su(f) suppressor of forked
+7227	3355011	430	4	11	CG17683 
+7227	45467	1106	23	53	mtd mustard
+7227	3355040	41	2	5	l(3)80Fj lethal (3) 80Fj
+7227	3355041	392	4	9	eIF4B eukaryotic translation initiation factor 4B
+7227	3355066	483	2	15	CG17684 
+7227	3355069	364	3	9	CG17691 
+7227	3355072	1111	4	14	CG41099 
+7227	34891	882	3	8	dao down and out
+7227	3355079	97	4	9	CG40045 
+7227	3355084	212	2	9	Snap25 Synaptosomal-associated protein 25kDa
+7227	3355089	407	3	5	mRpS5 mitochondrial ribosomal protein S5
+7227	3355094	341	6	12	CG12567 
+7227	3355114	371	3	6	Spf45 
+7227	3355120	93	2	4	CG40439 
+7227	3355129	274	8	18	CG17715 
+7227	3355130	841	4	20	lt light
+7227	3355136	2053	6	29	Nipped-B 
+7227	3355139	282	4	9	CG17883 
+7227	3355150	867	4	11	AGO3 Argonaute 3
+7227	3355151	439	4	9	scro scarecrow
+7227	45588	270	13	20	Pdp1 PAR-domain protein 1
+7227	3355158	266	3	5	Coa7 Cytochrome c oxidase assembly factor 7
+7227	318907	122	3	5	CG31710 
+7227	45683	1116	6	15	milt milton
+7227	45706	507	2	5	Cyp4d14 Cytochrome P450 4d14
+7227	45775	1206	6	16	mei-P26 meiotic P26
+7227	45783	1049	3	9	ValRS Valyl-tRNA synthetase
+7227	45784	747	4	8	ThrRS Threonyl-tRNA synthetase
+7227	45821	1620	10	14	Abl Abl tyrosine kinase
+7227	45826	798	2	7	bel belle
+7227	45840	607	12	34	cpo couch potato
+7227	45879	1616	3	9	ImpE1 Ecdysone-inducible gene E1
+7227	45883	612	2	7	kar karmoisin
+7227	45884	1615	3	14	kkv krotzkopf verkehrt
+7227	45928	877	15	28	shi shibire
+7227	45961	693	4	9	Pep Protein on ecdysone puffs
+7227	45969	803	2	6	gwl greatwall
+7227	45970	481	3	16	S6KL S6 Kinase Like
+7227	45976	906	5	16	retn retained
+7227	46006	2342	6	20	east enhanced adult sensory threshold
+7227	46008	798	7	14	Gel Gelsolin
+7227	46015	963	10	24	tutl turtle
+7227	46017	840	9	39	hlk hulk
+7227	46020	918	3	6	NAT1 
+7227	46035	258	2	5	Ccs Copper chaperone for superoxide dismutase
+7227	46038	299	6	13	Phb2 Prohibitin 2
+7227	46066	260	3	5	l(2)05714 lethal (2) 05714
+7227	46068	715	10	22	Acsl Acyl-CoA synthetase long-chain
+7227	46078	605	8	13	vlc vulcan
+7227	46156	1985	9	24	Gug Grunge
+7227	46194	2134	11	27	Spn Spinophilin
+7227	46234	417	7	16	fbl fumble
+7227	35125	563	2	3	CG10341 
+7227	38665	250	2	9	CG13288 
+7227	47080	366	13	14	acj6 abnormal chemosensory jump 6
+7227	47082	253	4	9	Adf1 Adh transcription factor 1
+7227	7354398	100	5	15	CG42238 
+7227	7354399	230	2	4	Spf30 Splicing factor 30
+7227	47141	1047	3	13	ebo ellipsoid body open
+7227	7354434	1455	3	10	OtopLc Otopetrin-like c
+7227	7354437	502	6	11	CG42354 
+7227	7354466	822	12	20	CG42342 
+7227	7354470	737	3	14	CG42402 
+7227	47216	727	5	12	Klp54D Kinesin-like protein at 54D
+7227	47220	1101	9	20	Fur1 Furin 1
+7227	47249	1702	5	16	woc without children
+7227	47272	214	3	11	peo pendolino
+7227	47396	2470	2	8	Tor Target of rapamycin
+7227	47399	351	2	7	Reph Regulator of eph expression
+7227	47594	606	12	32	aPKC atypical protein kinase C
+7227	47718	467	3	7	Hinfp Histone H4 transcription factor
+7227	47729	827	10	20	TTLL4A Tubulin tyrosine ligase-like 4A
+7227	47763	270	10	16	Abd-B Abdominal B
+7227	47767	381	4	8	crc cryptocephal
+7227	36638	422	3	9	Rpn6 Regulatory particle non-ATPase 6
+7227	47873	1210	2	6	bgcn benign gonial cell neoplasm
+7227	47877	499	9	19	tws twins
+7227	47878	161	4	13	Eip63F-1 Ecdysone-induced protein 63F 1
+7227	47895	303	3	6	Nmdmc NAD-dependent methylenetetrahydrofolate dehydrogenase
+7227	47905	1374	2	12	l(2)03659 lethal (2) 03659
+7227	47906	663	5	16	Dek 
+7227	48071	855	2	8	Su(z)12 
+7227	44160	642	15	17	sw short wing
+7227	38706	86	2	3	Cpr65Aw Cuticular protein 65Aw
+7227	48311	670	6	23	Pkc53E Protein C kinase 53E
+7227	48317	643	8	9	ttk tramtrack
+7227	48387	851	2	10	Ttc7 Tetratricopeptide repeat domain 7
+7227	48421	1036	4	11	CG3558 
+7227	48422	357	3	5	CG5707 
+7227	48440	547	2	7	Kebab Kinetochore and EB1 associated basic protein
+7227	48445	438	2	7	Acph-1 Acid phosphatase 1
+7227	48552	138	12	24	Sam-S S-adenosylmethionine Synthetase
+7227	48571	608	25	50	heph hephaestus
+7227	3885647	704	4	13	Mitf 
+7227	3885654	80	3	11	CG33981 
+7227	3885660	222	2	6	CG34051 
+7227	48844	507	5	8	CG5504 
+7227	38725	1206	2	11	CG10226 
+7227	5740505	806	2	20	Lgr4 Leucine-rich repeat-containing G protein-coupled receptor 4
+7227	2768661	251	2	6	Fer1 48 related 1
+7227	2768671	688	3	11	Pxd Peroxidase
+7227	2768677	385	4	13	p53 
+7227	2768680	1258	6	34	Myo95E Myosin 95E
+7227	2768685	1918	5	9	mld molting defective
+7227	2768687	976	10	21	LpR1 Lipophorin receptor 1
+7227	2768688	494	2	8	CCAP-R Crustacean cardioactive peptide receptor
+7227	2768693	179	2	6	CG33483 
+7227	2768716	1802	13	33	mim missing-in-metastasis
+7227	2768718	155	2	8	qvr quiver
+7227	2768728	384	2	5	Or46a Odorant receptor 46a
+7227	40945	865	7	17	CG2698 
+7227	49070	1245	18	47	Mbs Myosin binding subunit
+7227	2768836	766	2	11	Fs Follistatin
+7227	2768848	665	2	9	mute muscle wasted
+7227	2768851	174	2	5	CG33453 
+7227	2768860	292	2	6	CG33225 
+7227	31315	383	2	4	CG16781 
+7227	2768865	286	2	12	dpr7 defective proboscis extension response 7
+7227	2768881	204	3	8	CG9132 
+7227	2768883	543	3	8	Sdic2 Sperm-specific dynein intermediate chain 2
+7227	2768889	367	3	7	CG33253 
+7227	2768892	199	2	10	CG42271 
+7227	38736	1048	4	9	sfl sulfateless
+7227	2768929	1494	4	20	CG33298 
+7227	2768940	650	5	15	Pp2A-29B Protein phosphatase 2A at 29B
+7227	2768948	1898	4	22	Pura Puratrophin-1-like
+7227	2768954	91	4	9	CG12355 
+7227	2768955	259	2	5	Obp73a Odorant-binding protein 73a
+7227	2768964	393	2	4	Or69a Odorant receptor 69a
+7227	2768981	567	10	24	Trl Trithorax-like
+7227	2768987	405	2	8	ppk5 pickpocket 5
+7227	2768999	427	4	11	CG42676 
+7227	2769006	473	2	10	CG33234 
+7227	26067063	441	5	13	CG46025 
+7227	26067066	1932	2	20	Tmc Transmembrane channel-like
+7227	26067068	626	4	12	Fatp1 Fatty acid transport protein 1
+7227	49297	999	9	18	SERCA Sarco/endoplasmic reticulum Ca(2+)-ATPase
+7227	31317	662	4	11	CG10804 
+7227	49505	241	3	7	fs(2)ltoPP43 female sterile (2) ltoPP43
+7227	49636	659	4	14	hrg hiiragi
+7227	49638	81	3	6	drm drumstick
+7227	49701	468	16	34	gish gilgamesh
+7227	49713	787	2	7	alpha-Catr alpha-catenin related
+7227	49805	406	11	13	Spn42Da Serpin 42Da
+7227	49806	370	2	5	Spn38F Serpin 38F
+7227	49809	325	5	12	eIF4H1 eukaryotic translation initiation factor 4H1
+7227	246420	325	2	9	CG30054 
+7227	246432	200	2	4	Obp50a Odorant-binding protein 50a
+7227	246485	218	4	8	galla-1 
+7227	246493	1066	4	21	prom prominin
+7227	49892	98	6	12	Fis1 Fission, mitochondrial 1
+7227	49893	194	2	5	CG17508 
+7227	49895	1272	5	18	Marf1 Meiosis regulator and mRNA stability factor 1
+7227	246509	489	2	8	CG30187 
+7227	246518	501	4	15	CG30271 
+7227	246522	1285	3	26	CG30275 
+7227	246529	152	2	5	CG30286 
+7227	246538	784	4	21	Sema2b Semaphorin 2b
+7227	246545	130	2	4	CG30334 
+7227	49968	1409	5	30	Cadps Calcium-dependent secretion activator
+7227	246580	237	2	6	PIG-X Phosphatidylinositol glycan anchor biosynthesis class X
+7227	246596	277	3	5	Tango11 Transport and Golgi organization 11
+7227	246603	536	2	3	CG30416 
+7227	246606	176	5	11	cGlr2 cGAS-like receptor 2
+7227	246608	247	2	6	CG30428 
+7227	50005	84	3	6	CG8369 
+7227	246614	524	5	13	Ugt50B3 UDP-glycosyltransferase family 50 member B3
+7227	246627	647	5	18	Pgant9 Polypeptide N-Acetylgalactosaminyltransferase 9
+7227	246629	404	2	4	CG30466 
+7227	246647	265	2	4	antr antares
+7227	246651	327	2	7	CG30495 
+7227	246653	529	6	11	CG46385 
+7227	246667	129	2	3	Obp56i Odorant-binding protein 56i
+7227	50068	515	5	14	CG33111 
+7227	50101	284	3	7	CAH16 Carbonic anhydrase 16
+7227	50105	195	3	7	CG32428 
+7227	50129	191	3	9	CG30222 
+7227	50167	125	2	4	CG14974 
+7227	50225	1806	4	13	Prosap 
+7227	50250	428	3	7	CG14767 
+7227	50286	86	3	5	Nplp2 Neuropeptide-like precursor 2
+7227	50296	283	5	11	dpr6 defective proboscis extension response 6
+7227	50320	296	3	12	dpr12 defective proboscis extension response 12
+7227	50356	2102	3	11	Dora Dorado
+7227	50391	1057	3	13	Grip Glutamate receptor interacting protein
+7227	50415	82	2	4	CG15308 
+7227	50432	93	3	5	Peritrophin-15b 
+7227	50438	209	2	3	CG18661 
+7227	34416	1059	11	27	Cnot4 CCR4-NOT transcription complex subunit 4
+7227	8674000	503	6	12	CG42542 
+7227	35821	281	2	13	Cyp4ad1 Cytochrome P450 4ad1
+7227	12797901	137	3	6	CG43291 
+7227	12797910	52	2	4	CG43248 
+7227	12797937	207	2	5	CG43049 
+7227	12798024	32	2	4	CG43233 
+7227	12798054	128	2	4	CG43254 
+7227	12798124	129	2	9	CG43195 
+7227	12798125	88	2	4	CG43308 
+7227	12798328	109	2	4	CG43272 
+7227	12798339	85	2	6	CG43070 
+7227	12798363	81	2	5	CG43293 
+7227	12798406	62	2	3	CG43114 
+7227	33363	966	3	14	CG31663 
+7227	12798419	120	2	5	CG43315 
+7227	12798449	90	2	6	CG43175 
+7227	3885573	445	4	15	Octbeta3R Octopamine beta3 receptor
+7227	3885583	568	3	11	CG34041 
+7227	3885596	237	2	6	CG34038 
+7227	3885598	418	2	9	dpr13 defective proboscis extension response 13
+7227	36639	668	4	7	CG10151 
+7227	12798498	266	2	3	CG43446 
+7227	117294	385	7	17	Dsp1 Dorsal switch protein 1
+7227	3885637	258	2	9	Egfrap EGFR adaptor protein
+7227	3885640	139	2	4	CG34001 
+7227	3885645	355	2	5	CG34057 
+7227	3885646	1965	5	18	CG33978 
+7227	3885650	293	2	5	Cp7Fa Chorion protein a at 7F
+7227	117338	423	2	3	Gr97a Gustatory receptor 97a
+7227	117346	372	4	7	Gr39a Gustatory receptor 39a
+7227	117361	2409	2	9	FASN2 Fatty acid synthase 2
+7227	117419	631	2	4	Irbp Inverted repeat-binding protein
+7227	2768834	186	2	5	CG33467 
+7227	117467	532	2	8	mthl11 methuselah-like 11
+7227	117496	452	5	7	Gr28b Gustatory receptor 28b
+7227	117503	383	2	4	RacGAP84C Rac GTPase activating protein at 84C
+7227	38836	236	4	17	Tsp66A Tetraspanin 66A
+7227	31200	448	4	5	SmydA-8 SET and MYND domain containing, arthropod-specific, member 8
+7227	43775	184	7	18	Crk Crk oncogene
+7227	36043	338	7	14	CG1407 
+7227	249072	1158	5	22	Liprin-alpha 
+7227	318189	517	2	6	CG32751 
+7227	118436	1080	6	23	Ranbp16 
+7227	249663	846	9	25	hoe1 hoepel1
+7227	36171	2532	6	15	shn schnurri
+7227	36176	546	4	10	metro menage a trois
+7227	53431	769	4	10	Best1 Bestrophin 1
+7227	53432	865	5	26	ACXA Adenylyl cyclase X A
+7227	53434	1386	2	9	c12.2 
+7227	53444	195	4	10	SC35 SR family splicing factor SC35
+7227	53446	513	2	5	HGTX 
+7227	10178793	51	2	6	CG42789 
+7227	10178796	253	2	4	CG42780 
+7227	53515	1034	4	12	Myo28B1 Myosin 28B1
+7227	10178857	148	2	4	CG42692 
+7227	53556	623	2	8	dbo diablo
+7227	53557	785	4	11	esn espinas
+7227	53558	246	2	8	wun2 wunen-2
+7227	53560	2141	6	32	cic capicua
+7227	53561	2132	4	14	cmet CENP-meta
+7227	53562	912	2	3	tara taranis
+7227	53563	534	4	10	gukh GUK-holder
+7227	53566	572	2	7	Kat60 Katanin 60
+7227	53567	1673	7	16	larp La related protein
+7227	53580	175	2	3	Dlip1 Dorsal interacting protein 1
+7227	53586	724	3	6	Gnpat Glyceronephosphate O-acyltransferase
+7227	10178943	82	2	6	CG42691 
+7227	10178954	57	2	4	CG42798 
+7227	10178963	229	3	7	CG42764 
+7227	47173	759	3	6	Men Malic enzyme
+7227	38547	148	3	5	CG12607 
+7227	33435	332	4	7	oaf out at first
+7227	43785	414	3	8	Rad23 
+7227	7354472	484	4	12	CG42340 
+7227	31255	357	3	5	Ugalt UDP-galactose transporter
+7227	36308	512	2	4	CCT5 Chaperonin containing TCP1 subunit 5
+7227	318228	520	2	6	CG32820 
+7227	36327	317	3	7	CG13168 
+7227	250735	660	5	13	fdl fused lobes
+7227	250736	283	2	6	bwa brain washing
+7227	43787	1187	11	28	PMCA plasma membrane calcium ATPase
+7227	36339	215	2	4	Den1 Deneddylase 1
+7227	250811	893	11	25	bru2 bruno 2
+7227	36343	874	2	13	CG13160 
+7227	38904	1417	2	10	Setx Senataxin
+7227	31269	257	2	9	Syx4 Syntaxin 4
+7227	36362	646	7	16	Dyb Dystrobrevin
+7227	3771916	451	2	14	Gr64e Gustatory receptor 64e
+7227	3771920	282	4	11	PGRP-LD Peptidoglycan recognition protein LD
+7227	38910	491	2	7	mthl7 methuselah-like 7
+7227	36382	2062	10	23	Sin3A 
+7227	4379834	1262	4	13	stnB stoned B
+7227	36383	502	3	13	Amph Amphiphysin
+7227	4379850	138	3	7	CG34135 
+7227	4379854	760	2	18	side-VI sidestep VI
+7227	4379870	755	4	8	CG34141 
+7227	4379897	411	2	5	CG41434 
+7227	36395	267	8	15	nemy no extended memory
+7227	4379919	616	4	10	CG17698 
+7227	36405	278	4	11	Taz Tafazzin
+7227	36414	291	2	5	CG17575 
+7227	251324	130	3	6	CG30270 
+7227	36429	450	2	4	CG44251 
+7227	36432	1368	3	10	Su(z)2 Suppressor of zeste 2
+7227	34116	367	3	8	PGAP5 Post-GPI attachment to proteins 5
+7227	38992	203	2	7	CG13305 
+7227	36506	420	5	10	NADK NAD kinase
+7227	3772082	722	5	7	kay kayak
+7227	3346141	649	4	18	CG33521 
+7227	3346142	193	3	6	CG13376 
+7227	31314	527	2	4	CG10801 
+7227	317815	1388	9	21	anne anne boleyn
+7227	317824	496	5	14	Zyx Zyxin
+7227	36589	1290	11	30	Ih I
+7227	317855	1397	2	7	CG32106 
+7227	317856	956	2	4	CG32107 
+7227	317860	510	4	13	CG32112 
+7227	317904	133	2	6	CG32192 
+7227	317908	154	2	4	CG32196 
+7227	317913	368	2	9	CG32204 
+7227	317943	395	2	9	CG32260 
+7227	317973	181	3	7	CG32313 
+7227	317974	1282	6	16	CG33791 
+7227	36614	760	4	17	ttv tout-velu
+7227	318008	1892	3	9	jv javelin
+7227	252479	1755	5	19	DIP2 DISCO Interacting Protein 2
+7227	318020	434	2	4	CG42272 
+7227	318031	121	3	9	Arv1 ACAT-related protein required for viability 1
+7227	3346192	610	4	13	Vmat Vesicular monoamine transporter
+7227	318053	491	7	16	Gss2 Glutathione synthetase 2
+7227	318066	1997	4	19	CG34120 
+7227	31169	345	3	8	CG4313 
+7227	252554	603	2	4	sav salvador
+7227	318095	128	2	6	CG32576 
+7227	318096	237	3	7	CG32579 
+7227	8673972	78	2	6	CG42531 
+7227	8673982	105	2	7	CG43127 
+7227	8673992	768	6	14	Nost Nostrin
+7227	8674005	150	2	5	Sfp78E Seminal fluid protein 78E
+7227	318168	257	3	7	CG32718 
+7227	8674011	609	2	7	CG42570 
+7227	252671	1168	5	16	X11L 
+7227	8674049	1264	5	21	Pif1A PFTAIRE-interacting factor 1A
+7227	318213	432	2	8	ppk8 pickpocket 8
+7227	36652	501	2	4	CG10209 
+7227	318225	293	6	10	CG32816 
+7227	8674066	991	6	28	OtopLa Otopetrin-like a
+7227	318227	520	2	6	CG32819 
+7227	8674077	316	2	6	FDY flagrante delicto Y
+7227	8674081	40	2	4	CG33655 
+7227	318244	329	2	4	CG32846 
+7227	318246	146	2	6	Rnf11 Ring finger protein 11
+7227	8674091	905	3	11	CG42594 
+7227	8674097	377	2	6	CG42525 
+7227	8674108	533	3	8	CG42514 
+7227	8674119	93	2	5	Kmn2 kinetochore Mis12-Ndc80 network component 2
+7227	326115	604	4	14	Atg16 Autophagy-related 16
+7227	326119	400	3	11	5PtaseI Inositol polyphosphate-5-phosphatase type I
+7227	140439	392	3	10	Tre1 Trapped in endoderm 1
+7227	3772232	130	3	7	fabp fatty acid binding protein
+7227	31224	2738	8	30	PsGEF Protostome-specific GEF
+7227	326139	48	2	6	CG31441 
+7227	38974	250	2	4	GstO2 Glutathione S transferase O2
+7227	31237	222	2	7	CG13760 
+7227	326151	630	2	11	Pgant5 Polypeptide N-Acetylgalactosaminyltransferase 5
+7227	326152	603	4	6	erm earmuff
+7227	326155	1082	3	12	AspRS-m Aspartyl-tRNA synthetase, mitochondrial
+7227	318558	659	2	6	CG31019 
+7227	326160	415	2	6	ninaD neither inactivation nor afterpotential D
+7227	318563	384	2	4	VhaAC45RP VhaAC45-related protein
+7227	318566	1108	3	13	CG34133 
+7227	318574	424	3	7	CG31055 
+7227	318578	750	2	6	CG31068 
+7227	318593	135	2	9	ppk22 pickpocket 22
+7227	318608	331	2	7	CG31157 
+7227	318616	202	2	4	CG31174 
+7227	326170	517	3	6	CG31886 
+7227	318627	190	2	5	CG31206 
+7227	318649	579	4	20	CG31262 
+7227	318652	187	2	4	CG31268 
+7227	318657	445	6	14	CG31279 
+7227	318658	163	2	3	Tpl94D Transition protein-like 94D
+7227	318677	59	3	6	CG31313 
+7227	318715	148	2	6	CG31406 
+7227	326186	233	3	10	scramb1 scramblase 1
+7227	318741	232	2	4	CG31446 
+7227	318765	218	2	5	CG31493 
+7227	326195	475	2	5	CG32086 
+7227	318781	535	2	9	CG31524 
+7227	36747	1330	4	11	bdg bedraggled
+7227	318826	579	2	4	CG33003 
+7227	318834	228	2	5	CG31600 
+7227	318838	116	2	6	CG33061 
+7227	318841	265	10	20	Bsg Basigin
+7227	318843	537	5	12	CG43394 
+7227	318868	85	3	4	COX6CL Cytochrome c oxidase subunit 6C-like
+7227	318872	1518	5	24	CG34126 
+7227	318875	175	2	6	CG31659 
+7227	318892	1263	2	4	CG33125 
+7227	318894	180	3	5	CG33136 
+7227	318909	119	2	5	CG31715 
+7227	318912	629	2	7	Ir31a Ionotropic receptor 31a
+7227	318913	165	3	5	CG33178 
+7227	318914	377	2	12	mthl15 methuselah-like 15
+7227	318916	696	8	22	CG33181 
+7227	318918	590	5	13	Kdm4B Lysine demethylase 4B
+7227	318922	312	2	7	CG31735 
+7227	318930	440	3	9	NimA Nimrod A
+7227	36773	914	4	16	Dg Dystroglycan
+7227	318952	603	3	9	CG31805 
+7227	318958	643	2	15	DIP-kappa Dpr-interacting protein kappa
+7227	43805	508	2	14	Gat GABA transporter
+7227	39659	258	2	10	Tak1 TGF-beta activated kinase 1
+7227	319026	682	2	3	CG43755 
+7227	31326	496	3	6	CG2875 
+7227	326240	207	3	6	Ldaf1 Lipid droplet assembly factor 1
+7227	319045	153	4	6	CG31955 
+7227	31332	201	3	9	Rala Ras-like protein A
+7227	3772349	333	3	15	Tyler 
+7227	326250	95	2	5	CG34148 
+7227	31339	1712	3	9	ec echinus
+7227	31341	810	5	14	CG2930 
+7227	43806	898	3	17	Ekar Eye-enriched kainate receptor
+7227	31349	269	4	11	Vap33 VAMP-associated protein 33kDa
+7227	5740152	322	2	15	CG34342 
+7227	2769005	151	2	6	CG33233 
+7227	2769008	1918	5	39	Dscam4 Down syndrome cell adhesion molecule 4
+7227	3772396	873	2	6	seq sequoia
+7227	39004	2528	9	31	Fhos Formin homology 2 domain containing
+7227	36865	516	4	10	Picot 
+7227	36880	575	2	4	resilin 
+7227	36883	246	2	4	CG5550 
+7227	8673980	63	2	4	Sfp60F Seminal fluid protein 60F
+7227	31449	818	2	4	Mcm3 Minichromosome maintenance 3
+7227	36911	357	2	4	CG6805 
+7227	36912	987	4	21	Ehbp1 Eps15 homology domain containing protein-binding protein 1
+7227	3346237	554	3	9	nab 
+7227	36959	747	2	8	EDTP Egg-derived tyrosine phosphatase
+7227	37939	148	3	7	CG4741 
+7227	36986	2171	4	8	MESR4 Misexpression suppressor of ras 4
+7227	3772559	712	4	17	Skeletor 
+7227	3772566	371	3	10	CG11714 
+7227	37017	440	4	10	CG4984 
+7227	49952	520	3	6	CG17450 
+7227	3346209	1054	3	19	Ddr Discoidin domain receptor
+7227	42545	1070	5	20	sp3 spermathreecae
+7227	53471	293	4	7	SP555 
+7227	10178805	94	2	7	CG42654 
+7227	318206	1266	14	28	Tlk Tousled-like kinase
+7227	3772186	272	4	8	CG33695 
+7227	3772691	114	4	8	Kaz1-ORFB 
+7227	3772692	600	3	9	Menl-2 Malic enzyme like-2
+7227	31691	1573	6	11	dec defective chorion
+7227	59128	239	2	4	CG15107 
+7227	59144	359	2	5	CG18748 
+7227	59145	296	2	6	CG18754 
+7227	59173	244	6	23	Gdap2 
+7227	59176	221	5	10	Apt1 Acyl-protein thioesterase 1
+7227	3772188	177	2	5	CG33648 
+7227	59215	1080	3	10	Arts Artemis
+7227	59216	1080	3	11	Apl Apollo
+7227	59227	45	3	8	CG17376 
+7227	5740226	114	3	7	ddbt deadbeat
+7227	31773	632	6	22	Trf2 TATA box binding protein-related factor 2
+7227	53472	483	2	6	Aplip1 APPL-interacting protein 1
+7227	44543	1823	7	18	enc encore
+7227	50002	89	2	4	COX7A Cytochrome c oxidase subunit 7A
+7227	50003	1034	6	21	CG45263 
+7227	246415	1125	3	7	CG30048 
+7227	59223	443	8	18	MCU Mitochondrial calcium uniporter
+7227	39111	438	3	13	CG42673 
+7227	38810	157	2	4	wrm1 wurmchen 1
+7227	10178835	98	2	4	CG42766 
+7227	31953	1715	10	24	CG34408 
+7227	42889	1253	9	26	jar jaguar
+7227	42896	2253	4	18	crb crumbs
+7227	31979	609	4	8	PPP4R2r Protein phosphatase 4 regulatory subunit 2-related protein
+7227	326215	1001	4	18	SMC5 Structural maintenance of chromosomes 5
+7227	39134	834	2	6	CG6761 
+7227	42961	74	3	10	sosie 
+7227	43616	695	6	15	aralar1 
+7227	192507	602	3	11	Ndf Nucleosome-destabilizing factor
+7227	192509	793	2	11	CG12084 
+7227	32111	944	4	11	CG2247 
+7227	19834908	379	2	4	CG45071 
+7227	48971	1002	11	26	Atpalpha Na pump alpha subunit
+7227	32119	1107	5	10	bif bifocal
+7227	48973	552	9	15	Src64B Src oncogene at 64B
+7227	37633	891	6	23	PIP5K59B Phosphatidylinositol 4-phosphate 5-kinase 59B
+7227	50074	806	4	9	CG13643 
+7227	5740593	73	2	4	ND-MWFE NADH dehydrogenase (ubiquinone) MWFE subunit
+7227	5740323	772	3	15	smal smoke alarm
+7227	32245	353	11	20	fne found in neurons
+7227	261629	787	8	17	Unc-115a Uncoordinated 115a
+7227	261634	212	2	4	CG31051 
+7227	32275	1146	6	16	mew multiple edematous wings
+7227	43255	702	4	13	Nep5 Neprilysin 5
+7227	37795	1478	2	10	Lpt Lost PHDs of trr
+7227	41379	232	6	9	PGRP-LB Peptidoglycan recognition protein LB
+7227	326165	984	4	13	CG42784 
+7227	3355145	622	3	7	CG12547 
+7227	37029	633	2	5	OstDelta Oligosaccharide transferase Delta subunit
+7227	37885	231	2	3	CG13577 
+7227	326232	530	6	10	Tango5 Transport and Golgi organization 5
+7227	32939	2037	3	9	CG14200 
+7227	43585	531	2	8	CG11498 
+7227	30970	358	3	6	CG3038 
+7227	30971	1657	2	12	G9a 
+7227	30975	579	13	27	ewg erect wing
+7227	30976	306	3	10	CG13375 
+7227	30988	124	2	4	CG13373 
+7227	30990	101	4	7	CG3176 
+7227	30995	511	2	3	CG17896 
+7227	30998	1404	11	19	svr silver
+7227	31001	441	5	9	CG4293 
+7227	31002	883	6	20	Appl beta amyloid protein precursor-like
+7227	31003	577	2	5	vnd ventral nervous system defective
+7227	31004	942	7	20	spdi split discs
+7227	31006	200	6	9	Vsp37A Vacuolar protein sorting 37A
+7227	31011	488	4	11	Dredd Death related ced-3/Nedd2-like caspase
+7227	31012	1321	3	9	su(sable) suppressor of sable
+7227	31014	136	3	5	Roc1a Regulator of cullins 1a
+7227	31017	2224	9	25	sdk sidekick
+7227	31020	237	2	5	CG5254 
+7227	31023	581	3	5	fz3 frizzled 3
+7227	31030	211	2	5	Sec22 Secretory 22
+7227	31031	1768	10	23	CG43867 
+7227	31037	975	2	8	Lztr1 Leucine zipper like transcription regulator 1
+7227	31054	748	7	24	su(w
+7227	31056	563	4	10	CG3655 
+7227	31071	639	8	22	CG3638 
+7227	31075	1153	6	19	DAAM Dishevelled Associated Activator of Morphogenesis
+7227	31079	377	2	5	Naa30A N(alpha)-acetyltransferase 30 A
+7227	31081	612	3	7	MTPAP mitochondrial poly(A) polymerase
+7227	31082	712	3	9	CG12773 
+7227	31086	443	4	12	ssx sister-of-Sex-lethal
+7227	31089	572	10	13	CG32813 
+7227	31090	448	3	7	Rilpl Rab interacting lysosomal protein like
+7227	31093	428	2	6	Gr2a Gustatory receptor 2a
+7227	31101	136	3	9	pck pickel
+7227	31103	230	2	5	Rab27 
+7227	31104	326	3	5	mei-38 meiotic 38
+7227	31107	1082	7	20	Nmdar2 NMDA receptor 2
+7227	31111	1144	3	12	Mur2B Mucin related 2B
+7227	31121	1193	11	34	CG32809 
+7227	31123	196	2	6	CG14797 
+7227	31130	611	15	35	Adar Adenosine deaminase acting on RNA
+7227	31131	201	2	4	CG14810 
+7227	31136	742	11	18	prage 
+7227	31139	1030	3	8	Gcna Germ cell nuclear acidic peptidase
+7227	31140	50	2	6	MED18 Mediator complex subunit 18
+7227	31142	1097	2	4	CG14803 
+7227	31143	288	2	3	Pgam5 Phosphoglycerate mutase 5
+7227	31149	2431	2	8	trr trithorax-related
+7227	31151	843	6	12	arm armadillo
+7227	31154	982	5	12	Edem1 ER degradation enhancer, mannosidase alpha-like 1
+7227	31158	439	5	12	CG11596 
+7227	31162	1843	9	31	Hr4 Hormone receptor 4
+7227	31166	917	9	20	Actn alpha actinin
+7227	31168	633	6	9	moody 
+7227	31174	593	7	10	CG4199 
+7227	31179	474	4	9	Unc-76 Uncoordinated 76
+7227	31181	1346	4	10	ph-p polyhomeotic proximal
+7227	31187	1741	3	11	wapl wings apart-like
+7227	31188	503	2	4	Cyp4d1 Cytochrome P450 4d1
+7227	31189	371	4	8	CG3630 
+7227	326118	416	2	5	CG31102 
+7227	326122	316	2	4	rumi 
+7227	31211	749	4	8	CG3078 
+7227	326128	527	5	10	Ada2a transcriptional Adaptor 2a
+7227	31228	154	2	4	tko technical knockout
+7227	31229	998	5	14	boi brother of ihog
+7227	31230	575	3	5	z zeste
+7227	31234	724	4	16	Pdfr Pigment-dispersing factor receptor
+7227	326150	342	7	11	CG31650 
+7227	326153	1641	3	17	tho2 
+7227	326154	615	8	19	CG31689 
+7227	31246	750	2	4	brv3 brivido-3
+7227	31247	2134	2	12	Pi4KIIIalpha Phosphatidylinositol 4-kinase III alpha
+7227	31248	575	19	49	sgg shaggy
+7227	326161	1213	2	8	CG31793 
+7227	326167	436	2	4	ZnT33D Zinc transporter 33D
+7227	31260	673	3	12	CG2694 
+7227	31275	284	2	4	CG14418 
+7227	31277	221	2	4	CG3526 
+7227	31278	659	5	11	CG3588 
+7227	326216	71	2	4	Atox1 Antioxidant 1 copper chaperone
+7227	31309	1209	17	40	dnc dunce
+7227	31318	436	2	5	CG10802 
+7227	31320	574	5	13	CG10803 
+7227	31321	479	3	8	Gas8 Growth arrest specific protein 8
+7227	31322	554	3	15	DIP-alpha Dpr-interacting protein alpha
+7227	31331	790	10	18	Mnt 
+7227	326246	343	5	11	CG33056 
+7227	31336	744	2	6	fd3F forkhead domain 3F
+7227	326251	286	6	10	CG33096 
+7227	31340	743	4	9	yin 
+7227	326253	230	5	9	CG33098 
+7227	326255	223	4	9	eIF4EHP eukaryotic translation initiation factor 4E homologous protein
+7227	31344	1417	4	19	CG42541 
+7227	326257	180	2	5	CG33108 
+7227	31353	1648	7	21	CG43689 
+7227	326267	71	3	8	CG33170 
+7227	31359	129	5	9	cib ciboulot
+7227	31362	473	3	9	Tip60 Tat interactive protein 60kDa
+7227	31363	1911	11	22	tyf twenty-four
+7227	31364	859	7	17	Fas2 Fasciclin 2
+7227	31376	1095	6	20	norpA no receptor potential A
+7227	31379	972	7	17	bi bifid
+7227	31392	981	3	7	Alms1b Alstrom syndrome 1b
+7227	31402	342	3	6	CG3009 
+7227	31405	89	5	7	ctp cut up
+7227	31406	399	4	11	Pdha Pyruvate dehydrogenase E1 alpha subunit
+7227	31414	1757	6	17	CG2861 
+7227	31420	520	4	11	CG32772 
+7227	31424	622	8	12	CG44774 
+7227	31425	1767	7	19	Ptp4E Protein tyrosine phosphatase 4E
+7227	31429	1351	5	11	ovo 
+7227	31430	1281	6	13	CG32767 
+7227	38145	192	2	3	scf supercoiling factor
+7227	31438	345	3	9	CG42749 
+7227	31445	476	2	4	CG4198 
+7227	31450	633	2	3	CG3309 
+7227	31456	927	14	32	SK small conductance calcium-activated potassium channel
+7227	31459	585	4	10	spoon spoonbill
+7227	31463	435	4	10	SPR Sex peptide receptor
+7227	31469	640	2	8	Vsx2 Visual system homeobox 2
+7227	31473	440	2	6	RhoGAP5A Rho GTPase activating protein at 5A
+7227	31474	153	2	4	Mlc-c Myosin light chain cytoplasmic
+7227	31480	229	3	6	Sirt4 Sirtuin 4
+7227	31490	769	2	16	AdamTS-B ADAM metallopeptidase with thrombospondin type 1 motif B
+7227	31491	844	4	10	CG33080 
+7227	31493	430	3	10	Snx27 Sorting nexin 27
+7227	31494	319	2	3	CG15773 
+7227	31500	355	3	6	CG15771 
+7227	31504	521	2	4	CG42264 
+7227	31523	510	2	6	CG12236 
+7227	31524	467	3	7	Shmt Serine hydroxymethyl transferase
+7227	31525	676	2	9	CG3726 
+7227	31532	436	2	4	CG5966 
+7227	31538	829	3	10	CG5921 
+7227	31540	283	3	8	Tsp5D Tetraspanin 5D
+7227	31555	1320	4	19	dtn detonator
+7227	31556	356	4	9	CG14445 
+7227	31562	106	3	6	CG3566 
+7227	31574	1543	4	11	CG15894 
+7227	31579	464	2	4	kdn knockdown
+7227	31581	810	3	10	Marf Mitochondrial assembly regulatory factor
+7227	31592	260	2	4	CG17717 
+7227	31593	686	3	11	Pat1 Protein interacting with APP tail-1
+7227	31594	528	2	6	APC7 Anaphase Promoting Complex subunit 7
+7227	31598	699	2	6	Cdc7 Cdc7 kinase
+7227	31601	231	4	9	Ctr1A Copper transporter 1A
+7227	31605	467	2	6	Fum1 Fumarase 1
+7227	31617	439	4	10	shf shifted
+7227	31618	1357	10	29	C3G C3G guanyl-nucleotide exchange factor
+7227	31620	1074	7	20	pod1 pod1 coronin
+7227	31639	1168	3	6	CG14431 
+7227	31660	1209	5	13	CG9650 
+7227	31662	1000	4	11	CG1677 
+7227	31669	298	3	7	CBP sarcoplasmic calcium-binding protein
+7227	31678	1267	4	12	CHES-1-like Checkpoint suppressor 1-like
+7227	31700	217	2	4	RpS6 Ribosomal protein S6
+7227	31712	646	2	7	orion 
+7227	31713	2219	3	15	Ubr3 Ubr3 ubiquitin ligase
+7227	31716	1425	3	13	sws swiss cheese
+7227	31722	1110	9	28	fs(1)h female sterile (1) homeotic
+7227	31733	454	3	7	cyr cypher
+7227	4379817	646	3	8	RunxA Runt related A
+7227	31743	441	2	3	CG10959 
+7227	31751	600	3	6	CG2278 
+7227	31760	491	4	7	Trxr-1 Thioredoxin reductase-1
+7227	31766	366	3	8	CG1636 
+7227	31776	488	4	10	CG1440 
+7227	31779	214	2	4	CG15347 
+7227	31785	500	2	4	Cp7Fb Chorion protein b at 7F
+7227	31789	811	5	12	otu ovarian tumor
+7227	31792	1302	9	19	Nrg Neuroglian
+7227	31794	196	2	6	CG12112 
+7227	31795	1001	7	14	Trf4-1 Topoisomerase related function 4-1
+7227	31798	641	7	15	CG12065 
+7227	31800	1671	3	15	Crag Calmodulin-binding protein related to a Rab3 GDP/GTP exchange protein
+7227	31802	542	6	10	oc ocelliless
+7227	31811	967	2	7	l(1)G0020 lethal (1) G0020
+7227	31813	347	2	10	Lim1 LIM homeobox 1
+7227	31815	1006	5	11	CG12075 
+7227	31816	584	13	21	Moe Moesin
+7227	31825	171	2	3	CG12662 
+7227	31826	991	11	38	rdgA retinal degeneration A
+7227	31829	821	3	9	CG15365 
+7227	31831	125	5	9	CG44325 
+7227	31835	773	2	8	APC4 Anaphase Promoting Complex subunit 4
+7227	31839	1210	7	18	CG7766 
+7227	31842	976	9	23	AP-1gamma Adaptor Protein complex 1, gamma subunit
+7227	31872	393	2	6	Dsor1 Downstream of raf1
+7227	31873	651	6	14	CG17754 
+7227	31877	916	3	11	Erk7 Extracellularly regulated kinase 7
+7227	31880	663	2	5	Cfp1 CXXC finger protein 1
+7227	31883	705	2	7	lz lozenge
+7227	31887	934	7	22	Zdhhc8 Zinc finger DHHC-type containing 8
+7227	31904	574	3	7	LysRS Lysyl-tRNA synthetase
+7227	31905	1423	4	10	Hecw Hecw ubiquitin protein ligase
+7227	31907	498	9	22	Ptpmeg2 Protein tyrosine phosphatase Meg2
+7227	31913	720	4	10	Sp1 
+7227	31914	397	6	13	CG1354 
+7227	31927	333	3	10	CG1791 
+7227	31928	332	4	9	CG1889 
+7227	31929	153	3	7	CG43386 
+7227	31931	567	2	7	CG15252 
+7227	31933	167	7	18	CG32694 
+7227	31934	1099	2	4	Dna2 DNA replication helicase/nuclease 2
+7227	31940	414	6	14	CG15312 
+7227	31942	1884	4	17	ZAP3 
+7227	31945	582	3	10	RhoU 
+7227	31947	202	2	5	CG12645 
+7227	261329	1133	5	16	CG8176 
+7227	31955	548	9	30	Hk Hyperkinetic
+7227	31957	667	9	20	alpha-Man-Ia alpha-Mannosidase class I a
+7227	31962	328	3	7	CG43740 
+7227	31964	625	4	11	l(1)G0289 lethal (1) G0289
+7227	31976	2305	4	10	nocte no circadian temperature entrainment
+7227	31987	637	13	31	spri sprint
+7227	31990	305	2	6	CG1628 
+7227	31991	2684	3	15	CG43347 
+7227	31997	2129	3	22	X11Lbeta 
+7227	32001	96	3	5	Atg8a Autophagy-related 8a
+7227	32002	401	4	15	Rph Rabphilin
+7227	32007	299	5	9	sesB stress-sensitive B
+7227	32009	573	12	25	Imp IGF-II mRNA-binding protein
+7227	32017	1128	3	9	CG2186 
+7227	32018	245	2	5	CG2157 
+7227	32019	450	5	12	CG1637 
+7227	32020	1001	4	11	Ork1 Open rectifier K
+7227	32024	2216	3	11	CG43901 
+7227	32033	113	2	8	CG42339 
+7227	32034	369	3	9	SmydA-4 SET and MYND domain containing, arthropod-specific, member 4
+7227	32035	184	3	6	CG1552 
+7227	32043	557	3	15	CG42249 
+7227	32055	602	4	9	Lint-1 l(3)mbt interacting protein 1
+7227	32056	151	4	8	rtv retroactive
+7227	32057	493	3	12	Dlic Dynein light intermediate chain
+7227	32063	439	6	19	CG44422 
+7227	32071	945	5	14	Kap3 Kinesin associated protein 3
+7227	32077	943	3	7	CG1737 
+7227	32084	442	2	4	CG15196 
+7227	32087	369	6	12	Gs2 Glutamine synthetase 2
+7227	32088	801	5	14	Evi5 Ecotropic viral integration site 5
+7227	32090	450	3	6	HP5 Heterochromatin protein 5
+7227	32106	274	2	6	CG11695 
+7227	64877	157	21	29	cpx complexin
+7227	64879	542	3	6	Adgf-A2 Adenosine deaminase-related growth factor A2
+7227	32115	1990	6	24	Ptp10D Protein tyrosine phosphatase 10D
+7227	32120	419	5	16	PhKgamma Phosphorylase kinase gamma
+7227	32124	416	4	8	prtp pretaporter
+7227	32132	215	10	19	CkIIbeta Casein kinase II beta subunit
+7227	32136	1122	6	15	rudhira 
+7227	32144	320	3	5	CG1847 
+7227	32148	1029	7	19	CG10353 
+7227	32150	117	2	4	CG1840 
+7227	32152	1373	3	11	wisp wispy
+7227	32156	249	3	10	Sclp 
+7227	32158	1850	18	50	cac cacophony
+7227	32159	528	4	11	gd gastrulation-defective
+7227	32162	1174	3	21	fw furrowed
+7227	32165	303	4	7	regucalcin 
+7227	32169	1125	2	5	Usp7 Ubiquitin-specific protease 7
+7227	32179	1881	2	6	CG2750 
+7227	32191	671	3	19	Pkcdelta Protein kinase C delta
+7227	32195	255	3	7	Rab40 
+7227	32196	169	4	11	CG42258 
+7227	32202	880	4	19	hwt heavyweight
+7227	32203	195	2	4	Cpr11B Cuticular protein 11B
+7227	32205	585	3	7	Pits Protein interacting with Ttk69 and Sin3A
+7227	32207	1052	5	12	LIMK1 LIM domain kinase 1
+7227	32209	2242	6	19	Sec16 Secretory 16
+7227	32212	542	2	6	Fpgs Folylpolyglutamate synthase
+7227	32217	1254	7	31	Tomosyn 
+7227	32226	319	5	7	CG4004 
+7227	32228	428	2	7	Paics PAICS bifunctional enzyme
+7227	32233	1526	4	13	Pde9 Phosphodiesterase 9
+7227	32240	294	2	5	CG4407 
+7227	32253	1774	6	27	rad radish
+7227	32256	1153	7	22	hep hemipterous
+7227	32261	309	2	8	CG42237 
+7227	32273	1547	2	14	sno strawberry notch
+7227	32278	1205	8	25	HDAC4 Histone deacetylase 4
+7227	32282	141	3	11	CG1622 
+7227	32285	467	6	14	IP3K2 Inositol 1,4,5-triphosphate kinase 2
+7227	32292	568	7	14	CG1640 
+7227	32293	158	3	4	Rbp1-like 
+7227	32295	110	2	5	Ype Yippee
+7227	32300	406	3	9	CG1998 
+7227	32301	2362	2	7	Set2 SET domain containing 2
+7227	32303	677	2	14	Neto Neuropilin and tolloid-like
+7227	32310	362	4	6	CG11816 
+7227	32312	499	6	16	Tpst Tyrosylprotein sulfotransferase
+7227	32314	394	18	23	up upheld
+7227	32319	283	4	10	Tango2 Transport and Golgi organization 2
+7227	32321	1419	7	18	NFAT NFAT nuclear factor
+7227	32324	690	3	10	CG15760 
+7227	32329	1889	10	29	Nna1 Nna1 carboxypeptidase
+7227	32340	1277	11	26	rdgB retinal degeneration B
+7227	32343	1318	7	22	inaE inactivation no afterpotential E
+7227	32351	718	4	9	jub Ajuba LIM protein
+7227	32352	258	9	27	AMPdeam AMP deaminase
+7227	32353	1553	7	24	mamo maternal gene required for meiosis
+7227	32366	123	2	3	CG13403 
+7227	32367	1937	2	6	yl yolkless
+7227	32371	321	3	6	l(1)G0469 lethal (1) G0469
+7227	32373	534	2	6	Prp16 pre-mRNA processing factor 16
+7227	32394	148	4	11	CG14414 
+7227	32397	459	4	14	sbm sobremesa
+7227	32398	726	3	12	NetA Netrin-A
+7227	32400	793	7	16	NetB Netrin-B
+7227	32406	2055	7	24	rut rutabaga
+7227	32407	684	5	13	CG14408 
+7227	32425	438	12	22	Flo2 Flotillin 2
+7227	32428	1174	7	24	eag ether a go-go
+7227	32430	700	3	10	be ben
+7227	32437	335	5	10	Lsd-2 Lipid storage droplet-2
+7227	32442	2115	10	31	Rab3-GEF Rab3 GDP-GTP exchange factor
+7227	32447	955	4	15	CG9095 
+7227	32448	1483	2	7	CG43737 
+7227	32455	984	3	5	CG5877 
+7227	32458	974	5	14	Top1 Topoisomerase 1
+7227	32459	646	2	7	dah discontinuous actin hexagon
+7227	32461	1128	7	19	HDAC6 Histone deacetylase 6
+7227	32468	1955	6	24	Cngl Cyclic nucleotide-gated ion channel-like
+7227	32470	343	3	11	Scamp 
+7227	32471	432	3	6	Ahcy Adenosylhomocysteinase
+7227	32481	916	2	5	CG6324 
+7227	32482	51	4	9	CG6340 
+7227	32483	1398	4	12	Gmap Golgi microtubule-associated protein
+7227	32485	1690	3	10	Ac13E Adenylyl cyclase 13E
+7227	32492	230	3	5	cerv cervantes
+7227	32505	128	2	4	CG9240 
+7227	32506	81	2	9	Pis Phosphatidylinositol synthase
+7227	32509	276	4	6	CG15601 
+7227	32513	130	2	6	MagR Magnetic receptor
+7227	32521	415	2	4	CG8260 
+7227	32522	1016	7	18	Graf GTPase regulator associated with FAK
+7227	32536	410	22	35	sd scalloped
+7227	32546	1013	6	12	CG16952 
+7227	32547	2486	4	18	tay tay bridge
+7227	32552	2008	3	17	Lrp4 LDL receptor related protein 4
+7227	32553	510	2	8	CG8916 
+7227	32556	570	4	19	Stim Stromal interaction molecule
+7227	32561	1173	8	38	mmd mind-meld
+7227	32574	564	4	13	Tob Transducer of ERBB2
+7227	32581	819	3	13	kat80 katanin 80
+7227	32585	171	8	19	eas easily shocked
+7227	32587	124	4	12	caz cabeza
+7227	32588	412	4	11	ERp44 Endoplasmic reticulum protein 44
+7227	32589	1241	6	22	CG3632 
+7227	32598	317	2	5	CG9919 
+7227	32602	416	4	9	U2af50 U2 small nuclear riboprotein auxiliary factor 50
+7227	32603	700	4	8	nonA no on or off transient A
+7227	32604	1679	9	34	Fur2 Furin 2
+7227	32605	187	5	9	CG9992 
+7227	32610	1321	3	14	CG4301 
+7227	32611	452	7	11	Traf-like TNF-receptor-associated factor-like
+7227	32612	295	7	15	AnxB11 Annexin B11
+7227	32613	2223	3	11	hang hangover
+7227	32615	347	2	8	CDC50 
+7227	32619	2131	60	74	para paralytic
+7227	32623	394	3	11	Arp2 Actin-related protein 2
+7227	32625	614	6	11	P5CDh2 delta-1-Pyrroline-5-carboxylate dehydrogenase 2
+7227	32630	1883	3	10	Nup153 Nucleoporin 153kD
+7227	32646	427	7	13	Septin4 Septin 4
+7227	32652	518	8	17	CG4678 
+7227	32656	104	3	6	CG34325 
+7227	32660	874	3	13	goe gone early
+7227	32661	1371	4	14	if inflated
+7227	32672	732	6	15	CG4829 
+7227	32673	201	4	8	CG13004 
+7227	32675	1158	3	9	CG13003 
+7227	32680	330	2	4	CG4880 
+7227	32682	538	3	10	CG4928 
+7227	32686	1510	2	11	RhoGAP15B Rho GTPase activating protein at 15B
+7227	32688	974	7	17	CG45002 
+7227	32690	834	6	22	wcy wacky
+7227	32695	459	5	9	CG4991 
+7227	32696	157	3	6	Arpc3B Actin-related protein 2/3 complex, subunit 3B
+7227	38187	250	3	4	CG12104 
+7227	32698	1147	6	20	CG5004 
+7227	32701	122	2	4	Chchd2 Coiled-coil-helix-coiled-coil-helix domain containing 2
+7227	32703	1464	4	13	baz bazooka
+7227	32706	130	2	3	CG32563 
+7227	32711	106	2	5	CG5172 
+7227	32718	1790	9	24	f forked
+7227	32721	640	3	8	Fim Fimbrin
+7227	32723	303	2	5	B-H2 BarH2
+7227	32724	293	2	6	B-H1 BarH1
+7227	32725	974	3	10	CG8611 
+7227	32726	592	2	5	ENGase Endo-beta-N-acetylglucosaminidase
+7227	32729	1458	8	19	CG43658 
+7227	32731	591	4	11	ppk23 pickpocket 23
+7227	32732	1169	4	13	Ankle2 
+7227	32733	429	4	9	CG12992 
+7227	32734	462	6	12	CG12991 
+7227	32737	174	2	5	stas Stasimon
+7227	32739	552	2	5	corolla 
+7227	32741	335	2	4	CG8289 
+7227	32743	1398	7	25	RhoGAPp190 Rho GTPase activating protein p190
+7227	32746	2147	3	13	beta-Spec beta Spectrin
+7227	32748	1359	5	17	chas chascon
+7227	32754	1556	9	17	raskol 
+7227	38227	670	2	5	CG13933 
+7227	32757	300	3	7	unc-4 
+7227	32760	1016	2	12	Socs16D Suppressor of Cytokine Signaling at 16D
+7227	32764	340	3	9	Ucp4A Uncoupling protein 4A
+7227	32765	321	4	10	CG15814 

@@ -1,5 +1,5 @@
 import cPickle as pickle
-import sys
+import sys, os
 
 tupleSpanIndex = 2
 
@@ -357,7 +357,7 @@ def exon_manipulator(storerawExons, raw_var, parent_exons, parent_exons_eve):
 def ncbia(var_list, pi, exons_add):
     try:
         storerawExons = {}
-        with open(exons_add + "%s" % (pi)) as fin:
+        with open(os.path.join(exons_add, pi)) as fin:
             dat = pickle.load(fin)
         storerawExons[pi] = dat
         parent_exons_template = []
@@ -380,7 +380,7 @@ def ncbia(var_list, pi, exons_add):
         for var in sorted_vars:
             # iterating the variable now for the gene group
             if var != pi:
-                with open(exons_add + "%s" % var) as fin:
+                with open(os.path.join(exons_add,  var)) as fin:
                     exons = pickle.load(fin)
                 storerawExons[var] = exons
                 sorted_exons_o = template_feeder(

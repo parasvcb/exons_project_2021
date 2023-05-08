@@ -1,0 +1,94 @@
+org	Gene	PILength	Isoforms	exonsCount	geneName
+7955	393320	546	4	26	slc22a7b.1 solute carrier family 22 member 7b, tandem duplicate 1
+7955	393541	151	4	8	tsc22d3 TSC22 domain family, member 3
+7955	100538170	262	4	11	LOC100538170 CD48 antigen-like
+7955	792447	126	4	10	LOC792447 germ cell-specific gene 1-like protein
+7955	100145909	164	5	15	srsf3b serine and arginine rich splicing factor 3b
+7955	794762	294	4	13	zgc:173624 zgc:173624
+7955	797387	553	5	17	ftr06 finTRIM family, member 6
+7955	100150193	476	3	13	si:dkey-27j5.8 si:dkey-27j5.8
+7955	798338	246	2	4	zgc:158517 zgc:158517
+7955	405787	440	8	30	fibpb fibroblast growth factor (acidic) intracellular binding protein b
+7955	541321	213	6	22	nmrk1 nicotinamide riboside kinase 1
+7955	100422734	537	6	29	pals1b protein associated with LIN7 1, MAGUK p55 family member b
+7955	550256	71	8	13	gng2 guanine nucleotide binding protein (G protein), gamma 2
+7955	550361	807	5	25	cpt1a2b carnitine palmitoyltransferase 1A2b
+7955	100034392	324	3	9	pimr81 Pim proto-oncogene, serine/threonine kinase, related 81
+7955	100034531	674	3	12	si:ch211-222k6.1 si:ch211-222k6.1
+7955	553461	428	12	51	fbxo44.9 F-box protein 44, tandem duplicate 9
+7955	553501	642	3	25	lratb.1 lecithin retinol acyltransferase b, tandem duplicate 1
+7955	553781	621	5	25	zmynd11 zinc finger, MYND-type containing 11
+7955	30299	206	3	8	ihhb Indian hedgehog signaling molecule b
+7955	30321	425	3	5	pou3f3b POU class 3 homeobox 3b
+7955	30607	415	13	26	thrb thyroid hormone receptor beta
+7955	100038791	432	4	8	znf1157 zinc finger protein 1157
+7955	100170660	970	12	44	si:ch211-195h23.3 si:ch211-195h23.3
+7955	100170822	466	11	26	zgc:173693 zgc:173693
+7955	556668	1635	6	17	LOC556668 LIM domain-containing protein
+7955	560099	302	29	53	wu:fb44c10 wu:fb44c10
+7955	560923	538	7	21	arhgef9b Cdc42 guanine nucleotide exchange factor (GEF) 9b
+7955	561865	332	5	16	pdlim3b PDZ and LIM domain 3b
+7955	101883236	282	12	33	LOC101883236 polyadenylate-binding protein, cytoplasmic and nuclear-like
+7955	101884126	483	3	16	si:dkey-40j3.3 si:dkey-40j3.3
+7955	566190	518	4	7	si:dkeyp-68b7.7 si:dkeyp-68b7.7
+7955	101884857	622	2	8	LOC101884857 gastrula zinc finger protein XlCGF57.1-like
+7955	101885363	289	3	7	LOC101885363 gastrula zinc finger protein XlCGF8.2DB-like
+7955	101885829	326	12	34	LOC101885829 uncharacterized LOC101885829
+7955	436883	177	3	12	srsf5b serine and arginine rich splicing factor 5b
+7955	568436	460	4	21	si:busm1-71b9.3 si:busm1-71b9.3
+7955	568664	1690	22	59	LOC568664 NACHT, LRR and PYD domains-containing protein 12
+7955	568868	744	11	32	il1rapl1a interleukin 1 receptor accessory protein-like 1a
+7955	569975	321	5	10	zgc:113452 zgc:113452
+7955	570903	553	4	20	LOC570903 novel FERM domain containing protein
+7955	108181194	673	3	9	wu:fc11c11 wu:fc11c11
+7955	571289	172	5	15	gsdf gonadal somatic cell derived factor
+7955	571919	1113	2	5	ppp1r26 protein phosphatase 1, regulatory subunit 26
+7955	108182861	537	4	10	LOC108182861 gastrula zinc finger protein XlCGF57.1-like
+7955	573096	265	5	21	hnrnpl2 heterogeneous nuclear ribonucleoprotein L2
+7955	573631	1920	5	20	rab11fip3 RAB11 family interacting protein 3 (class II)
+7955	100191016	410	2	6	zgc:174690 zgc:174690
+7955	446117	1272	5	32	sf3b1 splicing factor 3b, subunit 1
+7955	101887156	305	3	8	LOC101887156 probable E3 ubiquitin-protein ligase HECTD4
+7955	449796	1957	29	74	ank1a ankyrin 1, erythrocytic a
+7955	322056	1044	12	47	sulf2b sulfatase 2b
+7955	100330526	1781	3	14	znf1113 zinc finger protein 1113
+7955	100330579	344	4	17	pimr62 Pim proto-oncogene, serine/threonine kinase, related 62
+7955	323000	959	3	5	wu:fb78f07 wu:fb78f07
+7955	323163	302	4	15	fbxl6 F-box and leucine-rich repeat protein 6
+7955	100333695	1175	4	20	si:zfos-364h11.1 si:zfos-364h11.1
+7955	327500	681	3	14	zgc:66474 zgc:66474
+7955	334526	676	3	19	musk muscle, skeletal, receptor tyrosine kinase
+7955	336052	773	4	16	soga3b SOGA family member 3b
+7955	110437711	269	2	12	LOC110437711 transmembrane and immunoglobulin domain-containing protein 1-like
+7955	110437790	134	2	6	LOC110437790 probable E3 ubiquitin-protein ligase HECTD4
+7955	110437872	781	9	24	LOC110437872 gastrula zinc finger protein XlCGF57.1-like
+7955	110439267	142	3	11	LOC110439267 E3 ubiquitin-protein ligase RBBP6-like
+7955	110439268	109	3	9	LOC110439268 E3 ubiquitin-protein ligase RBBP6-like
+7955	110439458	373	4	15	LOC110439458 gastrula zinc finger protein XlCGF8.2DB-like
+7955	110439491	433	3	5	LOC110439491 gastrula zinc finger protein XlCGF57.1-like
+7955	110439798	170	4	9	LOC110439798 transcription factor Adf-1-like
+7955	103909414	200	5	17	LOC103909414 serine protease HTRA2, mitochondrial-like
+7955	751595	784	3	6	zgc:152652 zgc:152652
+7955	751669	546	5	11	ugt5c2 UDP glucuronosyltransferase 5 family, polypeptide C2
+7955	103909509	371	4	9	LOC103909509 zinc finger protein 239-like
+7955	103910319	316	2	4	LOC103910319 G-protein coupled receptor 183-like
+7955	103910745	512	2	5	znf1034 zinc finger protein 1034
+7955	103910825	433	3	6	LOC103910825 gastrula zinc finger protein XlCGF57.1-like
+7955	497165	299	6	18	nek6 NIMA-related kinase 6
+7955	368481	640	8	51	stat1b signal transducer and activator of transcription 1b
+7955	503713	372	4	12	ppm1kb protein phosphatase, Mg2+/Mn2+ dependent 1Kb
+7955	767728	534	6	22	btr16 bloodthirsty-related gene family, member 16
+7955	100126123	643	2	4	hsp70.1 heat shock cognate 70-kd protein, tandem duplicate 1
+7955	100000814	863	4	16	palmdb palmdelphin b
+7955	100001846	175	3	5	LOC100001846 uncharacterized LOC100001846
+7955	100002647	259	3	13	pimr214 Pim proto-oncogene, serine/threonine kinase, related 214
+7955	100002917	829	3	49	abcc6b.2 ATP-binding cassette, sub-family C (CFTR/MRP), member 6b, tandem duplicate 2
+7955	100334824	360	5	12	icam3 intercellular adhesion molecule 3
+7955	100005207	124	8	23	zgc:174358 zgc:174358
+7955	101886291	219	8	38	LOC101886291 uncharacterized LOC101886291
+7955	100006662	430	6	18	si:dkey-1b17.5 si:dkey-1b17.5
+7955	100006972	1449	3	69	a2ml alpha-2-macroglobulin-like
+7955	393135	320	5	25	ppt2a.2 palmitoyl-protein thioesterase 2a, tandem duplicate 2
+7955	100007523	292	3	15	ifi44a8 interferon induced protein 44a8
+7955	393098	372	3	8	ctu1 cytosolic thiouridylase subunit 1 homolog (S. pombe)
+7955	100007836	359	9	24	si:dkey-253d23.3 si:dkey-253d23.3

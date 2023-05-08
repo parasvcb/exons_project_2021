@@ -1,6 +1,7 @@
 '''
 doc:
-05-11-2022 
+23-01-2023
+its important to figure out and plot the UTR variations laong in exondata and transdarta and make panel figure differently
 '''
 import common.general_modules as cm
 import seaborn as sns
@@ -11,17 +12,32 @@ import matplotlib.pyplot as plt
 plt.switch_backend('agg')
 import figPanels.modules_analysis as ca
 
+'''
+exonDataFreq:
+    position of exon in a gene
+'''
 
-def variations(geneob):
+
+def variations(geneob, gene):
     var_gene_dual=[]
     retp2=[]
-
-        
     def numberUniqueExonsCoding(geneOrTrancript_ob):
         exonMatrix = ca.positionalExonMatrix_forExCharacterization(geneob)
-            #{1: ['U', 'F', [2, 0, 2], 0, 1, 0, 0], 2: ['U', 'A', [0, 0, 0], 0, 1, 0, 0], 3: ['T', 'A', [0, 0, 0], 0, 0, 0, 0], 4: ['T', 'F', [0, 1, 0], 0, 0, 0, 0]}
+        # { 1: ['U', 'F', [2, 0, 2], 0, 1, 0, 0], 
+        #   2: ['U', 'A', [0, 0, 0], 0, 1, 0, 0], 
+        #   3: ['T', 'A', [0, 0, 0], 0, 0, 0, 0], 
+        #   4: ['T', 'F', [0, 1, 0], 0, 0, 0, 0]
+        # }
+        # 0th ele, UTMRD tag, 
+        # 1st ele, AGF tag, 
+        # 2nd records children order of ncb, and 
+        # 3rd occurrences of the aa change on this position, (should not be evaluated if values of the ncb counterparts is true
+        # 4th coding intron retention events starting from this
+        # 5th non coding intron retention events starting from this
+        # 6th whether aa has been ever removed from this sequenc
         pos_Coding = [i for i in exonMatrix if exonMatrix[i][0] in ['T','D']]
-        return len(pos_Coding)
+        pos_NonCoding = [i for i in exonMatrix if exonMatrix[i][0] == 'U']
+        return (len(pos_Coding), (len(pos_NonCoding)+len(pos_Coding)))
     
     def internal_transition(trans):
         '''
@@ -45,10 +61,10 @@ def variations(geneob):
             else:
                 three_pi+=[i]
                 break
-        
         return [five_pi,three_pi]
         
-    UniqueCodingExonCountGene=numberUniqueExonsCoding(geneob)
+    UniqueCodingExonCountGene,UniqueNonCodingExonCountGene = numberUniqueExonsCoding(geneob)
+    # give unique coding position cpount of T and D exons tag only
     # GS: storing gene unique coding exons (A.4.0.0) count 
     dictIsfSeqAsKeyTransObAsValue = {}
     #this will have unique aaseq of transcripts as key and lis of trancript objects as values
@@ -93,7 +109,7 @@ def variations(geneob):
         retp2+=[(",".join([i.ID for i in dictIsfSeqAsKeyTransObAsValue[proteinSeq]]),len(dictIsfSeqAsKeyTransObAsValue[proteinSeq]),FIVE,THREE,BOTH)]
         # GS:4 retp2 stores for every unique portein coding isoform's repeetaed occurehece with variable UTR, [number of trancripts having same protein], length of protein, how often 5' side only changes, how oftne 3 prime side only changes and how foten both isdes have undergone change]  
         # summ will alays be -1 of total as one is always hunted for the reference
-    return ([piseq,UniqueCodingExonCountGene,geneob.detail,Additional_exons_length_dual,var_exons_pergene_dual,[len(dictIsfSeqAsKeyTransObAsValue[i]) for i in dictIsfSeqAsKeyTransObAsValue],len(dictIsfSeqAsKeyTransObAsValue)],retp2)
+    return ([piseq,UniqueCodingExonCountGene,UniqueNonCodingExonCountGene, geneob.detail,Additional_exons_length_dual,var_exons_pergene_dual,[len(dictIsfSeqAsKeyTransObAsValue[i]) for i in dictIsfSeqAsKeyTransObAsValue],len(dictIsfSeqAsKeyTransObAsValue)],retp2)
             #this lis will have UTR per prpteon and teher after niqie proteins
 
 
@@ -105,6 +121,39 @@ def freq_writer(lis):
         retstr+="%03d\t%s\t%s\n" %(i, lis.count(i), cm.div_fact(lis.count(i),len(lis)))
     ti = len([i for i in lis if i > 10])
     retstr+="11+\t%s\t%s\n" % (ti, cm.div_fact(ti,len(lis)))
+    return retstr
+
+def freq_writerShashiUTR(lis):
+    # lis does have tuples, (total,unique)
+    # "ISFCount\tTag\tGeneCount\tFrequency\n"
+    # "ExonCount\tTag\tGeneCount\tFrequency\n"
+    #getting list of total unique non redundant isoforms per gene as list elemmnt
+    retstr=''
+    maxVal = max([i[0] for i in lis])
+    for i in range(1, 11):
+        geneCountTotal=0
+        geneCountCode=0
+        for iteration in lis:
+            if iteration[0]==i:
+                geneCountTotal+=1
+                if iteration[1]==i:
+                    geneCountCode+=1
+        retstr+="%03d\tTotal\t%s\t%s\n" %(i, geneCountTotal, cm.div_fact(geneCountTotal,len(lis)))
+        retstr+="%03d\tCoding\t%s\t%s\n" %(i, geneCountCode, cm.div_fact(geneCountCode,len(lis)))
+        retstr+="%03d\tPseudoUTR\t%s\t%s\n" %(i, geneCountTotal-geneCountCode, cm.div_fact(geneCountTotal-geneCountCode,len(lis)))
+    
+    geneCountTotal=0
+    geneCountCode=0
+    for i in range (11,maxVal+1):
+        for iteration in lis:
+            if iteration[0]==i:
+                geneCountTotal+=1
+                if iteration[1]==i:
+                    geneCountCode+=1
+
+    retstr+="11+\tTotal\t%s\t%s\n" % (geneCountTotal, cm.div_fact(geneCountTotal,len(lis)))    
+    retstr+="11+\tCoding\t%s\t%s\n" % (geneCountCode, cm.div_fact(geneCountCode,len(lis)))
+    retstr+="11+\tPseudoUTR\t%s\t%s\n" % (geneCountTotal-geneCountCode, cm.div_fact(geneCountTotal-geneCountCode,len(lis)))
     return retstr
 
 def writer(total_transcripts, unique_protein_seq, per_protein_UTR, max_UTR_per_gene, res_dir):
@@ -136,35 +185,59 @@ def transcripts_type(has,fout,results_dir_csv, lengthThreshold=3000, UniqueTrans
     lessThanPassnr=0
     per_gene_exons=[]
 
-    shashisuggestedtransCountNr = []
-    shashisuggestedExonsCountNr = []
-    
+    shashisuggestedtransCount = []
+    shashisuggestedExonsCount = []
+    shashisuggestedExonsCountCodingAndNrTransCoding =[]
+    greaterthan10isf=[]
+    geneswith1isfhaving5ormoreUTR = []
     FIVETHREEBOTH=[0,0,0]
     for gene in has:
-        info=variations(has[gene])
+        info=variations(has[gene], gene)
+        # info[0]
+        #     [1474, 36, 'A2M alpha-2-macroglobulin', [(36, 1474), (36, 1324), (36, 1512), (36, 1374)], (4, 36), [1, 1, 2, 1], 4]
+        # info[1]
+        #     [('NP_001334353.2', 1, 0, 0, 0), ('NP_001334354.2', 1, 0, 0, 0), ('NP_001334352.2,NP_000005.3', 2, 1, 0, 0), ('XP_006719119.1', 1, 0, 0, 0)])
         # 00* piseq, 
         # 01* UniqueCodingExonCountGene (5, eg. A.4.0.0), 
-        # 02* geneob.detail, 
-        # 03* Additional_exons_length_dual (number of unique coding exons per trans (A400 eg) and length list), 
-        # 04* var_exons_pergene_dual (no. of unique protein coding transcripts, no. of unique aa coding exon in gene eg. A.4.0.0), 
-        # 05* [len(dictIsfSeqAsKeyTransObAsValue[i]) for i in dictIsfSeqAsKeyTransObAsValue], list of count of trancripts shairing same aa code (2, 3,1)  
-        # 06* len(dictIsfSeqAsKeyTransObAsValue)], # number of unique protein coding isioform
+        # 02* UniqueCodingExonCountGeneNonCoding (5, eg. A.4.0.0), 
+        # 03* geneob.detail, 
+        # 04* Additional_exons_length_dual (number of unique coding exons per trans (A400 eg) and length list), 
+        # 05* var_exons_pergene_dual (no. of unique protein coding transcripts, no. of unique aa coding exon in gene eg. A.4.0.0), 
+        # 06* [len(dictIsfSeqAsKeyTransObAsValue[i]) for i in dictIsfSeqAsKeyTransObAsValue], list of count of trancripts shairing same aa code (2, 3,1)  
+        # 07* len(dictIsfSeqAsKeyTransObAsValue)], # number of unique protein coding isioform
         # 1* retp2) [(",".join([i.ID for i in dictIsfSeqAsKeyTransObAsValue[proteinSeq]]),len(dictIsfSeqAsKeyTransObAsValue[proteinSeq]),FIVE,THREE,BOTH)]
         # for every protein coding seqgment (unique), siofroms name havbing this informtaion, lengthof isoform, how mnay undergone change in 5' 3' and both sides
 
-        if info[0][0] <= lengthThreshold: #length of PI to be studied shoud be <= 3000 amino acid
-            shashisuggestedtransCountNr += [info[0][6]]
-            shashisuggestedExonsCountNr += [info[0][1]]
-            if info[0][6] >= UniqueTransCount: # numbero fo unique transcripts
-                if info[0][1] >= UniqueCodingExonCount: # if more than 1 coding exon
-                    per_gene_exons+=[info[0][1]]
-                    total_transcripts += [sum(info[0][5])] # they are sum of total coding transcripts (redundant)
-                    unique_protein_seq += [info[0][6]] # total nonredundant sequqnces
+        segLengthThresh = info[0][0]
+        segUniqueCodingExCount = info[0][1]
+        segUniqueTotalExCount = info[0][2]
+        segGeneObname = info[0][3]
+        segAdditionInfoExCountLengthOfProtein = info[0][4]
+        segProtCodExandProtCodIsoTuple = info[0][5]
+        segCountIsoHavingSameAa = info[0][6]
+        segUniqueProtTransCount = info[0][7]
+        
+        if segLengthThresh <= lengthThreshold: #length of PI to be studied shoud be <= 3000 amino acid
+            shashisuggestedtransCount += [(sum(segCountIsoHavingSameAa), segUniqueProtTransCount)]
+            shashisuggestedExonsCount += [(segUniqueTotalExCount,segUniqueCodingExCount)]
+            shashisuggestedExonsCountCodingAndNrTransCoding += [(gene,segUniqueCodingExCount,segUniqueProtTransCount )]
+            
+            if segUniqueProtTransCount >= UniqueTransCount: # numbero fo unique transcripts
+                greaterthan10isf = greaterthan10isf + [(segUniqueProtTransCount,gene)] if segUniqueProtTransCount >=11 else greaterthan10isf
+                if segUniqueCodingExCount >= UniqueCodingExonCount: # if more than 1 coding exon
+                    per_gene_exons+=[segUniqueCodingExCount]
+                    total_transcripts += [sum(segCountIsoHavingSameAa)] # they are sum of total coding transcripts (redundant)
+                    unique_protein_seq += [segUniqueProtTransCount] # total nonredundant sequqnces
                     CONDITION_GENES[gene] = 1
-                    var_gene_dual += [info[0][4]]
-                    per_protein_UTR+=info[0][5]
+                    var_gene_dual += [segProtCodExandProtCodIsoTuple]
+                    per_protein_UTR+=segCountIsoHavingSameAa
                     # adding count of possible UTR variations for non redundant proteins, if more than 1 isoform is listed
-                    max_UTR_per_protein += [max(info[0][5])]
+                    max_UTR_per_protein += [max(segCountIsoHavingSameAa)]
+                    for tinfo in info[1]:
+                        if tinfo[1]>5:
+                            geneswith1isfhaving5ormoreUTR += [(tinfo[1], gene, tinfo[2],tinfo[3], tinfo[4], tinfo[0] )]
+                            # (2, gene, 5', 3', both, 'NP_001334352.2,NP_000005.3', ) 
+                            # last 3 are count of 5 3 and bith ends xcange
                     for utr_variation in info[1]:
                         FIVETHREEBOTH[0]+=utr_variation[2]
                         FIVETHREEBOTH[1]+=utr_variation[3]
@@ -172,27 +245,27 @@ def transcripts_type(has,fout,results_dir_csv, lengthThreshold=3000, UniqueTrans
 
                 else:
                     genes_gt1_isf_and_1_exon += [(gene,
-                                                  info[0][0], info[0][6], info[0][2])]
+                                                  segLengthThresh, segUniqueProtTransCount, segGeneObname)]
             else:
                 # no of unique transcripts are less than 2 or 3, hence 1 or 2
                 
-                if sum(info[0][5])<UniqueTransCount:
+                if sum(segCountIsoHavingSameAa)<UniqueTransCount:
                     only1isf+=1
                 else:
                     lessThanPassnr+=1
-                for uniqueProtAa in info[0][5]:
+                for uniqueProtAa in segCountIsoHavingSameAa:
                     if  uniqueProtAa >1:
-                        background_UTR+=info[0][5]
+                        background_UTR+=segCountIsoHavingSameAa
                     #background UTR fraction only involves the cases when only 1 or 3, (threshold -1) unique protein coding isoforms are listed, provided they have atleast 2 isoforms coding the same protein.
                 
     
         else:
-            genesGreaterThanThresholdLength += [(gene,info[0][0], info[0][2])]
+            genesGreaterThanThresholdLength += [(gene,segLengthThresh, segGeneObname)]
 
-        RAW_data+='%s\t%s\t%s\t%s\t%s\t%s\n'%(gene,info[0][2],info[0][0],sum(info[0][5]),info[0][6],info[0][1])
+        RAW_data+='%s\t%s\t%s\t%s\t%s\t%s\n'%(gene,segGeneObname,segLengthThresh,sum(segCountIsoHavingSameAa),segUniqueProtTransCount,segUniqueCodingExCount)
         for iteration in info[1]:
-            RAW_data2+='%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n'%(gene,info[0][0],info[0][6],info[0][1],iteration[0],iteration[1],iteration[2],iteration[3],iteration[4])
-        exoncount_isf_length_allunique+=info[0][3]
+            RAW_data2+='%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n'%(gene,segLengthThresh,segUniqueProtTransCount,segUniqueCodingExCount,iteration[0],iteration[1],iteration[2],iteration[3],iteration[4])
+        exoncount_isf_length_allunique+=segAdditionInfoExCountLengthOfProtein
         
     special_genes=''
     for i in genesGreaterThanThresholdLength:
@@ -238,20 +311,47 @@ def transcripts_type(has,fout,results_dir_csv, lengthThreshold=3000, UniqueTrans
     array_to_write+=["tag:Varying_Protein ->unique_protein_seq"]
     array_to_write+=["tag:UTR_per_protein ->per_protein_UTR"]
     array_to_write+=["tag:max_UTR_per_gene ->max_UTR_per_gene"]
+    array_to_write+=["\nGreater Than 10 isofroms gene list\nGene\tuniqueProteins\tName"]
+    greaterthan10isf.sort(reverse=True)
+    geneswith1isfhaving5ormoreUTR.sort(reverse=True)
+    for geneT in greaterthan10isf:
+        array_to_write+=["%s\t%s\t%s"%(geneT[1],geneT[0],has[geneT[1]].detail)]
 
-
+    array_to_write+=["\nGreater Than 5 utr PER ISOFORM INgene list"]
+    array_to_write+=["Gene\tMaxUtr\tName\t5end,3end,bothEnd\tTransList"]
+    for geneT in geneswith1isfhaving5ormoreUTR:
+        #(2, gene, 5', 3', both, 'NP_001334352.2,NP_000005.3', )
+        array_to_write+=["%s\t%s\t%s,%s,%s\t%s\t%s"%(geneT[1],geneT[0],geneT[2],geneT[3],geneT[4],has[geneT[1]].detail,geneT[5] )]
+     
     fout.write("%s\n"%("\n".join(array_to_write)))
-
+                            #   geneswith1isfhaving5ormoreUTR += [(gene, tinfo)]
+                            # ('NP_001334352.2,NP_000005.3', 2, 1, 0, 0) # last 3 are count of 5 3 and bith ends xcange
     with open (os.path.join(results_dir_csv,"tabular_TransData.csv"),'w') as outf:
         outf.write("%s"%tabularData)
     
+    with open (os.path.join(results_dir_csv,"tabular_GeneTableTransDataNR_IndependentCorrect.csv"),'w') as outf:
+        outf.write("ISFCount\tGeneCount\tFrequency\n")
+        outf.write("%s"%freq_writer([i[1] for i in shashisuggestedtransCount]))
+
+    with open (os.path.join(results_dir_csv,"tabular_GeneTableExonsDataProtCoding_IndependentCorrect.csv"),'w') as outf:
+        outf.write("ExonCount\tGeneCount\tFrequency\n")
+        outf.write("%s"%freq_writer([i[1] for i in shashisuggestedExonsCount]))
+
     with open (os.path.join(results_dir_csv,"tabular_GeneTableTransData.csv"),'w') as outf:
-        outf.write("CDS_count\tGeneCount\tFrequency\n")
-        outf.write("%s"%freq_writer(shashisuggestedtransCountNr))
+        # "ISFCount\tTag\tGeneCount\tFrequency
+        outf.write("ISFCount\tTag\tGeneCount\tFrequency\n")
+        outf.write("%s"%freq_writerShashiUTR(shashisuggestedtransCount))
 
     with open (os.path.join(results_dir_csv,"tabular_GeneTableExonsData.csv"),'w') as outf:
-        outf.write("Different_exons_count\tGeneCount\tFrequency\n")
-        outf.write("%s"%freq_writer(shashisuggestedExonsCountNr))
+        # ExonCount\tTag\tGeneCount\tFrequency\n
+        outf.write("ExonCount\tTag\tGeneCount\tFrequency\n")
+        outf.write("%s"%freq_writerShashiUTR(shashisuggestedExonsCount))
+
+    
+    with open (os.path.join(results_dir_csv,"raw_contourCodExNrIsf.csv"),'w') as outf:
+        outf.write("gene\tCodingExonCount\tNRIsfCount\n")
+        for codexisf in shashisuggestedExonsCountCodingAndNrTransCoding:
+            outf.write("%s\t%s\t%s\n"%(codexisf[0],codexisf[1],codexisf[2]))
 
     with open (os.path.join(results_dir_csv,'genewiseinformation1.tab'),'w') as fin:
         fin.write("Gene\tGeneName\tLengthPI\tTotalVariants\tUniqueProteinVariants\tUniqueCodingExons\n")
@@ -263,14 +363,14 @@ def transcripts_type(has,fout,results_dir_csv, lengthThreshold=3000, UniqueTrans
 
     df = pd.DataFrame(var_gene_dual,columns=['Transcripts','Exons'])
     
-    reg_plot=sns.jointplot(x=df["Exons"], y=df["Transcripts"], kind='reg',space=0,joint_kws={'line_kws':{'color':'cyan'}})
+    # reg_plot=sns.jointplot(x=df["Exons"], y=df["Transcripts"], kind='reg',space=0,joint_kws={'line_kws':{'color':'cyan'}})
     # reg_plot = reg_plot.ax_joint.legend_.remove()
-    reg_plot.savefig(os.path.join(results_dir_csv,"Additional_transcripts_exons_varname(VAR_GENE_DUAL).png"))
+    # reg_plot.savefig(os.path.join(results_dir_csv,"Additional_transcripts_exons_varname(VAR_GENE_DUAL).png"))
     
-    df1 = pd.DataFrame(exoncount_isf_length_allunique,columns=['Exons','PI_length'])
-    reg1_plot=sns.jointplot(x=df1["Exons"], y=df1["PI_length"], kind='reg',space=0, color="g",joint_kws={'line_kws':{'color':'cyan'}})
+    # df1 = pd.DataFrame(exoncount_isf_length_allunique,columns=['Exons','PI_length'])
+    # reg1_plot=sns.jointplot(x=df1["Exons"], y=df1["PI_length"], kind='reg',space=0, color="g",joint_kws={'line_kws':{'color':'cyan'}})
     # reg1_plot.ax_joint.legend_.remove()
-    reg1_plot.savefig(os.path.join(results_dir_csv,"Additional_number_of_exons_and_protein_length_unique_dataset_all_varNAme(exoncount_isf_length_allunique).png"))
+    # reg1_plot.savefig(os.path.join(results_dir_csv,"Additional_number_of_exons_and_protein_length_unique_dataset_all_varNAme(exoncount_isf_length_allunique).png"))
     
     writer(total_transcripts, unique_protein_seq, per_protein_UTR, max_UTR_per_protein, results_dir_csv)
 

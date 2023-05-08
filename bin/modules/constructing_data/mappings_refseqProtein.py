@@ -119,6 +119,32 @@ def refseqEnsemble(ref, ens, swiss, flataddens=None, flataddswiss=None):
 
 
 def mapping_alreadyDone_vs_Pending(unassignedDir, alreadydoneDir, copyDonetoUnassigned, pendingToRun, createTheMapFile):
+    """
+    Doc: 
+    unassignedDir: freshly downloaded proteome
+    alreadydoneDir: previous done pool of .dat.ss
+    copyDonetoUnassigned: where to assign the SSP stored, typical source_data/SSP
+    pendingToRun: unique sequqnces to run
+    createTheMapFile:
+
+    screen unassignedSeq and store seq as key, identifiers as value
+    screen alreadydoneSeq, and same process as above
+
+    iterate unassigneddoct
+        if seq in alreaddonseqDict
+            count parameters, copy the files
+        else:
+            see if fits the length raneg options and 
+            if yes, 
+                move the first identifer their 
+
+                create map, how first identifier will be matched to rest of the files
+            else:
+                # seq is lonegr than the range we had, so no match and feed to negafile
+
+    """
+
+
     unassignedSeq = os.listdir(unassignedDir)
     if os.path.isdir(alreadydoneDir):
         alreadydoneSeq = [i for i in os.listdir(
@@ -137,15 +163,14 @@ def mapping_alreadyDone_vs_Pending(unassignedDir, alreadydoneDir, copyDonetoUnas
         unassignedSeqHas = updateHas(unassignedSeqHas, seq, i)
     for i in alreadydoneSeq:
         # NP_000005.2.dat.ss
-        #print (os.path.join(alreadydoneDir,i))
+        # print (os.path.join(alreadydoneDir,i))
         with open(os.path.join(alreadydoneDir, i)) as fin:
             seq = "".join([j.split()[1]
                            for j in fin.read().split("\n")[1:] if len(j)]).strip()
         alreadydoneSeqHas = updateHas(alreadydoneSeqHas, seq, i)
     # copyTheDone and storing pending
-    print (len(alreadydoneSeqHas))
     mapfout = open(createTheMapFile, 'w')
-    megafile = []
+    longerthan3000aa = []
     alDoneTot = 0
     alDonenr = 0
     runTot = 0
@@ -159,8 +184,8 @@ def mapping_alreadyDone_vs_Pending(unassignedDir, alreadydoneDir, copyDonetoUnas
             with open(os.path.join(alreadydoneDir, mapFile)) as fin:
                 dat = fin.read()
             filesToCopy = unassignedSeqHas[i]
-            for iter in filesToCopy:
-                with open(os.path.join(copyDonetoUnassigned, iter+'.dat.ss'), 'w') as fout:
+            for itera in filesToCopy:
+                with open(os.path.join(copyDonetoUnassigned, itera+'.dat.ss'), 'w') as fout:
                     fout.write('%s' % dat)
         else:
             length = len(i)
@@ -174,13 +199,12 @@ def mapping_alreadyDone_vs_Pending(unassignedDir, alreadydoneDir, copyDonetoUnas
                 runnr += 1
                 runTot += len(unassignedSeqHas[i])
                 string = ",".join(unassignedSeqHas[i][1:])
-                mapfout.write("%s\t%s\t%s" %
+                mapfout.write("%s\t%s\t%s\n" %
                               (unassignedSeqHas[i][0], pendingHas[j], string))
             else:
-                megafile += [[unassignedSeqHas[i]]]
+                longerthan3000aa += [[unassignedSeqHas[i]]]
     mapfout.close()
     # makingDirs
-
     for i in pendingHas:
         dirname = pendingHas[i][0]
         if len(pendingHas[i]) > 1:
@@ -190,13 +214,14 @@ def mapping_alreadyDone_vs_Pending(unassignedDir, alreadydoneDir, copyDonetoUnas
         for files in pendingHas[i][1:]:
             with open(os.path.join(unassignedDir, files)) as fin:
                 dat = fin.read()
+            dat1=re.sub(r'^>.*','>'+files,dat)
             with open(os.path.join(pendingToRun, pendingHas[i][0], files), 'w') as fin:
-                fin.write('%s' % dat)
+                fin.write('%s' % dat1)
 
     print ('Total Were %s entries (%s non red)' %
            (len(unassignedSeq), len(unassignedSeqHas)))
     print ('>3000 Were %s entries (%s non red)' %
-           (len([i for j in megafile for i in j]), len(megafile)))
+           (len([i for j in longerthan3000aa for i in j]), len(longerthan3000aa)))
     print ('PreAss Were %s entries (%s non red)' % (alDoneTot, alDonenr))
     print ('RunSet Were %s entries (%s non red)' % (runTot, runnr))
 
@@ -204,9 +229,13 @@ def mapping_alreadyDone_vs_Pending(unassignedDir, alreadydoneDir, copyDonetoUnas
 def gene_description(gene_table_dir):
     has = {}
     for i in os.listdir(gene_table_dir):
-        with open(os.path.join(gene_table_dir, "%s") % i) as fin:
-            dat = fin.read().split("\n")[0].split("[")[0]
-        has[int(i.split(".")[0])] = dat
+        try:
+            with open(os.path.join(gene_table_dir, "%s") % i) as fin:
+                dat = fin.read().split("\n")[0].split("[")[0]
+            has[int(i.split(".")[0])] = dat
+        except Exception as E:
+            print (E, i)
+            raise
     return has
 
 

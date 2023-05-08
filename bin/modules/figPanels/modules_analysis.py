@@ -1,8 +1,40 @@
 import cPickle as pickle
 import numpy as np
-import scipy,os
+import scipy,os, re
 import common.general_modules as gm
+from Bio import pairwise2
+from Bio.pairwise2 import format_alignment
+from Bio.SubsMat import MatrixInfo as matlist
+matrix = matlist.blosum62
 
+def refinestandard(s):
+    # A CDEFGHI KLMN PQRST VW Y
+    #  B       J    O     U  X Z
+    lischange = ["B","J","O","U","X","Z"]
+    for i in lischange:
+        if i in s:
+            s = re.sub(r'%s'%i,'X',s)
+    return s
+
+def stats (aln):
+    # identity, cov1, cov2
+    seq1 = aln[0]
+    seq2 = aln[1]
+    match = 0
+    nongaps = 0 
+    for ind, val in enumerate (seq1):
+        if seq2[ind] == val:
+            match +=1
+        if seq2[ind]!='-' and val!='-':
+            nongaps +=1
+    seq1Length = len(seq1) - seq1.count('-')
+    seq2Length = len(seq2) - seq2.count('-')
+    identity1 = round(float(match)/seq1Length,3)
+    identity2 = round(float(match)/seq2Length,3)
+    cov1 = round(float(nongaps)/seq1Length,3)
+    cov2 = round(float(nongaps)/seq2Length,3)
+    return seq1Length, seq2Length, identity1, identity2, cov1, cov2
+    
 #genes
 
 # def exonScreenerBetweenTConstitutiveTransWise(gene,inclusive=True):
@@ -22,12 +54,103 @@ import common.general_modules as gm
 #     return acceptableNumericFlagList
 
 
+def giveExonSelectionBasic(exonMatrix,utmrdtag):
+    Strict=[i for i in exonMatrix if exonMatrix[i][0]==utmrdtag]
+    MajorlyConstitutive=[i for i in exonMatrix if exonMatrix[i][0]==utmrdtag and exonMatrix[i][1]=='F']   
+    Alternate=[i for i in exonMatrix if exonMatrix[i][0]==utmrdtag and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2]) ==0]
+    AlternateWithSS=[i for i in exonMatrix if exonMatrix[i][0]==utmrdtag and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2])>0]  
+    Constitutive=[i for i in exonMatrix if exonMatrix[i][0]==utmrdtag and exonMatrix[i][1]=='G']
+    return Strict, MajorlyConstitutive, Alternate, AlternateWithSS, Constitutive
+
+def giveExonSelectionAdvanced(exonMatrix, exonsObList, gene, fhandler):
+    # gene   utmrd0  utmrd2  type	exon1	exon2   aln1	aln2	aln3	statsLis
+    # 103   D   A   default 
+    # 103   D   G   Default
+    # 104   NA
+    for tagListUtmrdConAlt in [("D","G"), ("D","A"), ("D","F"), ("T","G"), ("T","A"), ("T","F")]:
+        utmrdtag, constAltTag = tagListUtmrdConAlt
+        ConstitutiveWaachange = [i for i in exonMatrix if exonMatrix[i][0]==utmrdtag and exonMatrix[i][1]==constAltTag and (exonMatrix[i][3]>0 or sum(exonMatrix[i][7])>0)]
+        if not ConstitutiveWaachange:
+            fhandler.write('%s\t%s\t%s\t%s\n'%(gene, utmrdtag, constAltTag, 'NA'))
+        else:
+            fhandler.write('%s\t%s\t%s\tdefault\t%s\n'%(gene, utmrdtag, constAltTag, ','.join(map(str,ConstitutiveWaachange))))
+
+        # i above is placeholder
+        ConstWAAchassign = []
+        ConstWAAchframec = []
+        hasRecorder = {}
+        for pos in ConstitutiveWaachange:
+            tlis = []
+            refSeq = {} # id should be pos + n + occ + occ
+            compareExonList={}
+            for i in exonsObList:
+                # T.1.F.6.0.0
+                utmrd = i.ID.split('.')
+                if utmrd[0]!='R' and int(utmrd[3]) == pos and i.length >0:
+                    hasid = '%s:%s:%s'%(utmrd[3], utmrd[4], utmrd[5]) #6:0:0, 6:n:1
+                    seqvarid = int(utmrd[1])
+                    if seqvarid == 1:
+                        refSeq[hasid] = i.seq
+                    else:
+                        if hasid not in compareExonList:
+                            compareExonList[hasid]={}
+                        if utmrd[1] not in compareExonList[hasid]:
+                            compareExonList[hasid][seqvarid]=i.seq
+            
+            # print ("LIST Change,", ConstitutiveWaachange)
+            # print ("LIST compareExonList,", compareExonList)
+            # print ("LIST refSeq,", refSeq)
+            
+            # gene   utmrd0  utmrd2  type	exon1	exon2	aln1	aln2	aln3	statsLis
+            # 103   D   A   default 
+            # 103   D   G   Default
+            # 104   NA
+            for hasid in compareExonList:
+                if hasid in refSeq:
+                    parent = refinestandard (refSeq[hasid])
+                    for seqvar in compareExonList[hasid]:
+                        varseq = refinestandard(compareExonList[hasid][seqvar])
+                        # print ("PAIR:1",parent)
+                        # print ("PAIR:2",varseq)
+                        smaller = parent if len(parent) < len(varseq) else varseq
+                        larger = parent if len(parent) > len(varseq) else varseq
+                        diff = float(len(smaller))/float(len(larger))<0.20
+                        if diff:
+                            if larger[:len(smaller)]==smaller or larger[-len(smaller):]==smaller:
+                                #assignCase
+                                seq1Length, seq2Length, identity1, identity2, cov1, cov2 = [len(parent), len(varseq), 1, 1, 1, 1]
+                            else:
+                                #framechange
+                                seq1Length, seq2Length, identity1, identity2, cov1, cov2 = [len(parent), len(varseq), 0, 0, 0, 0]
+
+                        else:    
+                            align = pairwise2.align.globaldx(parent, varseq, matrix)
+                            for a in align:
+                                seq1Length, seq2Length, identity1, identity2, cov1, cov2 = stats(a)
+                                parAln, alnBars, varAln, score, newLine = (format_alignment(*a, full_sequences=True)).split('\n')
+                                typeTag = 'assign' if (identity1 == 1.0 or identity2 == 1.0) else 'frame'
+                                fhandler.write('%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n'%(gene, utmrdtag, constAltTag, typeTag, hasid, seqvar, parAln, varAln, alnBars, ','.join(map(str,[seq1Length, seq2Length, identity1, identity2, cov1, cov2]))))
+                                fhandler.flush()
+                                # hasRecorder[(hasid,seqvar)] = [seq1Length, seq2Length, identity1, identity2, cov1, cov2, parAln, alnBars, varAln]
+                                # print (seq1Length, seq2Length, identity1, identity2, cov1, cov2, parAln, alnBars, varAln)
+                                break
+        
+        ## verification tags
+        # if len(ConstitutiveWaachange) !=  (len(ConstWAAchassign) + len(ConstWAAchframec)):
+        #     print ("** Complete list available but no segregation inside for gene %s, case parent, Assign, framechange %s || %s || %s "%(gene, ConstitutiveWaachange, ConstWAAchassign, ConstWAAchframec))
+        # if ConstWAAchassign and ConstWAAchassign:
+        #     print ("** check if done correctly for gene %s, case parent, Assign, framechange %s || %s || %s "%(gene, ConstitutiveWaachange, ConstWAAchassign, ConstWAAchframec))
+        #     sys.exit()
+    return
+
+
 def positionalExonMatrix_forExCharacterization(gene):
     exonMatrix={}
     for trans in gene.transcripts:
         for exon in trans.exons:
             if exon.ID[0]!='R':
                 utmrdtag, localcod, consalt, placeholder, ncb0, ncb0occ = exon.ID.split('.')
+                # T.1.A.3.0.0
                 # if 'U' in exon.ID and 'G' in exon.ID:
                 #     print (gene)
                 #     sys.exit()
@@ -35,8 +158,8 @@ def positionalExonMatrix_forExCharacterization(gene):
                 ncb0occ=int(ncb0occ)
                 localcod=int(localcod)
                 if placeholder not in exonMatrix:
-                    exonMatrix[placeholder]=['','',[0,0,0], 0,0,0, 0 ]
-                                            #0, 1, 2      ,3,4,5, 6
+                    exonMatrix[placeholder]=['','',[0,0,0], 0,0,0, 0, [0,0,0]]
+                                            #0, 1,    2   , 3,4,5, 6, 7
                     # 0th ele, UTMRD tag, 
                     # 1st ele, AGF tag, 
                     # 2nd records children order of ncb, and 
@@ -44,6 +167,7 @@ def positionalExonMatrix_forExCharacterization(gene):
                     # 4th coding intron retention events starting from this
                     # 5th non coding intron retention events starting from this
                     # 6th whether aa has been ever removed from this sequence (yes consider all the ncb variation also but not retention)
+                    # 7th whether ncb variations ever had change in aa case, like FMR1 gene does have, in that case it will be binary and value 1 means atleast 1 sduch case exists, 
                 if localcod == -1:
                     exonMatrix[placeholder][6]=1
                 if ncb0=='0':
@@ -61,6 +185,8 @@ def positionalExonMatrix_forExCharacterization(gene):
                     index = 0 if ncb0 =='n' else 1 if ncb0 =='c' else 2
                     if ncb0occ>exonMatrix[placeholder][2][index]:
                         exonMatrix[placeholder][2][index]=ncb0occ
+                    if localcod >1:
+                        exonMatrix[placeholder][7][index]=1
     for exons in gene.exons:
         if exons.ID[0]=='R':
             #	R:1:U.-2.A.2.0.0:0:T.1.A.3.0.0

@@ -26,3 +26,10 @@ pending:
 6. basic layout could have been netter
 7. renove console logs and develpoment in django
 8. update the analysis codes for rest of the figures section
+
+
+
+
+
+
+updating ensemble_write_seq() in multifasta_to_fasta for opurpose above

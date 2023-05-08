@@ -75,20 +75,16 @@ with open(sys.argv[1]) as fin:
     freshStart = int(params['freshStart'])
 
     parent_dir = params['parent_dir']
-    outdir1 = parent_dir
     organism = params['organism']
     common_data = params['common_data']
     analysis_needed = int(params['analysis_needed'])
     analysis_dir = params['analysis_dir']
-
     sslevel = float(params['sslevel']) if params['sslevel'] else False
-    
     struct_repo_dir = params['struct_repo_dir']
     struct_repo_dirAF = os.path.join(os.path.abspath(
         os.path.dirname(os.path.normpath(struct_repo_dir))), 'Alphafold')
     structureandCath = int(params['structureandCath'])
     # if above is true, then only handle them otherwise skip for now
-    
     cores = multiprocessing.cpu_count() - 4
 """
 This is the module, there should be two/three aspects of this, 
@@ -97,12 +93,11 @@ source, is that NCBI or ensembl ?
     DB functionality (nomenclature, ss, disorder, pfam)
     advaned functionality (above and cath, pdb structure, alphfaold structre and plDDT significance)
 """
-
 # ############################################################# <Part 0/> ##############################################################################
 
 # ############################################################# <Part 1> ##############################################################################
 # setting names of the directorues and eseting
-source_data, pfam_dir, ssp_raw, pid_add, pid_raw_multifasta, ens_raw_multifasta, swiss_raw_multifasta, ens_pid, swiss_pid, gene_add, derived_data, disp_raw, pickle_add, results_dir, save_structure_dir, save_structure_dirAF, stride_reformat_dir, stride_exons_dir, stride_reformat_dirAF, stride_exons_dirAF, pfam_der_writer, cath_der_writer, ss_exons_dir, ss_exons_dir06, dis_exons_dir, aaseq_exons_dir, pfam_der_writer, cath_der_writer, faaDir, lisDir, faaDirAF, lisDirAF = om.setnames(parent_dir, analysis_needed)
+source_data, pfam_dir, ssp_raw, pid_add, pid_raw_multifasta, ens_raw_multifasta, swiss_raw_multifasta, ens_pid, swiss_pid, gene_add, derived_data, disp_raw, pickle_add, results_dir, save_structure_dir, save_structure_dirAF, stride_reformat_dir, stride_exons_dir, stride_reformat_dirAF, stride_exons_dirAF, pfam_der_writer, cath_der_writer, ss_exons_dir, ss_exons_dir06, dis_exons_dir, aaseq_exons_dir, pfam_der_writer, cath_der_writer, faaDir, lisDir, faaDirAF, lisDirAF = om.setnames(parent_dir, analysis_needed, organism)
 #-> this should also be updated to has dir level
 
 
@@ -132,7 +127,7 @@ if freshStart:
         print ("wrong fresh start argument, please enter 1,2 or 0")
         sys.exit()
 
-results_dir_analysis('make')
+om.makethedirs('make', results_dir)
 # -> apparently there is reduinda cuy in code aboea nd in prep.bash segment, i think both needs to underho some change, keep it preent here and emov from the prep.bash
 # ############################################################# <Part 1/> ##############################################################################
 
@@ -140,7 +135,7 @@ results_dir_analysis('make')
 # SOURCE FILES, DIRECTORIES AND PROGRAM REFERENCE
 
 
-cath_domall_file, sift_db_file, gene2ens_file, gene2go_file, tabdelim_alias, cx, stride_location, align_location = om.setsourcefnames (common_data)
+cath_domall_file, sift_db_file, gene2ens_file, gene2go_file, tabdelim_alias, cx, stride_location, align_location = om.setsourcefnames (common_data, organism)
 # -> as i will be shifting sooner to mapping on the laphafold or colved collabfold entries, there is not point acallingthe akign program, nor their is any need to update with teh gene2ens files
 
 # ############################################################# <Part 2/> ##############################################################################
@@ -154,29 +149,29 @@ cath_domall_file, sift_db_file, gene2ens_file, gene2go_file, tabdelim_alias, cx,
 # APPROACH IS PENDING, SHOULD REFER TO PROGRAMS USED FOR SUCH PROGRAMS IN DIFFERNT SYSTEMS AND THEIR DOCUMENTATION ALSO
 # ############################################################# <Part 3/> ##############################################################################
 
+
+# ############################################################# <Part 4> ##############################################################################
 def retConFor(func, file_int, args):
     # retConFor=returner_control_forwarder
     # args here is the list of parameters to be passed aheaddto the functions_flow
-    has = file_loader(file_int) if os.path.isfile(file_int) else func(*args)
+    has = om.file_loader(file_int) if os.path.isfile(file_int) else func(*args)
     if not os.path.isfile(file_int):
-        file_pickle_dumper(has, file_int)
+        om.file_pickle_dumper(has, file_int)
     return has
     # wow i used to write good codes too ( :), sep 13 2021)
-
 
 def retConForDual(func, file_int1, file_int2, args):
     # retConFor=returner_control_forwarder
     # args here is the list of parameters to be passed aheaddto the functions_flow
     if os.path.isfile(file_int1) and os.path.isfile(file_int2):
-        has1 = file_loader(file_int1)
-        has2 = file_loader(file_int2)
+        has1 = om.file_loader(file_int1)
+        has2 = om.file_loader(file_int2)
         return has1, has2
     else:
         has1, has2 = func(*args)
-        file_pickle_dumper(has1, file_int1)
-        file_pickle_dumper(has2, file_int2)
+        om.file_pickle_dumper(has1, file_int1)
+        om.file_pickle_dumper(has2, file_int2)
         return has1, has2
-
 
 def functions_imp(structureandCath):
     '''
@@ -193,106 +188,192 @@ def functions_imp(structureandCath):
     
     -> module division could be crerated easily here
     '''
-    # os.remove(pickle_add + "has_gene_var_%s.pick" % organism)
-    has_gene_var = retConFor(retriever.hash_gene_var_list, os.path.join(
-        pickle_add, "has_gene_var_%s.pick" % organism), [gene_add, pid_add])
-    part(1, "has_gene_var_reltionship")
-    has_NCBI_Ensemble_gene = retConFor(mappings_refseqProtein.ensemble_ncbi_genes, os.path.join(
-        pickle_add, "has_NCBI_Ensemble_gene_%s.pick" % organism), [gene2ens_file, organism])
-    part(2, "mapping refseq to swissprot and ensemble")
+    has_refseq_ens = {}
+    has_refseq_swiss = {}
     # above can be skipped
-    has_refseq_ens, has_refseq_swiss = retConForDual(mappings_refseqProtein.refseqEnsemble, os.path.join(
-        pickle_add, "has_refseq_ens_%s.pick" % organism), os.path.join(pickle_add, "has_refseq_swiss_%s.pick" % organism), [pid_add, ens_pid, swiss_pid])
+    # has_refseq_ens, has_refseq_swiss = retConForDual(mappings_refseqProtein.refseqEnsemble, os.path.join(pickle_add, "has_refseq_ens_%s.pick" % organism), os.path.join(pickle_add, "has_refseq_swiss_%s.pick" % organism), [pid_add, ens_pid, swiss_pid])    
     # with bigger pool, more memory will be required, not a very efficinet way,
-    part(3, "gene description")
-    has_gene_description = retConFor(mappings_refseqProtein.gene_description,
-                                     os.path.join(pickle_add, "has_gene_decription_short_%s.pick" % organism), [gene_add])
-    part(4, "Gene ontology")
-    has_gene_go, has_gene_components = retConForDual(mappings_refseqProtein.go_terms_and_cellular_location, os.path.join(
-        pickle_add, "has_gene_gonumbers_%s.pick" % organism), os.path.join(pickle_add, "has_gene_components_%s.pick" % organism), [gene2go_file, organism])
-    # its a hash of the go numbers and has having values, where value close to one is membranous and opposite, checka ny alanysis section to see how that was done, (likely in gi1 generat stats)
 
-    part(5, "storing exonic coordinates from files")
-    has_gene_cood = retConFor(retriever.hash_gene_coordinates, os.path.join(
-        pickle_add, "has_gene_cood_%s.pick" % organism), [gene_add, pid_add])
+    if dataType != "NCBI":
+        has_gene_var = retConFor(retriever.hash_gene_var_list, os.path.join(
+            pickle_add, "has_gene_var_%s.pick" % organism), [gene_add, pid_add]) #use fle structre, 
+        om.part(1, "has_gene_var_reltionship")
+        has_NCBI_Ensemble_gene = retConFor(mappings_refseqProtein.ensemble_ncbi_genes, os.path.join(pickle_add, "has_NCBI_Ensemble_gene_%s.pick" % organism), [gene2ens_file, organism])
+        # use NCBI file as default, or uise mappings, 
+        om.part(2, "mapping refseq to swissprot and ensemble")
+        has_gene_description = retConFor(mappings_refseqProtein.gene_description,
+                                        os.path.join(pickle_add, "has_gene_decription_short_%s.pick" % organism), [gene_add])
+        #use file structure and and columns 'Gene name' and 'Gene description'
+        has_gene_go, has_gene_components = retConForDual(mappings_refseqProtein.go_terms_and_cellular_location, os.path.join(
+            pickle_add, "has_gene_gonumbers_%s.pick" % organism), os.path.join(pickle_add, "has_gene_components_%s.pick" % organism), [gene2go_file, organism])
+                om.part(5, "storing exonic coordinates from files")
+        # use fuile feature general     
+        has_gene_cood = retConFor(retriever.hash_gene_coordinates, os.path.join(
+            pickle_add, "has_gene_cood_%s.pick" % organism), [gene_add, pid_add])
+        # use file strcutre
+        om.part(6, "pfam section")
+        pfam_fil_has = retConFor(pfam_files.pfam_runner, os.path.join(pickle_add, "pfam_final_has_%s.pick" 
+        # use file featureDomain
+        prediction_assignment_ss.aaseq(has_gene_cood, pid_add, aaseq_exons_dir)
+        has_pi = retConFor(prediction_assignment_ss.principal_isoform, os.path.join(
+            pickle_add, "has_pi_%s.pick" % organism), [has_gene_var, aaseq_exons_dir])
+        #keep using the isoform with largest number of codiong exons, 
+        # predict SS using netcdf
+        om.makedir(parent_dir + "unassigned_ss/")
+        om.part(8, "ss to exons and assignment")
+        # -> uncommneted them below
 
-    part(6, "pfam section")
+        prediction_assignment_ss.assigner(
+            ssp_raw, pid_add, pid_add, ssp_raw, os.path.join(parent_dir, "unassigned_ss"))
 
-    pfam_fil_has = retConFor(pfam_files.pfam_runner, os.path.join(pickle_add, "pfam_final_has_%s.pick" % organism), [pfam_der_writer, common_data, pickle_add, pfam_dir, has_gene_var])
-    # pfam_fil_has = []
-    part(7, "seq to exons")
-    prediction_assignment_ss.aaseq(has_gene_cood, pid_add, aaseq_exons_dir)
-    has_pi = retConFor(prediction_assignment_ss.principal_isoform, os.path.join(
-        pickle_add, "has_pi_%s.pick" % organism), [has_gene_var, aaseq_exons_dir])
-    makedir(parent_dir + "unassigned_ss/")
-    part(8, "ss to exons and assignment")
-    # -> uncommneted them below
+        # -> fucntion equivalent arg names, (done_dir, fastadir_done, pool_of_left, dir_to_write, where_to_write_rep_of_unassigned) screens the ssp_raw for already done prediction, and stores aaseq iun memory (from fastadirDone), screens pool_ofleft(pid_add: refseq dir) and check aaseq if predicted, if doesnt then ask for the prediction and write to unassigned_ss dir
 
-    prediction_assignment_ss.assigner(
-        ssp_raw, pid_add, pid_add, ssp_raw, os.path.join(parent_dir, "unassigned_ss"))
-
-    # -> fucntion equivalent arg names, (done_dir, fastadir_done, pool_of_left, dir_to_write, where_to_write_rep_of_unassigned) screens the ssp_raw for already done prediction, and stores aaseq iun memory (from fastadirDone), screens pool_ofleft(pid_add: refseq dir) and check aaseq if predicted, if doesnt then ask for the prediction and write to unassigned_ss dir
-
-    prediction_assignment_ss.ss_to_exons(
-        has_gene_cood, ssp_raw, ss_exons_dir, None)
-    # -> write sspred to exons format (matrix) and pickles them, threshold used is for confidence
-    prediction_assignment_ss.ss_to_exons(
-        has_gene_cood, ssp_raw, ss_exons_dir06, 0.6)
-    prediction_assignment_ss.disorder_to_exons(
-        has_gene_cood, disp_raw, dis_exons_dir)
-    # don't worry about the its being done twice, onl;y on eth eidrectory wikl be used below
-
-    part(9, "cath_domains")
-    if structureandCath:
-        cath_fil_has = retConFor(cath_files_multi.cath_runner, os.path.join(pickle_add, "cath_final_has_%s.pick" % organism), [
-            pickle_add, cath_domall_file, cath_der_writer, sift_db_file, swiss_pid, struct_repo_dir, has_refseq_swiss, has_gene_var, common_data, align_location, cores])
+        prediction_assignment_ss.ss_to_exons(
+            has_gene_cood, ssp_raw, ss_exons_dir, None)
+        # -> write sspred to exons format (matrix) and pickles them, threshold used is for confidence
+        prediction_assignment_ss.ss_to_exons(
+            has_gene_cood, ssp_raw, ss_exons_dir06, 0.6)
+        prediction_assignment_ss.disorder_to_exons(
+            has_gene_cood, disp_raw, dis_exons_dir)
+        # don't worry about the its being done twice, onl;y on eth eidrectory wikl be used below
+        if structureandCath:
+            cath_fil_has = retConFor(cath_files_multi.cath_runner, os.path.join(pickle_add, "cath_final_has_%s.pick" % organism), [
+                pickle_add, cath_domall_file, cath_der_writer, sift_db_file, swiss_pid, struct_repo_dir, has_refseq_swiss, has_gene_var, common_data, align_location, cores])
+        else:
+            cath_fil_has = []
+        # -> keep this the same, domains should be assigned based on only the coordinates of original pdb files (do they have to)
     else:
-        cath_fil_has = []
-    # -> keep this the same, domains should be assigned based on only the coordinates of original pdb files (do they have to)
+
+        has_gene_var = retConFor(retriever.hash_gene_var_list, os.path.join(
+            pickle_add, "has_gene_var_%s.pick" % organism), [gene_add, pid_add])
+        om.part(1, "has_gene_var_reltionship")
+        has_NCBI_Ensemble_gene = retConFor(mappings_refseqProtein.ensemble_ncbi_genes, os.path.join(pickle_add, "has_NCBI_Ensemble_gene_%s.pick" % organism), [gene2ens_file, organism])
+        om.part(2, "mapping refseq to swissprot and ensemble")
+        om.part(3, "gene description")
+        has_gene_description = retConFor(mappings_refseqProtein.gene_description,
+                                        os.path.join(pickle_add, "has_gene_decription_short_%s.pick" % organism), [gene_add])
+        om.part(4, "Gene ontology")
+        has_gene_go, has_gene_components = retConForDual(mappings_refseqProtein.go_terms_and_cellular_location, os.path.join(
+            pickle_add, "has_gene_gonumbers_%s.pick" % organism), os.path.join(pickle_add, "has_gene_components_%s.pick" % organism), [gene2go_file, organism])
+        # its a hash of the go numbers and has having values, where value close to one is membranous and opposite, checka ny alanysis section to see how that was done, (likely in gi1 generat stats)
+
+        om.part(5, "storing exonic coordinates from files")
+        has_gene_cood = retConFor(retriever.hash_gene_coordinates, os.path.join(
+            pickle_add, "has_gene_cood_%s.pick" % organism), [gene_add, pid_add])
+
+        om.part(6, "pfam section")
+
+        pfam_fil_has = retConFor(pfam_files.pfam_runner, os.path.join(pickle_add, "pfam_final_has_%s.pick" % organism), [pfam_der_writer, common_data, pickle_add, pfam_dir, has_gene_var])
+        # pfam_fil_has = []
+        om.part(7, "seq to exons")
+        prediction_assignment_ss.aaseq(has_gene_cood, pid_add, aaseq_exons_dir)
+        has_pi = retConFor(prediction_assignment_ss.principal_isoform, os.path.join(
+            pickle_add, "has_pi_%s.pick" % organism), [has_gene_var, aaseq_exons_dir])
+        om.makedir(parent_dir + "unassigned_ss/")
+        om.part(8, "ss to exons and assignment")
+        # -> uncommneted them below
+
+        prediction_assignment_ss.assigner(
+            ssp_raw, pid_add, pid_add, ssp_raw, os.path.join(parent_dir, "unassigned_ss"))
+
+        # -> fucntion equivalent arg names, (done_dir, fastadir_done, pool_of_left, dir_to_write, where_to_write_rep_of_unassigned) screens the ssp_raw for already done prediction, and stores aaseq iun memory (from fastadirDone), screens pool_ofleft(pid_add: refseq dir) and check aaseq if predicted, if doesnt then ask for the prediction and write to unassigned_ss dir
+
+        prediction_assignment_ss.ss_to_exons(
+            has_gene_cood, ssp_raw, ss_exons_dir, None)
+        # -> write sspred to exons format (matrix) and pickles them, threshold used is for confidence
+        prediction_assignment_ss.ss_to_exons(
+            has_gene_cood, ssp_raw, ss_exons_dir06, 0.6)
+        prediction_assignment_ss.disorder_to_exons(
+            has_gene_cood, disp_raw, dis_exons_dir)
+        # don't worry about the its being done twice, onl;y on eth eidrectory wikl be used below
+
+        om.part(9, "cath_domains")
+        if structureandCath:
+            cath_fil_has = retConFor(cath_files_multi.cath_runner, os.path.join(pickle_add, "cath_final_has_%s.pick" % organism), [
+                pickle_add, cath_domall_file, cath_der_writer, sift_db_file, swiss_pid, struct_repo_dir, has_refseq_swiss, has_gene_var, common_data, align_location, cores])
+        else:
+            cath_fil_has = []
+        # -> keep this the same, domains should be assigned based on only the coordinates of original pdb files (do they have to)
+    
     return has_gene_var, has_pi, has_NCBI_Ensemble_gene, has_refseq_ens, has_refseq_swiss, has_gene_description, has_gene_cood, has_gene_go, has_gene_components, pfam_fil_has, cath_fil_has
 
 
 def functions_flow(has_gene_var, has_gene_cood, structureandCath):
-    if structureandCath:
-        if not os.path.isfile(os.path.join(pickle_add, "has_var_pdbinfo_%s.pick" % organism)):
-            structure_refseq.horse(tabdelim_alias, cx, has_gene_var, faaDir, lisDir,
-                                   struct_repo_dir, save_structure_dir, pid_add, align_location, cores)
-            # ->this is important, however this only creates files having the name of the vanriant, so create one more file here
-            prediction_assignment_ss.prerequisite_stride(
-                stride_location, has_gene_var, save_structure_dir, stride_reformat_dir, pid_add)
-            # -> this needs to be tweaked and
-            prediction_assignment_ss.stride_assigner(
-                has_gene_cood, stride_reformat_dir, stride_exons_dir)
+    if dataType != "NCBI":
+        if structureandCath:
+            if not os.path.isfile(os.path.join(pickle_add, "has_var_pdbinfo_%s.pick" % organism)):
+                structure_refseq.horse(tabdelim_alias, cx, has_gene_var, faaDir, lisDir,
+                                    struct_repo_dir, save_structure_dir, pid_add, align_location, cores)
+                # ->this is important, however this only creates files having the name of the vanriant, so create one more file here
+                prediction_assignment_ss.prerequisite_stride(
+                    stride_location, has_gene_var, save_structure_dir, stride_reformat_dir, pid_add)
+                # -> this needs to be tweaked and
+                prediction_assignment_ss.stride_assigner(
+                    has_gene_cood, stride_reformat_dir, stride_exons_dir)
 
-            # -> (latest) first tsructures were stored and then their stride files like NP_000025.1.ss_3 and then their variant info like in exons in last
+                # -> (latest) first tsructures were stored and then their stride files like NP_000025.1.ss_3 and then their variant info like in exons in last
+            else:
+                print (os.path.join(pickle_add, "has_var_pdbinfo_%s.pick" % organism),
+                    " this file exists, so not reforming structures, \n delete this file for refreshing strcutres")
+            has_var_pdbinfo = retConFor(mappings_refseqProtein.proteins_info_var, os.path.join(
+                pickle_add, "has_var_pdbinfo_%s.pick" % organism), [save_structure_dir])
+
+            if not os.path.isfile(os.path.join(pickle_add, "has_var_pdbinfoAF_%s.pick" % organism)):
+                # if 1:
+                pass
+                # structure_refseq.AF_generator(has_gene_var,has_refseq_swiss, faaDirAF, lisDirAF,struct_repo_dirAF, save_structure_dirAF, pid_add, align_location, cores)
+                # #->this is important, however this only creates files having the name of the vanriant, so create one more file here
+                # prediction_assignment_ss.prerequisite_stride(stride_location, has_gene_var, save_structure_dirAF, stride_reformat_dirAF, pid_add)
+                # #-> this needs to be tweaked and
+                # prediction_assignment_ss.stride_assigner( has_gene_cood, stride_reformat_dirAF, stride_exons_dirAF)
+
+                # -> (latest) first tsructures were stored and then their stride files like NP_000025.1.ss_3 and then their variant info like in exons in last
+            else:
+
+                print (os.path.join(pickle_add, "has_var_pdbinfoAF_%s.pick" % organism),
+                    " this file exists, so not reforming structures, \n delete this file for refreshing strcutres")
+            has_var_pdbinfoAF = retConFor(mappings_refseqProtein.proteins_info_var, os.path.join(
+                pickle_add, "has_var_pdbinfoAF_%s.pick" % organism), [save_structure_dirAF])
         else:
-            print (os.path.join(pickle_add, "has_var_pdbinfo_%s.pick" % organism),
-                   " this file exists, so not reforming structures, \n delete this file for refreshing strcutres")
-        has_var_pdbinfo = retConFor(mappings_refseqProtein.proteins_info_var, os.path.join(
-            pickle_add, "has_var_pdbinfo_%s.pick" % organism), [save_structure_dir])
-
-        if not os.path.isfile(os.path.join(pickle_add, "has_var_pdbinfoAF_%s.pick" % organism)):
-            # if 1:
-            pass
-            # structure_refseq.AF_generator(has_gene_var,has_refseq_swiss, faaDirAF, lisDirAF,struct_repo_dirAF, save_structure_dirAF, pid_add, align_location, cores)
-            # #->this is important, however this only creates files having the name of the vanriant, so create one more file here
-            # prediction_assignment_ss.prerequisite_stride(stride_location, has_gene_var, save_structure_dirAF, stride_reformat_dirAF, pid_add)
-            # #-> this needs to be tweaked and
-            # prediction_assignment_ss.stride_assigner( has_gene_cood, stride_reformat_dirAF, stride_exons_dirAF)
-
-            # -> (latest) first tsructures were stored and then their stride files like NP_000025.1.ss_3 and then their variant info like in exons in last
-        else:
-
-            print (os.path.join(pickle_add, "has_var_pdbinfoAF_%s.pick" % organism),
-                   " this file exists, so not reforming structures, \n delete this file for refreshing strcutres")
-        has_var_pdbinfoAF = retConFor(mappings_refseqProtein.proteins_info_var, os.path.join(
-            pickle_add, "has_var_pdbinfoAF_%s.pick" % organism), [save_structure_dirAF])
+            has_var_pdbinfo = []
+            has_var_pdbinfoAF = []
     else:
-        has_var_pdbinfo = []
-        has_var_pdbinfoAF = []
+        if structureandCath:
+            if not os.path.isfile(os.path.join(pickle_add, "has_var_pdbinfo_%s.pick" % organism)):
+                structure_refseq.horse(tabdelim_alias, cx, has_gene_var, faaDir, lisDir,
+                                    struct_repo_dir, save_structure_dir, pid_add, align_location, cores)
+                # ->this is important, however this only creates files having the name of the vanriant, so create one more file here
+                prediction_assignment_ss.prerequisite_stride(
+                    stride_location, has_gene_var, save_structure_dir, stride_reformat_dir, pid_add)
+                # -> this needs to be tweaked and
+                prediction_assignment_ss.stride_assigner(
+                    has_gene_cood, stride_reformat_dir, stride_exons_dir)
+
+                # -> (latest) first tsructures were stored and then their stride files like NP_000025.1.ss_3 and then their variant info like in exons in last
+            else:
+                print (os.path.join(pickle_add, "has_var_pdbinfo_%s.pick" % organism),
+                    " this file exists, so not reforming structures, \n delete this file for refreshing strcutres")
+            has_var_pdbinfo = retConFor(mappings_refseqProtein.proteins_info_var, os.path.join(
+                pickle_add, "has_var_pdbinfo_%s.pick" % organism), [save_structure_dir])
+
+            if not os.path.isfile(os.path.join(pickle_add, "has_var_pdbinfoAF_%s.pick" % organism)):
+                # if 1:
+                pass
+                # structure_refseq.AF_generator(has_gene_var,has_refseq_swiss, faaDirAF, lisDirAF,struct_repo_dirAF, save_structure_dirAF, pid_add, align_location, cores)
+                # #->this is important, however this only creates files having the name of the vanriant, so create one more file here
+                # prediction_assignment_ss.prerequisite_stride(stride_location, has_gene_var, save_structure_dirAF, stride_reformat_dirAF, pid_add)
+                # #-> this needs to be tweaked and
+                # prediction_assignment_ss.stride_assigner( has_gene_cood, stride_reformat_dirAF, stride_exons_dirAF)
+
+                # -> (latest) first tsructures were stored and then their stride files like NP_000025.1.ss_3 and then their variant info like in exons in last
+            else:
+                print (os.path.join(pickle_add, "has_var_pdbinfoAF_%s.pick" % organism),
+                    " this file exists, so not reforming structures, \n delete this file for refreshing strcutres")
+            has_var_pdbinfoAF = retConFor(mappings_refseqProtein.proteins_info_var, os.path.join(
+                pickle_add, "has_var_pdbinfoAF_%s.pick" % organism), [save_structure_dirAF])
+        else:
+            has_var_pdbinfo = []    
     return has_var_pdbinfo, has_var_pdbinfoAF
-
-
 
 
 # functions_flow()
@@ -306,6 +387,7 @@ has_var_pdbinfo, has_var_pdbinfoAF = functions_flow(
 # structureandCath if not 1, then var will be empty/false cath_fil_has, has_var_pdbinfo, has_var_pdbinfoAF (last two will be t7urn false, no problem at all), same for the former
 print ('done')
 
+# ############################################################# </Part 4> ##############################################################################
 def gene_object_creator(gene_ob_name, ss_location):
     # if not os.path.isfile(gene_ob_name):
     if 1:
@@ -342,9 +424,9 @@ def gene_object_creator(gene_ob_name, ss_location):
                     # print has_gene_var[gene]
                     for var in has_gene_var[gene]:
                         # if var == "NP_116573.1":
-                        with open(aaseq_exons_dir + "%s" % var) as fin:
+                        with open(os.path.join(aaseq_exons_dir, var)) as fin:
                             dat = pickle.load(fin)
-                        ssp, diso, sst, sstAF = stride_sspred_disorder(
+                        ssp, diso, sst, sstAF = om.stride_sspred_disorder(
                             var, [i[1] for i in dat if i[3] == "C"], ss_location, dis_exons_dir, stride_exons_dir, stride_exons_dirAF)
                         '''
                         sending here vague id's are givfing vage rsuklts
@@ -352,7 +434,7 @@ def gene_object_creator(gene_ob_name, ss_location):
                         '''
                         upd_exids = {
                             mexo[1]: exids[(mexo[1], mexo[0], mexo[3])][0] for mexo in dat}
-                        ssp, diso, sst, sstAF = redef(
+                        ssp, diso, sst, sstAF = om.redef(
                             ssp, diso, sst, sstAF, upd_exids)
                         '''
                             # create and complete the transcript object here only, and add it to the list one by one
@@ -428,7 +510,7 @@ def gene_object_creator(gene_ob_name, ss_location):
 
 # gene_object_creator(gene_ob_name=results_dir+"objectsave_%s.pick" %
 #                     organism, ss_location=ss_exons_dir)
-# part(12, "Normal_processing_done")
+# om.part(12, "Normal_processing_done")
 
 strss = '0.6' if sslevel == 0.6 else ''
 ss_location = ss_exons_dir06 if sslevel == 0.6 else ss_exons_dir
@@ -438,7 +520,7 @@ gene_ob_name = os.path.join(
     results_dir, "objectsave_%s_%s_%s.pick" % (organism, strss, strstr))
 
 gene_object_creator(gene_ob_name=gene_ob_name, ss_location=ss_location)
-part(13, "helix_confidence_processing_done")
+om.part(13, "helix_confidence_processing_done")
 
 if analysis_needed and 0:
     results_dir_analysis('make')
@@ -523,5 +605,5 @@ if analysis_needed and 0:
     subprocess.check_output(
         ['chmod', 'a+x', '%s/temp_plots_%s.sh' % (analysis_dir, organism)])
     # out = subprocess.check_output(['./temp_plots.sh'], shell=True)
-part(14, "congratulations, analysis done too")
+om.part(14, "congratulations, analysis done too")
 # print "output_log:%s" % out

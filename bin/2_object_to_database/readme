@@ -375,3 +375,237 @@ iterate the genes:
 
 ##### start afresh 2022 build
 on 27 nov 22, sunday, I am going to start afresh for all the oragnisms
+
+
+internet connection is soooooo poor that it will make me wait tio doewnalod dfaat ony in 7 days, foegrt the processing
+lets move on to the 
+
+
+
+(base) paras@menten:~/exonsdrive/project/protein_splicing$ rsync -a --ignore-existing 9606_1/source_data/SSP/ projectDir/outdir/poolDoneHuman_27Nov/
+(base) paras@menten:~/exonsdrive/project/protein_splicing$ ls
+10090  9606_0               archived_extra     common_pi_repository        evidence            __pdb_pending.lis  scripts.zip
+6239   9606_1               Classes_exons.py   deepanshi_2021.py           extra               projectDir         temp
+7227   9606_old             Classes_exons.pyc  domAna2021                  extras_2021         raw_files          uniref90
+7955   alphafold_human.txt  common_files       efold_common_pi_repository  object_builder1.py  scripts
+(base) paras@menten:~/exonsdrive/project/protein_splicing$ rsync -a --ignore-existing 9606_0/source_data/SSP/ projectDir/outdir/poolDoneHuman_27Nov/ --dry-run | wc -l
+0
+(base) paras@menten:~/exonsdrive/project/protein_splicing$ cd projectDir/
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ rsync -a --ignore-existing outdir/oldSet_human19_orgs_18/9606_1/source_data/SSP/ outdir/poolDoneHuman_27Nov/ --dry-run | wc -l
+
+
+# filling up the pool
+
+rsync -a --ignore-existing outdir/oldSet_human19_orgs_18/9606_1/source_data/SSP/ outdir/poolDoneHuman_27Nov/ --dry-run | wc -l
+rsync -a --ignore-existing 9606_1/source_data/SSP/ projectDir/outdir/poolDoneHuman_27Nov/
+rsync -a --ignore-existing 9606_0/source_data/SSP/ projectDir/outdir/poolDoneHuman_27Nov/ --dry-run | wc -l
+
+(py27) paras@menten:~/exonsdrive/project/protein_splicing$ rsync -a --ignore-existing 10090/source_data/SSP/ projectDir/outdir/poolDone_10090_28Nov22/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing$ rsync -a --ignore-existing 7227/source_data/SSP/ projectDir/outdir/poolDone_7227_28Nov22/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing$ rsync -a --ignore-existing 7955/source_data/SSP/ projectDir/outdir/poolDone_7955_28Nov22/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing$ rsync -a --ignore-existing 6239/source_data/SSP/ projectDir/outdir/poolDone_6239_28Nov22/
+
+# untarru ensembl and merge with refseq in unknown pool
+
+python bin/1_constructing_data/ensemblMultiFastaToSimple.py outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/human/nameSequence.gz outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/human/protSeq1perfile/
+rsync -a ensembl_25_28nov_22/human/protSeq1perfile/ unknownSSpool9606/
+rsync -a 9606/source_data/Refseq_protein/ unknownSSpool9606/
+
+python bin/1_constructing_data/ensemblMultiFastaToSimple.py outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/mouse/nameSequence.gz outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/mouse/protSeq1perfile/
+In a ensemble_write_seq Funct()
+outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/mouse/nameSequence.gz : is a source File
+outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/mouse/protSeq1perfile/ : is a output Directory
+yes
+Writing individual fasta files from the source ensemble into outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/mouse/protSeq1perfile/
+Processing |####################            | 66511/102245
+empty sequences were 35734
+
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ python bin/1_constructing_data/ensemblMultiFastaToSimple.py outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fly/nameSequence.gz outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fly/protSeq1perfile/
+
+----> Into module of multifasta_to_fasta
+
+In a ensemble_write_seq Funct()
+outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fly/nameSequence.gz : is a source File
+outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fly/protSeq1perfile/ : is a output Directory
+yes
+Writing individual fasta files from the source ensemble into outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fly/protSeq1perfile/
+Processing |################################| 30719/30719
+empty sequences were 0
+
+python bin/1_constructing_data/ensemblMultiFastaToSimple.py outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fish/nameSequence.gz outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fish/protSeq1perfile/
+
+----> Into module of multifasta_to_fasta
+
+In a ensemble_write_seq Funct()
+outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fish/nameSequence.gz : is a source File
+outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fish/protSeq1perfile/ : is a output Directory
+yes
+Writing individual fasta files from the source ensemble into outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/fish/protSeq1perfile/
+Processing |#############################   | 51919/57263
+empty sequences were 5344
+
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ python bin/1_constructing_data/ensemblMultiFastaToSimple.py outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/worm/nameSequence.gz outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/worm/protSeq1perfile/
+
+----> Into module of multifasta_to_fasta
+
+In a ensemble_write_seq Funct()
+outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/worm/nameSequence.gz : is a source File
+outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/worm/protSeq1perfile/ : is a output Directory
+yes
+Writing individual fasta files from the source ensemble into outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/worm/protSeq1perfile/
+Processing |############################### | 31865/32524
+empty sequences were 659
+
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ cd outdir/latest_5_org_2022_27_nov/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ rsync -a ensembl_25_28nov_22/mouse/protSeq1perfile/ unknownSSpool10090/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ rsync -a ensembl_25_28nov_22/fish/protSeq1perfile/ unknownSSpool7955/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ rsync -a ensembl_25_28nov_22/fly/protSeq1perfile/ unknownSSpool7227/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ rsync -a ensembl_25_28nov_22/worm/protSeq1perfile/ unknownSSpool6239/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ 
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ rsync -a 10090/source_data/Refseq_protein/ unknownSSpool10090/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ rsync -a 6239/source_data/Refseq_protein/ unknownSSpool6239/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ find unknownSSpool10090/ -name "*.faa" -print0 | xargs -0 rename 's/\.faa//'
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ find unknownSSpool6239/ -name "*.faa" -print0 | xargs -0 rename 's/\.faa//'
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ find unknownSSpool7227/ -name "*.faa" -print0 | xargs -0 rename 's/\.faa//'
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ find unknownSSpool7955/ -name "*.faa" -print0 | xargs -0 rename 's/\.faa//'
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ rsync -a 7227/source_data/Refseq_protein/ unknownSSpool7227/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ rsync -a 7955/source_data/Refseq_protein/ unknownSSpool7955/
+
+
+
+
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir$ find poolDoneHuman_27Nov/ -name "*.dat" -print0 | xargs -0 rm
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir$ ls poolDoneHuman_27Nov/ | wc -l
+131786
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir$ find poolDoneHuman_27Nov/ -name "*.faa" -print0 | xargs -0 rm
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir$ ls poolDoneHuman_27Nov/ | wc -l
+
+
+find poolDoneHuman_27Nov/ -name "*faa.dat.ss" -print0 | xargs -0 rename 's/\.faa.dat.ss/\.dat.ss/'
+
+
+
+ensembl parsing:
+in nameSequence format, protein is alway listed 3rd, header.split('|')[2]
+
+>ENSG00000003989.18|ENST00000004531.14|ENSP00000004531.10|ENSE00003993812;ENSE00000888733;ENSE00000888729;ENSE00000888732;ENSE00000924832;ENSE00000888730;ENSE00001706824;ENSE00000888731;ENSE00000457144;ENSE00000924833;ENSE00003653138;ENSE00000457145|17538777;17554560;17563603;17558295;17550301;17561944;17564950;17560328;17544451;17551764;17543318;17548678|17538922;17554699;17563711;17558397;17550434;17562110;17570561;17560533;17544606;17551986;17543715;17548843|17538825;17554560;17563603;17558295;17550301;17561944;17564950;17560328;17544451;17551764;17543318;17548678|17538922;17554699;17563711;17558397;17550434;17562110;17565146;17560533;17544606;17551986;17543715;17548843|1;7;11;8;5;10;12;9;3;6;2;4|1|1
+
+>ENSMUSG00000000078.8|ENSMUST00000000080.8|ENSMUSP00000000080|ENSMUSE00000115546;ENSMUSE00000510516;ENSMUSE00000469019;ENSMUSE00000115548|5915343;5911841;5920393;5916761|5914767;5911481;5917231;5916638|1|2;1;4;3|5914767;5911638;5917231;5916638|5915343;5911841;5917282;5916761
+
+>ENSDARG00000000002.8|ENSDART00000000005.7|ENSDARP00000000005.6|ENSDARE00000008041;ENSDARE00000000009;ENSDARE00000084941;ENSDARE00000023808;ENSDARE00000008079;ENSDARE00000444954;ENSDARE00000007932|34099049;34102490;34090811;34102775;34091056;34113209;34107538|34098913;34102339;34089156;34102672;34090900;34112896;34107455|1|3;4;1;5;2;7;6|34098913;34102339;34089156;34102672;34090900;34112896;34107455|34099049;34102490;34090811;34102775;34091056;34113209;34107538|1
+
+>FBgn0031093|FBtr0070026|FBpp0070025|FBtr0070026-E2;FBtr0070026-E1|20168042;20169474|20169416;20169981|-1|2;1|20168151;20169474|20169416;20169845|1
+
+>WBGene00007073|AC3.8.1|AC3.8.1|AC3.8.1.e6;AC3.8.1.e7;AC3.8.1.e1;AC3.8.1.e5;AC3.8.1.e10;AC3.8.1.e2;AC3.8.1.e8;AC3.8.1.e9;AC3.8.1.e4;AC3.8.1.e3;AC3.8.1.e11|10399833;10400016;10398801;10399700;10400769;10399010;10400444;10400635;10399392;10399231;10401045|10399940;10400397;10398962;10399789;10401001;10399078;10400583;10400720;10399434;10399344;10401307|1|6;7;1;5;10;2;8;9;4;3;11|10399833;10400016;10398810;10399700;10400769;10399010;10400444;10400635;10399392;10399231;10401045|10399940;10400397;10398962;10399789;10401001;10399078;10400583;10400720;10399434;10399344;10401222|1
+
+
+
+updating ensemble_write_seq() in multifasta_to_fasta for opurpose above
+
+Writing individual fasta files from the source ensemble into outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/human/protSeq1perfile/
+Processing |##############                  | 121541/274081
+empty sequences were 152540
+## ensembl human sequqnces
+
+they can only be deleted wuith teh ofllwing optio
+
+find outdir/latest_5_org_2022_27_nov/ensembl_25_28nov_22/human/protSeq1perfile/* -delete
+
+
+replacong extr faa from proteins
+
+
+outdir/latest_5_org_2022_27_nov/9606/source_data/SSP
+mkdir outdir/latest_5_org_2022_27_nov/9606/source_data/PendingSSP
+
+python bin/1_constructing_data/unassignedProteins.py outdir/latest_5_org_2022_27_nov/unknownSSpool9606/ outdir/poolDoneHuman_27Nov/ outdir/latest_5_org_2022_27_nov/9606/source_data/SSP/ outdir/latest_5_org_2022_27_nov/9606/source_data/PendingSSP outdir/latest_5_org_2022_27_nov/9606/source_data/mapPendingSSP
+
+Total Were 252280 entries (147829 non red)
+>3000 Were 748 entries (748 non red)
+PreAss Were 162829 entries (71266 non red)
+RunSet Were 88573 entries (75815 non red)
+(HUman)
+
+
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ mkdir outdir/latest_5_org_2022_27_nov/10090/source_data/SSP/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ ^C
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ mkdir outdir/latest_5_org_2022_27_nov/6239/source_data/SSP/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ mkdir outdir/latest_5_org_2022_27_nov/7955/source_data/SSP/
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ mkdir outdir/latest_5_org_2022_27_nov/7227/source_data/SSP/
+
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ mkdir outdir/latest_5_org_2022_27_nov/10090/source_data/PendingSSP
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ mkdir outdir/latest_5_org_2022_27_nov/6239/source_data/PendingSSP
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ mkdir outdir/latest_5_org_2022_27_nov/7955/source_data/PendingSSP
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir$ mkdir outdir/latest_5_org_2022_27_nov/7227/source_data/PendingSSP
+
+python bin/1_constructing_data/unassignedProteins.py outdir/latest_5_org_2022_27_nov/unknownSSpool10090/ outdir/poolDone_10090_28Nov22/ outdir/latest_5_org_2022_27_nov/10090/source_data/SSP/ outdir/latest_5_org_2022_27_nov/10090/source_data/PendingSSP outdir/latest_5_org_2022_27_nov/10090/source_data/mapPendingSSP
+Total Were 158911 entries (93957 non red)
+>3000 Were 1170 entries (1170 non red)
+PreAss Were 113159 entries (52133 non red)
+RunSet Were 44246 entries (40654 non red)
+
+python bin/1_constructing_data/unassignedProteins.py outdir/latest_5_org_2022_27_nov/unknownSSpool7227/ outdir/poolDone_7227_28Nov22/ outdir/latest_5_org_2022_27_nov/7227/source_data/SSP/ outdir/latest_5_org_2022_27_nov/7227/source_data/PendingSSP outdir/latest_5_org_2022_27_nov/7227/source_data/mapPendingSSP
+Total Were 61505 entries (22333 non red)
+>3000 Were 186 entries (186 non red)
+PreAss Were 60093 entries (21629 non red)
+RunSet Were 1008 entries (518 non red)
+
+python bin/1_constructing_data/unassignedProteins.py outdir/latest_5_org_2022_27_nov/unknownSSpool7955/ outdir/poolDone_7955_28Nov22/ outdir/latest_5_org_2022_27_nov/7955/source_data/SSP/ outdir/latest_5_org_2022_27_nov/7955/source_data/PendingSSP outdir/latest_5_org_2022_27_nov/7955/source_data/mapPendingSSP
+Total Were 100740 entries (73133 non red)
+>3000 Were 962 entries (962 non red)
+PreAss Were 69025 entries (43422 non red)
+RunSet Were 30636 entries (28749 non red)
+
+python bin/1_constructing_data/unassignedProteins.py outdir/latest_5_org_2022_27_nov/unknownSSpool6239/ outdir/poolDone_6239_28Nov22/ outdir/latest_5_org_2022_27_nov/6239/source_data/SSP/ outdir/latest_5_org_2022_27_nov/6239/source_data/PendingSSP outdir/latest_5_org_2022_27_nov/6239/source_data/mapPendingSSP
+Total Were 60399 entries (28390 non red)
+>3000 Were 220 entries (220 non red)
+PreAss Were 56804 entries (26562 non red)
+RunSet Were 3153 entries (1608 non red)
+
+process:
+1. transfer data from nabi to local system (menton)
+2. unpack ensembl, taking care of the empty protein seuqnqces or seuqqces not available
+3. keep 1 and 2 in same folder
+4. make folder of previously predicted results
+5. run unassigned proeins on them and then run Tasser and map the values
+6. pfam is pending
+7. disordered is pending
+  
+
+
+sequence stats
+
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls ensembl_25_28nov_22/mouse/protSeq1perfile/ | wc -l
+66511
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls ensembl_25_28nov_22/fly/protSeq1perfile/ | wc -l
+30719
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls ensembl_25_28nov_22/fish/protSeq1perfile/ | wc -l
+51919
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls ensembl_25_28nov_22/worm/protSeq1perfile/ | wc -l
+31865
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls ensembl_25_28nov_22/human/protSeq1perfile/ | wc -l
+121541
+
+
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls 9606/source_data/Refseq_protein/ | wc -l
+130739
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls 10090/source_data/Refseq_protein/ | wc -l
+92400
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls 7227/source_data/Refseq_protein/ | wc -l
+30786
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls 7955/source_data/Refseq_protein/ | wc -l
+48821
+(base) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/outdir/latest_5_org_2022_27_nov$ ls 6239/source_data/Refseq_protein/ | wc -l
+28534
+
+org   ncbi    ensembl
+human 130739  121541
+mouse 92400 66511
+fish  48821 51919
+fly 30786 30719
+worm  28534 31865
+
+
+
+24 april 23
+(py27) paras@menten:~/exonsdrive/project/protein_splicing/projectDir/bin/db_analysis$ python onlyAlternateExonsGenes.py ../../outdir/latest_5_org_2022_27_nov/objectsToDB/objectsave_9606__noStructure.pick ../../outdir/latest_5_org_2022_27_nov/9606/derived_data/resultscsv/general/F1_Condition_3000Pilength_2Isf_2ExCount/condition_genes.pick

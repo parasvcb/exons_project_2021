@@ -1,4 +1,4 @@
-
+import re, os, pickle
 def part(a, b):
     print ("->Part:%s, Section:%s" % (a, b))
 
@@ -20,7 +20,7 @@ def file_loader(filename):
 # DIRECTORY STRUCTURE GENERATION AND RESETTING IT
 
 
-def results_dir_analysis(makeOrDestroy):
+def results_dir_analysis(makeOrDestroy, results_dir):
     if makeOrDestroy == 'Destroy':
         if os.path.isdir(results_dir):
             rmtree(results_dir)
@@ -43,10 +43,11 @@ def results_dir_analysis(makeOrDestroy):
 
 int_patt = re.compile(r'^\d+$')
 
-def setnames(parent_dir, analysis_needed):
+def setnames(parent_dir, analysis_needed, organism):
     source_data = os.path.join(parent_dir, "source_data")
     pfam_dir = os.path.join(source_data, "pfam")
     ssp_raw = os.path.join(source_data, "SSP")
+    disp_raw = os.path.join(source_data, "disorder_data")
     pid_add = os.path.join(source_data, 'Refseq_protein')
     pid_raw_multifasta = os.path.join(source_data, '%s_ref.faa' % organism)
     ens_raw_multifasta = os.path.join(source_data, '%s_ens.faa.gz' % organism)
@@ -55,30 +56,29 @@ def setnames(parent_dir, analysis_needed):
     swiss_pid = os.path.join(source_data, 'swissprot_data')
     gene_add = os.path.join(source_data, 'gene_tables')
 
-    derived_data = os.path.join(outdir1, "derived_data/")
-    disp_raw = os.path.join(derived_data, "disorder_data/")
+    derived_data = os.path.join(parent_dir, "derived_data")
     pickle_add = os.path.join(derived_data, "pickles")
     results_dir = os.path.join(derived_data, "results")
     save_structure_dir = os.path.join(
-        derived_data + 'structure_data/PDB_structure_derived_data/')
+        derived_data + 'structure_data/PDB_structure_derived_data')
     save_structure_dirAF = os.path.join(
-        derived_data + 'structure_data/PDB_structure_derived_dataAF/')
+        derived_data + 'structure_data/PDB_structure_derived_dataAF')
 
     # -> added this time
-    stride_reformat_dir = os.path.join(derived_data, "stride_pssm_form/")
-    stride_exons_dir = os.path.join(derived_data, "exons_wise/stride_exons/")
-    stride_reformat_dirAF = os.path.join(derived_data, "stride_pssm_formAF/")
-    stride_exons_dirAF = os.path.join(derived_data, "exons_wise/stride_exonsAF/")
+    stride_reformat_dir = os.path.join(derived_data, "stride_pssm_form")
+    stride_exons_dir = os.path.join(derived_data, "exons_wise/stride_exons")
+    stride_reformat_dirAF = os.path.join(derived_data, "stride_pssm_formAF")
+    stride_exons_dirAF = os.path.join(derived_data, "exons_wise/stride_exonsAF")
 
-    pfam_der_writer = os.path.join(derived_data, "domains/pfam/")
-    cath_der_writer = os.path.join(derived_data, "domains/cath/")
-    ss_exons_dir = os.path.join(derived_data, "exons_wise/ss_exons/")
-    ss_exons_dir06 = os.path.join(derived_data, "exons_wise/ss_exons_0.6/")
+    pfam_der_writer = os.path.join(derived_data, "domains/pfam")
+    cath_der_writer = os.path.join(derived_data, "domains/cath")
+    ss_exons_dir = os.path.join(derived_data, "exons_wise/ss_exons")
+    ss_exons_dir06 = os.path.join(derived_data, "exons_wise/ss_exons_0.6")
 
-    dis_exons_dir = os.path.join(derived_data, "exons_wise/dis_exons/")
-    aaseq_exons_dir = os.path.join(derived_data, "exons_wise/aaseq_exons/")
-    pfam_der_writer = os.path.join(derived_data, "domains/pfam/")
-    cath_der_writer = os.path.join(derived_data, "domains/cath/")
+    dis_exons_dir = os.path.join(derived_data, "exons_wise/dis_exons")
+    aaseq_exons_dir = os.path.join(derived_data, "exons_wise/aaseq_exons")
+    pfam_der_writer = os.path.join(derived_data, "domains/pfam")
+    cath_der_writer = os.path.join(derived_data, "domains/cath")
     faaDir = os.path.join(derived_data, 'structure_data/fasta_file_pdb')
     lisDir = os.path.join(derived_data, 'structure_data/res_no_pdb')
     faaDirAF = os.path.join(derived_data, 'structure_data/fasta_file_pdbAF')
@@ -122,14 +122,14 @@ def setnames(parent_dir, analysis_needed):
     ]
     return names 
 
-
-results_dir_analysis('make')
+def makethedirs(maketag, results_dir):
+    results_dir_analysis(maketag, results_dir)
 
 
 # ############################################################# <Part 2> ##############################################################################
 # SOURCE FILES, DIRECTORIES AND PROGRAM REFERENCE
 
-def setsourcefnames():
+def setsourcefnames(common_data, organism):
     cath_domall_file = os.path.join(common_data, "cath-domain-description-file.txt")
     sift_db_file = os.path.join(common_data, "pdb_chain_uniprot.tsv.gz")
     # -> should i change it too ? (sift_db_file)

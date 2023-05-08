@@ -53,7 +53,8 @@ pbar=''
 def entrez_retriever(lis, nature, directory, fname=False):
     def mini_pool(lis,nature,fmt,ext,directory):
         lis=[i for i in lis if not os.path.isfile(os.path.join(directory,(i+ext)))]
-        cpus = 7
+        print ("retriving %s: %s" %(fmt,len(lis)))
+        cpus = 10
         pool = multiprocessing.Pool(cpus)
         global pbar
         pbar = tqdm.tqdm(total=len(lis))
@@ -75,7 +76,7 @@ def entrez_retriever(lis, nature, directory, fname=False):
         ext = ".txt"
     else:
         fmt = "fasta"
-        ext = ".faa"
+        ext = "" # changed from .faa to empty
     #repeat again
     mini_pool(lis,nature,fmt,ext,directory)
     print ("1 done")
@@ -233,7 +234,7 @@ def hash_gene_var_list(gene_add, pid_add, flatfile=None):
                 # break
             except Exception as e:
                 err += "%s\t%s\n" % (f, e)
-                print (e)
+                print ("\n",e, gene_add, f)
             bar.next()
     bar.finish()
     if err:

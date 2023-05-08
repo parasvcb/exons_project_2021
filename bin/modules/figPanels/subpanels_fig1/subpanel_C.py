@@ -12,6 +12,8 @@ import re,os,sys
 # import figPanels.modules_common as cm
 import common.general_modules as cm
 import figPanels.modules_analysis as ca
+from progress.bar import Bar
+import time
 
 def writer_and_displayer(res_dir,filename,fout,hasPacked):
     fout.write(filename)
@@ -28,21 +30,41 @@ def writer_and_displayer(res_dir,filename,fout,hasPacked):
     tabularData += "UTRConstitutive\t%s\n"%cm.stats(hasPacked['UTRConstitutive'])
     
     tabularData += "CodingStrict\t%s\n"%cm.stats(hasPacked['CodingStrict'])
+    tabularData += "CodingAlternateWithSS\t%s\n"%cm.stats(hasPacked['CodingAlternateWithSS'])
+
     tabularData += "CodingAlternate\t%s\n"%cm.stats(hasPacked['CodingAlternate'])
     tabularData += "CodingAltWaachange\t%s\n"%cm.stats(hasPacked['CodingAltWaachange'])
-    tabularData += "CodingAlternateWithSS\t%s\n"%cm.stats(hasPacked['CodingAlternateWithSS'])
+    tabularData += "CodingAltWaachangeAssign\t%s\n"%cm.stats(hasPacked['CodingAltWaachangeAssign'])
+    tabularData += "CodingAltWaachangeFrame\t%s\n"%cm.stats(hasPacked['CodingAltWaachangeFrame'])
+    
     tabularData += "CodingMajorlyConstitutive\t%s\n"%cm.stats(hasPacked['CodingMajorlyConstitutive'])
+    tabularData += "CodingMajorlyWaachange\t%s\n"%cm.stats(hasPacked['CodingMajorlyWaachange'])
+    tabularData += "CodingMajorlyWaachangeAssign\t%s\n"%cm.stats(hasPacked['CodingMajorlyWaachangeAssign'])
+    tabularData += "CodingMajorlyWaachangeFrame\t%s\n"%cm.stats(hasPacked['CodingMajorlyWaachangeFrame'])
+
     tabularData += "CodingConstitutive\t%s\n"%cm.stats(hasPacked['CodingConstitutive'])
     tabularData += "CodingConstitutiveWaachange\t%s\n"%cm.stats(hasPacked['CodingConstitutiveWaachange'])
+    tabularData += "CodingConstitutiveWaachangeAssign\t%s\n"%cm.stats(hasPacked['CodingConstitutiveWaachangeAssign'])
+    tabularData += "CodingConstitutiveWaachangeFrame\t%s\n"%cm.stats(hasPacked['CodingConstitutiveWaachangeFrame'])
     
     tabularData += "DualStrict\t%s\n"%cm.stats(hasPacked['DualStrict'])
+    tabularData += "DualAlternateWithSS\t%s\n"%cm.stats(hasPacked['DualAlternateWithSS'])
+    
     tabularData += "DualAlternate\t%s\n"%cm.stats(hasPacked['DualAlternate'])
     tabularData += "DualAltWaachange\t%s\n"%cm.stats(hasPacked['DualAltWaachange'])
-    tabularData += "DualAlternateWithSS\t%s\n"%cm.stats(hasPacked['DualAlternateWithSS'])
+    tabularData += "DualAltWaachangeAssign\t%s\n"%cm.stats(hasPacked['DualAltWaachangeAssign'])
+    tabularData += "DualAltWaachangeFrame\t%s\n"%cm.stats(hasPacked['DualAltWaachangeFrame'])
+    
     tabularData += "DualMajorlyConstitutive\t%s\n"%cm.stats(hasPacked['DualMajorlyConstitutive'])
+    tabularData += "DualMajorlyWaachange\t%s\n"%cm.stats(hasPacked['DualMajorlyWaachange'])
+    tabularData += "DualMajorlyWaachangeAssign\t%s\n"%cm.stats(hasPacked['DualMajorlyWaachangeAssign'])
+    tabularData += "DualMajorlyWaachangeFrame\t%s\n"%cm.stats(hasPacked['DualMajorlyWaachangeFrame'])
+
     tabularData += "DualConstitutive\t%s\n"%cm.stats(hasPacked['DualConstitutive'])
     tabularData += "DualConstitutiveWaachange\t%s\n"%cm.stats(hasPacked['DualConstitutiveWaachange'])
-    
+    tabularData += "DualConstitutiveWaachangeAssign\t%s\n"%cm.stats(hasPacked['DualConstitutiveWaachangeAssign'])
+    tabularData += "DualConstitutiveWaachangeFrame\t%s\n"%cm.stats(hasPacked['DualConstitutiveWaachangeFrame'])
+
     tabularData += "Intron_retained_coding\t%s\n"%cm.stats(hasPacked['ir_retained_coding'])
     tabularData += "Intron_retained_UTR\t%s\n"%cm.stats(hasPacked['ir_retained_UTR'])
     tabularData += "StrictMcases(1ntLength)\t%s\n"%cm.stats(hasPacked['strict_M'])
@@ -87,38 +109,105 @@ def writer_and_displayer(res_dir,filename,fout,hasPacked):
             fin.write("%s,Alternate,Coding\n"%(i))
         for i in hasPacked['CodingAltWaachange']:
             fin.write("%s,AlternateWaaChange,Coding\n"%(i))
+        for i in hasPacked['CodingAltWaachangeAssign']:
+            fin.write("%s,AlternateWaaChangeAssign,Coding\n"%(i))
+        for i in hasPacked['CodingAltWaachangeFrame']:
+            fin.write("%s,AlternateWaaChangeFrame,Coding\n"%(i))
+
+            
         for i in hasPacked['CodingAlternateWithSS']:
             fin.write("%s,AltWithSSchange,Coding\n"%(i))
         for i in hasPacked['CodingMajorlyConstitutive']:
             fin.write("%s,MajorlyConst,Coding\n"%(i))
+        for i in hasPacked['CodingMajorlyWaachange']:
+            fin.write("%s,MajorlyConstWaaChange,Coding\n"%(i))
+        for i in hasPacked['CodingMajorlyWaachangeAssign']:
+            fin.write("%s,MajorlyConstWaaChangeAssign,Coding\n"%(i))
+        for i in hasPacked['CodingMajorlyWaachangeFrame']:
+            fin.write("%s,MajorlyConstWaaChangeFrame,Coding\n"%(i))
+
+            
+            
+            
+
         for i in hasPacked['CodingConstitutive']:
             fin.write("%s,Const,Coding\n"%(i))
         for i in hasPacked['CodingConstitutiveWaachange']:
             fin.write("%s,ConstWaaChange,Coding\n"%(i))
+        for i in hasPacked['CodingConstitutiveWaachangeAssign']:
+            fin.write("%s,ConstWaaChangeAssign,Coding\n"%(i))
+        for i in hasPacked['CodingConstitutiveWaachangeFrame']:
+            fin.write("%s,ConstWaaChangeFrame,Coding\n"%(i))
+            
+            
         
         for i in hasPacked['DualStrict']:
             fin.write("%s,Strict,Dual\n"%(i))
         for i in hasPacked['DualAlternate']:
             fin.write("%s,Alternate,Dual\n"%(i))
+
         for i in hasPacked['DualAltWaachange']:
             fin.write("%s,AlternateWaaChange,Dual\n"%(i))
+        for i in hasPacked['DualAltWaachangeAssign']:
+            fin.write("%s,AlternateWaaChangeAssign,Dual\n"%(i))
+        for i in hasPacked['DualAltWaachangeFrame']:
+            fin.write("%s,AlternateWaaChangeFrame,Dual\n"%(i))
+            
+            
         for i in hasPacked['DualAlternateWithSS']:
             fin.write("%s,AltWithSSchange,Dual\n"%(i))
         for i in hasPacked['DualMajorlyConstitutive']:
             fin.write("%s,MajorlyConst,Dual\n"%(i))
+        for i in hasPacked['DualMajorlyWaachange']:
+            fin.write("%s,MajorlyWaaChange,Dual\n"%(i))
+        for i in hasPacked['DualMajorlyWaachangeAssign']:
+            fin.write("%s,MajorlyWaaChangeAssign,Dual\n"%(i))
+        for i in hasPacked['DualMajorlyWaachangeFrame']:
+            fin.write("%s,MajorlyWaaChangeFrame,Dual\n"%(i))
+            
+            
         for i in hasPacked['DualConstitutive']:
             fin.write("%s,Const,Dual\n"%(i))
         for i in hasPacked['DualConstitutiveWaachange']:
             fin.write("%s,ConstWaaChange,Dual\n"%(i))
+        for i in hasPacked['DualConstitutiveWaachangeAssign']:
+            fin.write("%s,ConstWaaChangeAssign,Dual\n"%(i))
+        for i in hasPacked['DualConstitutiveWaachangeFrame']:
+            fin.write("%s,ConstWaaChangeFrame,Dual\n"%(i))
 
-def exon_counting(has,res_dir,condition,fout ):
+#change version, going to include summary file for the varied params
+def exon_counting(has, org, transappend, hasFramechAssign, res_dir,condition,fout):
     # newly added categories ################
     # 04 -11 -22
     tot_exonsWncbAndRet = []
+    
     DualConstitutiveWaachange = []
+    DualConstitutiveWaachangeAssign =[]
+    DualConstitutiveWaachangeFrame=[]
+
+    DualMajorlyWaachange = []
+    DualMajorlyWaachangeAssign = []
+    DualMajorlyWaachangeFrame = []
+    
     DualAltWaachange = []
+    DualAltWaachangeAssign = []
+    DualAltWaachangeFrame = []
+
     CodingConstitutiveWaachange = []
+    CodingConstitutiveWaachangeAssign = []
+    CodingConstitutiveWaachangeFrame = []
+    
+    CodingMajorlyWaachange = []
+    CodingMajorlyWaachangeAssign = []
+    CodingMajorlyWaachangeFrame = []
+    
     CodingAltWaachange = []
+    CodingAltWaachangeAssign = []
+    CodingAltWaachangeFrame = []
+
+    
+    
+    
     #########################################
     tot_exons=[]
     UTRStrict=[]
@@ -153,11 +242,17 @@ def exon_counting(has,res_dir,condition,fout ):
     PARAMETER=""
     #PARAMETER="Variation"
     filename="Variation_allowed" if PARAMETER == "Variation" else "Unique_Coods"
-    output_stats = open("General_stats_fig1.log", "a")
+    summary_stats_ontologyReads = open("summaryFileOntology_%s_transMode_%s"%(org,transappend), "w")
+    summary_stats_ontologyReads.write('Org\tGene\tName\tTotalExonicPos\tTotalTranscript\tUA\tUAss\tUG\tUF\tDA\tDAch\tDGch\tDFch\tDAss\tDG\tDF\tTA\tTAch\tTAss\tTG\tTGch\tTF\tTFch\tIRT\tIRU\n')
     # A,B,C,D,E=[0,0,0,0,0]
+
+
+    bar = Bar('Processing genes C:', max=len(condition))
+    
     for gene in has:
-        if gene in condition:
-        #if gene==319701:
+        if gene in condition: # and gene == 11259:
+            # st=time.time()
+            # print ("**GENE:", gene)
             '''
             dividing in three categories
             1st [Strict UTR regions, Coding regions, Dual regions, M cases].
@@ -166,62 +261,152 @@ def exon_counting(has,res_dir,condition,fout ):
                 lets stick with the former approach.
                 consider aa change frequency along with 0-1 
             '''
+
             exonMatrix = ca.positionalExonMatrix_forExCharacterization(has[gene])
             #{1: ['U', 'F', [2, 0, 2], 0, 1, 0, 0], 2: ['U', 'A', [0, 0, 0], 0, 1, 0, 0], 3: ['T', 'A', [0, 0, 0], 0, 0, 0, 0], 4: ['T', 'F', [0, 1, 0], 0, 0, 0, 0]}
+            
+            # exonMatrix[placeholder] = ['','',[0,0,0], 0,0,0, 0, [0,0,0]] #0, 1,    2   , 3,4,5, 6, 7
+            # 0th ele, UTMRD tag, 
+            # 1st ele, AGF tag, 
+            # 2nd records children order of ncb, and 
+            # 3rd occurrences of the aa change on this position, (should not be evaluated if values of the ncb counterparts is true
+            # 4th coding intron retention events starting from this
+            # 5th non coding intron retention events starting from this
+            # 6th whether aa has been ever removed from this sequence (yes consider all the ncb variation also but not retention)
+            # 7th whether ncb variations ever had change in aa case, like FMR1 gene does have, in that case it will be binary and value 1 means atleast 1 sduch case exists, 
 
             tot_exons+=[len(exonMatrix)]
             tot_exonsWncbAndRet+=[len(exonMatrix)+sum([exonMatrix[i][2][0]+exonMatrix[i][2][1]+exonMatrix[i][2][2]+exonMatrix[i][4]+exonMatrix[i][5] for i in exonMatrix])]
 
-            UTRStrict+=[len([i for i in exonMatrix if exonMatrix[i][0]=='U'])]
-            UTRMajorlyConstitutive+=[len([i for i in exonMatrix if exonMatrix[i][0]=='U' and exonMatrix[i][1]=='F'])]   
-            UTRAlternate+=[len([i for i in exonMatrix if exonMatrix[i][0]=='U' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2]) ==0])]
-            UTRAlternateWithSS+=[len([i for i in exonMatrix if exonMatrix[i][0]=='U' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2])>0])]  
-            UTRConstitutive+=[len([i for i in exonMatrix if exonMatrix[i][0]=='U' and exonMatrix[i][1]=='G'])]
+            # *    *   *    *   *   *     *      *    *     *   *   *   *      *    *    *    *   *
+            UA, UAss, UG, UF, DA, DAch, DGch, DFch, DAss, DG, DF, TA, TAch, TAss, TG, TGch, TF, TFch, IRT, IRU = [0,0,0,0, 0,0,0,0,0,0,0, 0,0,0,0,0,0,0, 0,0]
+            temp1, temp2, temp3, temp4, temp5 = ca.giveExonSelectionBasic(exonMatrix,"U")
+            UF = len(temp2)
+            UA = len(temp3)
+            UAss = len(temp4)
+            UG = len(temp5)
+            UTRStrict += [len(temp1)]
+            UTRMajorlyConstitutive += [len(temp2)]
+            UTRAlternate += [len(temp3)]
+            UTRAlternateWithSS += [len(temp4)]
+            UTRConstitutive += [len(temp5)]
+
+            temp1, temp2, temp3, temp4, temp5 = ca.giveExonSelectionBasic(exonMatrix,"D")
+            DF = len(temp2)
+            DA = len(temp3)
+            DAss = len(temp4)
+            DG = len(temp5)
+            DualStrict += [len(temp1)]
+            DualMajorlyConstitutive += [len(temp2)]
+            DualAlternate += [len(temp3)]
+            DualAlternateWithSS += [len(temp4)]
+            DualConstitutive += [len(temp5)]
+
+            temp1, temp2, temp3, temp4, temp5 = ca.giveExonSelectionBasic(exonMatrix,"T")
+            TF = len(temp2)
+            TA = len(temp3)
+            TAss = len(temp4)
+            TG = len(temp5)
+            CodingStrict += [len(temp1)]
+            CodingMajorlyConstitutive += [len(temp2)]
+            CodingAlternate += [len(temp3)]
+            CodingAlternateWithSS += [len(temp4)]
+            CodingConstitutive += [len(temp5)]
             
-            # A+=len([i for i in exonMatrix if exonMatrix[i][0]=='U'])
-            # B+=len([i for i in exonMatrix if exonMatrix[i][0]=='U' and exonMatrix[i][1]=='F'])
-            # C+=len([i for i in exonMatrix if exonMatrix[i][0]=='U' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2]) ==0])
-            # D+=len([i for i in exonMatrix if exonMatrix[i][0]=='U' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2])>0])
-            # E+=len([i for i in exonMatrix if exonMatrix[i][0]=='U' and exonMatrix[i][1]=='G'])
-            # if UTRStrict[-1]!=(UTRMajorlyConstitutive[-1]+UTRAlternate[-1]+UTRAlternateWithSS[-1]+UTRConstitutive[-1]):
-            #     print (gene)
-            #     print (exonMatrix)
-            #     print (UTRStrict[-1],UTRMajorlyConstitutive[-1],UTRAlternate[-1],UTRAlternateWithSS[-1],UTRConstitutive[-1])
-            #     print '\n'
-            #     sys.exit()
+            #
+            # hasFramechAssign
+            # preDoneHas[gene][(utmrd0, utmrd2)]=[[],{}]
+            # gene, utmrd0, utmrd2, type, placeholderTags = ele
+            # preDoneHas[gene][(utmrd0, utmrd2)][0]=placeholderList
+            # preDoneHas[gene][(utmrd0, utmrd2)][1][(exon1,exon2)]=[aln1,aln2,aln3, [seq1Length, seq2Length, identity1, identity2, cov1, cov2]]
+            # utmrd0 is T/D, utmrd2 is G/A/F, exon1 is #6:0:0, 6:n:1, exon 2 var, 2,3,4,... aln1 is parent, aln2 is child, aln3 is bars, identity1, identity2, cov1, cov2 in fractions
+            # 100 100 100 100 is for assign automatically is length diff is 1/4th, and same is 0 0 0 0 for framechange , rest values will be globaldx assignment 
 
-
-            #print (UTRMajorlyConstitutive)
-            DualStrict+=[len([i for i in exonMatrix if exonMatrix[i][0]=='D'])]
-            DualMajorlyConstitutive+=[len([i for i in exonMatrix if exonMatrix[i][0]=='D' and exonMatrix[i][1]=='F'])]   
-            DualAlternate+=[len([i for i in exonMatrix if exonMatrix[i][0]=='D' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2]) ==0])]
-            DualAlternateWithSS+=[len([i for i in exonMatrix if exonMatrix[i][0]=='D' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2])>0])]  
-            DualConstitutive += [len([i for i in exonMatrix if exonMatrix[i][0]=='D' and exonMatrix[i][1]=='G'])]
-            DualConstitutiveWaachange += [len([i for i in exonMatrix if exonMatrix[i][0]=='D' and exonMatrix[i][1]=='G' and exonMatrix[i][3]>0])]
-            DualAltWaachange += [len([i for i in exonMatrix if exonMatrix[i][0]=='D' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2])==0 and exonMatrix[i][3]>0])]
-
-            CodingStrict+=[len([i for i in exonMatrix if exonMatrix[i][0]=='T'])]
-            CodingMajorlyConstitutive+=[len([i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='F'])]   
-            CodingAlternate+=[len([i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2]) ==0])]
-            CodingAlternateWithSS+=[len([i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2])>0])]  
-            CodingConstitutive+=[len([i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='G'])]
-            CodingConstitutiveWaachange+=[len([i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='G' and exonMatrix[i][3]>0])]
-            # print (CodingConstitutiveWaachange)
-            CodingAltWaachange += [len([i for i in exonMatrix if exonMatrix[i][0]=='T' and exonMatrix[i][1]=='A' and sum(exonMatrix[i][2])==0 and exonMatrix[i][3]>0])]
+            
+            def AssignerFramerdefault (hasFramechAssign, tupkey, l1, l2, l3):
+                #DualConstitutiveWaachange, DualConstitutiveWaachangeAssign, DualConstitutiveWaachangeFrame = AssignerFramerdefault(hasFramechAssign, ('D','G'),DualConstitutiveWaachange, DualConstitutiveWaachangeAssign, DualConstitutiveWaachangeFrame)
+                
+                #adding three lines for the ontology information
+                OTch, OTassign, OTframe = [0,0,0]
+                if hasFramechAssign[gene][tupkey][0]:
+                    l1 +=  [len(hasFramechAssign[gene][tupkey][0])]
+                    OTch = len(hasFramechAssign[gene][tupkey][0])
+                    if hasFramechAssign[gene][tupkey][1]:
+                        assign = []
+                        frame = []
+                        for exonAndVar in hasFramechAssign[gene][tupkey][1]:
+                            aln1,aln2,aln3, statlis = hasFramechAssign[gene][tupkey][1][exonAndVar]
+                            seq1Length, seq2Length, identity1, identity2, cov1, cov2 = statlis
+                            if identity1 == 1 or identity2 ==1:
+                                assign += [int(exonAndVar[0].split(':')[0])]
+                            else:
+                                frame += [int(exonAndVar[0].split(':')[0])]
+                        l2 += [len(set(assign))]
+                        l3 += [len(set(frame))]
+                        OTassign = len(set(assign))
+                        OTframe = len(set(frame))
+                    else:
+                        l2 += [len([])]
+                        l3 += [len([])]
+                else:
+                    l1+= [len([])]
+                    l2+= [len([])]
+                    l3+= [len([])]
+                return l1, l2, l3, [OTch, OTassign, OTframe] 
+            
+           
+            DualConstitutiveWaachange, DualConstitutiveWaachangeAssign, DualConstitutiveWaachangeFrame, OTAllAssCh = AssignerFramerdefault(hasFramechAssign, ('D','G'),DualConstitutiveWaachange, DualConstitutiveWaachangeAssign, DualConstitutiveWaachangeFrame)
+            DGch = OTAllAssCh[2]
+            DualAltWaachange, DualAltWaachangeAssign, DualAltWaachangeFrame, OTAllAssCh = AssignerFramerdefault(hasFramechAssign, ('D','A'),DualAltWaachange, DualAltWaachangeAssign, DualAltWaachangeFrame)
+            DAch = OTAllAssCh[2]
+            DualMajorlyWaachange, DualMajorlyWaachangeAssign, DualMajorlyWaachangeFrame, OTAllAssCh = AssignerFramerdefault(hasFramechAssign, ('D','F'),DualMajorlyWaachange, DualMajorlyWaachangeAssign, DualMajorlyWaachangeFrame)
+            DFch = OTAllAssCh[2]
+            
+            CodingConstitutiveWaachange, CodingConstitutiveWaachangeAssign, CodingConstitutiveWaachangeFrame, OTAllAssCh = AssignerFramerdefault(hasFramechAssign, ('T','G'),CodingConstitutiveWaachange, CodingConstitutiveWaachangeAssign, CodingConstitutiveWaachangeFrame)
+            TGch = OTAllAssCh[2]
+            CodingAltWaachange, CodingAltWaachangeAssign, CodingAltWaachangeFrame, OTAllAssCh =AssignerFramerdefault(hasFramechAssign, ('T','A'),CodingAltWaachange, CodingAltWaachangeAssign, CodingAltWaachangeFrame)
+            TFch = OTAllAssCh[2]
+            CodingMajorlyWaachange, CodingMajorlyWaachangeAssign, CodingMajorlyWaachangeFrame, OTAllAssCh = AssignerFramerdefault(hasFramechAssign, ('T','F'),CodingMajorlyWaachange, CodingMajorlyWaachangeAssign, CodingMajorlyWaachangeFrame)
+            TAch = OTAllAssCh[2]
             
             ir_retained_coding+=[len([i for i in exonMatrix if exonMatrix[i][0] if exonMatrix[i][5]])]
+            IRT = len([i for i in exonMatrix if exonMatrix[i][0] if exonMatrix[i][5]])
             ir_retained_UTR+=[len([i for i in exonMatrix if exonMatrix[i][0] if exonMatrix[i][4]])]
-            # remember we are calculating here the non coding and coding variants per position, not how oftent their variations exists, means if exon 5 has retention veent starting, we would say that this position has been affected, not calculating how many times retention events occurs in psition 5 with poymorphs          
+            IRU = len([i for i in exonMatrix if exonMatrix[i][0] if exonMatrix[i][4]])
+            # remember we are calculating here the non coding and coding variants per position, not how often their variations exists, means if exon 5 has retention veent starting, we would say that this position has been affected, not calculating how many times retention events occurs in position 5 with polymorphs          
 
             strict_M+=[len([i for i in exonMatrix if exonMatrix[i][0]=='M'])]
             strict_aa_removed+=[len([i for i in exonMatrix if exonMatrix[i][6]==1])]
-     
+            # ed = time.time()
+            # spannedT= round((ed-st)/60,2)
+            # print ("TIME:",spannedT)
+            bar.next()
             # they needs to be added to the top, what if thats empty ?
             # ans: empty will be taken into cionsideration while plotting but stats count wont do that :)
             # excluding their D's from above as they may likely partcipate in the coding fraction atkeast once. 
             # define category strict alternate as the one with no change in the splice sites howsoever, and rest as different, for this different (AE with change in splice sites), count the instance of them once excluding their change in splice sites cases count.
 
+            # Gene\tName\tCodingExons\tTranscript UA, UAss, UG, UF, DA, DAch, DGch, DFch, DAss, DG, DF, TA, TAch, TAss, TG, TGch, TF, TFch, IRT, IRU = [0,0,0,0, 0,0,0,0,0,0,0, 0,0,0,0,0,0,0, 0,0]
+            summary_stats_ontologyReads.write('%s\t%s\t%s\t%s\t%s\t %s\t%s\t%s\t%s\t %s\t%s\t%s\t%s\t%s\t%s\t%s\t %s\t%s\t%s\t%s\t%s\t%s\t%s\t %s\t%s\n'%(org, gene, has[gene].detail, len(exonMatrix), len(has[gene].transcripts), UA, UAss, UG, UF, DA, DAch, DGch, DFch, DAss, DG, DF, TA, TAch, TAss, TG, TGch, TF, TFch, IRT, IRU ))
     # print (A,B,C,D,E)
-    hasPacked={'tot_exons':tot_exons, 'tot_exonsWncbAndRet':tot_exonsWncbAndRet, 'UTRStrict':UTRStrict,'UTRAlternate':UTRAlternate, 'UTRAlternateWithSS':UTRAlternateWithSS, 'UTRMajorlyConstitutive':UTRMajorlyConstitutive,'UTRConstitutive':UTRConstitutive, 'CodingStrict':CodingStrict, 'CodingAlternate':CodingAlternate,'CodingAltWaachange':CodingAltWaachange, 'CodingAlternateWithSS':CodingAlternateWithSS,'CodingMajorlyConstitutive':CodingMajorlyConstitutive, 'CodingConstitutive':CodingConstitutive,'CodingConstitutiveWaachange':CodingConstitutiveWaachange, 'DualStrict':DualStrict, 'DualAlternate':DualAlternate,'DualAltWaachange':DualAltWaachange, 'DualAlternateWithSS':DualAlternateWithSS, 'DualConstitutiveWaachange':DualConstitutiveWaachange, 'DualMajorlyConstitutive':DualMajorlyConstitutive,'DualConstitutive':DualConstitutive, 'strict_M':strict_M, 'strict_aa_removed':strict_aa_removed,'ir_retained_coding':ir_retained_coding, 'ir_retained_UTR':ir_retained_UTR}
+    bar.finish()
+    summary_stats_ontologyReads.close()
+    hasPacked = {
+        'tot_exons':tot_exons, 'tot_exonsWncbAndRet':tot_exonsWncbAndRet, 
+        'UTRStrict':UTRStrict,'UTRAlternate':UTRAlternate, 'UTRAlternateWithSS':UTRAlternateWithSS, 'UTRMajorlyConstitutive':UTRMajorlyConstitutive,'UTRConstitutive':UTRConstitutive, 
+        
+        'CodingStrict':CodingStrict, 'CodingAlternate':CodingAlternate, 'CodingAlternateWithSS':CodingAlternateWithSS,'CodingMajorlyConstitutive':CodingMajorlyConstitutive,  'CodingConstitutive':CodingConstitutive, 
+        'CodingAltWaachange':CodingAltWaachange, 'CodingAltWaachangeAssign':CodingAltWaachangeAssign, 'CodingAltWaachangeFrame':CodingAltWaachangeFrame,  
+        'CodingMajorlyWaachange':CodingMajorlyWaachange, 'CodingMajorlyWaachangeAssign': CodingMajorlyWaachangeAssign, 'CodingMajorlyWaachangeFrame':CodingMajorlyWaachangeFrame,  
+        'CodingConstitutiveWaachange':CodingConstitutiveWaachange, 'CodingConstitutiveWaachangeAssign': CodingConstitutiveWaachangeAssign, 'CodingConstitutiveWaachangeFrame':CodingConstitutiveWaachangeFrame,  
+
+        'DualStrict':DualStrict, 'DualAlternate':DualAlternate, 'DualAlternateWithSS':DualAlternateWithSS, 'DualMajorlyConstitutive':DualMajorlyConstitutive,'DualConstitutive':DualConstitutive, 
+        'DualAltWaachange':DualAltWaachange, 'DualAltWaachangeAssign':DualAltWaachangeAssign, 'DualAltWaachangeFrame':DualAltWaachangeFrame,
+        'DualMajorlyWaachange':DualMajorlyWaachange,'DualMajorlyWaachangeAssign':DualMajorlyWaachangeAssign, 'DualMajorlyWaachangeFrame':DualMajorlyWaachangeFrame,
+        'DualConstitutiveWaachange':DualConstitutiveWaachange,'DualConstitutiveWaachangeAssign':DualConstitutiveWaachangeAssign, 'DualConstitutiveWaachangeFrame':DualConstitutiveWaachangeFrame,   
+         
+        'strict_M':strict_M, 'strict_aa_removed':strict_aa_removed,
+        'ir_retained_coding':ir_retained_coding, 'ir_retained_UTR':ir_retained_UTR
+        }
 
     writer_and_displayer(res_dir,filename,fout,hasPacked)

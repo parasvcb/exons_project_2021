@@ -1,0 +1,110 @@
+org	Gene	PILength	Isoforms	exonsCount	geneName
+6239	180744	165	4	11	aqp-8 AQuaPorin or aquaglyceroporin related
+6239	13217259	40	3	6	T10C6.15 F-box domain-containing protein
+6239	13211252	142	3	6	F08A7.1 Uncharacterized protein
+6239	190112	48	3	7	Y50E8A.12 THAP-type domain-containing protein
+6239	36805016	29	3	6	F53G2.12 Uncharacterized protein
+6239	190098	324	7	14	unc-34 Uncharacterized protein;VASP_tetra domain-containing protein;WH1 domain-containing protein
+6239	171736	996	7	24	tln-1 FERM domain-containing protein;I/LWEQ domain-containing protein;TaLiN;Talin_middle domain-containing protein
+6239	171807	94	3	12	abtm-1 ABC Transporter, Mitochondrial
+6239	171958	22	4	14	F53F10.2 Uncharacterized protein
+6239	171988	967	9	46	unc-73 Uncharacterized protein
+6239	172050	320	6	21	eri-6 Enhanced RNAI (RNA interference)
+6239	172215	259	8	35	tns-1 Tensin homolog
+6239	172646	1931	5	37	gon-2 Transient receptor potential channel
+6239	173128	921	5	18	dlk-1 Mitogen-activated protein kinase kinase kinase dlk-1
+6239	173177	100	7	16	W05B5.1 Uncharacterized protein
+6239	173189	493	2	4	F44F1.6 Uncharacterized protein
+6239	173503	597	7	17	lin-42 PAS domain-containing protein;Period protein homolog lin-42
+6239	173637	228	9	17	ubc-15 UBC core domain-containing protein;UBIQUITIN_CONJUGAT_2 domain-containing protein
+6239	173847	138	4	17	btbd-10 BTB domain-containing protein
+6239	173942	36	5	13	C17C3.1 Uncharacterized protein
+6239	174134	623	7	29	flcn-1 Folliculin;Folliculin_C domain-containing protein;UDENN FLCN/SMCR8-type domain-containing protein
+6239	174137	387	3	26	tra-2 Sex-determining transformer protein 2
+6239	174235	612	8	23	pde-4 Phosphodiesterase;putative 3',5'-cyclic phosphodiesterase pde-4
+6239	174240	251	14	26	lir-1 LIn-26 Related
+6239	174657	2393	10	59	mpz-1 Multiple PDZ domain protein
+6239	174900	1009	4	24	tbc-17 Rab-GAP TBC domain-containing protein
+6239	174999	360	4	18	Y48E1B.3 Geranylgeranyl transferase type I subunit beta
+6239	175098	1619	17	54	nurf-1 Bromo domain-containing protein;DDT domain-containing protein;NURF (nucleosome remodeling factor) complex homolog;Nucleosome-remodeling factor subunit NURF301-like
+6239	175227	603	11	64	pat-12 Protein pat-12
+6239	175275	330	3	16	par-2 RING-type domain-containing protein
+6239	175844	282	4	13	nono-1 NONO (conserved nuclear protein, aka PSF) homolog;NOPS domain-containing protein;RRM domain-containing protein
+6239	175893	614	5	21	gar-2 G_PROTEIN_RECEP_F1_2 domain-containing protein;Muscarinic acetylcholine receptor gar-2
+6239	175919	578	3	16	jhdm-1 JmjC domain-containing histone demethylation protein 1
+6239	176237	211	3	19	zfp-1 Zinc finger protein zfp-1
+6239	176349	1139	16	40	unc-16 JNK-interacting protein
+6239	176472	488	13	45	unc-49 Neur_chan_LBD domain-containing protein;Neur_chan_memb domain-containing protein;Uncharacterized protein
+6239	176683	1416	19	35	pqn-80 HUN domain-containing protein
+6239	176855	2204	18	36	fln-1 Calponin-homology (CH) domain-containing protein;FiLamiN (actin binding protein) homolog
+6239	176966	376	3	16	npp-8 Nuclear Pore complex Protein;Nucleoporin_C domain-containing protein;Nucleoporin_N domain-containing protein
+6239	176983	580	5	12	Y41D4A.4 Transmembrane 9 superfamily member
+6239	177057	193	4	11	ubxn-2 SEP domain-containing protein;UBX domain-containing protein 2
+6239	177092	1218	12	31	Y67D8A.2 Phosphorylase b kinase regulatory subunit
+6239	177128	72	3	11	map-1 Methionine aminopeptidase
+6239	177165	82	4	13	pqn-75 Prion-like-(Q/N-rich)-domain-bearing protein
+6239	177211	746	5	20	wapl-1 WAPL domain-containing protein;Wings apart-like protein homolog 1
+6239	177316	955	4	16	hda-6 Histone deacetylase 6;UBP-type domain-containing protein
+6239	177846	166	19	49	dur-1 Dauer Up-Regulated
+6239	177894	1311	7	25	pxf-1 Rap guanine nucleotide exchange factor
+6239	177921	309	18	57	unc-43 CaMKII_AD domain-containing protein;Calcium/calmodulin-dependent protein kinase;Calcium/calmodulin-dependent protein kinase type II
+6239	178233	1353	19	30	unc-31 Calcium-dependent secretion activator
+6239	178235	906	8	30	F07C6.4 CUPID domain-containing protein;FERM domain-containing protein
+6239	178326	115	3	22	qui-1 Protein qui-1
+6239	178361	592	8	21	lst-4 PX domain-containing protein;Sorting nexin lst-4
+6239	178362	509	4	17	ccar-1 DBC1 domain-containing protein;SAP domain-containing protein
+6239	178401	77	4	14	Y57G11C.9 RRM domain-containing protein
+6239	178411	917	12	29	eps-8 SAM_3 domain-containing protein;SH3 domain-containing protein
+6239	178416	109	7	19	Y41E3.7 ACB domain-containing protein;GOLD domain-containing protein;Uncharacterized protein
+6239	171739	573	3	12	lin-65 Uncharacterized protein
+6239	178482	621	4	19	snx-13 PX domain-containing protein;PXA domain-containing protein;Sorting NeXin
+6239	178548	178	7	14	lec-12 Galectin;Galectin domain-containing protein
+6239	178549	318	2	7	kin-33 Protein kinase domain-containing protein
+6239	178848	743	5	22	Y61A9LA.3 Uncharacterized protein
+6239	179030	349	3	9	T05H4.15 FBA_2 domain-containing protein
+6239	179050	531	3	8	ZK1055.6 Uncharacterized protein
+6239	179225	832	7	25	lmd-3 LysM domain-containing protein;TLDc domain-containing protein
+6239	179503	1540	13	43	nrx-1 NeuReXin related
+6239	179624	883	6	19	hmp-1 Alpha-catenin-like protein hmp-1
+6239	179667	713	5	21	C27A7.5 ANK_REP_REGION domain-containing protein;Asparaginase
+6239	179944	214	3	14	F23B12.4 Reelin domain-containing protein;ShKT domain-containing protein;Uncharacterized protein
+6239	180155	45	3	9	C18D4.6 Uncharacterized protein
+6239	180414	1261	6	35	ifc-2 IF rod domain-containing protein;Intermediate Filament, C;Intermediate filament protein ifc-2
+6239	180457	486	4	23	vpat-1 MFS domain-containing protein
+6239	180479	663	5	20	zfp-3 C3H1-type domain-containing protein
+6239	180753	144	3	7	F43C9.2 Uncharacterized protein
+6239	181010	1602	9	51	F48E3.8 EGF-like domain-containing protein
+6239	181022	975	3	22	adt-2 A disintegrin and metalloproteinase with thrombospondin motifs adt-2;Peptidase M12B domain-containing protein
+6239	181499	915	19	38	hlb-1 Liprin-beta homolog
+6239	181767	437	4	18	F10D7.5 NHR domain-containing protein
+6239	181851	516	4	12	cyp-34A9 CYtochrome P450 family
+6239	182705	45	2	5	C17B7.3 DUF19 domain-containing protein
+6239	183889	83	3	10	D1007.10 Uncharacterized protein
+6239	185459	105	4	8	F38C2.1 Uncharacterized protein
+6239	178432	616	6	21	ntl-11 CCR4-NOT transcription complex subunit 11
+6239	186110	1091	3	25	frm-3 FERM domain-containing protein;Moesin/ezrin/radixin homolog 1
+6239	186576	170	5	22	rpa-4 RPA_C domain-containing protein
+6239	188259	1995	10	45	mec-1 Uncharacterized protein
+6239	178668	201	4	10	T10B5.4 N-acetyltransferase domain-containing protein
+6239	173391	432	5	16	C23H3.9 Lactamase_B domain-containing protein
+6239	189159	128	4	9	W03F8.6 Uncharacterized protein
+6239	13198375	59	2	3	ZK822.9 Uncharacterized protein
+6239	189667	305	3	8	Y38E10A.22 Uncharacterized protein
+6239	3564838	1273	17	23	lea-1 plant Late Embryo Abundant (LEA) related
+6239	189837	855	5	27	gbb-1 G_PROTEIN_RECEP_F3_4 domain-containing protein;Gamma-aminobutyric acid type B receptor subunit 1
+6239	3565141	103	3	10	phf-10 PHD finger protein 10;PHD-type domain-containing protein
+6239	3565199	392	4	22	DH11.5 C2 domain-containing protein
+6239	190159	103	4	16	Y51H4A.25 EGF-like domain-containing protein
+6239	3565521	142	3	8	F58G6.9 Copper transporter
+6239	3565610	264	9	32	noca-1 Non-centrosomal microtubule array protein 1
+6239	3565648	1186	8	29	nkcc-1 Na-K-Cl Cotransporter homolog
+6239	3565940	155	3	18	rnh-1.0 Ribonuclease H1
+6239	190954	1882	4	22	ssl-1 Helicase ssl-1
+6239	191053	205	5	10	ZC21.3 Uncharacterized protein
+6239	3565569	607	3	13	F11F1.1 DUF148 domain-containing protein
+6239	179615	332	4	16	D2023.1 Cytochrome b5 heme-binding domain-containing protein
+6239	259311	91	3	6	F40F12.9 Uncharacterized protein
+6239	259685	63	3	6	F48F5.6 Uncharacterized protein
+6239	3565088	149	5	14	C44C10.9 Uncharacterized protein
+6239	3565899	298	4	15	dyf-6 Intraflagellar transport protein 46 homolog
+6239	3565922	122	2	4	F42G2.7 Uncharacterized protein

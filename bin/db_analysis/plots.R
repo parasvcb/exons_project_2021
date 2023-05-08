@@ -6,53 +6,179 @@ if (length(args)<2) {
   systemDir=args[1]
   outDir=args[2]
 }
+#update: ecdf coming to this
 
 #red, #blue, #green, #black, #purple
 
 #col_pallette = c("#d1b4cc", "#0ce861", "#f5646b", "#f48b36", "#082b95")
 col_pallette = c("pink", "cadetblue", "red",  "green", "brown")
+col_pallette2 = c("white","pink","white",  "cadetblue","white",  "red", "white", "green", "white","brown")
+
 text_pallette = c("magenta","blue", "darkred",  "darkgreen", "black")
 
 
 library(ggplot2)
+library(ggExtra)
 library(stringr)
 
-fname1 = file.path(systemDir, "stringA0_transData.tsv")
-# Category	Organism	ValueMean	ValueStd
-# Total_ISF	Mouse	5.264	4.855
-df1<-read.csv(fname1,sep='\t')
-gg = ggplot(data=df1, aes(x=Category, y=ValueMean, fill=Organism)) + scale_fill_manual(values=col_pallette)
+fname1 = file.path(systemDir, "stringA0_transData_supp.tsv")
+# Category	Organism	Count	ValueMean	ValueStd
+# 0_Total_ISF	3_Mouse	11494	6.528	6.912
+df1 <- read.csv(fname1,sep='\t')
+gg  = ggplot(data=df1, aes(x=Category, y=ValueMean, fill=Organism)) + scale_fill_manual(values=col_pallette)
 gg <- gg + geom_bar(stat="identity", position=position_dodge())
 gg <- gg + geom_text(aes(label=round(ValueMean,2), color=Organism), vjust=-0.3, size=2.5, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
 gg <- gg + scale_y_continuous(breaks = seq(min(df1$ValueMean), max(df1$ValueMean), by = 1))
 gg <- gg + geom_errorbar(aes(ymin=ValueMean, ymax=ValueMean+ValueStd), color = "#6e8b3d", width=.25, size=0.2, position=position_dodge(.9))
-gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 6), legend.position = "bottom") + ggtitle("transData")
+gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 6), legend.position = "bottom") + ggtitle("transData_supp")
 # gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
-ggsave(filename =file.path(outDir,"stringA0_transData.jpg"), height = 5, width =7)
+ggsave(filename =file.path(outDir,"stringA0_transData_supp.pdf"), height = 5, width =7)
 
 
-fname2 = file.path(systemDir, "stringA1_GT_exonData.tsv")
-# Category	Organism	Value
-# 2	Mouse	0.027
-df2<-read.csv(fname2,sep='\t')
-gg = ggplot(data=df2, aes(x=Category, y=Value, fill=Organism)) + scale_fill_manual(values=col_pallette)
-gg <- gg + geom_bar(stat="identity", position=position_dodge())
+
+fname2 = file.path(systemDir, "stringA1_GT_exonData_supp.tsv")
+# Category	Organism	Count	Value
+# 001	3_Mouse	3717	0.169
+df2 <-read.csv(fname2,sep='\t')
+gg  = ggplot(data=df2, aes(x=Category, y=Value, fill=Organism)) + scale_fill_manual(values=col_pallette)
+gg  <- gg + geom_bar(stat="identity", position=position_dodge())
 gg <- gg + geom_text(aes(label=round(Value,2), color=Organism), vjust=-0.3, size=2, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
-gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("GT_exonData")
+gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("GT_exonData_supp")
 # gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
-ggsave(filename =file.path(outDir,"stringA1_GT_exonData.jpg"), height = 6, width =10)
+ggsave(filename =file.path(outDir,"Fig2c_stringA1_GT_exonData.pdf"), height = 6, width =10)
 
+fname2Prime = file.path(systemDir, "geneExonTransUpdated.tab")
+# Gene	TotalVariants	UniqueProteinVariants	TotalExons	UniqueCodingExons	Organism
+# 393216	1	1	12	11	fish
+# 393217	1	1	6	5	fish
+# 393218	1	1	11	11	fish
+# 393219	3	3	12	10	fish
+# Category	Organism	Count	Value
+# 001	3_Mouse	3717	0.169
 
-fname3 = file.path(systemDir, "stringA2_GT_transData.tsv")
+base_breaks <- function(n = 10){
+    function(x) {
+        axisTicks(log10(range(x, na.rm = TRUE)), log = TRUE, n = n)
+    }
+}
+
+df2Prime <-read.csv(fname2Prime,sep='\t')
+gg  = ggplot(data=df2Prime, aes(TotalVariants, color=Organism)) + stat_ecdf(geom='step') + stat_ecdf(geom='point') + scale_color_manual(values=col_pallette)
+gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("Total_variants_ecdf")
+gg <- gg + scale_x_continuous(trans = 'log10', breaks = base_breaks())
+ggsave(gg, filename =file.path(outDir,"Fig2b_Total_variants_ecdf.pdf"))
+
+gg1  = ggplot(data=df2Prime, aes(UniqueProteinVariants, color=Organism)) + stat_ecdf(geom='step') + stat_ecdf(geom='point') + scale_color_manual(values=col_pallette)
+gg1 <- gg1 + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("UniqueProteinVariants_ecdf")
+gg1 <- gg1 + scale_x_continuous(trans = 'log10', breaks = base_breaks())
+ggsave(gg1, filename =file.path(outDir,"Fig2b_UniqueProteinVariants_ecdf.pdf"))
+
+gg2  = ggplot(data=df2Prime, aes(TotalExons, color=Organism)) + stat_ecdf(geom='step') + stat_ecdf(geom='point') + scale_color_manual(values=col_pallette)
+gg2 <- gg2 + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("TotalExons_ecdf")
+gg2 <- gg2 + scale_x_continuous(trans = 'log10', breaks = base_breaks())
+ggsave(gg2, filename =file.path(outDir,"Fig2a_TotalExons_ecdf.pdf"))
+
+gg3  = ggplot(data=df2Prime, aes(UniqueCodingExons, color=Organism)) + stat_ecdf(geom='step') + stat_ecdf(geom='point') + scale_color_manual(values=col_pallette)
+gg3 <- gg3 + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("UniqueCodingExons_ecdf")
+gg3 <- gg3 + scale_x_continuous(trans = 'log10', breaks = base_breaks())
+ggsave(gg3, filename =file.path(outDir,"Fig2a_UniqueCodingExons_ecdf.pdf"))
+
+fname3 = file.path(systemDir, "stringA2_GT_transData_supp.tsv")
 # Category	Organism	Value
 # 2	Mouse	0.409
 df3<-read.csv(fname3,sep='\t')
 gg = ggplot(data=df3, aes(x=Category, y=Value, fill=Organism)) + scale_fill_manual(values=col_pallette)
 gg <- gg + geom_bar(stat="identity", position=position_dodge())
 gg <- gg + geom_text(aes(label=round(Value,2), color=Organism), vjust=-0.3, size=2, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
-gg <- gg +theme_light() + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("GT_transData")
+gg <- gg +theme_light() + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("GT_transData_supp")
 # gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
-ggsave(filename =file.path(outDir,"stringA2_GT_transData.jpg"), height = 6, width =10)
+ggsave(filename =file.path(outDir,"Fig2c_stringA2_GT_transData.pdf"), height = 6, width =10)
+
+fname31 = file.path(systemDir, "stringA3_GT_exonData.tsv")
+# Category	Tag	Organism	Count	Value
+# 001	Total	3_Mouse	2583	0.118
+df31<-read.csv(fname31,sep='\t', stringsAsFactors=FALSE)
+df31 <- df31[df31['Tag'] != "Total", ]
+# print (head(df31))
+# df31$Tag[df31$Tag == 'PseudoUTR'] <- '0PseudoUTR'
+df31[df31 == 'PseudoUTR'] <- '0PseudoUTR'
+df31['filCode'] <- paste(df31$Organism,df31$Tag)
+print ('100')
+# print (head(df31))
+gg = ggplot(data=df31, aes(x=Organism, y=Value, fill=filCode)) + scale_fill_manual(values=col_pallette2)
+gg <- gg + geom_bar(stat="identity", color='black', size=0.25)
+gg <- gg + facet_wrap(~Category, nrow=1)
+gg <- gg + geom_text(aes(label=round(Value,2), color=Organism), vjust=1, size=1.5) + scale_color_manual(values=text_pallette)
+gg <- gg +theme_light() + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 7), legend.position = "bottom") + ggtitle("GT_exonData")
+# gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
+ggsave(filename =file.path(outDir,"stringA3_GT_exonData.pdf"), height = 6, width =12)
+
+fname32 = file.path(systemDir, "stringA4_GT_transData.tsv")
+# Category	Tag	Organism	Count	Value
+# 001	Total	3_Mouse	2583	0.118
+df32<-read.csv(fname32,sep='\t', stringsAsFactors=FALSE)
+df32 <- df32[df32['Tag'] != "Total", ]
+# print (head(df32))
+# df32$Tag[df32$Tag == 'PseudoUTR'] <- '0PseudoUTR'
+df32[df32 == 'PseudoUTR'] <- '0PseudoUTR'
+df32['filCode'] <- paste(df32$Organism,df32$Tag)
+print ('100')
+# print (head(df32))
+gg = ggplot(data=df32, aes(x=Organism, y=Value, fill=filCode)) + scale_fill_manual(values=col_pallette2)
+gg <- gg + geom_bar(stat="identity", color='black', size=0.25)
+gg <- gg + facet_wrap(~Category, nrow=1)
+gg <- gg + geom_text(aes(label=round(Value,2), color=Organism), vjust=1, size=1.5) + scale_color_manual(values=text_pallette)
+gg <- gg +theme_light() + theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 7), legend.position = "bottom") + ggtitle("GT_transData")
+# gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
+ggsave(filename =file.path(outDir,"stringA4_GT_transData.pdf"), height = 6, width =12)
+
+fname33 = file.path(systemDir, "stringA5_GT_ContourExontransDataUniqueProteinCDS.tsv")
+df33<-read.csv(fname33,sep='\t')
+# print (sapply(df33, class))
+# df33["CodingExonCount"] <- sapply(df33["CodingExonCount"],as.numeric)
+# df33["NRIsfCount"] <- sapply(df33["NRIsfCount"],as.numeric)
+# print (sapply(df33, class))
+# print (head(df33))
+# print (unique(df33$CodingExonCount))
+# print (unique(df33$NRIsfCount))
+# print (unique(df33$Organism))
+# Gene	CodingExonCount	NRIsfCount	Organism
+# 21846	23	1	3_Mouse
+# 546143	3	3	3_Mouse
+
+print (max(df33$'CodingExonCount'))
+print (max(df33$'NRIsfCount'))
+print (min(df33$'CodingExonCount'))
+print (min(df33$'NRIsfCount'))
+gg <- ggplot(data=df33, aes(x=NRIsfCount,y=CodingExonCount, color=Organism))
+# scale_colour_manual(values=c("red","lightblue","green","yellow","black"))
+# gg <- gg + geom_point(aes(color=Organism, shape=Organism), alpha=0.7, size=2)  + scale_colour_manual(values=col_pallette)
+gg <- gg + geom_point(aes(color=Organism), alpha=0.3, size=2) + scale_colour_manual(values=col_pallette)
+gg <- gg + scale_y_continuous(breaks = seq(0, 200, by = 10))
+gg <- gg + scale_x_continuous(breaks = seq(0, 200, by = 10))
+gg <- gg + geom_vline(xintercept = 2, color = "black", size=0.5)
+gg <- gg + geom_vline(xintercept = 4, linetype="dashed", color = "blue", size=0.5)
+gg <- gg + geom_hline(yintercept = 2, color = "black", size=0.5)
+gg <- gg + geom_hline(yintercept = 4, linetype="dashed", color = "blue", size=0.5)
+gg <- gg + theme (axis.text.x = element_text( hjust = 1, size = 7, angle = 45), axis.title.x = element_text(size=20),axis.title.y = element_text(size=20), axis.text.y = element_text( hjust = 1, size = 7), legend.position="bottom", panel.background = element_rect(fill = "white", colour = "grey50"),panel.grid.major = element_line(colour = "grey90"),panel.grid.minor = element_line(colour = "grey95",size = 0.25))
+ag <- ggMarginal(gg,type = "histogram", groupColour = TRUE, groupFill = TRUE)
+pdf(file.path(outDir,"stringA5_GT_ContourExontransDataUniqueProteinCDS_noLog_1.pdf"), width=7, height=7)
+print (ag)
+dev.off()
+
+gg <- gg + coord_trans(x="log2", y="log2")
+ag1 <- ggMarginal(gg,type = "histogram", groupColour = TRUE, groupFill = TRUE)
+pdf(file.path(outDir,"stringA5_GT_ContourExontransDataUniqueProteinCDS_log_1.pdf"), width=7, height=7)
+print (ag1)
+dev.off()
+# gg <- gg + geom_point(aes(shape =Organism), alpha=0.7, size=2)
+#  coord_trans(x="log2", y="log2")
+# gg <- gg + geom_density_2d_filled(contour_var="count", alpha=0.5)
+# gg <- gg + geom_density_2d_filled(aes(color=Organism))  + scale_fill_manual(values = col_pallette) + scale_colour_manual(values=col_pallette)
+# gg <- gg + stat_density_2d(geom = "polygon", aes(x=NRIsfCount,y=CodingExonCount,alpha = ..level.., fill = Organism, colour=Organism))  + scale_fill_manual(values = col_pallette) + scale_colour_manual(values=col_pallette)
+# gg <- gg + geom_point(data=df33, aes(x=NRIsfCount,y=CodingExonCount), alpha=1, size=5)
+# gg <- gg + theme (axis.text.x = element_text( hjust = 1, size = 20, angle = 45), axis.title.x = element_text(size=20),axis.title.y = element_text(size=20), axis.text.y = element_text( hjust = 1, size = 20), legend.position="top", panel.background = element_rect(fill = "white", colour = "grey50"),panel.grid.major = element_line(colour = "grey90"),panel.grid.minor = element_line(colour = "grey95",size = 0.25))
+# ggsave(filename =file.path(outDir,"stringA5_GT_ContourExontransDataUniqueProteinCDS.tiff"), gg, height =10, width=12)
 
 ###################################################################################################################################################################################
 print ("0")
@@ -71,8 +197,8 @@ df4<-read.csv(fname4,sep='\t')
 
 print (max(df4$ValueFractionGenes))
 gg = ggplot(data=df4, aes(x=Category, y=ValueFractionGenes, fill=Organism)) + scale_fill_manual(values=col_pallette)
-gg <- gg + geom_bar(stat="identity", position=position_dodge())
-gg <- gg + geom_bar(data=df4, aes(x=Category, y=-1*(ValueFractionExons), fill=Organism), stat="identity", position=position_dodge())
+gg <- gg + geom_col(stat="identity", position=position_dodge()) + coord_flip()
+gg <- gg + geom_col(data=df4, aes(x=Category, y=-1*(ValueFractionExons), fill=Organism), stat="identity", position=position_dodge()) + coord_flip()
 gg <- gg + geom_text(aes(label=round(ValueFractionGenes,2), color=Organism),  vjust=-1.1, size=1.7, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
 gg <- gg + geom_text(aes(y=-1*ValueFractionExons, label=round(ValueFractionExons,2), vjust = 1.1, color=Organism), size=1.7, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
 gg <- gg + scale_y_continuous(breaks = seq(min(-1*df4$ValueFractionExons), max(df4$ValueFractionGenes), by = 0.10))
@@ -84,19 +210,52 @@ gg <- gg + geom_hline(yintercept=-0.25, size=0.1, color="blue")
 gg <- gg + geom_hline(yintercept=-0.50, size=0.1, color="green")
 gg <- gg + geom_hline(yintercept=-0.75, size=0.1, color="red")
 gg <- gg + facet_wrap(~Facet, nrow=1)
-gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 8), legend.position = "bottom")  + ggtitle("exonData_geneFracAbove_exonFracBelow")
+gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 8), axis.text.y = element_text(angle = 45, hjust = 1, size = 8), legend.position = "right")  + ggtitle("exonData_geneFracRight_exonFracLeft")
 # gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
-ggsave(filename =file.path(outDir,"stringB1_exonData_geneFracAbove_exonFracBelow.jpg"), width = 9, height = 5)
+ggsave(filename =file.path(outDir,"stringB1_exonData_geneFracRight_exonFracLeft.jpg"), width = 9, height = 6)
+
+fname4updown = file.path(systemDir, "stringB1_exonData_exonGeneFracUpDown.tsv")
+df4updown<-read.csv(fname4updown,sep='\t')
+print ('000')
+print (head(df4updown))
+# ExType	Sequence	Category	Organism	Type	Value
+# UTR	1	0TotalStrict	3_Mouse	genefrac	0.614
+# UTR	1	0TotalStrict	3_Mouse	exonfrac	0.1
+
+df4updown$facetNew = paste(df4updown$ExType,df4updown$Type, sep="_")
+print ('111')
+print (head(df4updown))
+df4updown[df4updown=='UTR_genefrac'] <- '5_UTR_genefrac'
+df4updown[df4updown=='UTR_exonfrac'] <- '2_UTR_exonfrac'
+df4updown[df4updown=='Coding_genefrac'] <- '4_Coding_genefrac'
+df4updown[df4updown=='Coding_exonfrac'] <- '1_Coding_exonfrac'
+df4updown[df4updown=='Dual_genefrac'] <- '6_Dual_genefrac'
+df4updown[df4updown=='Dual_exonfrac'] <- '3_Dual_exonfrac'
+
+print ('222')
+print (head(df4updown))
+gg = ggplot(data=df4updown, aes(x=Sequence, y=Value*100, color=Organism)) + scale_color_manual(values=col_pallette)
+gg <- gg + geom_point() + geom_line()
+# gg <- gg + scale_y_continuous(breaks = seq(min(-1*df4updown$Value), max(df4updown$Value), by = 0.10, trans = 'log10'))
+gg <- gg + scale_x_continuous(breaks = c(1,2,3,4,5),labels = c("Total","Constitutive","MajorlyConstitutive","Alternate","AlternateWithSS"))
+gg <- gg + facet_wrap(~facetNew, nrow=2)
+gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 8), axis.text.y = element_text(angle = 45, hjust = 1, size = 8), legend.position = "top")  + ggtitle("exonfracUP_geneFracDOWN")
+# gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
+ggTemp1 <- gg + scale_y_continuous(trans = 'log10')
+ggsave(ggTemp1, filename =file.path(outDir,"Fig3_stringB1_exonData_exonfracUP_geneFracDOWN_ylog10.pdf"), width = 9, height = 6)
+ggTemp2 <- gg + scale_y_continuous(breaks = seq(min(-1*df4updown$Value), max(df4updown$Value), by = 0.10))
+ggsave(ggTemp2, filename =file.path(outDir,"Fig3_stringB1_exonData_exonfracUP_geneFracDOWN.pdf"), width = 9, height = 6)
+
 
 fname41 = file.path(systemDir, "stringB2_exonData_exonGeneFrac_additional.tsv")
 # Category	Facet	Organism	ValueFractionExons	ValueFractionGenes
 # Total_exons	0_extras	Mouse	1.0	1.0
 df41<-read.csv(fname41,sep='\t')
 gg = ggplot(data=df41, aes(x=Category, y=ValueFractionGenes, fill=Organism)) + scale_fill_manual(values=col_pallette)
-gg <- gg + geom_bar(stat="identity", position=position_dodge())
-gg <- gg + geom_bar(data=df41, aes(x=Category, y=-1*(ValueFractionExons), fill=Organism), stat="identity", position=position_dodge())
-gg <- gg + geom_text(aes(label=round(ValueFractionGenes,2), color=Organism),  vjust=-1.1, size=2, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
-gg <- gg + geom_text(aes(y=-1*ValueFractionExons, label=round(ValueFractionExons,2), vjust = 1.1, color=Organism), size=2, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
+gg <- gg + geom_col(stat="identity", position=position_dodge()) + coord_flip()
+gg <- gg + geom_col(data=df41, aes(x=Category, y=-1*(ValueFractionExons), fill=Organism), stat="identity", position=position_dodge()) + coord_flip()
+gg <- gg + geom_text(aes(label=round(ValueFractionGenes,2), color=Organism),  vjust=-1.1, size=1.3, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
+gg <- gg + geom_text(aes(y=-1*ValueFractionExons, label=round(ValueFractionExons,2), vjust = 1.1, color=Organism), size=1.3, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
 gg <- gg + scale_y_continuous(breaks = seq(min(-1*df41$ValueFractionExons), max(df41$ValueFractionGenes), by = 0.10))
 gg <- gg + geom_hline(yintercept=0, size=0.25)
 gg <- gg + geom_hline(yintercept=0.25, size=0.1, color="blue")
@@ -104,9 +263,9 @@ gg <- gg + geom_hline(yintercept=0.50, size=0.1, color="green")
 gg <- gg + geom_hline(yintercept=0.75, size=0.1, color="red")
 gg <- gg + geom_hline(yintercept=-0.25, size=0.1, color="blue")
 # gg <- gg + facet_wrap(~Facet, nrow=1)
-gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 8), legend.position = "bottom")  + ggtitle("exonData_additional_geneFracAbove_exonFracBelow")
+gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 8), axis.text.y = element_text(angle = 45, hjust = 1, size = 8), legend.position = "right")  + ggtitle("exonData_additional_geneFracRight_exonFracLeft")
 # gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
-ggsave(filename =file.path(outDir,"stringB2_exonData_geneFracAbove_exonFracBelow_additional.jpg"), width = 9, height = 5)
+ggsave(filename =file.path(outDir,"stringB2_exonData_geneFracRight_exonFracLeft_additional.jpg"), width = 8, height = 12)
 
 ###################################################################################################################################################################################
 print ("2")
@@ -138,30 +297,64 @@ gg <- gg + geom_errorbar(aes(ymin=ValueMean, ymax=ValueMean+ValueStd), color = "
 # gg <- gg + facet_wrap(~Facet, nrow=1)
 gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 7), legend.position = "bottom") + ggtitle("exonData_meanstd")
 # gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
-ggsave(filename =file.path(outDir,"stringB2_exonData_meanStdCounts_additional.jpg"), width = 8, height = 4)
+ggsave(filename =file.path(outDir,"stringB2_exonData_meanStdCounts_additional.jpg"), width = 12, height = 4)
 
 print ("3")
 fname6 = file.path(systemDir, "stringC_exonLength.tsv")
 # Category	Organism	ValueMean	ValueMedian	ValueStd
 # CodingStrict	Mouse	50.653	39.0	68.749
 df6<-read.csv(fname6,sep='\t')
+df6 <- subset(df6, Category == '0_CodingStrict' | Category == '1_CodingAlternate' | Category == '1_CodingAlternateWithSS' | Category == '2_CodingMajorlyConstitutive' | Category == '3_CodingConstitutive')
+df6$Category <- sub('0_CodingStrict', '1_TotalCoding', df6$Category)
+df6$Category <- sub('1_CodingAlternate',  '4_CodingAlternate', df6$Category)
+df6$Category <- sub('1_CodingAlternateWithSS',  '5_CodingAlternateWss', df6$Category)
+df6$Category <- sub('2_CodingMajorlyConstitutive',  '3_CodingMajorly', df6$Category)
+df6$Category <- sub('3_CodingConstitutive',  '2_CodingConstitutive', df6$Category)
+
 gg = ggplot(data=df6, aes(x=Category, y=ValueMean, fill=Organism)) + scale_fill_manual(values=col_pallette)
 gg <- gg + geom_bar(stat="identity", position=position_dodge())
 gg <- gg + geom_errorbar(aes(ymin=ValueMean, ymax=ValueMean+ValueStd), width=.25, size =0.2, position=position_dodge(.9))
-gg <- gg + geom_text(aes(label=round(ValueMean,1), color=Organism), vjust=-0.3, size=3, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
+gg <- gg + geom_text(aes(label=round(ValueMean,1), color=Organism), vjust=-0.3, size=2.5, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
 gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("exonData_LengthMean")
 # gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
-ggsave(filename =file.path(outDir,"stringC_exonLength_mean.jpg"), width = 10, height = 5)
+ggsave(filename =file.path(outDir,"Fig6_stringC_exonLength_mean.jpg"), width = 12, height = 5)
 
 print ("4")
 gg = ggplot(data=df6, aes(x=Category, y=ValueMedian, fill=Organism)) + scale_fill_manual(values=col_pallette)
 gg <- gg + geom_bar(stat="identity", position=position_dodge()) + scale_fill_manual(values=col_pallette)
-gg <- gg + geom_text(aes(label=ValueMedian, color=Organism), vjust=-0.3, size=3.5, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
-gg <- gg + geom_errorbar(aes(ymin=ValueMedian, ymax=ValueMedian+ValueStd), width=.25, size =0.2, position=position_dodge(.9))
+gg <- gg + geom_text(aes(label=ValueMedian, color=Organism), vjust=-0.3, size=2.5, position=position_dodge(width = .9)) + scale_color_manual(values=text_pallette)
 gg <- gg + theme_light() + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 10), legend.position = "bottom") + ggtitle("exonData_LengthMedian")
 # gg <- gg + labs(y="Alt_exon_freq", x="Inclusion_freq", subtitle = paste0("ChangeInExonFrationCount, Total=", sumVal)) 
-ggsave(filename =file.path(outDir,"stringC_exonLength_median.jpg"), width = 10, height = 5)
+ggsave(filename =file.path(outDir,"Fig6_stringC_exonLength_median.jpg"), width = 10, height = 5)
 
+fname61 = file.path(systemDir, "stringE1_exonLENGTH.tsv")
+df61<-read.csv(fname61,sep='\t')
+print(head(df61))
+print (dim(df61))
+df61 <- subset(df61, Category == 'CodingStrict' | Category == 'CodingAlternate' | Category == 'CodingAlternateWithSS' | Category == 'CodingMajorlyConstitutive' | Category == 'CodingConstitutive')
+print(head(df61))
+print (dim(df61))
+# df61[df61=='CodingStrict'] <- '1_TotalCoding'
+# df61[df61=='CodingAlternate'] <- '4_CodingAlternate'
+# df61[df61=='CodingAlternateWithSS'] <- '5_CodingAlternateWss'
+# df61[df61=='CodingMajorlyConstitutive'] <- '3_CodingMajorly'
+# df61[df61=='CodingConstitutive'] <- '2_CodingConstitutive'
+df61$Category<- sub("CodingStrict","1_TotalCoding", df61$Category)
+df61$Category<- sub("CodingAlternate","4_CodingAlternate", df61$Category)
+df61$Category<- sub("CodingAlternateWithSS","5_CodingAlternateWss", df61$Category)
+df61$Category<- sub("CodingMajorlyConstitutive","3_CodingMajorly", df61$Category)
+df61$Category<- sub("CodingConstitutive","2_CodingConstitutive", df61$Category)
+print ('df61')
+print(head(df61))
+# Category	Organism	Length
+# CodingStrict	3_Mouse	9.0
+# CodingStrict	3_Mouse	21.0
+# CodingStrict	3_Mouse	109.333
+p1 <- ggplot(data=df61, aes(x=Organism,y=Length, fill = Organism)) + geom_violin(size=0.5) + geom_boxplot(width=0.1) + stat_summary(fun.y=mean, geom="point", color= 'red', size = 1)
+p1 <- p1 + facet_wrap (~Category, nrow = 1)
+p1 <- p1 + theme (axis.text.x = element_text(angle = 45, hjust = 1, size = 7)) + scale_y_continuous(trans = 'log10', breaks = base_breaks())
+
+ggsave(p1,filename=file.path(outDir,"Fig6_Violin_length_dist.pdf"), width = 10, height = 3)
 
 fname7 = file.path(systemDir, "stringD_exonWEF.tsv")
 # Category	Organism    Range	Frequency	Total
@@ -183,14 +376,14 @@ fname8 = file.path(systemDir, "stringE_exonWEF.tsv")
 # AltOnly 3_Mouse 0.13
 
 df7[c('First_Val', 'Last_Val')] <- str_split_fixed(df7$Range, '-', 2)
-print (unique(df7$Category))
+# print (unique(df7$Category))
 
 df8 <- read.csv(fname8,sep='\t')
-print (unique(df8$Category))
-print (head (df7))
-print (head (df8))
+# print (unique(df8$Category))
+# print (head (df7))
+# print (head (df8))
 
-print (unique(df7$Category))
+# print (unique(df7$Category))
 
 gg = ggplot(data=df8, aes(x=Value, y=..scaled.., color=Organism, fill=Organism), size = 2) + scale_color_manual(values=col_pallette) +scale_fill_manual(values=col_pallette)
 print (1)

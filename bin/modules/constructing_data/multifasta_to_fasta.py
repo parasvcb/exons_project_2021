@@ -25,41 +25,56 @@ def description():
 print a
 
 
-def ensemble_write_seq(source, out_dir):
+def ensemble_write_seq(source, out_dir, splitHeader=False):
     print "In a ensemble_write_seq Funct()"
     print source, ": is a source File"
     print out_dir, ": is a output Directory"
-    temp = "/home/paras/mysql/temp/"
+    empty=0
+    if not os.path.isdir(out_dir):
+        os.makedirs(out_dir)
+    temp = os.getcwd()
+    source1 = os.path.join(temp,"ens_data.tmp")
     if re.search(r"\.gz$", source):
-        # file is gzipped
-        # unzip it
-        # print "in"
+        print ("yes")
         with gzip.open(source, "rb") as fin:
             dat = fin.read()
-        with open(temp+"ens_data.tmp", "w") as fin:
+        with open(source1, "w") as fin:
             fin.write(dat)
-        source = temp+"ens_data.tmp"
+        
     if len(os.listdir(out_dir)) < 10:
         print "Writing individual fasta files from the source ensemble into %s" % out_dir
-        with open(source) as fin:
+        with open(source1) as fin:
             temp_dat = fin.read()
         bar = Bar('Processing', max=temp_dat.count(">"))
         del temp_dat
-        for record in SeqIO.parse(source, "fasta"):
+        for record in SeqIO.parse(source1, "fasta"):
             header = record.id
             record.seq = record.seq.strip("*")
             # print header, "hh"\
             # print bool(re.search(r"ENSP\w+", header))
             protein_id = re.search(r"ENSP\w+", header).group() if re.search(r"ENSP\w+", header) else record.id
-            with open(out_dir+"%s" % (protein_id), "w") as output_handle:
-                SeqIO.write(record, output_handle, "fasta")
-            bar.next()
+            if splitHeader:
+                # print (header, splitHeader)
+                protein_id = header.split('|')[splitHeader]
+            if protein_id:
+                #record.id = ">"+protein_id if record.id[0]!='>' else ""
+                with open(os.path.join(out_dir,"%s" % (protein_id)), "w") as output_handle:
+                    SeqIO.write(record, output_handle, "fasta")
+                bar.next()
+            else: 
+                empty+=1
         bar.finish()
-        if os.path.isfile(temp+"ens_data.tmp"):
-            os.remove(temp+"ens_data.tmp")
+        if os.path.isfile(source1):
+            os.remove(source1)
     else:
         print "sequences are already Prased"
+    print ("empty sequences were %s"%empty)
+    """
+    if confdition because of following 
+        >ENSG00000008735.14|ENST00000008876.7||ENSE00003773674;ENSE00003772801;ENSE00003768317;ENSE00003765641;ENSE00003769486;ENSE00003763622;ENSE00003731955;ENSE00003773228;ENSE00003772161;ENSE00003608148|50605368;50603841;50603626;50605562;50606921;50605825;50610707;50606658;50610212;50603133|50605443;50605064;50603719;50605734;50606991;50605934;50613981;50606765;50610310;50603498|||4;3;2;5;8;6;10;7;9;1||1
+    Sequence unavailable
 
+    """
 # ensemble_write_seq()
 
 

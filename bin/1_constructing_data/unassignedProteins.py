@@ -2,6 +2,7 @@ import constructing_data.mappings_refseqProtein as map
 import sys,os
 if len (sys.argv)!=6:
     print ('Please enter correct args 1. refseqDir, 2. prevSSDir 3. storeAssignDir 4. unassignedPendingDir 5. mapfilename')
+    sys.exit()
 prog,refDir,prevss,curss,pendingDir,fname=sys.argv
 
 
